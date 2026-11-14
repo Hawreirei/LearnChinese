@@ -1,6 +1,6 @@
 # Rencana Skenario Tambahan HSK 1–6
 
-Status: **gelombang 0 (persiapan: arti Indonesia per kata kunci, kepingan frasa HSK 4+, pemeriksa bacaan khusus, pengelompokan UI per level, lembar review) sudah dikerjakan; gelombang 1 (HSK 1, 6 skenario baru → 7), gelombang 2 (HSK 2, +4 → 6) dan gelombang 3 (HSK 3, +4 → 6) sudah dikerjakan.** Yang tersisa: HSK 4, 5, dan 6 (gelombang 4–6). Sisanya masih rencana.
+Status: **semua gelombang (0–6) sudah dikerjakan: 34 pelajaran, HSK 1–6 masing-masing minimal 5.** Beberapa hal berubah selama pengerjaan: soal susun memakai kolom `pieces` (bukan bendera `phrases`), arti Indonesia kata kunci HSK 4–6 ditulis di berkas pelajaran, dan bacaan yang didaftarkan di `readings` sekarang dipaksakan ke pinyin. Daftar di bawah adalah rencana awal; isi akhir ada di `content/lessons/*.json`. Sisanya masih rencana.
 
 Permintaan: tambah skenario pelajaran untuk HSK 1–6, **minimal 5 per level** (jangan hanya 1 atau sedikit di HSK 1), dengan memperhatikan kosakata tiap level. Dokumen ini berisi daftar skenario, kosakata kandidat, perubahan teknis yang dibutuhkan, urutan kerja, dan hal yang perlu Anda putuskan.
 
@@ -546,18 +546,18 @@ Per skenario: ±8 kalimat kunci, 10–12 kata kunci, 3 soal dengar, 3 soal baca,
 | HSK 3 | `kantor` | 在办公室 · Di kantor | **sudah ada** |
 | HSK 3 | `sewa-rumah` | 租房子 · Mencari dan menyewa rumah | **sudah ada** |
 | HSK 3 | `belajar-mandarin` | 学汉语 · Belajar bahasa Mandarin | **sudah ada** |
-| HSK 4 | `wawancara` | 面试 · Wawancara kerja | **rencana** |
-| HSK 4 | `perjalanan` | 旅行和机场 · Perjalanan dan bandara | **rencana** |
-| HSK 4 | `kesehatan` | 健康生活 · Hidup sehat | **rencana** |
-| HSK 4 | `belanja-online` | 网上购物 · Belanja online dan retur | **rencana** |
-| HSK 4 | `lingkungan` | 保护环境 · Menjaga lingkungan | **rencana** |
-| HSK 5 | `rapat` | 商务会议 · Rapat dan negosiasi | **rencana** |
-| HSK 5 | `berita` | 新闻和社会 · Berita dan isu sosial | **rencana** |
-| HSK 5 | `teknologi` | 科技和网络 · Teknologi dan kehidupan digital | **rencana** |
-| HSK 5 | `pendidikan` | 教育和留学 · Pendidikan dan studi di luar negeri | **rencana** |
-| HSK 5 | `budaya` | 艺术和文化 · Seni dan budaya | **rencana** |
-| HSK 6 | `debat` | 辩论和观点 · Debat dan menyampaikan pendapat | **rencana** |
-| HSK 6 | `ekonomi` | 经济和市场 · Ekonomi dan pasar | **rencana** |
-| HSK 6 | `tradisi` | 传统节日 · Festival dan adat tradisional | **rencana** |
-| HSK 6 | `sains` | 科学和创新 · Sains dan inovasi | **rencana** |
-| HSK 6 | `hukum` | 法律和权益 · Hukum dan hak | **rencana** |
+| HSK 4 | `wawancara` | 面试 · Wawancara kerja | **sudah ada** |
+| HSK 4 | `perjalanan` | 旅行和机场 · Perjalanan dan bandara | **sudah ada** |
+| HSK 4 | `kesehatan` | 健康生活 · Hidup sehat | **sudah ada** |
+| HSK 4 | `belanja-online` | 网上购物 · Belanja online dan retur | **sudah ada** |
+| HSK 4 | `lingkungan` | 保护环境 · Menjaga lingkungan | **sudah ada** |
+| HSK 5 | `rapat` | 商务会议 · Rapat dan negosiasi | **sudah ada** |
+| HSK 5 | `berita` | 新闻和社会 · Berita dan isu sosial | **sudah ada** |
+| HSK 5 | `teknologi` | 科技和网络 · Teknologi dan kehidupan digital | **sudah ada** |
+| HSK 5 | `pendidikan` | 教育和留学 · Pendidikan dan studi di luar negeri | **sudah ada** |
+| HSK 5 | `budaya` | 艺术和文化 · Seni dan budaya | **sudah ada** |
+| HSK 6 | `debat` | 辩论和观点 · Debat dan menyampaikan pendapat | **sudah ada** |
+| HSK 6 | `ekonomi` | 经济和市场 · Ekonomi dan pasar | **sudah ada** |
+| HSK 6 | `tradisi` | 传统节日 · Festival dan adat tradisional | **sudah ada** |
+| HSK 6 | `sains` | 科学和创新 · Sains dan inovasi | **sudah ada** |
+| HSK 6 | `hukum` | 法律和权益 · Hukum dan hak | **sudah ada** |

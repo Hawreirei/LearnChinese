@@ -1,0 +1,281 @@
+{
+  "id": "teknologi",
+  "level": 5,
+  "seq": 3,
+  "zh": "科技和网络",
+  "title": "Teknologi dan kehidupan digital",
+  "summary": "Dampak teknologi, aplikasi, keamanan data pribadi, dan kecerdasan buatan.",
+  "readings": {
+    "处于": "chǔ yú",
+    "更新": "gēng xīn",
+    "更安全": "gèng ān quán",
+    "更便宜": "gèng pián yi",
+    "更漂亮": "gèng piào liang",
+    "音乐": "yīn yuè"
+  },
+  "keySentences": [
+    {
+      "zh": "人工智能正在改变我们的生活。",
+      "id": "Kecerdasan buatan sedang mengubah hidup kita.",
+      "tokens": [
+        "人工智能",
+        "正在",
+        "改变",
+        "我们的",
+        "生活",
+        "。"
+      ],
+      "pieces": [
+        "人工智能",
+        "正在",
+        "改变",
+        "我们的",
+        "生活",
+        "。"
+      ]
+    },
+    {
+      "zh": "使用软件时要注意保护个人信息。",
+      "id": "Saat memakai perangkat lunak, perhatikan perlindungan informasi pribadi.",
+      "tokens": [
+        "使用",
+        "软件",
+        "时",
+        "要",
+        "注意",
+        "保护",
+        "个人",
+        "信息",
+        "。"
+      ],
+      "pieces": [
+        "使用软件时",
+        "要",
+        "注意",
+        "保护",
+        "个人信息",
+        "。"
+      ]
+    },
+    {
+      "zh": "这项技术还处于研究阶段。",
+      "id": "Teknologi ini masih dalam tahap penelitian.",
+      "tokens": [
+        "这项",
+        "技术",
+        "还",
+        "处于",
+        "研究",
+        "阶段",
+        "。"
+      ],
+      "pieces": [
+        "这项技术",
+        "还",
+        "处于",
+        "研究",
+        "阶段",
+        "。"
+      ]
+    },
+    {
+      "zh": "网络给人们带来了很多方便。",
+      "id": "Internet membawa banyak kemudahan bagi orang.",
+      "tokens": [
+        "网络",
+        "给",
+        "人们",
+        "带来",
+        "了",
+        "很多",
+        "方便",
+        "。"
+      ],
+      "pieces": [
+        "网络",
+        "给",
+        "人们",
+        "带来了",
+        "很多方便",
+        "。"
+      ]
+    },
+    {
+      "zh": "我每天都用手机查信息。",
+      "id": "Setiap hari aku memakai ponsel untuk mencari informasi.",
+      "tokens": [
+        "我",
+        "每天",
+        "都",
+        "用",
+        "手机",
+        "查",
+        "信息",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "密码不要告诉别人。",
+      "id": "Jangan beritahu kata sandi kepada orang lain.",
+      "tokens": [
+        "密码",
+        "不要",
+        "告诉",
+        "别人",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "这个软件的功能很多。",
+      "id": "Fitur perangkat lunak ini banyak.",
+      "tokens": [
+        "这个",
+        "软件",
+        "的",
+        "功能",
+        "很",
+        "多",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "系统需要及时更新。",
+      "id": "Sistem perlu diperbarui tepat waktu.",
+      "tokens": [
+        "系统",
+        "需要",
+        "及时",
+        "更新",
+        "。"
+      ]
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "网络",
+      "arti": "jaringan; internet"
+    },
+    {
+      "word": "软件",
+      "arti": "perangkat lunak"
+    },
+    {
+      "word": "应用",
+      "arti": "menerapkan; aplikasi"
+    },
+    {
+      "word": "数据",
+      "arti": "data"
+    },
+    {
+      "word": "下载",
+      "arti": "mengunduh"
+    },
+    {
+      "word": "系统",
+      "arti": "sistem"
+    },
+    {
+      "word": "功能",
+      "arti": "fungsi; fitur"
+    },
+    {
+      "word": "设备",
+      "arti": "peralatan; perangkat"
+    },
+    {
+      "word": "自动",
+      "arti": "otomatis"
+    },
+    {
+      "word": "更新",
+      "arti": "memperbarui; pembaruan"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你常用什么软件？",
+      "ok": "我常用地图软件。",
+      "wrong": [
+        "我家有三口人。",
+        "我喜欢这个公园。"
+      ],
+      "tq": "Perangkat lunak apa yang sering kamu pakai?",
+      "ta": "Aku sering memakai aplikasi peta."
+    },
+    {
+      "kind": "dialog",
+      "text": "男：手机又提醒我更新系统了。/女：最好更新，这样更安全。",
+      "q": "女的为什么让男的更新？",
+      "ok": "更安全",
+      "wrong": [
+        "更便宜",
+        "更漂亮"
+      ],
+      "t_text": "Laki-laki: Ponselku mengingatkan lagi untuk memperbarui sistem. / Perempuan: Sebaiknya diperbarui, dengan begitu lebih aman.",
+      "t_q": "Mengapa si perempuan menyuruhnya memperbarui?",
+      "t_ok": "Supaya lebih aman"
+    },
+    {
+      "kind": "dialog",
+      "text": "女：这个软件要先下载，然后才能用。/男：下载以后，我还要输入密码吗？",
+      "q": "男的在问什么？",
+      "ok": "要不要输入密码",
+      "wrong": [
+        "软件多少钱",
+        "怎么下载软件"
+      ],
+      "t_text": "Perempuan: Perangkat lunak ini harus diunduh dulu baru bisa dipakai. / Laki-laki: Setelah diunduh, apakah aku masih perlu memasukkan kata sandi?",
+      "t_q": "Apa yang ditanyakan si laki-laki?",
+      "t_ok": "Perlu atau tidaknya memasukkan kata sandi"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "手机的系统需要及时（　），这样才安全。",
+      "ok": "更新",
+      "wrong": [
+        "设备",
+        "功能",
+        "数据"
+      ],
+      "zh": "手机的系统需要及时更新，这样才安全。",
+      "id": "Sistem ponsel perlu diperbarui tepat waktu, dengan begitu baru aman."
+    },
+    {
+      "kind": "cloze",
+      "stem": "这个软件的（　）很多，可以看书，也可以听音乐。",
+      "ok": "功能",
+      "wrong": [
+        "密码",
+        "系统",
+        "设备"
+      ],
+      "zh": "这个软件的功能很多，可以看书，也可以听音乐。",
+      "id": "Perangkat lunak ini fiturnya banyak, bisa membaca buku dan juga mendengarkan musik."
+    },
+    {
+      "kind": "text",
+      "text": "现在很多人都离不开手机。我们用手机下载各种软件，学习、工作、买东西都很方便。可是，网络上也有风险，比如个人信息可能被别人知道。所以，我们不要随便告诉别人自己的密码，也要及时更新手机系统。",
+      "q": "★ 这段话提醒我们什么？",
+      "ok": "要保护个人信息",
+      "wrong": [
+        "少用手机",
+        "不要下载软件"
+      ],
+      "t_text": "Sekarang banyak orang tidak bisa lepas dari ponsel. Kita mengunduh berbagai perangkat lunak, belajar, bekerja, dan berbelanja jadi mudah. Tetapi di internet ada juga risiko, misalnya informasi pribadi bisa diketahui orang lain. Karena itu, jangan sembarangan memberi tahu orang lain kata sandi kita, dan perbarui sistem ponsel tepat waktu.",
+      "t_q": "Apa yang diingatkan oleh paragraf ini?",
+      "t_ok": "Melindungi informasi pribadi"
+    }
+  ],
+  "speaking": [
+    "密码不要告诉别人。",
+    "网络给人们带来了很多方便。",
+    "系统需要及时更新。"
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "id": "rapat",
+  "level": 5,
+  "seq": 1,
+  "zh": "商务会议",
+  "title": "Rapat dan negosiasi",
+  "summary": "Memimpin diskusi, menyatakan setuju atau tidak setuju, dan menyepakati kontrak.",
+  "readings": {
+    "重新": "chóng xīn",
+    "项目的": "xiàng mù de",
+    "出差": "chū chāi"
+  },
+  "keySentences": [
+    {
+      "zh": "我们先讨论一下这个方案。",
+      "id": "Mari kita bahas dulu rencana ini.",
+      "tokens": [
+        "我们",
+        "先",
+        "讨论",
+        "一下",
+        "这个",
+        "方案",
+        "。"
+      ]
+    },
+    {
+      "zh": "我同意你的看法，但是有一点要补充。",
+      "id": "Aku setuju dengan pendapatmu, tetapi ada satu hal yang perlu ditambahkan.",
+      "tokens": [
+        "我",
+        "同意",
+        "你的",
+        "看法",
+        "，",
+        "但是",
+        "有",
+        "一点",
+        "要",
+        "补充",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "这份合同的条件需要重新讨论。",
+      "id": "Syarat kontrak ini perlu dibahas ulang.",
+      "tokens": [
+        "这份",
+        "合同",
+        "的",
+        "条件",
+        "需要",
+        "重新",
+        "讨论",
+        "。"
+      ],
+      "pieces": [
+        "这份合同",
+        "的",
+        "条件",
+        "需要",
+        "重新讨论",
+        "。"
+      ]
+    },
+    {
+      "zh": "会议安排在下周三上午。",
+      "id": "Rapat dijadwalkan Rabu pagi minggu depan.",
+      "tokens": [
+        "会议",
+        "安排",
+        "在",
+        "下周三",
+        "上午",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "请大家把意见发给我。",
+      "id": "Mohon semua kirimkan pendapat kepada saya.",
+      "tokens": [
+        "请",
+        "大家",
+        "把",
+        "意见",
+        "发",
+        "给",
+        "我",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "这个项目的成本太高了。",
+      "id": "Biaya proyek ini terlalu tinggi.",
+      "tokens": [
+        "这个",
+        "项目",
+        "的",
+        "成本",
+        "太",
+        "高",
+        "了",
+        "。"
+      ],
+      "pieces": [
+        "这个项目",
+        "的",
+        "成本",
+        "太高",
+        "了",
+        "。"
+      ]
+    },
+    {
+      "zh": "客户对我们的方案很满意。",
+      "id": "Klien sangat puas dengan rencana kami.",
+      "tokens": [
+        "客户",
+        "对",
+        "我们的",
+        "方案",
+        "很",
+        "满意",
+        "。"
+      ],
+      "pieces": [
+        "客户",
+        "对",
+        "我们的方案",
+        "很",
+        "满意",
+        "。"
+      ]
+    },
+    {
+      "zh": "双方终于达成了协议。",
+      "id": "Kedua pihak akhirnya mencapai kesepakatan.",
+      "tokens": [
+        "双方",
+        "终于",
+        "达成",
+        "了",
+        "协议",
+        "。"
+      ]
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "方案",
+      "arti": "rencana; proposal"
+    },
+    {
+      "word": "合作",
+      "arti": "bekerja sama; kerja sama"
+    },
+    {
+      "word": "合同",
+      "arti": "kontrak"
+    },
+    {
+      "word": "补充",
+      "arti": "menambahkan; melengkapi"
+    },
+    {
+      "word": "协议",
+      "arti": "kesepakatan; perjanjian"
+    },
+    {
+      "word": "项目",
+      "arti": "proyek; butir"
+    },
+    {
+      "word": "成本",
+      "arti": "biaya produksi; modal"
+    },
+    {
+      "word": "客户",
+      "arti": "klien; pelanggan"
+    },
+    {
+      "word": "达成",
+      "arti": "mencapai (kesepakatan)"
+    },
+    {
+      "word": "风险",
+      "arti": "risiko"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "这个方案你觉得怎么样？",
+      "ok": "我同意，但是成本有点儿高。",
+      "wrong": [
+        "会议在下周三。",
+        "我已经签字了。"
+      ],
+      "tq": "Bagaimana menurutmu rencana ini?",
+      "ta": "Aku setuju, tetapi biayanya agak tinggi."
+    },
+    {
+      "kind": "dialog",
+      "text": "男：合同的条件，客户同意了吗？/女：同意了，下午可以签字。",
+      "q": "下午会做什么？",
+      "ok": "签字",
+      "wrong": [
+        "开会讨论方案",
+        "给客户打电话"
+      ],
+      "t_text": "Laki-laki: Syarat kontrak, apakah klien sudah setuju? / Perempuan: Sudah, sore nanti bisa ditandatangani.",
+      "t_q": "Apa yang akan dilakukan sore nanti?",
+      "t_ok": "Menandatangani"
+    },
+    {
+      "kind": "dialog",
+      "text": "女：这个项目的风险大吗？/男：不太大，不过我们要提前做好准备。",
+      "q": "男的觉得项目风险怎么样？",
+      "ok": "不太大，但要准备",
+      "wrong": [
+        "非常大，不能做",
+        "一点儿风险也没有"
+      ],
+      "t_text": "Perempuan: Apakah risiko proyek ini besar? / Laki-laki: Tidak terlalu besar, tetapi kita harus mempersiapkan diri lebih awal.",
+      "t_q": "Bagaimana menurut si laki-laki risiko proyek ini?",
+      "t_ok": "Tidak terlalu besar, tetapi harus bersiap"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "经过两个小时的讨论，双方终于（　）了协议。",
+      "ok": "达成",
+      "wrong": [
+        "出差",
+        "成本",
+        "风险"
+      ],
+      "zh": "经过两个小时的讨论，双方终于达成了协议。",
+      "id": "Setelah dua jam berdiskusi, kedua pihak akhirnya mencapai kesepakatan."
+    },
+    {
+      "kind": "cloze",
+      "stem": "这个项目的（　）太高，我们需要重新考虑。",
+      "ok": "成本",
+      "wrong": [
+        "签字",
+        "会议",
+        "客户"
+      ],
+      "zh": "这个项目的成本太高，我们需要重新考虑。",
+      "id": "Biaya proyek ini terlalu tinggi, kita perlu memikirkannya ulang."
+    },
+    {
+      "kind": "text",
+      "text": "上个星期，我们公司和一家客户开了一次会议。会上，大家先讨论了合作方案，客户提出价格太高，希望降低成本。经理听了以后，同意重新考虑，并说下个星期再给客户一个新的方案。",
+      "q": "★ 客户希望什么？",
+      "ok": "降低成本",
+      "wrong": [
+        "增加方案",
+        "换一家公司"
+      ],
+      "t_text": "Minggu lalu perusahaan kami mengadakan rapat dengan seorang klien. Dalam rapat, semua orang membahas rencana kerja sama terlebih dahulu; klien menyatakan harganya terlalu tinggi dan berharap biaya diturunkan. Setelah mendengar itu, manajer setuju mempertimbangkan ulang dan berkata minggu depan akan memberi klien rencana baru.",
+      "t_q": "Apa yang diharapkan klien?",
+      "t_ok": "Menurunkan biaya"
+    }
+  ],
+  "speaking": [
+    "我们先讨论一下这个方案。",
+    "客户对我们的方案很满意。",
+    "双方终于达成了协议。"
+  ]
+}

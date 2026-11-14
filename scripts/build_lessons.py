@@ -5,7 +5,8 @@ speaking, vocab). Each lesson carries its own questions, already in the shapes v
 Quality rules (re-checked in tests/test_lessons.py):
   - every hanzi of the lesson body is in the syllabus up to the lesson's level (the title is a heading and exempt);
   - tokens of a key sentence join back to the sentence, and each is a syllabus word (<= level), a lesson extra or name, or one hanzi;
-    a sentence marked "phrases": true (HSK 4+) may use longer pieces (any hanzi string, still level-locked); at most 8 pieces per ordering item;
+    from HSK 4 on the tokens (the words shown with pinyin) may be any hanzi string (still level-locked); an optional "pieces" list
+    (HSK 4+, joining to the same sentence) gives coarser phrase pieces for the ordering item; at most 8 pieces per ordering item;
   - key words are syllabus words (<= level): a bare string needs a hand-written Indonesian meaning (HSK 1-3), the object form
     {"word": "面试", "arti": "wawancara kerja"} brings its own Indonesian meaning (needed from HSK 4);
   - pinyin comes from the same pipeline as the rest of the app (per token, never typed by hand); a hanzi read in a NON-default
@@ -62,6 +63,26 @@ def unusual_readings(text, py):
     return out
 
 
+def apply_readings(text, line, readings):
+    """Force the lesson's explicit readings onto a pinyin line (the syllabus corrections of the shared pipeline run last and
+    would otherwise win, e.g. 还给了 read huán). Texts where the syllables do not line up one-to-one (erhua) are left alone."""
+    if not readings:
+        return line
+    syl = line.split(" ")
+    pos = [k for k, x in enumerate(syl) if x not in PUNCT]               # syllables, without punctuation tokens
+    han = [i for i, c in enumerate(text) if HAN.match(c)]
+    if len(pos) != len(han):
+        return line
+    at = dict(zip(han, pos))
+    for key, val in readings.items():
+        j = text.find(key)
+        while j != -1:
+            for off, sy in enumerate(val.split()):
+                syl[at[j + off]] = sy
+            j = text.find(key, j + 1)
+    return " ".join(syl)
+
+
 def lesson_texts(lesson):
     """Every Chinese string a learner sees or hears in the lesson, as (where, text)."""
     out = [(f"keySentences[{n}]", s["zh"]) for n, s in enumerate(lesson["keySentences"], 1)]
@@ -76,10 +97,10 @@ def lesson_texts(lesson):
 
 def build(lesson, vocab, ent, allowed, problems):
     from pypinyin import Style, lazy_pinyin, load_phrases_dict
-    py = lambda t: bid.pinyin_line(t, Style, lazy_pinyin)
     lid, level = lesson["id"], lesson["level"]
     loc = f"lesson {lid}"
     readings = lesson.get("readings", {})
+    py = lambda t: apply_readings(t, bid.pinyin_line(t, Style, lazy_pinyin), readings)
     for k, v in readings.items():                    # explicit readings are loaded first so every pinyin below uses them
         if len(v.split()) != len(k) or not all(HAN.match(c) for c in k):
             problems.append(f"{loc}: readings[{k!r}] needs one pinyin syllable per hanzi")
@@ -102,14 +123,19 @@ def build(lesson, vocab, ent, allowed, problems):
         if "".join(s["tokens"]) != s["zh"]:
             problems.append(f"{loc}: {where} tokens do not join to the sentence")
             continue
-        phrases = bool(s.get("phrases"))
-        if phrases and level < 4:
-            problems.append(f"{loc}: {where} phrase pieces are only for HSK 4+")
+        free = level >= 4                            # from HSK 4 on a token may be any string: compounds are rarely single syllabus words
         for t in s["tokens"]:
-            if not phrases and t not in PUNCT and len(t) > 1 and t not in words and t not in extras:
+            if not free and t not in PUNCT and len(t) > 1 and t not in words and t not in extras:
                 problems.append(f"{loc}: {where} token {t!r} is not a syllabus word of level <= {level}")
-        if s.get("order", True) and len([t for t in s["tokens"] if t not in PUNCT]) > 8:
-            problems.append(f"{loc}: {where} has more than 8 pieces; shorten the pieces ('phrases': true) or set 'order': false")
+        pieces = s.get("pieces")
+        if pieces is not None:
+            if level < 4:
+                problems.append(f"{loc}: {where} 'pieces' (phrase pieces) are only for HSK 4+")
+            elif "".join(pieces) != s["zh"]:
+                problems.append(f"{loc}: {where} pieces do not join to the sentence")
+        order_pieces = pieces if pieces is not None else s["tokens"]
+        if s.get("order", True) and len([t for t in order_pieces if t not in PUNCT]) > 8:
+            problems.append(f"{loc}: {where} has more than 8 pieces; add coarser 'pieces' or set 'order': false")
         syl = py(s["zh"]).split(" ")
         han = [c for c in s["zh"] if HAN.match(c)]
         if len([x for x in syl if x not in PUNCT]) != len(han):
@@ -121,7 +147,7 @@ def build(lesson, vocab, ent, allowed, problems):
         for a in alts:
             if sorted(a) != sorted(s["zh"]) or a == s["zh"]:
                 problems.append(f"{loc}: {where} alt {a!r} must be a different order of the same characters")
-        sentences.append({"zh": s["zh"], "id": s["id"], "pinyin": py(s["zh"]), "tokens": s["tokens"], "tokenPinyin": tp, "order": s.get("order", True), "alt": alts})
+        sentences.append({"zh": s["zh"], "id": s["id"], "pinyin": py(s["zh"]), "tokens": s["tokens"], "tokenPinyin": tp, "order": s.get("order", True), "alt": alts, **({"pieces": pieces} if pieces else {})})
     by_zh = {s["zh"]: s for s in sentences}
 
     # ---- key words
@@ -214,7 +240,7 @@ def build(lesson, vocab, ent, allowed, problems):
     for n, s in enumerate([s for s in sentences if s["order"]], 1):
         steps["writing"].append({
             "id": rid("writing", n), "type": "order_sentence", "skill": "writing", "level": level, "lesson": lid,
-            "stem": s["id"], "tokens": s["tokens"], "answer": s["zh"], **({"alt": s["alt"]} if s["alt"] else {}),
+            "stem": s["id"], "tokens": s.get("pieces") or s["tokens"], "answer": s["zh"], **({"alt": s["alt"]} if s["alt"] else {}),
             "explain": {"zh": s["zh"], "pinyin": s["pinyin"], "id": s["id"]}})
 
     # ---- speaking: sentences to say (scoring comes in a later stage)

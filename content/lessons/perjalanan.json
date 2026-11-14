@@ -1,0 +1,248 @@
+{
+  "id": "perjalanan",
+  "level": 4,
+  "seq": 2,
+  "zh": "旅行和机场",
+  "title": "Perjalanan dan bandara",
+  "summary": "Check-in, bagasi, paspor, dan jadwal penerbangan.",
+  "readings": {
+    "着急": "zháo jí",
+    "度假": "dù jià"
+  },
+  "keySentences": [
+    {
+      "zh": "请出示您的护照。",
+      "id": "Silakan tunjukkan paspor Anda.",
+      "tokens": [
+        "请",
+        "出示",
+        "您的",
+        "护照",
+        "。"
+      ]
+    },
+    {
+      "zh": "我的行李超重了吗？",
+      "id": "Apakah bagasiku kelebihan berat?",
+      "tokens": [
+        "我的",
+        "行李",
+        "超重",
+        "了",
+        "吗",
+        "？"
+      ]
+    },
+    {
+      "zh": "飞机什么时候起飞？",
+      "id": "Pesawat berangkat jam berapa?",
+      "tokens": [
+        "飞机",
+        "什么",
+        "时候",
+        "起飞",
+        "？"
+      ]
+    },
+    {
+      "zh": "请您提前两个小时到机场。",
+      "id": "Mohon Anda tiba di bandara dua jam lebih awal.",
+      "tokens": [
+        "请",
+        "您",
+        "提前",
+        "两个",
+        "小时",
+        "到",
+        "机场",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "我想办理登机手续。",
+      "id": "Aku ingin mengurus check-in.",
+      "tokens": [
+        "我",
+        "想",
+        "办理",
+        "登机",
+        "手续",
+        "。"
+      ],
+      "pieces": [
+        "我",
+        "想",
+        "办理",
+        "登机手续",
+        "。"
+      ]
+    },
+    {
+      "zh": "我想坐在窗户旁边。",
+      "id": "Aku ingin duduk di dekat jendela.",
+      "tokens": [
+        "我",
+        "想",
+        "坐",
+        "在",
+        "窗户",
+        "旁边",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "航班因为天气取消了。",
+      "id": "Penerbangan dibatalkan karena cuaca.",
+      "tokens": [
+        "航班",
+        "因为",
+        "天气",
+        "取消",
+        "了",
+        "。"
+      ]
+    },
+    {
+      "zh": "旅行的时候，要带好护照。",
+      "id": "Saat bepergian, harus membawa paspor dengan baik.",
+      "tokens": [
+        "旅行",
+        "的",
+        "时候",
+        "，",
+        "要",
+        "带好",
+        "护照",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "行李",
+      "arti": "bagasi; barang bawaan"
+    },
+    {
+      "word": "护照",
+      "arti": "paspor"
+    },
+    {
+      "word": "签证",
+      "arti": "visa"
+    },
+    {
+      "word": "航班",
+      "arti": "penerbangan; nomor penerbangan"
+    },
+    {
+      "word": "登机",
+      "arti": "naik pesawat; check-in"
+    },
+    {
+      "word": "降落",
+      "arti": "mendarat"
+    },
+    {
+      "word": "提前",
+      "arti": "lebih awal; mendahului"
+    },
+    {
+      "word": "办理",
+      "arti": "mengurus; menyelesaikan (urusan)"
+    },
+    {
+      "word": "座位",
+      "arti": "tempat duduk"
+    },
+    {
+      "word": "取消",
+      "arti": "membatalkan"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "您的行李有几件？",
+      "ok": "两件，一个大的，一个小的。",
+      "wrong": [
+        "我坐飞机去。",
+        "我的护照在家。"
+      ],
+      "tq": "Berapa barang bagasi Anda?",
+      "ta": "Dua, satu besar dan satu kecil."
+    },
+    {
+      "kind": "dialog",
+      "text": "男：请问，去上海的航班几点起飞？/女：下午三点，请您两点以前办理登机。",
+      "q": "乘客最晚几点办理登机？",
+      "ok": "两点",
+      "wrong": [
+        "三点",
+        "一点"
+      ],
+      "t_text": "Laki-laki: Permisi, penerbangan ke Shanghai berangkat jam berapa? / Perempuan: Jam tiga sore, mohon Anda check-in sebelum jam dua.",
+      "t_q": "Paling lambat jam berapa penumpang harus check-in?",
+      "t_ok": "Jam dua"
+    },
+    {
+      "kind": "dialog",
+      "text": "女：我的航班取消了，怎么办？/男：别着急，我们可以帮您换下一个航班。",
+      "q": "男的想怎么帮女的？",
+      "ok": "换航班",
+      "wrong": [
+        "送她回家",
+        "给她一张新护照"
+      ],
+      "t_text": "Perempuan: Penerbanganku dibatalkan, bagaimana? / Laki-laki: Jangan khawatir, kami bisa membantu Anda mengganti ke penerbangan berikutnya.",
+      "t_q": "Bagaimana si laki-laki ingin membantu?",
+      "t_ok": "Mengganti penerbangan"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "请您提前两个小时（　）登机手续。",
+      "ok": "办理",
+      "wrong": [
+        "取消",
+        "降落",
+        "出发"
+      ],
+      "zh": "请您提前两个小时办理登机手续。",
+      "id": "Mohon Anda mengurus check-in dua jam lebih awal."
+    },
+    {
+      "kind": "cloze",
+      "stem": "因为天气不好，飞机不能（　），航班只好取消。",
+      "ok": "起飞",
+      "wrong": [
+        "办理",
+        "出示",
+        "准时"
+      ],
+      "zh": "因为天气不好，飞机不能起飞，航班只好取消。",
+      "id": "Karena cuaca buruk, pesawat tidak bisa lepas landas, jadi penerbangan terpaksa dibatalkan."
+    },
+    {
+      "kind": "text",
+      "text": "这次旅行，我和朋友坐飞机去海边度假。出发那天，我们提前三个小时到了机场，先办理登机手续，再把行李交给工作人员。因为天气很好，飞机准时起飞，三个小时以后，我们顺利降落了。",
+      "q": "★ 飞机为什么准时起飞？",
+      "ok": "天气很好",
+      "wrong": [
+        "乘客很少",
+        "行李不多"
+      ],
+      "t_text": "Dalam perjalanan ini, aku dan temanku naik pesawat berlibur ke pantai. Hari keberangkatan kami tiba di bandara tiga jam lebih awal, mengurus check-in dulu, lalu menyerahkan bagasi kepada petugas. Karena cuaca bagus, pesawat berangkat tepat waktu, dan tiga jam kemudian kami mendarat dengan lancar.",
+      "t_q": "Mengapa pesawat berangkat tepat waktu?",
+      "t_ok": "Karena cuacanya bagus"
+    }
+  ],
+  "speaking": [
+    "请出示您的护照。",
+    "我的行李超重了吗？",
+    "飞机什么时候起飞？"
+  ]
+}

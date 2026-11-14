@@ -1,0 +1,283 @@
+{
+  "id": "sains",
+  "level": 6,
+  "seq": 4,
+  "zh": "科学和创新",
+  "title": "Sains dan inovasi",
+  "summary": "Penelitian, eksperimen, penemuan, dan penerapannya.",
+  "readings": {
+    "认为": "rèn wéi",
+    "为了": "wèi le",
+    "为什么": "wèi shén me"
+  },
+  "keySentences": [
+    {
+      "zh": "科学家通过实验验证了这一假设。",
+      "id": "Para ilmuwan memverifikasi hipotesis ini lewat eksperimen.",
+      "tokens": [
+        "科学家",
+        "通过",
+        "实验",
+        "验证了",
+        "这一",
+        "假设",
+        "。"
+      ],
+      "pieces": [
+        "科学家",
+        "通过实验",
+        "验证了",
+        "这一假设",
+        "。"
+      ]
+    },
+    {
+      "zh": "创新是推动科技进步的动力。",
+      "id": "Inovasi adalah penggerak kemajuan teknologi.",
+      "tokens": [
+        "创新",
+        "是",
+        "推动",
+        "科技",
+        "进步",
+        "的",
+        "动力",
+        "。"
+      ],
+      "pieces": [
+        "创新",
+        "是",
+        "推动",
+        "科技进步",
+        "的",
+        "动力",
+        "。"
+      ]
+    },
+    {
+      "zh": "这项发明大大提高了效率。",
+      "id": "Penemuan ini sangat meningkatkan efisiensi.",
+      "tokens": [
+        "这项",
+        "发明",
+        "大大",
+        "提高了",
+        "效率",
+        "。"
+      ]
+    },
+    {
+      "zh": "研究成果已经发表在国际期刊上。",
+      "id": "Hasil penelitian sudah diterbitkan di jurnal internasional.",
+      "tokens": [
+        "研究",
+        "成果",
+        "已经",
+        "发表",
+        "在",
+        "国际",
+        "期刊",
+        "上",
+        "。"
+      ],
+      "pieces": [
+        "研究成果",
+        "已经",
+        "发表在",
+        "国际期刊",
+        "上",
+        "。"
+      ]
+    },
+    {
+      "zh": "实验必须严格按照步骤进行。",
+      "id": "Eksperimen harus dilakukan dengan ketat sesuai langkah-langkah.",
+      "tokens": [
+        "实验",
+        "必须",
+        "严格",
+        "按照",
+        "步骤",
+        "进行",
+        "。"
+      ],
+      "pieces": [
+        "实验",
+        "必须",
+        "严格",
+        "按照步骤",
+        "进行",
+        "。"
+      ]
+    },
+    {
+      "zh": "数据分析是研究的重要部分。",
+      "id": "Analisis data adalah bagian penting dari penelitian.",
+      "tokens": [
+        "数据",
+        "分析",
+        "是",
+        "研究",
+        "的",
+        "重要",
+        "部分",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "他在这个领域取得了突破。",
+      "id": "Dia meraih terobosan di bidang ini.",
+      "tokens": [
+        "他",
+        "在",
+        "这个",
+        "领域",
+        "取得了",
+        "突破",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "我们要勇于探索未知的世界。",
+      "id": "Kita harus berani menjelajahi dunia yang belum diketahui.",
+      "tokens": [
+        "我们",
+        "要",
+        "勇于",
+        "探索",
+        "未知",
+        "的",
+        "世界",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "假设",
+      "arti": "hipotesis; mengandaikan"
+    },
+    {
+      "word": "验证",
+      "arti": "memverifikasi; menguji kebenaran"
+    },
+    {
+      "word": "探索",
+      "arti": "menjelajahi; mengeksplorasi"
+    },
+    {
+      "word": "原理",
+      "arti": "prinsip; asas"
+    },
+    {
+      "word": "突破",
+      "arti": "terobosan; menembus"
+    },
+    {
+      "word": "实验",
+      "arti": "eksperimen"
+    },
+    {
+      "word": "创新",
+      "arti": "berinovasi; inovasi"
+    },
+    {
+      "word": "发明",
+      "arti": "menciptakan; penemuan"
+    },
+    {
+      "word": "成果",
+      "arti": "hasil; capaian"
+    },
+    {
+      "word": "效率",
+      "arti": "efisiensi; daya guna"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "这项研究有什么新成果？",
+      "ok": "他们发明了一种更节能的方法。",
+      "wrong": [
+        "科学家都很忙。",
+        "实验在下个月开始。"
+      ],
+      "tq": "Apa hasil baru penelitian ini?",
+      "ta": "Mereka menemukan metode yang lebih hemat energi."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：这个理论还需要实验来验证。/男：对，没有证据，就不能说它是对的。",
+      "q": "他们认为理论需要什么？",
+      "ok": "实验验证",
+      "wrong": [
+        "更多广告",
+        "更多时间休息"
+      ],
+      "t_text": "Perempuan: Teori ini masih perlu diverifikasi lewat eksperimen. / Laki-laki: Benar, tanpa bukti tidak bisa dikatakan benar.",
+      "t_q": "Apa yang dibutuhkan teori menurut mereka?",
+      "t_ok": "Verifikasi lewat eksperimen"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：这项发明为什么重要？/女：它大大提高了工作效率，还能节约能源。",
+      "q": "这项发明有什么好处？",
+      "ok": "提高效率，节约能源",
+      "wrong": [
+        "增加成本",
+        "减少产品"
+      ],
+      "t_text": "Laki-laki: Mengapa penemuan ini penting? / Perempuan: Ia sangat meningkatkan efisiensi kerja dan juga dapat menghemat energi.",
+      "t_q": "Apa manfaat penemuan ini?",
+      "t_ok": "Meningkatkan efisiensi dan menghemat energi"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "科学家们正在努力（　）海洋的秘密。",
+      "ok": "探索",
+      "wrong": [
+        "验证",
+        "发表",
+        "推动"
+      ],
+      "zh": "科学家们正在努力探索海洋的秘密。",
+      "id": "Para ilmuwan sedang berupaya menjelajahi rahasia lautan."
+    },
+    {
+      "kind": "cloze",
+      "stem": "这个实验成功了，这个（　）终于得到了证明。",
+      "ok": "假设",
+      "wrong": [
+        "领域",
+        "能源",
+        "突破"
+      ],
+      "zh": "这个实验成功了，这个假设终于得到了证明。",
+      "id": "Eksperimen ini berhasil, hipotesis ini akhirnya terbukti."
+    },
+    {
+      "kind": "text",
+      "text": "为了解决能源问题，一个研究小组做了三年的实验。他们先提出一个假设，然后用不同的方法验证，最后发现新的材料可以大大提高电池的效率。这个成果已经发表在国际期刊上，很多专家认为，这是该领域的一次重要突破。",
+      "q": "★ 这个研究的成果是什么？",
+      "ok": "新材料提高了电池效率",
+      "wrong": [
+        "解决了所有能源问题",
+        "减少了研究小组的人数"
+      ],
+      "t_text": "Untuk memecahkan masalah energi, sebuah tim peneliti melakukan eksperimen selama tiga tahun. Mereka mengajukan hipotesis, lalu mengujinya dengan berbagai cara, dan akhirnya menemukan bahwa bahan baru dapat sangat meningkatkan efisiensi baterai. Hasil ini sudah diterbitkan di jurnal internasional, dan banyak pakar menilai ini terobosan penting di bidangnya.",
+      "t_q": "Apa hasil penelitian ini?",
+      "t_ok": "Bahan baru meningkatkan efisiensi baterai"
+    }
+  ],
+  "speaking": [
+    "创新是推动科技进步的动力。",
+    "这项发明大大提高了效率。",
+    "我们要勇于探索未知的世界。"
+  ]
+}

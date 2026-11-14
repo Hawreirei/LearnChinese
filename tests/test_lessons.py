@@ -80,6 +80,8 @@ class LessonTests(unittest.TestCase):
         self.assertGreaterEqual(count[1], 7)
         self.assertGreaterEqual(count[2], 6)
         self.assertGreaterEqual(count[3], 6)
+        for lvl in (4, 5, 6):
+            self.assertGreaterEqual(count[lvl], 5, f"HSK {lvl}")
 
     def test_hsk1_wave_lessons_present(self):
         ids = {l["id"] for l in L if l["level"] == 1}
@@ -98,6 +100,26 @@ class LessonTests(unittest.TestCase):
         order = [l["id"] for l in L if l["level"] == 2]
         self.assertEqual(order[:2], ["belanja", "tanya-arah"])
         self.assertEqual([l["id"] for l in L if l["level"] == 3][:2], ["restoran", "rumah-sakit"])
+
+    def test_hsk4_to_6_waves_present(self):
+        want = {4: {"wawancara", "perjalanan", "kesehatan", "belanja-online", "lingkungan"},
+                5: {"rapat", "berita", "teknologi", "pendidikan", "budaya"},
+                6: {"debat", "ekonomi", "tradisi", "sains", "hukum"}}
+        for lvl, ids in want.items():
+            self.assertEqual({l["id"] for l in L if l["level"] == lvl}, ids, f"HSK {lvl}")
+
+    def test_speaking_sentences_are_short_enough_for_scoring(self):
+        """The plan keeps speaking sentences at 12 hanzi or fewer: recognition and tone analysis are far less reliable on long speech."""
+        for l in L:
+            for s in l["speaking"]:
+                self.assertLessEqual(len(HAN.findall(s["zh"])), 12, (l["id"], s["zh"]))
+
+    def test_ordering_items_stay_playable(self):
+        for l in L:
+            for q in l["steps"]["writing"]:
+                body = [t for t in q["tokens"] if t not in bl.PUNCT]
+                self.assertTrue(3 <= len(body) <= 8, (l["id"], q["answer"], len(body)))
+                self.assertEqual("".join(q["tokens"]), q["answer"])
 
     def test_lessons_sorted_easiest_first(self):
         levels = [l["level"] for l in L]
@@ -143,16 +165,24 @@ class LessonTests(unittest.TestCase):
         _, p = self._problems(3, s, [{"word": "面试", "arti": "x"}])        # above the lesson's level
         self.assertTrue(any("must be a syllabus word" in x for x in p))
 
-    def test_phrase_pieces_only_from_hsk4_and_at_most_eight(self):
+    def test_free_tokens_and_phrase_pieces_from_hsk4(self):
         zh = "我对这个工作很满意。"
-        ph = [{"zh": zh, "id": "x", "tokens": ["我", "对这个工作", "很", "满意", "。"], "phrases": True}]
-        self.assertEqual(self._problems(4, ph)[1], [])
-        self.assertTrue(any("HSK 4+" in x for x in self._problems(3, ph)[1]))
-        no_flag = [{"zh": zh, "id": "x", "tokens": ["我", "对这个工作", "很", "满意", "。"]}]
-        self.assertTrue(any("not a syllabus word" in x for x in self._problems(4, no_flag)[1]))
-        nine = [{"zh": "我们在这里很好吃饭。", "id": "x", "tokens": list("我们在这里很好吃饭") + ["。"], "phrases": True}]
-        self.assertTrue(any("more than 8 pieces" in x for x in self._problems(4, nine)[1]))
-        self.assertEqual(self._problems(4, [{**nine[0], "order": False}])[1], [])
+        free = [{"zh": zh, "id": "x", "tokens": ["我", "对", "这个", "工作", "很", "满意", "。"]}]
+        compound = [{"zh": zh, "id": "x", "tokens": ["我", "对这个工作", "很", "满意", "。"]}]
+        self.assertEqual(self._problems(4, compound)[1], [])                # HSK 4+: tokens may be any string
+        self.assertTrue(any("not a syllabus word" in x for x in self._problems(3, compound)[1]))
+        self.assertEqual(self._problems(3, free)[1], [])
+        nine = {"zh": "我们在这里很好吃饭。", "id": "x", "tokens": list("我们在这里很好吃饭") + ["。"]}
+        self.assertTrue(any("more than 8 pieces" in x for x in self._problems(4, [nine])[1]))
+        self.assertEqual(self._problems(4, [{**nine, "order": False}])[1], [])
+        coarse = {**nine, "pieces": ["我们", "在这里", "很", "好吃饭", "。"]}
+        out, p = self._problems(4, [coarse])                                # coarse pieces solve it, display tokens stay word-sized
+        self.assertEqual(p, [])
+        self.assertEqual(out["keySentences"][0]["pieces"], coarse["pieces"])
+        self.assertEqual(out["steps"]["writing"][0]["tokens"], coarse["pieces"])
+        self.assertEqual(out["keySentences"][0]["tokens"], nine["tokens"])
+        self.assertTrue(any("only for HSK 4+" in x for x in self._problems(3, [coarse])[1]))
+        self.assertTrue(any("do not join" in x for x in self._problems(4, [{**nine, "pieces": ["我们", "吃饭"]}])[1]))
 
     def test_unusual_readings_must_be_listed(self):
         s = [{"zh": "银行在前面。", "id": "x", "tokens": ["银行", "在", "前面", "。"]}]
@@ -165,6 +195,17 @@ class LessonTests(unittest.TestCase):
         self.assertTrue(any("does not occur" in x for x in p))             # a listed reading that is never used is a typo
         _, p = self._problems(3, s, readings={"银行": "yín"})
         self.assertTrue(any("one pinyin syllable per hanzi" in x for x in p))
+
+    def test_listed_readings_win_over_the_shared_pipeline(self):
+        # the syllabus has both 还 hái and 还 huán; the shared pipeline picks huán for 还可以, a lesson reading must override it
+        s = [{"zh": "学生还可以免费参观。", "id": "x", "tokens": ["学生", "还", "可以", "免费", "参观", "。"]}]
+        out, p = self._problems(5, s, readings={"还可以": "hái kě yǐ"})
+        self.assertEqual(p, [])
+        self.assertIn("hái kě yǐ", out["keySentences"][0]["pinyin"])
+        self.assertEqual("".join(out["keySentences"][0]["tokenPinyin"]), "xuéshēnghái" + "kěyǐ" + "miǎnfèi" + "cānguān")
+        self.assertEqual(bl.apply_readings("还给了我", "huán gěi le wǒ", {"还给了": "hái gěi le"}), "hái gěi le wǒ")
+        self.assertEqual(bl.apply_readings("我喝茶，你呢？", "wǒ hē chá ， nǐ ne ？", {"喝茶": "hē chá"}), "wǒ hē chá ， nǐ ne ？")
+        self.assertEqual(bl.apply_readings("一点儿", "yì diǎnr", {"一点": "yì diǎn"}), "yì diǎnr")        # erhua: left alone
 
     def test_erhua_does_not_hide_unusual_readings(self):
         self.assertEqual(bl.unusual_readings("喝一点儿茶", lambda t: "hē yì diǎnr chá"), [])
@@ -229,7 +270,11 @@ class LessonTests(unittest.TestCase):
                     w = VOCAB[k["wid"]]
                     self.assertEqual(w["word"], k["word"])
                     self.assertLessEqual(w["level"], l["level"])
-                    self.assertIn(str(k["wid"]), ID)
+                    self.assertTrue(k["arti"].strip(), (l["id"], k["word"]))
+                    if w["level"] <= 3:
+                        self.assertIn(str(k["wid"]), ID)              # HSK 1-3 words have a hand-written meaning in vocab_id.json
+                    else:
+                        self.assertGreaterEqual(l["level"], 4)        # an HSK 4+ word has none: its meaning is written in the lesson
 
     def test_speaking_sentences_are_key_sentences(self):
         for l in L:

@@ -1,0 +1,281 @@
+{
+  "id": "ekonomi",
+  "level": 6,
+  "seq": 2,
+  "zh": "经济和市场",
+  "title": "Ekonomi dan pasar",
+  "summary": "Pertumbuhan, harga, konsumsi, investasi, dan kebijakan.",
+  "readings": {
+    "感兴趣": "gǎn xìng qù",
+    "为什么": "wèi shén me"
+  },
+  "keySentences": [
+    {
+      "zh": "经济增长放缓影响了消费信心。",
+      "id": "Melambatnya pertumbuhan ekonomi memengaruhi kepercayaan konsumen.",
+      "tokens": [
+        "经济",
+        "增长",
+        "放缓",
+        "影响了",
+        "消费",
+        "信心",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "物价持续上涨，消费信心不足。",
+      "id": "Harga terus naik dan kepercayaan konsumen lemah.",
+      "tokens": [
+        "物价",
+        "持续",
+        "上涨",
+        "，",
+        "消费",
+        "信心",
+        "不足",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "投资者对前景很谨慎。",
+      "id": "Para investor sangat berhati-hati terhadap prospek.",
+      "tokens": [
+        "投资者",
+        "对",
+        "前景",
+        "很",
+        "谨慎",
+        "。"
+      ],
+      "pieces": [
+        "投资者",
+        "对",
+        "前景",
+        "很谨慎",
+        "。"
+      ]
+    },
+    {
+      "zh": "国家出台了新政策，刺激消费。",
+      "id": "Negara mengeluarkan kebijakan baru untuk merangsang konsumsi.",
+      "tokens": [
+        "国家",
+        "出台了",
+        "新",
+        "政策",
+        "，",
+        "刺激",
+        "消费",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "出口增加会带动经济增长。",
+      "id": "Peningkatan ekspor akan mendorong pertumbuhan ekonomi.",
+      "tokens": [
+        "出口",
+        "增加",
+        "会",
+        "带动",
+        "经济",
+        "增长",
+        "。"
+      ],
+      "pieces": [
+        "出口增加",
+        "会",
+        "带动",
+        "经济",
+        "增长",
+        "。"
+      ]
+    },
+    {
+      "zh": "企业需要降低成本。",
+      "id": "Perusahaan perlu menurunkan biaya.",
+      "tokens": [
+        "企业",
+        "需要",
+        "降低",
+        "成本",
+        "。"
+      ],
+      "pieces": [
+        "企业",
+        "需要",
+        "降低",
+        "成本",
+        "。"
+      ]
+    },
+    {
+      "zh": "失业率上升让人们很担心。",
+      "id": "Naiknya angka pengangguran membuat orang khawatir.",
+      "tokens": [
+        "失业率",
+        "上升",
+        "让",
+        "人们",
+        "很",
+        "担心",
+        "。"
+      ],
+      "pieces": [
+        "失业率",
+        "上升",
+        "让",
+        "人们",
+        "很担心",
+        "。"
+      ]
+    },
+    {
+      "zh": "市场需求在不断变化。",
+      "id": "Permintaan pasar terus berubah.",
+      "tokens": [
+        "市场",
+        "需求",
+        "在",
+        "不断",
+        "变化",
+        "。"
+      ],
+      "pieces": [
+        "市场需求",
+        "在",
+        "不断",
+        "变化",
+        "。"
+      ]
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "投资",
+      "arti": "berinvestasi; investasi"
+    },
+    {
+      "word": "政策",
+      "arti": "kebijakan"
+    },
+    {
+      "word": "前景",
+      "arti": "prospek"
+    },
+    {
+      "word": "贸易",
+      "arti": "perdagangan"
+    },
+    {
+      "word": "金融",
+      "arti": "keuangan; finansial"
+    },
+    {
+      "word": "货币",
+      "arti": "mata uang; uang"
+    },
+    {
+      "word": "股票",
+      "arti": "saham"
+    },
+    {
+      "word": "危机",
+      "arti": "krisis"
+    },
+    {
+      "word": "消费",
+      "arti": "konsumsi; berbelanja"
+    },
+    {
+      "word": "谨慎",
+      "arti": "hati-hati; waspada"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你觉得今年的经济怎么样？",
+      "ok": "增长有点儿慢，不过比较稳定。",
+      "wrong": [
+        "我去年买了股票。",
+        "我对政策很感兴趣。"
+      ],
+      "tq": "Menurutmu bagaimana ekonomi tahun ini?",
+      "ta": "Pertumbuhannya agak lambat, tetapi cukup stabil."
+    },
+    {
+      "kind": "dialog",
+      "text": "男：最近物价又涨了。/女：是啊，很多人都减少了不必要的消费。",
+      "q": "很多人为什么减少消费？",
+      "ok": "物价上涨",
+      "wrong": [
+        "工资增加",
+        "商品变少"
+      ],
+      "t_text": "Laki-laki: Belakangan ini harga naik lagi. / Perempuan: Ya, banyak orang mengurangi belanja yang tidak perlu.",
+      "t_q": "Mengapa banyak orang mengurangi belanja?",
+      "t_ok": "Karena harga naik"
+    },
+    {
+      "kind": "dialog",
+      "text": "女：你打算投资股票吗？/男：我很谨慎，先观察一段时间再说。",
+      "q": "男的对投资股票是什么态度？",
+      "ok": "很谨慎",
+      "wrong": [
+        "马上买",
+        "完全不关心"
+      ],
+      "t_text": "Perempuan: Apakah kamu berencana berinvestasi saham? / Laki-laki: Aku sangat berhati-hati, mengamati dulu beberapa waktu.",
+      "t_q": "Bagaimana sikap si laki-laki terhadap investasi saham?",
+      "t_ok": "Sangat berhati-hati"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "受经济危机的影响，很多企业的（　）下降了。",
+      "ok": "利润",
+      "wrong": [
+        "谨慎",
+        "立场",
+        "结论"
+      ],
+      "zh": "受经济危机的影响，很多企业的利润下降了。",
+      "id": "Akibat krisis ekonomi, laba banyak perusahaan menurun."
+    },
+    {
+      "kind": "cloze",
+      "stem": "为了刺激消费，国家出台了新的（　）。",
+      "ok": "政策",
+      "wrong": [
+        "谨慎",
+        "结论",
+        "立场"
+      ],
+      "zh": "为了刺激消费，国家出台了新的政策。",
+      "id": "Untuk merangsang konsumsi, negara mengeluarkan kebijakan baru."
+    },
+    {
+      "kind": "text",
+      "text": "这几年，物价上涨很快，很多人觉得生活压力变大了。专家说，如果经济增长放缓，企业的利润会下降，失业的人也可能增加。因此，国家需要出台合适的政策，一方面刺激消费，另一方面帮助企业降低成本。对普通人来说，在投资和消费上都应该更加谨慎。",
+      "q": "★ 国家需要做什么？",
+      "ok": "出台合适的政策",
+      "wrong": [
+        "提高物价",
+        "减少出口"
+      ],
+      "t_text": "Beberapa tahun ini harga naik cepat dan banyak orang merasa tekanan hidup bertambah. Pakar mengatakan, jika pertumbuhan ekonomi melambat, laba perusahaan akan menurun dan pengangguran bisa bertambah. Karena itu negara perlu mengeluarkan kebijakan yang tepat, di satu sisi merangsang konsumsi, di sisi lain membantu perusahaan menurunkan biaya. Bagi orang biasa, dalam investasi dan belanja harus lebih berhati-hati.",
+      "t_q": "Apa yang perlu dilakukan negara?",
+      "t_ok": "Mengeluarkan kebijakan yang tepat"
+    }
+  ],
+  "speaking": [
+    "企业需要降低成本。",
+    "市场需求在不断变化。",
+    "投资者对前景很谨慎。"
+  ]
+}

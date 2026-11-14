@@ -1,0 +1,273 @@
+{
+  "id": "budaya",
+  "level": 5,
+  "seq": 5,
+  "zh": "艺术和文化",
+  "title": "Seni dan budaya",
+  "summary": "Museum, pameran, tradisi, dan karya seni.",
+  "readings": {
+    "音乐": "yīn yuè",
+    "还可以": "hái kě yǐ",
+    "了解": "liǎo jiě",
+    "便宜": "pián yi"
+  },
+  "keySentences": [
+    {
+      "zh": "这个博物馆展出了很多珍贵的文物。",
+      "id": "Museum ini memamerkan banyak peninggalan berharga.",
+      "tokens": [
+        "这个",
+        "博物馆",
+        "展出了",
+        "很多",
+        "珍贵",
+        "的",
+        "文物",
+        "。"
+      ],
+      "pieces": [
+        "这个博物馆",
+        "展出了",
+        "很多",
+        "珍贵的",
+        "文物",
+        "。"
+      ]
+    },
+    {
+      "zh": "这幅作品体现了作者的艺术风格。",
+      "id": "Lukisan ini mencerminkan gaya seni penciptanya.",
+      "tokens": [
+        "这幅",
+        "作品",
+        "体现了",
+        "作者",
+        "的",
+        "艺术",
+        "风格",
+        "。"
+      ],
+      "pieces": [
+        "这幅作品",
+        "体现了",
+        "作者的",
+        "艺术",
+        "风格",
+        "。"
+      ]
+    },
+    {
+      "zh": "传统文化需要一代一代传下去。",
+      "id": "Budaya tradisional perlu diwariskan dari generasi ke generasi.",
+      "tokens": [
+        "传统",
+        "文化",
+        "需要",
+        "一代",
+        "一代",
+        "传下去",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "展览将持续到月底。",
+      "id": "Pameran akan berlangsung hingga akhir bulan.",
+      "tokens": [
+        "展览",
+        "将",
+        "持续",
+        "到",
+        "月底",
+        "。"
+      ]
+    },
+    {
+      "zh": "她很欣赏这位画家的风格。",
+      "id": "Dia sangat mengagumi gaya pelukis ini.",
+      "tokens": [
+        "她",
+        "很",
+        "欣赏",
+        "这位",
+        "画家",
+        "的",
+        "风格",
+        "。"
+      ],
+      "pieces": [
+        "她",
+        "很欣赏",
+        "这位画家",
+        "的",
+        "风格",
+        "。"
+      ]
+    },
+    {
+      "zh": "京剧是中国的传统艺术。",
+      "id": "Opera Beijing adalah seni tradisional Tiongkok.",
+      "tokens": [
+        "京剧",
+        "是",
+        "中国",
+        "的",
+        "传统",
+        "艺术",
+        "。"
+      ]
+    },
+    {
+      "zh": "参观博物馆不用买票。",
+      "id": "Mengunjungi museum tidak perlu membeli tiket.",
+      "tokens": [
+        "参观",
+        "博物馆",
+        "不",
+        "用",
+        "买票",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "这场演出的魅力在于音乐。",
+      "id": "Daya tarik pertunjukan ini terletak pada musiknya.",
+      "tokens": [
+        "这场",
+        "演出",
+        "的",
+        "魅力",
+        "在于",
+        "音乐",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "博物馆",
+      "arti": "museum"
+    },
+    {
+      "word": "展览",
+      "arti": "pameran; memamerkan"
+    },
+    {
+      "word": "传统",
+      "arti": "tradisi; tradisional"
+    },
+    {
+      "word": "风格",
+      "arti": "gaya; corak"
+    },
+    {
+      "word": "欣赏",
+      "arti": "menikmati; mengagumi"
+    },
+    {
+      "word": "珍贵",
+      "arti": "berharga; langka"
+    },
+    {
+      "word": "体现",
+      "arti": "mencerminkan; menunjukkan"
+    },
+    {
+      "word": "古代",
+      "arti": "zaman kuno"
+    },
+    {
+      "word": "书法",
+      "arti": "kaligrafi"
+    },
+    {
+      "word": "魅力",
+      "arti": "daya tarik; pesona"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你喜欢什么艺术？",
+      "ok": "我喜欢书法和京剧。",
+      "wrong": [
+        "我去过博物馆。",
+        "展览在月底结束。"
+      ],
+      "tq": "Seni apa yang kamu sukai?",
+      "ta": "Aku suka kaligrafi dan opera Beijing."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：周末有一个书法展览，你想去看看吗？/男：好啊，我很想欣赏一下。",
+      "q": "他们周末想做什么？",
+      "ok": "看书法展览",
+      "wrong": [
+        "听京剧",
+        "参观科学馆"
+      ],
+      "t_text": "Perempuan: Akhir pekan ada pameran kaligrafi, kamu mau melihatnya? / Laki-laki: Boleh, aku ingin menikmatinya.",
+      "t_q": "Apa yang ingin mereka lakukan akhir pekan?",
+      "t_ok": "Melihat pameran kaligrafi"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：这个博物馆的门票贵吗？/女：不贵，学生还可以免费参观。",
+      "q": "学生参观博物馆怎么样？",
+      "ok": "可以免费",
+      "wrong": [
+        "门票最贵",
+        "不能进去"
+      ],
+      "t_text": "Laki-laki: Apakah tiket museum ini mahal? / Perempuan: Tidak mahal, pelajar bahkan bisa berkunjung gratis.",
+      "t_q": "Bagaimana dengan pelajar yang mengunjungi museum?",
+      "t_ok": "Bisa gratis"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "这幅画体现了画家独特的艺术（　）。",
+      "ok": "风格",
+      "wrong": [
+        "展览",
+        "博物馆",
+        "古代"
+      ],
+      "zh": "这幅画体现了画家独特的艺术风格。",
+      "id": "Lukisan ini mencerminkan gaya seni yang khas dari pelukisnya."
+    },
+    {
+      "kind": "cloze",
+      "stem": "这些（　）文物已经有两千多年的历史了。",
+      "ok": "珍贵",
+      "wrong": [
+        "欣赏",
+        "体现",
+        "参观"
+      ],
+      "zh": "这些珍贵文物已经有两千多年的历史了。",
+      "id": "Peninggalan berharga ini sudah berusia lebih dari dua ribu tahun."
+    },
+    {
+      "kind": "text",
+      "text": "上个周末，我和朋友去参观了城里的博物馆。馆里正在举办一个古代书法展览，展出了很多珍贵的作品。看着这些字，我们不但欣赏了艺术，也了解了传统文化。展览将持续到月底，门票免费，所以去的人很多。",
+      "q": "★ 为什么去的人很多？",
+      "ok": "门票免费",
+      "wrong": [
+        "展览很便宜",
+        "博物馆很近"
+      ],
+      "t_text": "Akhir pekan lalu aku dan temanku mengunjungi museum kota. Di sana sedang diadakan pameran kaligrafi kuno yang memamerkan banyak karya berharga. Melihat tulisan-tulisan itu, kami tidak hanya menikmati seni tetapi juga memahami budaya tradisional. Pameran berlangsung hingga akhir bulan dan tiketnya gratis, karena itu banyak yang datang.",
+      "t_q": "Mengapa banyak orang datang?",
+      "t_ok": "Karena tiketnya gratis"
+    }
+  ],
+  "speaking": [
+    "京剧是中国的传统艺术。",
+    "展览将持续到月底。",
+    "参观博物馆不用买票。"
+  ]
+}

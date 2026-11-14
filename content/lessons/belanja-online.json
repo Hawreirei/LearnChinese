@@ -1,0 +1,272 @@
+{
+  "id": "belanja-online",
+  "level": 4,
+  "seq": 4,
+  "zh": "网上购物",
+  "title": "Belanja online dan penukaran barang",
+  "summary": "Membandingkan harga, menilai kualitas, dan menghubungi layanan pelanggan.",
+  "readings": {
+    "便宜": "pián yi"
+  },
+  "keySentences": [
+    {
+      "zh": "这个网站的价格比商店便宜。",
+      "id": "Harga di situs ini lebih murah daripada di toko.",
+      "tokens": [
+        "这个",
+        "网站",
+        "的",
+        "价格",
+        "比",
+        "商店",
+        "便宜",
+        "。"
+      ],
+      "pieces": [
+        "这个网站的",
+        "价格",
+        "比",
+        "商店",
+        "便宜",
+        "。"
+      ]
+    },
+    {
+      "zh": "我对质量不太满意，想换一件。",
+      "id": "Aku kurang puas dengan kualitasnya dan ingin menukar yang lain.",
+      "tokens": [
+        "我",
+        "对",
+        "质量",
+        "不太",
+        "满意",
+        "，",
+        "想",
+        "换",
+        "一件",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "现在打八折，买得很值。",
+      "id": "Sekarang diskon 20%, belinya sangat sepadan.",
+      "tokens": [
+        "现在",
+        "打",
+        "八折",
+        "，",
+        "买得",
+        "很",
+        "值",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "请问几天能收到东西？",
+      "id": "Permisi, berapa hari barangnya sampai?",
+      "tokens": [
+        "请问",
+        "几天",
+        "能",
+        "收到",
+        "东西",
+        "？"
+      ]
+    },
+    {
+      "zh": "我用信用卡付钱。",
+      "id": "Aku membayar dengan kartu kredit.",
+      "tokens": [
+        "我",
+        "用",
+        "信用卡",
+        "付钱",
+        "。"
+      ]
+    },
+    {
+      "zh": "商品有问题，可以联系客服。",
+      "id": "Kalau barang bermasalah, bisa menghubungi layanan pelanggan.",
+      "tokens": [
+        "商品",
+        "有",
+        "问题",
+        "，",
+        "可以",
+        "联系",
+        "客服",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "这件衣服的质量很好。",
+      "id": "Kualitas baju ini sangat bagus.",
+      "tokens": [
+        "这",
+        "件",
+        "衣服",
+        "的",
+        "质量",
+        "很",
+        "好",
+        "。"
+      ],
+      "pieces": [
+        "这件衣服的",
+        "质量",
+        "很",
+        "好",
+        "。"
+      ]
+    },
+    {
+      "zh": "我比较了几个网站的价格。",
+      "id": "Aku membandingkan harga di beberapa situs.",
+      "tokens": [
+        "我",
+        "比较",
+        "了",
+        "几个",
+        "网站",
+        "的",
+        "价格",
+        "。"
+      ],
+      "pieces": [
+        "我",
+        "比较了",
+        "几个网站的",
+        "价格",
+        "。"
+      ]
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "价格",
+      "arti": "harga"
+    },
+    {
+      "word": "质量",
+      "arti": "kualitas"
+    },
+    {
+      "word": "打折",
+      "arti": "diskon; memberi potongan harga"
+    },
+    {
+      "word": "保证",
+      "arti": "menjamin; jaminan"
+    },
+    {
+      "word": "寄",
+      "arti": "mengirim (lewat pos); menitipkan"
+    },
+    {
+      "word": "地址",
+      "arti": "alamat"
+    },
+    {
+      "word": "联系",
+      "arti": "menghubungi; hubungan"
+    },
+    {
+      "word": "商品",
+      "arti": "barang dagangan; produk"
+    },
+    {
+      "word": "免费",
+      "arti": "gratis"
+    },
+    {
+      "word": "值得",
+      "arti": "layak; sepadan"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "这个东西多少钱？",
+      "ok": "现在打折，一百二十块。",
+      "wrong": [
+        "我在网上买的。",
+        "我很喜欢这个网站。"
+      ],
+      "tq": "Barang ini berapa harganya?",
+      "ta": "Sekarang diskon, seratus dua puluh yuan."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：我昨天买的衣服还没到。/男：请告诉我您的地址，我帮您联系。",
+      "q": "男的会做什么？",
+      "ok": "帮女的联系",
+      "wrong": [
+        "送她一件新的",
+        "让她再买一件"
+      ],
+      "t_text": "Perempuan: Baju yang kubeli kemarin belum sampai. / Laki-laki: Tolong beri tahu alamat Anda, saya bantu menghubungi.",
+      "t_q": "Apa yang akan dilakukan si laki-laki?",
+      "t_ok": "Membantu menghubungi"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：这个手机免费送货吗？/女：满一百块免费，您买了两百块，所以免费。",
+      "q": "这个手机要付送货的钱吗？",
+      "ok": "不用",
+      "wrong": [
+        "要付五块",
+        "要付二十块"
+      ],
+      "t_text": "Laki-laki: Ponsel ini gratis ongkir? / Perempuan: Gratis jika belanja minimal seratus yuan, Anda belanja dua ratus, jadi gratis.",
+      "t_q": "Apakah ongkos kirim ponsel ini harus dibayar?",
+      "t_ok": "Tidak perlu"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "这个商品的（　）很好，我很满意。",
+      "ok": "质量",
+      "wrong": [
+        "地址",
+        "免费",
+        "联系"
+      ],
+      "zh": "这个商品的质量很好，我很满意。",
+      "id": "Kualitas barang ini bagus sekali, aku sangat puas."
+    },
+    {
+      "kind": "cloze",
+      "stem": "他们的价格很低，而且（　）送货。",
+      "ok": "免费",
+      "wrong": [
+        "联系",
+        "地址",
+        "商品"
+      ],
+      "zh": "他们的价格很低，而且免费送货。",
+      "id": "Harga mereka rendah dan juga gratis ongkir."
+    },
+    {
+      "kind": "text",
+      "text": "我在网上买了一件衣服。网站上写着打八折，价格比商店便宜很多。可是衣服到了以后，我发现质量不太好，颜色也和照片不一样。我联系了客服，他们说可以免费换一件。",
+      "q": "★ 客服说可以怎么办？",
+      "ok": "免费换一件",
+      "wrong": [
+        "再打一次折",
+        "自己去商店买"
+      ],
+      "t_text": "Aku membeli sebuah baju secara online. Di situs tertulis diskon 20%, harganya jauh lebih murah daripada di toko. Tetapi setelah baju sampai, kulihat kualitasnya kurang baik dan warnanya berbeda dari foto. Aku menghubungi layanan pelanggan, mereka bilang bisa menukar satu baju secara gratis.",
+      "t_q": "Apa kata layanan pelanggan?",
+      "t_ok": "Bisa menukar satu baju secara gratis"
+    }
+  ],
+  "speaking": [
+    "请问几天能收到东西？",
+    "这件衣服的质量很好。",
+    "我用信用卡付钱。"
+  ]
+}

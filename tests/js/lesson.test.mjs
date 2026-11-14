@@ -98,7 +98,10 @@ test("a pinned word that already has a card is not offered again", () => {
 });
 
 test("lessons are ordered easiest first and each can be summarised", () => {
-  assert.deepEqual(lessons.map((l) => [l.id, l.level]), [["sapaan", 1], ["perkenalan", 1], ["angka-waktu", 1], ["keluarga", 1], ["makan-minum", 1], ["cuaca", 1], ["sekolah", 1], ["belanja", 2], ["tanya-arah", 2], ["telepon", 2], ["transportasi", 2], ["olahraga", 2], ["sekolah-2", 2], ["restoran", 3], ["rumah-sakit", 3], ["hotel", 3], ["kantor", 3], ["sewa-rumah", 3], ["belajar-mandarin", 3]]);
+  assert.deepEqual(lessons.map((l) => [l.id, l.level]), [["sapaan", 1], ["perkenalan", 1], ["angka-waktu", 1], ["keluarga", 1], ["makan-minum", 1], ["cuaca", 1], ["sekolah", 1], ["belanja", 2], ["tanya-arah", 2], ["telepon", 2], ["transportasi", 2], ["olahraga", 2], ["sekolah-2", 2], ["restoran", 3], ["rumah-sakit", 3], ["hotel", 3], ["kantor", 3], ["sewa-rumah", 3], ["belajar-mandarin", 3],
+    ["wawancara", 4], ["perjalanan", 4], ["kesehatan", 4], ["belanja-online", 4], ["lingkungan", 4],
+    ["rapat", 5], ["berita", 5], ["teknologi", 5], ["pendidikan", 5], ["budaya", 5],
+    ["debat", 6], ["ekonomi", 6], ["tradisi", 6], ["sains", 6], ["hukum", 6]]);
   const s = new Store(mem());
   const empty = lessonSummary(lessons[0], s.lessonProgress("perkenalan"));
   assert.deepEqual({ done: empty.done, started: empty.started, speaking: empty.speaking }, { done: 0, started: false, speaking: null });

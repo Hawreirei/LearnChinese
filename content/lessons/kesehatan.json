@@ -1,0 +1,260 @@
+{
+  "id": "kesehatan",
+  "level": 4,
+  "seq": 3,
+  "zh": "健康生活",
+  "title": "Hidup sehat",
+  "summary": "Kebiasaan sehat: olahraga, tidur, mengurangi stres, dan saran dokter.",
+  "readings": {
+    "睡觉": "shuì jiào"
+  },
+  "keySentences": [
+    {
+      "zh": "我最近压力很大，睡得不好。",
+      "id": "Akhir-akhir ini stresku besar dan tidurku kurang nyenyak.",
+      "tokens": [
+        "我",
+        "最近",
+        "压力",
+        "很",
+        "大",
+        "，",
+        "睡",
+        "得",
+        "不",
+        "好",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "每天锻炼半个小时对健康很有好处。",
+      "id": "Berolahraga setengah jam sehari sangat baik bagi kesehatan.",
+      "tokens": [
+        "每天",
+        "锻炼",
+        "半个",
+        "小时",
+        "对",
+        "健康",
+        "很",
+        "有",
+        "好处",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "我想少吃一些，多运动。",
+      "id": "Aku ingin makan lebih sedikit dan lebih banyak berolahraga.",
+      "tokens": [
+        "我",
+        "想",
+        "少",
+        "吃",
+        "一些",
+        "，",
+        "多",
+        "运动",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "你应该养成早睡早起的习惯。",
+      "id": "Sebaiknya kamu membiasakan tidur dan bangun lebih awal.",
+      "tokens": [
+        "你",
+        "应该",
+        "养成",
+        "早睡早起",
+        "的",
+        "习惯",
+        "。"
+      ]
+    },
+    {
+      "zh": "运动可以让人放松。",
+      "id": "Olahraga bisa membuat orang rileks.",
+      "tokens": [
+        "运动",
+        "可以",
+        "让",
+        "人",
+        "放松",
+        "。"
+      ]
+    },
+    {
+      "zh": "坚持锻炼身体很重要。",
+      "id": "Tetap konsisten berolahraga itu penting.",
+      "tokens": [
+        "坚持",
+        "锻炼",
+        "身体",
+        "很",
+        "重要",
+        "。"
+      ]
+    },
+    {
+      "zh": "他受伤以后不能运动了。",
+      "id": "Setelah cedera dia tidak bisa berolahraga lagi.",
+      "tokens": [
+        "他",
+        "受伤",
+        "以后",
+        "不能",
+        "运动",
+        "了",
+        "。"
+      ],
+      "pieces": [
+        "他",
+        "受伤以后",
+        "不能",
+        "运动",
+        "了",
+        "。"
+      ]
+    },
+    {
+      "zh": "医生提醒我少喝酒。",
+      "id": "Dokter mengingatkanku agar sedikit minum alkohol.",
+      "tokens": [
+        "医生",
+        "提醒",
+        "我",
+        "少",
+        "喝",
+        "酒",
+        "。"
+      ]
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "压力",
+      "arti": "tekanan; stres"
+    },
+    {
+      "word": "好处",
+      "arti": "manfaat"
+    },
+    {
+      "word": "放松",
+      "arti": "bersantai; merilekskan"
+    },
+    {
+      "word": "减少",
+      "arti": "mengurangi"
+    },
+    {
+      "word": "增加",
+      "arti": "menambah; bertambah"
+    },
+    {
+      "word": "积极",
+      "arti": "aktif; positif"
+    },
+    {
+      "word": "受伤",
+      "arti": "terluka; cedera"
+    },
+    {
+      "word": "感觉",
+      "arti": "merasa; perasaan"
+    },
+    {
+      "word": "提醒",
+      "arti": "mengingatkan"
+    },
+    {
+      "word": "建议",
+      "arti": "menyarankan; saran"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你最近睡得好吗？",
+      "ok": "不太好，工作压力很大。",
+      "wrong": [
+        "我每天跑步。",
+        "我喜欢喝茶。"
+      ],
+      "tq": "Apakah kamu tidur nyenyak akhir-akhir ini?",
+      "ta": "Kurang baik, tekanan kerja besar."
+    },
+    {
+      "kind": "dialog",
+      "text": "男：你怎么越来越瘦了？/女：我每天跑步，还少吃米饭。",
+      "q": "女的怎么变瘦的？",
+      "ok": "每天跑步，少吃米饭",
+      "wrong": [
+        "不吃早饭",
+        "每天睡很久"
+      ],
+      "t_text": "Laki-laki: Kenapa kamu makin kurus? / Perempuan: Aku berlari setiap hari dan makan sedikit nasi.",
+      "t_q": "Bagaimana si perempuan menjadi kurus?",
+      "t_ok": "Berlari setiap hari dan mengurangi nasi"
+    },
+    {
+      "kind": "dialog",
+      "text": "女：医生说我应该多运动。/男：对，每天走路半个小时就很好。",
+      "q": "男的有什么建议？",
+      "ok": "每天走路半个小时",
+      "wrong": [
+        "每天跑步两个小时",
+        "少睡一点儿"
+      ],
+      "t_text": "Perempuan: Dokter bilang aku harus lebih banyak berolahraga. / Laki-laki: Benar, berjalan kaki setengah jam setiap hari sudah bagus.",
+      "t_q": "Apa saran si laki-laki?",
+      "t_ok": "Berjalan kaki setengah jam setiap hari"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "运动可以让人（　），也能减少压力。",
+      "ok": "放松",
+      "wrong": [
+        "提醒",
+        "毕业",
+        "出发"
+      ],
+      "zh": "运动可以让人放松，也能减少压力。",
+      "id": "Olahraga bisa membuat orang rileks dan juga mengurangi stres."
+    },
+    {
+      "kind": "cloze",
+      "stem": "他每天（　）锻炼，所以身体越来越好。",
+      "ok": "坚持",
+      "wrong": [
+        "取消",
+        "减少",
+        "担心"
+      ],
+      "zh": "他每天坚持锻炼，所以身体越来越好。",
+      "id": "Dia konsisten berolahraga setiap hari sehingga badannya makin sehat."
+    },
+    {
+      "kind": "text",
+      "text": "以前我常常很晚才睡觉，白天很累，压力也很大。后来，朋友建议我每天锻炼，早点儿睡觉。我坚持了三个月，现在睡得很好，身体也比以前健康。",
+      "q": "★ 朋友建议他做什么？",
+      "ok": "每天锻炼，早点儿睡觉",
+      "wrong": [
+        "少工作，多休息",
+        "去医院检查"
+      ],
+      "t_text": "Dulu aku sering tidur larut malam, siang hari merasa lelah, dan stresku besar. Kemudian temanku menyarankan agar aku berolahraga setiap hari dan tidur lebih awal. Aku bertahan tiga bulan, sekarang tidurku nyenyak dan badanku lebih sehat daripada dulu.",
+      "t_q": "Apa yang disarankan teman kepadanya?",
+      "t_ok": "Berolahraga setiap hari dan tidur lebih awal"
+    }
+  ],
+  "speaking": [
+    "你应该养成早睡早起的习惯。",
+    "坚持锻炼身体很重要。",
+    "医生提醒我少喝酒。"
+  ]
+}
