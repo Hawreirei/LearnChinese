@@ -21,6 +21,7 @@ const app = {
   vocab: [],                // data/hsk3/vocab.json
   handwriting: new Set(),   // characters of the official handwriting list
   handwritingList: [],      // handwriting.json: [{id, level, char}]
+  chars: {},                // chars.json: hanzi -> {pinyin, arti} for handwriting chars with no one-character word
   idData: {},               // vocab_id.json: id -> {arti, contoh:{zh,pinyin,id}}
   questions: [],            // questions.json
   blueprints: {},           // blueprints.json (official exam structure per level)
@@ -68,12 +69,12 @@ const getJson = async (name, fallback) => {
 
 async function boot() {
   try {
-    const [vocab, handwriting, idData, questions, blueprints, lookalikes, lessons] = await Promise.all([
+    const [vocab, handwriting, idData, questions, blueprints, lookalikes, lessons, chars] = await Promise.all([
       getJson("vocab.json"), getJson("handwriting.json"),
-      getJson("vocab_id.json", {}), getJson("questions.json", []), getJson("blueprints.json", {}), getJson("lookalikes.json", {}), getJson("lessons.json", []),
+      getJson("vocab_id.json", {}), getJson("questions.json", []), getJson("blueprints.json", {}), getJson("lookalikes.json", {}), getJson("lessons.json", []), getJson("chars.json", {}),
     ]);
     setLookalikes(lookalikes);
-    Object.assign(app, { vocab, handwriting: new Set(handwriting.map((x) => x.char)), handwritingList: handwriting, idData, questions, blueprints, lessons });
+    Object.assign(app, { vocab, handwriting: new Set(handwriting.map((x) => x.char)), handwritingList: handwriting, idData, questions, blueprints, lessons, chars });
     go("home");
   } catch (err) {
     app.render(h("p", { class: "notice" }, `Gagal memuat data: ${err.message}. Jalankan server dari akar repo: python3 -m http.server 8080, lalu buka /app/.`));

@@ -1,0 +1,1654 @@
+{
+"爸":{
+"pinyin":"bà",
+"arti":"ayah, papa"
+},
+"儿":{
+"pinyin":"ér",
+"arti":"anak; akhiran -r (erhua)"
+},
+"哥":{
+"pinyin":"gē",
+"arti":"kakak laki-laki"
+},
+"工":{
+"pinyin":"gōng",
+"arti":"kerja; pekerja; industri"
+},
+"汉":{
+"pinyin":"hàn",
+"arti":"(bangsa) Han; Tionghoa"
+},
+"姐":{
+"pinyin":"jiě",
+"arti":"kakak perempuan"
+},
+"今":{
+"pinyin":"jīn",
+"arti":"sekarang; kini; hari ini"
+},
+"妈":{
+"pinyin":"mā",
+"arti":"ibu, mama"
+},
+"么":{
+"pinyin":"me",
+"arti":"partikel akhiran (什么, 怎么)"
+},
+"没":{
+"pinyin":"méi",
+"arti":"tidak ada; belum"
+},
+"什":{
+"pinyin":"shén",
+"arti":"apa (dalam 什么)"
+},
+"午":{
+"pinyin":"wǔ",
+"arti":"siang; tengah hari"
+},
+"习":{
+"pinyin":"xí",
+"arti":"belajar; berlatih; kebiasaan"
+},
+"现":{
+"pinyin":"xiàn",
+"arti":"sekarang; tampak; muncul"
+},
+"语":{
+"pinyin":"yǔ",
+"arti":"bahasa; ucapan"
+},
+"作":{
+"pinyin":"zuò",
+"arti":"berbuat; mengerjakan; karya"
+},
+"般":{
+"pinyin":"bān",
+"arti":"macam; jenis; biasa (一般)"
+},
+"板":{
+"pinyin":"bǎn",
+"arti":"papan; lembaran"
+},
+"参":{
+"pinyin":"cān",
+"arti":"ikut serta; menghadiri"
+},
+"春":{
+"pinyin":"chūn",
+"arti":"musim semi"
+},
+"典":{
+"pinyin":"diǎn",
+"arti":"kamus; buku acuan; upacara"
+},
+"冬":{
+"pinyin":"dōng",
+"arti":"musim dingin"
+},
+"耳":{
+"pinyin":"ěr",
+"arti":"telinga"
+},
+"复":{
+"pinyin":"fù",
+"arti":"mengulang; kembali; rumit"
+},
+"瓜":{
+"pinyin":"guā",
+"arti":"melon; labu; mentimun"
+},
+"饺":{
+"pinyin":"jiǎo",
+"arti":"pangsit (饺子)"
+},
+"礼":{
+"pinyin":"lǐ",
+"arti":"sopan santun; hadiah; upacara"
+},
+"李":{
+"pinyin":"lǐ",
+"arti":"marga Li; pohon plum (行李: bagasi)"
+},
+"目":{
+"pinyin":"mù",
+"arti":"mata; butir; tujuan"
+},
+"努":{
+"pinyin":"nǔ",
+"arti":"berusaha keras"
+},
+"瓶":{
+"pinyin":"píng",
+"arti":"botol"
+},
+"汽":{
+"pinyin":"qì",
+"arti":"uap; gas"
+},
+"秋":{
+"pinyin":"qiū",
+"arti":"musim gugur"
+},
+"勺":{
+"pinyin":"sháo",
+"arti":"sendok besar; centong"
+},
+"实":{
+"pinyin":"shí",
+"arti":"nyata; sungguh-sungguh; isi"
+},
+"适":{
+"pinyin":"shì",
+"arti":"cocok; sesuai"
+},
+"务":{
+"pinyin":"wù",
+"arti":"urusan; tugas; harus"
+},
+"物":{
+"pinyin":"wù",
+"arti":"benda; barang; makhluk"
+},
+"夏":{
+"pinyin":"xià",
+"arti":"musim panas"
+},
+"相":{
+"pinyin":"xiāng",
+"arti":"saling; satu sama lain"
+},
+"言":{
+"pinyin":"yán",
+"arti":"kata; ucapan; bicara"
+},
+"阳":{
+"pinyin":"yáng",
+"arti":"matahari; yang"
+},
+"音":{
+"pinyin":"yīn",
+"arti":"bunyi; suara; nada"
+},
+"饮":{
+"pinyin":"yǐn",
+"arti":"minum; minuman"
+},
+"育":{
+"pinyin":"yù",
+"arti":"mendidik; membesarkan"
+},
+"咱":{
+"pinyin":"zán",
+"arti":"kita (termasuk lawan bicara)"
+},
+"主":{
+"pinyin":"zhǔ",
+"arti":"utama; tuan; pemilik"
+},
+"助":{
+"pinyin":"zhù",
+"arti":"membantu"
+},
+"巴":{
+"pinyin":"bā",
+"arti":"(dalam 尾巴, 巴士); menempel; mulut"
+},
+"餐":{
+"pinyin":"cān",
+"arti":"makan; hidangan"
+},
+"晨":{
+"pinyin":"chén",
+"arti":"pagi; fajar"
+},
+"程":{
+"pinyin":"chéng",
+"arti":"jarak; proses; tahap"
+},
+"达":{
+"pinyin":"dá",
+"arti":"mencapai; sampai"
+},
+"导":{
+"pinyin":"dǎo",
+"arti":"memandu; memimpin; menyalurkan"
+},
+"否":{
+"pinyin":"fǒu",
+"arti":"tidak; menyangkal"
+},
+"父":{
+"pinyin":"fù",
+"arti":"ayah"
+},
+"观":{
+"pinyin":"guān",
+"arti":"melihat; mengamati; pandangan"
+},
+"忽":{
+"pinyin":"hū",
+"arti":"tiba-tiba; mengabaikan"
+},
+"虎":{
+"pinyin":"hǔ",
+"arti":"harimau"
+},
+"基":{
+"pinyin":"jī",
+"arti":"dasar; fondasi"
+},
+"技":{
+"pinyin":"jì",
+"arti":"keterampilan; teknik"
+},
+"际":{
+"pinyin":"jì",
+"arti":"batas; antar-; saat"
+},
+"济":{
+"pinyin":"jì",
+"arti":"menolong; menyeberang (经济: ekonomi)"
+},
+"金":{
+"pinyin":"jīn",
+"arti":"emas; logam; uang"
+},
+"京":{
+"pinyin":"jīng",
+"arti":"ibu kota; Beijing (北京)"
+},
+"究":{
+"pinyin":"jiū",
+"arti":"menyelidiki; meneliti"
+},
+"况":{
+"pinyin":"kuàng",
+"arti":"keadaan; situasi"
+},
+"利":{
+"pinyin":"lì",
+"arti":"untung; tajam; lancar"
+},
+"例":{
+"pinyin":"lì",
+"arti":"contoh; kebiasaan"
+},
+"联":{
+"pinyin":"lián",
+"arti":"menghubungkan; bersatu"
+},
+"论":{
+"pinyin":"lùn",
+"arti":"membahas; teori; pendapat"
+},
+"民":{
+"pinyin":"mín",
+"arti":"rakyat; warga"
+},
+"农":{
+"pinyin":"nóng",
+"arti":"pertanian; petani"
+},
+"普":{
+"pinyin":"pǔ",
+"arti":"umum; luas"
+},
+"确":{
+"pinyin":"què",
+"arti":"benar; pasti; tepat"
+},
+"食":{
+"pinyin":"shí",
+"arti":"makan; makanan"
+},
+"示":{
+"pinyin":"shì",
+"arti":"menunjukkan; memperlihatkan"
+},
+"术":{
+"pinyin":"shù",
+"arti":"seni; teknik; keahlian"
+},
+"态":{
+"pinyin":"tài",
+"arti":"sikap; keadaan"
+},
+"庭":{
+"pinyin":"tíng",
+"arti":"halaman; pengadilan; keluarga (家庭)"
+},
+"味":{
+"pinyin":"wèi",
+"arti":"rasa; bau; selera"
+},
+"温":{
+"pinyin":"wēn",
+"arti":"hangat; suhu; lembut"
+},
+"象":{
+"pinyin":"xiàng",
+"arti":"gajah; bentuk; kesan"
+},
+"兄":{
+"pinyin":"xiōng",
+"arti":"kakak laki-laki; abang"
+},
+"亚":{
+"pinyin":"yà",
+"arti":"Asia (亚洲); kedua; subordinat"
+},
+"研":{
+"pinyin":"yán",
+"arti":"meneliti; menggiling"
+},
+"永":{
+"pinyin":"yǒng",
+"arti":"selamanya; abadi"
+},
+"志":{
+"pinyin":"zhì",
+"arti":"cita-cita; tanda; catatan"
+},
+"众":{
+"pinyin":"zhòng",
+"arti":"banyak orang; khalayak"
+},
+"专":{
+"pinyin":"zhuān",
+"arti":"khusus; fokus"
+},
+"资":{
+"pinyin":"zī",
+"arti":"modal; bahan; biaya"
+},
+"贝":{
+"pinyin":"bèi",
+"arti":"kerang; cangkang"
+},
+"币":{
+"pinyin":"bì",
+"arti":"uang; mata uang"
+},
+"承":{
+"pinyin":"chéng",
+"arti":"menanggung; menerima; melanjutkan"
+},
+"虫":{
+"pinyin":"chóng",
+"arti":"serangga; ulat"
+},
+"胆":{
+"pinyin":"dǎn",
+"arti":"keberanian; empedu; nyali"
+},
+"旦":{
+"pinyin":"dàn",
+"arti":"fajar; hari (元旦, 一旦)"
+},
+"敌":{
+"pinyin":"dí",
+"arti":"musuh; melawan"
+},
+"豆":{
+"pinyin":"dòu",
+"arti":"kacang; biji-bijian"
+},
+"范":{
+"pinyin":"fàn",
+"arti":"pola; teladan; batas"
+},
+"访":{
+"pinyin":"fǎng",
+"arti":"mengunjungi; mewawancarai"
+},
+"府":{
+"pinyin":"fǔ",
+"arti":"kantor pemerintah; kediaman"
+},
+"妇":{
+"pinyin":"fù",
+"arti":"wanita; perempuan dewasa; istri"
+},
+"贡":{
+"pinyin":"gòng",
+"arti":"menyumbang; persembahan"
+},
+"构":{
+"pinyin":"gòu",
+"arti":"menyusun; struktur"
+},
+"柜":{
+"pinyin":"guì",
+"arti":"lemari; peti"
+},
+"胡":{
+"pinyin":"hú",
+"arti":"asal-asalan; janggut; suku asing"
+},
+"华":{
+"pinyin":"huá",
+"arti":"Tiongkok; kemegahan"
+},
+"艰":{
+"pinyin":"jiān",
+"arti":"sulit; berat"
+},
+"巨":{
+"pinyin":"jù",
+"arti":"raksasa; sangat besar"
+},
+"军":{
+"pinyin":"jūn",
+"arti":"tentara; pasukan"
+},
+"均":{
+"pinyin":"jūn",
+"arti":"merata; sama rata; rata-rata"
+},
+"括":{
+"pinyin":"kuò",
+"arti":"mencakup; mengikat"
+},
+"劳":{
+"pinyin":"láo",
+"arti":"bekerja; jerih payah"
+},
+"疗":{
+"pinyin":"liáo",
+"arti":"mengobati; terapi"
+},
+"烈":{
+"pinyin":"liè",
+"arti":"keras; sengit; gagah berani"
+},
+"陆":{
+"pinyin":"lù",
+"arti":"daratan; angka \"enam\" (formal)"
+},
+"秘":{
+"pinyin":"mì",
+"arti":"rahasia"
+},
+"舍":{
+"pinyin":"shè",
+"arti":"melepaskan; asrama; rumah (宿舍)"
+},
+"石":{
+"pinyin":"shí",
+"arti":"batu"
+},
+"似":{
+"pinyin":"sì",
+"arti":"mirip; seperti"
+},
+"势":{
+"pinyin":"shì",
+"arti":"kekuatan; situasi; kecenderungan"
+},
+"私":{
+"pinyin":"sī",
+"arti":"pribadi; swasta"
+},
+"宿":{
+"pinyin":"sù",
+"arti":"bermalam; menginap"
+},
+"伟":{
+"pinyin":"wěi",
+"arti":"besar; agung"
+},
+"武":{
+"pinyin":"wǔ",
+"arti":"militer; bela diri"
+},
+"夕":{
+"pinyin":"xī",
+"arti":"petang; senja"
+},
+"析":{
+"pinyin":"xī",
+"arti":"menganalisis; memisahkan"
+},
+"形":{
+"pinyin":"xíng",
+"arti":"bentuk; rupa"
+},
+"宣":{
+"pinyin":"xuān",
+"arti":"mengumumkan; menyatakan"
+},
+"义":{
+"pinyin":"yì",
+"arti":"makna; kebenaran; keadilan"
+},
+"益":{
+"pinyin":"yì",
+"arti":"manfaat; keuntungan"
+},
+"映":{
+"pinyin":"yìng",
+"arti":"memantul; memancarkan; menayangkan"
+},
+"载":{
+"pinyin":"zài",
+"arti":"memuat; mengangkut; mencatat"
+},
+"召":{
+"pinyin":"zhào",
+"arti":"memanggil; mengundang"
+},
+"政":{
+"pinyin":"zhèng",
+"arti":"pemerintahan; politik"
+},
+"竹":{
+"pinyin":"zhú",
+"arti":"bambu"
+},
+"状":{
+"pinyin":"zhuàng",
+"arti":"bentuk; keadaan; gugatan"
+},
+"昂":{
+"pinyin":"áng",
+"arti":"mengangkat (kepala); mahal; tinggi"
+},
+"悲":{
+"pinyin":"bēi",
+"arti":"sedih; pilu"
+},
+"财":{
+"pinyin":"cái",
+"arti":"harta; kekayaan"
+},
+"仓":{
+"pinyin":"cāng",
+"arti":"gudang; lumbung"
+},
+"策":{
+"pinyin":"cè",
+"arti":"siasat; kebijakan; cambuk"
+},
+"畅":{
+"pinyin":"chàng",
+"arti":"lancar; leluasa; puas"
+},
+"臣":{
+"pinyin":"chén",
+"arti":"menteri; abdi negara"
+},
+"尘":{
+"pinyin":"chén",
+"arti":"debu"
+},
+"呈":{
+"pinyin":"chéng",
+"arti":"menampilkan; menyerahkan; tampak"
+},
+"匆":{
+"pinyin":"cōng",
+"arti":"tergesa-gesa"
+},
+"诞":{
+"pinyin":"dàn",
+"arti":"kelahiran; omong kosong"
+},
+"德":{
+"pinyin":"dé",
+"arti":"moral; kebajikan; Jerman"
+},
+"抵":{
+"pinyin":"dǐ",
+"arti":"menahan; tiba; menukar"
+},
+"凡":{
+"pinyin":"fán",
+"arti":"biasa; semua; fana"
+},
+"妨":{
+"pinyin":"fáng",
+"arti":"menghalangi; mengganggu"
+},
+"氛":{
+"pinyin":"fēn",
+"arti":"suasana; hawa"
+},
+"奉":{
+"pinyin":"fèng",
+"arti":"mempersembahkan; menerima; melayani"
+},
+"辅":{
+"pinyin":"fǔ",
+"arti":"membantu; melengkapi"
+},
+"岗":{
+"pinyin":"gǎng",
+"arti":"pos jaga; jabatan; bukit"
+},
+"巩":{
+"pinyin":"gǒng",
+"arti":"memperkuat; kokoh"
+},
+"孤":{
+"pinyin":"gū",
+"arti":"sendirian; yatim; terpencil"
+},
+"骨":{
+"pinyin":"gǔ",
+"arti":"tulang"
+},
+"贯":{
+"pinyin":"guàn",
+"arti":"menembus; terus-menerus"
+},
+"轨":{
+"pinyin":"guǐ",
+"arti":"rel; jalur; aturan"
+},
+"罕":{
+"pinyin":"hǎn",
+"arti":"jarang"
+},
+"旱":{
+"pinyin":"hàn",
+"arti":"kering; kekeringan"
+},
+"宏":{
+"pinyin":"hóng",
+"arti":"besar; megah"
+},
+"幻":{
+"pinyin":"huàn",
+"arti":"khayalan; ilusi"
+},
+"皇":{
+"pinyin":"huáng",
+"arti":"kaisar; megah"
+},
+"击":{
+"pinyin":"jī",
+"arti":"memukul; menyerang"
+},
+"饥":{
+"pinyin":"jī",
+"arti":"lapar"
+},
+"吉":{
+"pinyin":"jí",
+"arti":"baik; beruntung"
+},
+"肩":{
+"pinyin":"jiān",
+"arti":"bahu; memikul"
+},
+"杰":{
+"pinyin":"jié",
+"arti":"unggul; luar biasa"
+},
+"劲":{
+"pinyin":"jìn",
+"arti":"tenaga; semangat"
+},
+"径":{
+"pinyin":"jìng",
+"arti":"jalan kecil; langsung"
+},
+"纠":{
+"pinyin":"jiū",
+"arti":"melilit; memperbaiki"
+},
+"刊":{
+"pinyin":"kān",
+"arti":"menerbitkan; majalah/terbitan berkala"
+},
+"抗":{
+"pinyin":"kàng",
+"arti":"melawan; menentang"
+},
+"兰":{
+"pinyin":"lán",
+"arti":"anggrek; bunga lan"
+},
+"劣":{
+"pinyin":"liè",
+"arti":"buruk; rendah mutunya"
+},
+"麦":{
+"pinyin":"mài",
+"arti":"gandum"
+},
+"盲":{
+"pinyin":"máng",
+"arti":"buta; tanpa tujuan"
+},
+"贸":{
+"pinyin":"mào",
+"arti":"perdagangan"
+},
+"纳":{
+"pinyin":"nà",
+"arti":"menerima; memasukkan; membayar"
+},
+"佩":{
+"pinyin":"pèi",
+"arti":"mengagumi; memakai (di badan)"
+},
+"贫":{
+"pinyin":"pín",
+"arti":"miskin; kekurangan"
+},
+"迫":{
+"pinyin":"pò",
+"arti":"memaksa; mendesak"
+},
+"朴":{
+"pinyin":"pǔ",
+"arti":"sederhana; polos"
+},
+"启":{
+"pinyin":"qǐ",
+"arti":"membuka; memulai"
+},
+"丧":{
+"pinyin":"sàng",
+"arti":"kehilangan; berkabung"
+},
+"舌":{
+"pinyin":"shé",
+"arti":"lidah"
+},
+"寿":{
+"pinyin":"shòu",
+"arti":"umur panjang; usia"
+},
+"汰":{
+"pinyin":"tài",
+"arti":"menyingkirkan; menyaring"
+},
+"亡":{
+"pinyin":"wáng",
+"arti":"mati; hilang; runtuh"
+},
+"委":{
+"pinyin":"wěi",
+"arti":"menyerahkan; mempercayakan; pasrah"
+},
+"谓":{
+"pinyin":"wèi",
+"arti":"menyebut; berkata"
+},
+"沃":{
+"pinyin":"wò",
+"arti":"subur"
+},
+"乌":{
+"pinyin":"wū",
+"arti":"gagak; hitam"
+},
+"雄":{
+"pinyin":"xióng",
+"arti":"jantan; perkasa"
+},
+"旬":{
+"pinyin":"xún",
+"arti":"sepuluh hari; dasawarsa"
+},
+"讯":{
+"pinyin":"xùn",
+"arti":"kabar; berita; menginterogasi"
+},
+"讶":{
+"pinyin":"yà",
+"arti":"heran; terkejut"
+},
+"炎":{
+"pinyin":"yán",
+"arti":"panas membara; radang"
+},
+"央":{
+"pinyin":"yāng",
+"arti":"tengah; memohon"
+},
+"仪":{
+"pinyin":"yí",
+"arti":"upacara; sikap; alat"
+},
+"异":{
+"pinyin":"yì",
+"arti":"berbeda; aneh"
+},
+"抑":{
+"pinyin":"yì",
+"arti":"menekan; menahan"
+},
+"英":{
+"pinyin":"yīng",
+"arti":"Inggris; unggul; bunga"
+},
+"忧":{
+"pinyin":"yōu",
+"arti":"cemas; khawatir; sedih"
+},
+"予":{
+"pinyin":"yǔ",
+"arti":"memberi"
+},
+"匀":{
+"pinyin":"yún",
+"arti":"rata; merata"
+},
+"孕":{
+"pinyin":"yùn",
+"arti":"hamil; mengandung"
+},
+"宅":{
+"pinyin":"zhái",
+"arti":"rumah; tempat tinggal"
+},
+"仗":{
+"pinyin":"zhàng",
+"arti":"perang; mengandalkan"
+},
+"妆":{
+"pinyin":"zhuāng",
+"arti":"berdandan; rias"
+},
+"庄":{
+"pinyin":"zhuāng",
+"arti":"desa; perkebunan; khidmat"
+},
+"罢":{
+"pinyin":"bà",
+"arti":"berhenti; selesai; mogok"
+},
+"颁":{
+"pinyin":"bān",
+"arti":"menetapkan; menganugerahkan"
+},
+"绊":{
+"pinyin":"bàn",
+"arti":"tersandung; menjegal"
+},
+"卑":{
+"pinyin":"bēi",
+"arti":"rendah; hina"
+},
+"弊":{
+"pinyin":"bì",
+"arti":"kecurangan; kerugian; cacat"
+},
+"贬":{
+"pinyin":"biǎn",
+"arti":"merendahkan; menurunkan nilai"
+},
+"辨":{
+"pinyin":"biàn",
+"arti":"membedakan; mengenali"
+},
+"波":{
+"pinyin":"bō",
+"arti":"gelombang; ombak"
+},
+"伯":{
+"pinyin":"bó",
+"arti":"paman (kakak ayah); tuan; pangkat bangsawan"
+},
+"勃":{
+"pinyin":"bó",
+"arti":"bergelora; tiba-tiba"
+},
+"搏":{
+"pinyin":"bó",
+"arti":"bergulat; berdenyut"
+},
+"卜":{
+"pinyin":"bǔ",
+"arti":"meramal; (萝卜: lobak)"
+},
+"怖":{
+"pinyin":"bù",
+"arti":"takut; ngeri"
+},
+"灿":{
+"pinyin":"càn",
+"arti":"cemerlang"
+},
+"阐":{
+"pinyin":"chǎn",
+"arti":"menguraikan; menjelaskan"
+},
+"昌":{
+"pinyin":"chāng",
+"arti":"makmur; jaya"
+},
+"陈":{
+"pinyin":"chén",
+"arti":"menyajikan; lama; marga Chen"
+},
+"痴":{
+"pinyin":"chī",
+"arti":"tolol; tergila-gila"
+},
+"耻":{
+"pinyin":"chǐ",
+"arti":"malu; aib"
+},
+"赤":{
+"pinyin":"chì",
+"arti":"merah; telanjang; tulus"
+},
+"绸":{
+"pinyin":"chóu",
+"arti":"kain sutra"
+},
+"畴":{
+"pinyin":"chóu",
+"arti":"kategori; sawah"
+},
+"酬":{
+"pinyin":"chóu",
+"arti":"membalas; imbalan"
+},
+"锄":{
+"pinyin":"chú",
+"arti":"cangkul; mencangkul"
+},
+"慈":{
+"pinyin":"cí",
+"arti":"penyayang; ramah"
+},
+"粹":{
+"pinyin":"cuì",
+"arti":"murni; sari"
+},
+"荡":{
+"pinyin":"dàng",
+"arti":"bergoyang; menyapu; mengembara"
+},
+"颠":{
+"pinyin":"diān",
+"arti":"terguncang; jatuh terbalik"
+},
+"淀":{
+"pinyin":"diàn",
+"arti":"mengendap; endapan"
+},
+"奠":{
+"pinyin":"diàn",
+"arti":"meletakkan dasar; sesaji"
+},
+"碟":{
+"pinyin":"dié",
+"arti":"piring kecil; cawan"
+},
+"董":{
+"pinyin":"dǒng",
+"arti":"mengawasi; direktur"
+},
+"妒":{
+"pinyin":"dù",
+"arti":"iri; cemburu"
+},
+"兑":{
+"pinyin":"duì",
+"arti":"menukar"
+},
+"遏":{
+"pinyin":"è",
+"arti":"menahan; mencegah"
+},
+"恩":{
+"pinyin":"ēn",
+"arti":"budi; kebaikan"
+},
+"伐":{
+"pinyin":"fá",
+"arti":"menebang; menyerang"
+},
+"沸":{
+"pinyin":"fèi",
+"arti":"mendidih"
+},
+"锋":{
+"pinyin":"fēng",
+"arti":"ujung tajam; mata pisau; barisan depan"
+},
+"凤":{
+"pinyin":"fèng",
+"arti":"burung phoenix"
+},
+"伏":{
+"pinyin":"fú",
+"arti":"membungkuk; bersembunyi; tunduk"
+},
+"辐":{
+"pinyin":"fú",
+"arti":"jari-jari roda; (辐射: radiasi)"
+},
+"抚":{
+"pinyin":"fǔ",
+"arti":"membelai; menghibur; merawat"
+},
+"腹":{
+"pinyin":"fù",
+"arti":"perut"
+},
+"甘":{
+"pinyin":"gān",
+"arti":"manis; rela"
+},
+"纲":{
+"pinyin":"gāng",
+"arti":"pokok; garis besar; tali pokok"
+},
+"耕":{
+"pinyin":"gēng",
+"arti":"membajak; menggarap tanah"
+},
+"谷":{
+"pinyin":"gǔ",
+"arti":"lembah; biji-bijian"
+},
+"函":{
+"pinyin":"hán",
+"arti":"surat; kotak; fungsi"
+},
+"撼":{
+"pinyin":"hàn",
+"arti":"menggoyang; mengguncang"
+},
+"禾":{
+"pinyin":"hé",
+"arti":"padi; tanaman serealia"
+},
+"恒":{
+"pinyin":"héng",
+"arti":"tetap; abadi"
+},
+"弘":{
+"pinyin":"hóng",
+"arti":"luas; memperluas"
+},
+"唤":{
+"pinyin":"huàn",
+"arti":"memanggil"
+},
+"焕":{
+"pinyin":"huàn",
+"arti":"bersinar; berseri"
+},
+"凰":{
+"pinyin":"huáng",
+"arti":"burung phoenix betina"
+},
+"煌":{
+"pinyin":"huáng",
+"arti":"gemilang"
+},
+"谎":{
+"pinyin":"huǎng",
+"arti":"bohong"
+},
+"辉":{
+"pinyin":"huī",
+"arti":"cahaya; gemerlap"
+},
+"荤":{
+"pinyin":"hūn",
+"arti":"hidangan berdaging; makanan berbau tajam"
+},
+"魂":{
+"pinyin":"hún",
+"arti":"jiwa; roh"
+},
+"稽":{
+"pinyin":"jī",
+"arti":"memeriksa; mengkaji"
+},
+"暨":{
+"pinyin":"jì",
+"arti":"dan; hingga (formal)"
+},
+"俭":{
+"pinyin":"jiǎn",
+"arti":"hemat; sederhana"
+},
+"匠":{
+"pinyin":"jiàng",
+"arti":"pengrajin; tukang"
+},
+"竭":{
+"pinyin":"jié",
+"arti":"menghabiskan; mengerahkan"
+},
+"晶":{
+"pinyin":"jīng",
+"arti":"kristal; berkilau"
+},
+"鲸":{
+"pinyin":"jīng",
+"arti":"ikan paus"
+},
+"掘":{
+"pinyin":"jué",
+"arti":"menggali"
+},
+"崛":{
+"pinyin":"jué",
+"arti":"menjulang; bangkit tiba-tiba"
+},
+"峻":{
+"pinyin":"jùn",
+"arti":"terjal; keras"
+},
+"慨":{
+"pinyin":"kǎi",
+"arti":"menghela napas; murah hati"
+},
+"堪":{
+"pinyin":"kān",
+"arti":"tahan; mampu; layak"
+},
+"侃":{
+"pinyin":"kǎn",
+"arti":"berbicara lantang; bercanda"
+},
+"槛":{
+"pinyin":"kǎn",
+"arti":"ambang pintu"
+},
+"恳":{
+"pinyin":"kěn",
+"arti":"tulus; memohon"
+},
+"愧":{
+"pinyin":"kuì",
+"arti":"malu; menyesal"
+},
+"廉":{
+"pinyin":"lián",
+"arti":"murah; bersih; jujur"
+},
+"咧":{
+"pinyin":"liě",
+"arti":"menyeringai; (partikel lisan)"
+},
+"猎":{
+"pinyin":"liè",
+"arti":"berburu"
+},
+"赁":{
+"pinyin":"lìn",
+"arti":"menyewa"
+},
+"聆":{
+"pinyin":"líng",
+"arti":"mendengarkan dengan saksama"
+},
+"瘤":{
+"pinyin":"liú",
+"arti":"tumor; benjolan"
+},
+"隆":{
+"pinyin":"lóng",
+"arti":"megah; mulia; tinggi"
+},
+"陋":{
+"pinyin":"lòu",
+"arti":"buruk; sempit; kampungan"
+},
+"萝":{
+"pinyin":"luó",
+"arti":"(萝卜) lobak; tumbuhan merambat"
+},
+"脉":{
+"pinyin":"mài",
+"arti":"nadi; urat; denyut"
+},
+"蔓":{
+"pinyin":"màn",
+"arti":"merambat; menjalar"
+},
+"茫":{
+"pinyin":"máng",
+"arti":"luas tak bertepi; samar"
+},
+"昧":{
+"pinyin":"mèi",
+"arti":"gelap; samar; bodoh"
+},
+"盟":{
+"pinyin":"méng",
+"arti":"aliansi; sumpah"
+},
+"泌":{
+"pinyin":"mì",
+"arti":"merembes; mengeluarkan (cairan)"
+},
+"蔑":{
+"pinyin":"miè",
+"arti":"meremehkan; menghina"
+},
+"鸣":{
+"pinyin":"míng",
+"arti":"berbunyi; berkicau"
+},
+"魔":{
+"pinyin":"mó",
+"arti":"iblis; sihir"
+},
+"莫":{
+"pinyin":"mò",
+"arti":"jangan; tidak ada seorang pun"
+},
+"谋":{
+"pinyin":"móu",
+"arti":"merencanakan; siasat; mencari"
+},
+"牧":{
+"pinyin":"mù",
+"arti":"menggembala"
+},
+"募":{
+"pinyin":"mù",
+"arti":"menghimpun; merekrut"
+},
+"腻":{
+"pinyin":"nì",
+"arti":"berminyak; bosan; halus"
+},
+"撵":{
+"pinyin":"niǎn",
+"arti":"mengusir"
+},
+"宁":{
+"pinyin":"níng",
+"arti":"tenang; damai"
+},
+"凝":{
+"pinyin":"níng",
+"arti":"membeku; memusatkan"
+},
+"纽":{
+"pinyin":"niǔ",
+"arti":"kancing; simpul; pusat"
+},
+"钮":{
+"pinyin":"niǔ",
+"arti":"tombol; kancing"
+},
+"畔":{
+"pinyin":"pàn",
+"arti":"tepi; pinggir (sungai)"
+},
+"烹":{
+"pinyin":"pēng",
+"arti":"memasak; merebus"
+},
+"棚":{
+"pinyin":"péng",
+"arti":"bangsal; gubuk; atap"
+},
+"蓬":{
+"pinyin":"péng",
+"arti":"lebat; subur; kusut"
+},
+"辟":{
+"pinyin":"pì",
+"arti":"membuka (lahan); menyingkirkan"
+},
+"泊":{
+"pinyin":"bó",
+"arti":"berlabuh; danau (湖泊)"
+},
+"魄":{
+"pinyin":"pò",
+"arti":"semangat; jiwa"
+},
+"曝":{
+"pinyin":"bào",
+"arti":"menjemur; memaparkan"
+},
+"乞":{
+"pinyin":"qǐ",
+"arti":"mengemis; memohon"
+},
+"契":{
+"pinyin":"qì",
+"arti":"perjanjian; cocok"
+},
+"侵":{
+"pinyin":"qīn",
+"arti":"menyerbu; melanggar"
+},
+"擎":{
+"pinyin":"qíng",
+"arti":"menahan; mengangkat tinggi"
+},
+"驱":{
+"pinyin":"qū",
+"arti":"mengusir; menggerakkan"
+},
+"诠":{
+"pinyin":"quán",
+"arti":"menjelaskan; menafsirkan"
+},
+"仁":{
+"pinyin":"rén",
+"arti":"kebajikan; kasih; inti buah"
+},
+"饪":{
+"pinyin":"rèn",
+"arti":"memasak"
+},
+"桑":{
+"pinyin":"sāng",
+"arti":"murbei; pohon murbei"
+},
+"骚":{
+"pinyin":"sāo",
+"arti":"mengusik; kacau; genit"
+},
+"牲":{
+"pinyin":"shēng",
+"arti":"hewan ternak; kurban"
+},
+"圣":{
+"pinyin":"shèng",
+"arti":"suci; orang suci"
+},
+"屎":{
+"pinyin":"shǐ",
+"arti":"kotoran; tinja"
+},
+"逝":{
+"pinyin":"shì",
+"arti":"berlalu; meninggal"
+},
+"疏":{
+"pinyin":"shū",
+"arti":"jarang; renggang; menyalurkan"
+},
+"署":{
+"pinyin":"shǔ",
+"arti":"kantor; menandatangani; mengatur"
+},
+"墅":{
+"pinyin":"shù",
+"arti":"vila"
+},
+"肆":{
+"pinyin":"sì",
+"arti":"bebas; sembrono; angka \"empat\" (formal)"
+},
+"讼":{
+"pinyin":"sòng",
+"arti":"menggugat; berperkara"
+},
+"苏":{
+"pinyin":"sū",
+"arti":"bangkit; Jiangsu; (Soviet)"
+},
+"拓":{
+"pinyin":"tuò",
+"arti":"membuka; memperluas"
+},
+"滩":{
+"pinyin":"tān",
+"arti":"pantai; gosong; jeram"
+},
+"坦":{
+"pinyin":"tǎn",
+"arti":"rata; terus terang; tenang"
+},
+"叹":{
+"pinyin":"tàn",
+"arti":"menghela napas; mengagumi"
+},
+"陶":{
+"pinyin":"táo",
+"arti":"tembikar; gembira; mendidik"
+},
+"臀":{
+"pinyin":"tún",
+"arti":"pantat; bokong"
+},
+"伪":{
+"pinyin":"wěi",
+"arti":"palsu; pura-pura"
+},
+"畏":{
+"pinyin":"wèi",
+"arti":"takut; segan"
+},
+"纹":{
+"pinyin":"wén",
+"arti":"garis; motif; kerutan"
+},
+"悟":{
+"pinyin":"wù",
+"arti":"menyadari; memahami"
+},
+"牺":{
+"pinyin":"xī",
+"arti":"kurban; hewan persembahan"
+},
+"袭":{
+"pinyin":"xí",
+"arti":"menyerang; menurun; meniru"
+},
+"峡":{
+"pinyin":"xiá",
+"arti":"ngarai; selat"
+},
+"狭":{
+"pinyin":"xiá",
+"arti":"sempit"
+},
+"辖":{
+"pinyin":"xiá",
+"arti":"mengatur; wewenang"
+},
+"仙":{
+"pinyin":"xiān",
+"arti":"dewa; makhluk abadi"
+},
+"纤":{
+"pinyin":"xiān",
+"arti":"halus; ramping; serat"
+},
+"衔":{
+"pinyin":"xián",
+"arti":"menggigit; mengemban; pangkat"
+},
+"宪":{
+"pinyin":"xiàn",
+"arti":"undang-undang dasar; hukum"
+},
+"懈":{
+"pinyin":"xiè",
+"arti":"lalai; kendur"
+},
+"馨":{
+"pinyin":"xīn",
+"arti":"harum; wangi"
+},
+"刑":{
+"pinyin":"xíng",
+"arti":"hukuman; pidana"
+},
+"嗅":{
+"pinyin":"xiù",
+"arti":"mencium; membaui"
+},
+"吁":{
+"pinyin":"yù",
+"arti":"menyeru; memohon"
+},
+"穴":{
+"pinyin":"xué",
+"arti":"gua; lubang; titik (akupunktur)"
+},
+"巡":{
+"pinyin":"xún",
+"arti":"berpatroli; berkeliling"
+},
+"涯":{
+"pinyin":"yá",
+"arti":"tepi; batas; (生涯: karier)"
+},
+"雅":{
+"pinyin":"yǎ",
+"arti":"anggun; elegan; sopan"
+},
+"衍":{
+"pinyin":"yǎn",
+"arti":"meluas; berkembang"
+},
+"掩":{
+"pinyin":"yǎn",
+"arti":"menutup; menyembunyikan"
+},
+"耀":{
+"pinyin":"yào",
+"arti":"bersinar; memamerkan"
+},
+"役":{
+"pinyin":"yì",
+"arti":"dinas; pelayanan; pertempuran"
+},
+"绎":{
+"pinyin":"yì",
+"arti":"merangkai; menguraikan"
+},
+"翼":{
+"pinyin":"yì",
+"arti":"sayap; membantu"
+},
+"盈":{
+"pinyin":"yíng",
+"arti":"penuh; berlebih; untung"
+},
+"庸":{
+"pinyin":"yōng",
+"arti":"biasa; awam; (中庸: jalan tengah)"
+},
+"诱":{
+"pinyin":"yòu",
+"arti":"membujuk; memikat; menggoda"
+},
+"愚":{
+"pinyin":"yú",
+"arti":"bodoh; menipu"
+},
+"舆":{
+"pinyin":"yú",
+"arti":"kereta; publik (舆论: opini publik)"
+},
+"屿":{
+"pinyin":"yǔ",
+"arti":"pulau kecil"
+},
+"宇":{
+"pinyin":"yǔ",
+"arti":"ruang; alam semesta"
+},
+"郁":{
+"pinyin":"yù",
+"arti":"lebat; murung; harum"
+},
+"御":{
+"pinyin":"yù",
+"arti":"mengendalikan; mengatur; menahan"
+},
+"缘":{
+"pinyin":"yuán",
+"arti":"tepi; sebab; jodoh"
+},
+"悦":{
+"pinyin":"yuè",
+"arti":"senang; gembira"
+},
+"蕴":{
+"pinyin":"yùn",
+"arti":"mengandung; tersimpan"
+},
+"灶":{
+"pinyin":"zào",
+"arti":"tungku; dapur"
+},
+"躁":{
+"pinyin":"zào",
+"arti":"gelisah; mudah marah"
+},
+"诈":{
+"pinyin":"zhà",
+"arti":"menipu; berpura-pura"
+},
+"绽":{
+"pinyin":"zhàn",
+"arti":"merekah; mekar; terbelah"
+},
+"彰":{
+"pinyin":"zhāng",
+"arti":"nyata; menonjolkan"
+},
+"振":{
+"pinyin":"zhèn",
+"arti":"menggetarkan; bangkit"
+},
+"旨":{
+"pinyin":"zhǐ",
+"arti":"maksud; tujuan; titah"
+},
+"帜":{
+"pinyin":"zhì",
+"arti":"bendera; panji"
+},
+"滞":{
+"pinyin":"zhì",
+"arti":"macet; tertahan"
+},
+"忠":{
+"pinyin":"zhōng",
+"arti":"setia; tulus"
+},
+"衷":{
+"pinyin":"zhōng",
+"arti":"batin; lubuk hati"
+},
+"宙":{
+"pinyin":"zhòu",
+"arti":"waktu; (宇宙: alam semesta)"
+},
+"烛":{
+"pinyin":"zhú",
+"arti":"lilin; menerangi"
+},
+"嘱":{
+"pinyin":"zhǔ",
+"arti":"berpesan; menitipkan"
+},
+"撰":{
+"pinyin":"zhuàn",
+"arti":"menulis; mengarang"
+},
+"卓":{
+"pinyin":"zhuó",
+"arti":"menonjol; unggul"
+},
+"滋":{
+"pinyin":"zī",
+"arti":"menumbuhkan; menambah; rasa"
+},
+"籽":{
+"pinyin":"zǐ",
+"arti":"biji; benih"
+},
+"纵":{
+"pinyin":"zòng",
+"arti":"memanjakan; membiarkan; membujur"
+}
+}
