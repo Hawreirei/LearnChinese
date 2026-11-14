@@ -68,3 +68,17 @@ test("freehand path: dot for a tap, smoothed line otherwise; tiny moves are skip
   assert.equal(farEnough([0, 0], [1, 1]), false);
   assert.equal(farEnough([0, 0], [3, 0]), true);
 });
+
+test("every handwriting character has pinyin and a meaning (word entry or chars.json)", async () => {
+  const { charPinyin } = await import("../../app/js/writing.js");
+  const { meaning } = await import("../../app/js/deck.js");
+  const idData = load("vocab_id.json"), extra = load("chars.json");
+  const idx = buildCharIndex(hw, vocab, extra);
+  for (const x of hw) {
+    const e = idx.get(x.char);
+    assert.ok(charPinyin(e), `${x.char}: no pinyin`);
+    const mean = (e.single ? meaning(e.single, idData, 3) : null) || e.extra?.arti;
+    assert.ok(mean && mean !== "null", `${x.char}: no meaning`);
+  }
+  assert.equal(charPinyin(idx.get("耳")), "ěr");
+});

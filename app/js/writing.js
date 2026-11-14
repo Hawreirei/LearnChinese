@@ -4,9 +4,9 @@
 export const strokeFile = (ch) => `${ch.codePointAt(0).toString(16)}.json`;
 
 /** char -> { single: word whose form is exactly this char | null, words: up to 3 words that contain it (shortest, lowest level first) }. */
-export function buildCharIndex(handwriting, vocab) {
+export function buildCharIndex(handwriting, vocab, extra = {}) {
   const want = new Set(handwriting.map((x) => x.char));
-  const idx = new Map([...want].map((c) => [c, { single: null, words: [] }]));
+  const idx = new Map([...want].map((c) => [c, { single: null, words: [], extra: extra[c] ?? null }]));
   for (const w of vocab) {
     for (const c of new Set([...w.word])) {
       const e = idx.get(c);
@@ -23,7 +23,7 @@ export function buildCharIndex(handwriting, vocab) {
 }
 
 /** Pinyin shown for a character: the single-character word if there is one, else "" (some chars only occur in compounds). */
-export const charPinyin = (e) => e?.single?.pinyin ?? "";
+export const charPinyin = (e) => e?.single?.pinyin ?? e?.extra?.pinyin ?? "";
 
 const stripTone = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
@@ -37,7 +37,7 @@ export function filterChars(list, index, { levels = [], query = "", mastery = nu
     if (!q) return true;
     if (x.char.includes(query.trim())) return true;
     const e = index.get(x.char);
-    const hay = [e?.single?.pinyin, e?.single && meaningOf(e.single), ...(e?.words ?? []).map((w) => w.pinyin)].filter(Boolean).map(stripTone);
+    const hay = [e?.single?.pinyin, e?.extra?.pinyin, e?.extra?.arti, e?.single && meaningOf(e.single), ...(e?.words ?? []).map((w) => w.pinyin)].filter(Boolean).map(stripTone);
     return hay.some((s) => s.includes(q));
   });
 }

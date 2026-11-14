@@ -111,7 +111,7 @@ export function viewWrite(app) {
   if (!window.HanziWriter) { app.render(h("p", { class: "notice" }, "Pustaka tulisan (Hanzi Writer) tidak termuat. Muat ulang halaman.")); return; }
   stop();
   const list = app.handwritingList;
-  const index = (indexCache ??= buildCharIndex(list, app.vocab));
+  const index = (indexCache ??= buildCharIndex(list, app.vocab, app.chars));
   const meaningOf = (w) => meaning(w, app.idData, 3) ?? "";
   const levels = [...new Set(list.map((x) => x.level))].sort((a, b) => a - b);
   if (!st.ch || !index.has(st.ch)) st.ch = (list.find((x) => !store.writingRecord(x.char)?.ok) ?? list[0]).char;
@@ -174,7 +174,7 @@ export function viewWrite(app) {
   }
   function fillInfo(data) {
     const e = index.get(st.ch);
-    const mean = e.single ? meaning(e.single, app.idData, 3) : null;
+    const mean = (e.single ? meaning(e.single, app.idData, 3) : null) || e.extra?.arti || null;
     info.replaceChildren(
       h("div", { class: "winfo-head" },
         h("div", {}, h("span", { class: "wbig", lang: "zh-Hans" }, st.ch), " ", h("strong", {}, charPinyin(e) || "—")),
