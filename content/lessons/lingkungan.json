@@ -1,0 +1,246 @@
+{
+  "id": "lingkungan",
+  "level": 4,
+  "seq": 5,
+  "zh": "保护环境",
+  "title": "Menjaga lingkungan",
+  "summary": "Polusi, sampah, hemat energi, dan kebiasaan ramah lingkungan.",
+  "keySentences": [
+    {
+      "zh": "空气污染越来越严重了。",
+      "id": "Polusi udara semakin parah.",
+      "tokens": [
+        "空气",
+        "污染",
+        "越来越",
+        "严重",
+        "了",
+        "。"
+      ]
+    },
+    {
+      "zh": "我们应该保护环境，节约用水。",
+      "id": "Kita harus menjaga lingkungan dan menghemat air.",
+      "tokens": [
+        "我们",
+        "应该",
+        "保护",
+        "环境",
+        "，",
+        "节约",
+        "用水",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "垃圾要分开扔。",
+      "id": "Sampah harus dibuang terpisah.",
+      "tokens": [
+        "垃圾",
+        "要",
+        "分开",
+        "扔",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "骑自行车比开车更环保。",
+      "id": "Bersepeda lebih ramah lingkungan daripada menyetir.",
+      "tokens": [
+        "骑",
+        "自行车",
+        "比",
+        "开车",
+        "更",
+        "环保",
+        "。"
+      ],
+      "pieces": [
+        "骑自行车",
+        "比",
+        "开车",
+        "更",
+        "环保",
+        "。"
+      ]
+    },
+    {
+      "zh": "塑料袋对环境有很大的影响。",
+      "id": "Kantong plastik sangat berpengaruh pada lingkungan.",
+      "tokens": [
+        "塑料袋",
+        "对",
+        "环境",
+        "有",
+        "很大",
+        "的",
+        "影响",
+        "。"
+      ]
+    },
+    {
+      "zh": "森林对地球很重要。",
+      "id": "Hutan sangat penting bagi bumi.",
+      "tokens": [
+        "森林",
+        "对",
+        "地球",
+        "很",
+        "重要",
+        "。"
+      ]
+    },
+    {
+      "zh": "我们要减少浪费。",
+      "id": "Kita harus mengurangi pemborosan.",
+      "tokens": [
+        "我们",
+        "要",
+        "减少",
+        "浪费",
+        "。"
+      ]
+    },
+    {
+      "zh": "气候变化使天气越来越热。",
+      "id": "Perubahan iklim membuat cuaca semakin panas.",
+      "tokens": [
+        "气候",
+        "变化",
+        "使",
+        "天气",
+        "越来越",
+        "热",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "污染",
+      "arti": "polusi; mencemari"
+    },
+    {
+      "word": "垃圾",
+      "arti": "sampah"
+    },
+    {
+      "word": "节约",
+      "arti": "menghemat"
+    },
+    {
+      "word": "严重",
+      "arti": "parah; serius"
+    },
+    {
+      "word": "浪费",
+      "arti": "boros; membuang-buang"
+    },
+    {
+      "word": "塑料",
+      "arti": "plastik"
+    },
+    {
+      "word": "森林",
+      "arti": "hutan"
+    },
+    {
+      "word": "气候",
+      "arti": "iklim"
+    },
+    {
+      "word": "危险",
+      "arti": "bahaya; berbahaya"
+    },
+    {
+      "word": "环保",
+      "arti": "pelestarian lingkungan; ramah lingkungan"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你平时怎么保护环境？",
+      "ok": "我骑自行车上班，还把垃圾分开扔。",
+      "wrong": [
+        "我很喜欢旅行。",
+        "我每天锻炼身体。"
+      ],
+      "tq": "Bagaimana kamu biasanya menjaga lingkungan?",
+      "ta": "Aku bersepeda ke kantor dan memilah sampah."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：今天的空气怎么这么差？/男：最近污染很严重，你最好少出门。",
+      "q": "男的建议女的怎么做？",
+      "ok": "少出门",
+      "wrong": [
+        "去海边玩",
+        "多出去运动"
+      ],
+      "t_text": "Perempuan: Kenapa udara hari ini begini buruk? / Laki-laki: Belakangan ini polusi parah, sebaiknya kamu jarang keluar rumah.",
+      "t_q": "Apa saran si laki-laki?",
+      "t_ok": "Jarang keluar rumah"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：这个塑料袋太浪费了。/女：对，我每次买东西都带自己的袋子。",
+      "q": "女的买东西时怎么做？",
+      "ok": "带自己的袋子",
+      "wrong": [
+        "买很多塑料袋",
+        "不买东西"
+      ],
+      "t_text": "Laki-laki: Kantong plastik ini boros sekali. / Perempuan: Benar, setiap kali belanja aku membawa kantong sendiri.",
+      "t_q": "Apa yang dilakukan si perempuan saat belanja?",
+      "t_ok": "Membawa kantong sendiri"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "我们每个人都应该（　）环境，不要乱扔垃圾。",
+      "ok": "保护",
+      "wrong": [
+        "污染",
+        "浪费",
+        "影响"
+      ],
+      "zh": "我们每个人都应该保护环境，不要乱扔垃圾。",
+      "id": "Kita semua harus menjaga lingkungan, jangan membuang sampah sembarangan."
+    },
+    {
+      "kind": "cloze",
+      "stem": "用完电脑要关机，这样可以（　）用电。",
+      "ok": "节约",
+      "wrong": [
+        "污染",
+        "危险",
+        "严重"
+      ],
+      "zh": "用完电脑要关机，这样可以节约用电。",
+      "id": "Setelah memakai komputer harus dimatikan, dengan begitu bisa menghemat listrik."
+    },
+    {
+      "kind": "text",
+      "text": "我的城市以前空气很好，可是这几年，汽车越来越多，空气污染也越来越严重。现在很多人上班不开车，而是骑自行车或者坐地铁。我们也要从小事做起，比如节约用水，少用塑料袋。",
+      "q": "★ 现在很多人怎么上班？",
+      "ok": "骑自行车或者坐地铁",
+      "wrong": [
+        "开车",
+        "坐飞机"
+      ],
+      "t_text": "Dulu udara di kotaku bagus, tetapi beberapa tahun ini mobil makin banyak dan polusi udara makin parah. Sekarang banyak orang tidak menyetir ke kantor, melainkan bersepeda atau naik kereta bawah tanah. Kita juga harus memulai dari hal kecil, misalnya menghemat air dan mengurangi kantong plastik.",
+      "t_q": "Bagaimana banyak orang pergi bekerja sekarang?",
+      "t_ok": "Bersepeda atau naik kereta bawah tanah"
+    }
+  ],
+  "speaking": [
+    "空气污染越来越严重了。",
+    "骑自行车比开车更环保。",
+    "我们要减少浪费。"
+  ]
+}

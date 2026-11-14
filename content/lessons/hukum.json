@@ -1,0 +1,282 @@
+{
+  "id": "hukum",
+  "level": 6,
+  "seq": 5,
+  "zh": "法律和权益",
+  "title": "Hukum dan hak",
+  "summary": "Hak dan kewajiban, kontrak, tanggung jawab hukum, dan penyelesaian sengketa.",
+  "readings": {
+    "处理": "chǔ lǐ",
+    "处罚": "chǔ fá",
+    "行为": "xíng wéi",
+    "调解": "tiáo jiě",
+    "了解": "liǎo jiě",
+    "要求": "yāo qiú",
+    "目的": "mù dì"
+  },
+  "keySentences": [
+    {
+      "zh": "公民既有权利，也有义务。",
+      "id": "Warga negara punya hak dan juga kewajiban.",
+      "tokens": [
+        "公民",
+        "既有",
+        "权利",
+        "，",
+        "也有",
+        "义务",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "违反合同要承担法律责任。",
+      "id": "Melanggar kontrak harus menanggung tanggung jawab hukum.",
+      "tokens": [
+        "违反",
+        "合同",
+        "要",
+        "承担",
+        "法律",
+        "责任",
+        "。"
+      ],
+      "pieces": [
+        "违反合同",
+        "要",
+        "承担",
+        "法律责任",
+        "。"
+      ]
+    },
+    {
+      "zh": "他请律师维护自己的合法权利。",
+      "id": "Dia meminta pengacara membela hak-haknya yang sah.",
+      "tokens": [
+        "他",
+        "请",
+        "律师",
+        "维护",
+        "自己的",
+        "合法",
+        "权利",
+        "。"
+      ],
+      "pieces": [
+        "他",
+        "请",
+        "律师",
+        "维护",
+        "自己的",
+        "合法权利",
+        "。"
+      ]
+    },
+    {
+      "zh": "法院依法处理了这件事。",
+      "id": "Pengadilan menangani perkara ini sesuai hukum.",
+      "tokens": [
+        "法院",
+        "依法",
+        "处理了",
+        "这件事",
+        "。"
+      ]
+    },
+    {
+      "zh": "每个人都应该遵守法律。",
+      "id": "Setiap orang harus mematuhi hukum.",
+      "tokens": [
+        "每个",
+        "人",
+        "都",
+        "应该",
+        "遵守",
+        "法律",
+        "。"
+      ],
+      "pieces": [
+        "每个人",
+        "都",
+        "应该",
+        "遵守",
+        "法律",
+        "。"
+      ]
+    },
+    {
+      "zh": "合同必须由双方签字。",
+      "id": "Kontrak harus ditandatangani kedua pihak.",
+      "tokens": [
+        "合同",
+        "必须",
+        "由",
+        "双方",
+        "签字",
+        "。"
+      ],
+      "pieces": [
+        "合同",
+        "必须",
+        "由",
+        "双方",
+        "签字",
+        "。"
+      ]
+    },
+    {
+      "zh": "违法的行为要受到处罚。",
+      "id": "Perbuatan melanggar hukum akan dikenai sanksi.",
+      "tokens": [
+        "违法",
+        "的",
+        "行为",
+        "要",
+        "受到",
+        "处罚",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "遇到纠纷时，可以先调解。",
+      "id": "Saat ada sengketa, bisa mediasi dulu.",
+      "tokens": [
+        "遇到",
+        "纠纷",
+        "时",
+        "，",
+        "可以",
+        "先",
+        "调解",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "维护",
+      "arti": "menjaga; membela"
+    },
+    {
+      "word": "处罚",
+      "arti": "menghukum; sanksi"
+    },
+    {
+      "word": "赔偿",
+      "arti": "mengganti rugi; ganti rugi"
+    },
+    {
+      "word": "保障",
+      "arti": "menjamin; jaminan"
+    },
+    {
+      "word": "平等",
+      "arti": "setara; kesetaraan"
+    },
+    {
+      "word": "正义",
+      "arti": "keadilan"
+    },
+    {
+      "word": "监督",
+      "arti": "mengawasi; pengawasan"
+    },
+    {
+      "word": "纠纷",
+      "arti": "sengketa; perselisihan"
+    },
+    {
+      "word": "权利",
+      "arti": "hak"
+    },
+    {
+      "word": "义务",
+      "arti": "kewajiban"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "他为什么请律师？",
+      "ok": "他想维护自己的合法权利。",
+      "wrong": [
+        "他想买一套房子。",
+        "他要去国外旅行。"
+      ],
+      "tq": "Mengapa dia menyewa pengacara?",
+      "ta": "Dia ingin membela hak-haknya yang sah."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：这个合同我可以不签字吗？/男：可以，但是你要先了解合同的规定。",
+      "q": "男的建议女的先做什么？",
+      "ok": "了解合同规定",
+      "wrong": [
+        "马上签字",
+        "去法院"
+      ],
+      "t_text": "Perempuan: Bolehkah aku tidak menandatangani kontrak ini? / Laki-laki: Boleh, tetapi kamu harus memahami dulu ketentuan kontraknya.",
+      "t_q": "Apa yang disarankan si laki-laki untuk dilakukan lebih dulu?",
+      "t_ok": "Memahami ketentuan kontrak"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：公司违反了合同，应该怎么办？/女：可以要求对方赔偿，必要时请律师帮忙。",
+      "q": "女的建议男的怎么办？",
+      "ok": "要求赔偿，必要时请律师",
+      "wrong": [
+        "什么都不做",
+        "去找新工作"
+      ],
+      "t_text": "Laki-laki: Perusahaan melanggar kontrak, bagaimana sebaiknya? / Perempuan: Bisa menuntut ganti rugi, jika perlu minta bantuan pengacara.",
+      "t_q": "Apa saran si perempuan?",
+      "t_ok": "Menuntut ganti rugi dan jika perlu meminta pengacara"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "每个人在法律面前一律（　），不能因为身份不同而有特殊。",
+      "ok": "平等",
+      "wrong": [
+        "赔偿",
+        "处罚",
+        "监督"
+      ],
+      "zh": "每个人在法律面前一律平等，不能因为身份不同而有特殊。",
+      "id": "Setiap orang sama di hadapan hukum dan tidak boleh diperlakukan khusus karena status berbeda."
+    },
+    {
+      "kind": "cloze",
+      "stem": "法律的目的是维护社会（　），保障每个人的权利。",
+      "ok": "公平",
+      "wrong": [
+        "赔偿",
+        "纠纷",
+        "处罚"
+      ],
+      "zh": "法律的目的是维护社会公平，保障每个人的权利。",
+      "id": "Tujuan hukum adalah menjaga keadilan masyarakat dan menjamin hak setiap orang."
+    },
+    {
+      "kind": "text",
+      "text": "小区里两家邻居因为停车位发生了纠纷。他们先试着自己解决，但是谁也不愿意让步。后来，他们找了社区工作人员调解，最后双方都遵守了新的规定，纠纷得到了解决。这件事说明，遇到问题时，应该尊重对方，依法处理，不应该只靠争论解决。",
+      "q": "★ 这个纠纷最后怎么解决了？",
+      "ok": "通过调解，遵守新的规定",
+      "wrong": [
+        "一家搬走了",
+        "去法院打官司"
+      ],
+      "t_text": "Dua keluarga tetangga di kompleks perumahan bersengketa soal tempat parkir. Mereka mencoba menyelesaikannya sendiri, tetapi tak seorang pun mau mengalah. Kemudian mereka meminta petugas komunitas untuk memediasi, akhirnya kedua pihak mematuhi aturan baru dan sengketa terselesaikan. Kejadian ini menunjukkan bahwa saat menghadapi masalah, kita harus menghormati pihak lain, menanganinya sesuai hukum, dan tidak hanya mengandalkan perdebatan.",
+      "t_q": "Bagaimana sengketa itu akhirnya selesai?",
+      "t_ok": "Lewat mediasi dan mematuhi aturan baru"
+    }
+  ],
+  "speaking": [
+    "违反合同要承担法律责任。",
+    "每个人都应该遵守法律。",
+    "合同必须由双方签字。"
+  ]
+}

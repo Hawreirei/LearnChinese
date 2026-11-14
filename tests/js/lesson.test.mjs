@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { lessonSummary, nextLesson, STEPS, stepQuestions, isStepDone, doneCount, isComplete, nextStep, questionPosition, stepPercent, lessonWordIds } from "../../app/js/lesson.js";
+import { groupByLevel, levelSummary, lessonSummary, nextLesson, STEPS, stepQuestions, isStepDone, doneCount, isComplete, nextStep, questionPosition, stepPercent, lessonWordIds } from "../../app/js/lesson.js";
 import { Store } from "../../app/js/store.js";
 import { buildQueue } from "../../app/js/session.js";
 import { withTiles, check } from "../../app/js/practice.js";
@@ -98,7 +98,10 @@ test("a pinned word that already has a card is not offered again", () => {
 });
 
 test("lessons are ordered easiest first and each can be summarised", () => {
-  assert.deepEqual(lessons.map((l) => [l.id, l.level]), [["perkenalan", 1], ["belanja", 2], ["tanya-arah", 2], ["restoran", 3], ["rumah-sakit", 3]]);
+  assert.deepEqual(lessons.map((l) => [l.id, l.level]), [["sapaan", 1], ["perkenalan", 1], ["angka-waktu", 1], ["keluarga", 1], ["makan-minum", 1], ["cuaca", 1], ["sekolah", 1], ["belanja", 2], ["tanya-arah", 2], ["telepon", 2], ["transportasi", 2], ["olahraga", 2], ["sekolah-2", 2], ["restoran", 3], ["rumah-sakit", 3], ["hotel", 3], ["kantor", 3], ["sewa-rumah", 3], ["belajar-mandarin", 3],
+    ["wawancara", 4], ["perjalanan", 4], ["kesehatan", 4], ["belanja-online", 4], ["lingkungan", 4],
+    ["rapat", 5], ["berita", 5], ["teknologi", 5], ["pendidikan", 5], ["budaya", 5],
+    ["debat", 6], ["ekonomi", 6], ["tradisi", 6], ["sains", 6], ["hukum", 6]]);
   const s = new Store(mem());
   const empty = lessonSummary(lessons[0], s.lessonProgress("perkenalan"));
   assert.deepEqual({ done: empty.done, started: empty.started, speaking: empty.speaking }, { done: 0, started: false, speaking: null });
@@ -112,7 +115,7 @@ test("lessons are ordered easiest first and each can be summarised", () => {
 
 test("nextLesson: continue the started unfinished one, else the first not started, else none", () => {
   const s = new Store(mem());
-  assert.equal(nextLesson(lessons, s).id, "perkenalan");
+  assert.equal(nextLesson(lessons, s).id, "sapaan");                    // the first lesson of the easiest level
   s.saveLessonStep("restoran", "listening", { ok: 1, n: 3 });          // restoran started: continue it, not the first untouched one
   assert.equal(nextLesson(lessons, s).id, "restoran");
   for (const l of lessons) for (const st of STEPS) s.saveLessonStep(l.id, st.key);
@@ -143,4 +146,14 @@ test("ordering items accept the listed alternative order, nothing else", () => {
   assert.equal(check(q, q.tokens).correct, true);
   assert.equal(check(q, ["请", "给", "我", "菜单", "，", "服务员", "。"]).correct, true);     // the alternative, pieces rearranged
   assert.equal(check(q, ["服务员", "请", "给", "我", "菜单", "，", "。"]).correct, false);
+});
+
+test("groupByLevel: easiest level first, order inside a level kept; levelSummary counts complete and started", () => {
+  const ls = [{ id: "c", level: 3 }, { id: "a", level: 1 }, { id: "b", level: 1 }, { id: "d", level: 2 }];
+  assert.deepEqual(groupByLevel(ls).map((g) => [g.level, g.lessons.map((l) => l.id)]), [[1, ["a", "b"]], [2, ["d"]], [3, ["c"]]]);
+  assert.deepEqual(groupByLevel([]), []);
+  const s = new Store(mem());
+  for (const st of STEPS) s.saveLessonStep("a", st.key);                 // a: complete
+  s.saveLessonStep("b", "listening", { ok: 1, n: 3 });                   // b: started
+  assert.deepEqual(levelSummary(ls, s), [{ level: 1, total: 2, complete: 1, started: 2 }, { level: 2, total: 1, complete: 0, started: 0 }, { level: 3, total: 1, complete: 0, started: 0 }]);
 });

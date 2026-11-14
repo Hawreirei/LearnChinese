@@ -1,0 +1,267 @@
+{
+  "id": "berita",
+  "level": 5,
+  "seq": 2,
+  "zh": "新闻和社会",
+  "title": "Berita dan isu sosial",
+  "summary": "Memahami berita, menilai keandalan informasi, dan menyikapi fenomena sosial.",
+  "readings": {
+    "调查": "diào chá",
+    "报道了": "bào dào le"
+  },
+  "keySentences": [
+    {
+      "zh": "这条新闻引起了很多人的关注。",
+      "id": "Berita ini menarik perhatian banyak orang.",
+      "tokens": [
+        "这条",
+        "新闻",
+        "引起了",
+        "很多",
+        "人",
+        "的",
+        "关注",
+        "。"
+      ],
+      "pieces": [
+        "这条新闻",
+        "引起了",
+        "很多人",
+        "的",
+        "关注",
+        "。"
+      ]
+    },
+    {
+      "zh": "记者报道了事件的真实情况。",
+      "id": "Wartawan melaporkan keadaan sebenarnya dari peristiwa itu.",
+      "tokens": [
+        "记者",
+        "报道了",
+        "事件",
+        "的",
+        "真实",
+        "情况",
+        "。"
+      ]
+    },
+    {
+      "zh": "网上的消息不一定都可靠。",
+      "id": "Kabar di internet belum tentu semuanya dapat dipercaya.",
+      "tokens": [
+        "网上",
+        "的",
+        "消息",
+        "不一定",
+        "都",
+        "可靠",
+        "。"
+      ]
+    },
+    {
+      "zh": "我们应该理性看待这种现象。",
+      "id": "Kita harus menyikapi fenomena ini secara rasional.",
+      "tokens": [
+        "我们",
+        "应该",
+        "理性",
+        "看待",
+        "这种",
+        "现象",
+        "。"
+      ]
+    },
+    {
+      "zh": "事实比传说更重要。",
+      "id": "Fakta lebih penting daripada kabar burung.",
+      "tokens": [
+        "事实",
+        "比",
+        "传说",
+        "更",
+        "重要",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "在发布消息以前，要先调查。",
+      "id": "Sebelum menyiarkan kabar, harus menyelidiki dulu.",
+      "tokens": [
+        "在",
+        "发布",
+        "消息",
+        "以前",
+        "，",
+        "要",
+        "先",
+        "调查",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "媒体有责任说出真实的情况。",
+      "id": "Media bertanggung jawab menyampaikan keadaan yang sebenarnya.",
+      "tokens": [
+        "媒体",
+        "有",
+        "责任",
+        "说出",
+        "真实",
+        "的",
+        "情况",
+        "。"
+      ],
+      "pieces": [
+        "媒体",
+        "有责任",
+        "说出",
+        "真实的",
+        "情况",
+        "。"
+      ]
+    },
+    {
+      "zh": "网友们对这件事有不同的看法。",
+      "id": "Warganet punya pendapat berbeda tentang hal ini.",
+      "tokens": [
+        "网友",
+        "们",
+        "对",
+        "这件事",
+        "有",
+        "不同",
+        "的",
+        "看法",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "报道",
+      "arti": "melaporkan; laporan berita"
+    },
+    {
+      "word": "现象",
+      "arti": "gejala; fenomena"
+    },
+    {
+      "word": "事件",
+      "arti": "peristiwa; kejadian"
+    },
+    {
+      "word": "可靠",
+      "arti": "dapat dipercaya"
+    },
+    {
+      "word": "真实",
+      "arti": "nyata; sebenarnya"
+    },
+    {
+      "word": "媒体",
+      "arti": "media"
+    },
+    {
+      "word": "传播",
+      "arti": "menyebarkan; tersebar"
+    },
+    {
+      "word": "事实",
+      "arti": "fakta"
+    },
+    {
+      "word": "证据",
+      "arti": "bukti"
+    },
+    {
+      "word": "话题",
+      "arti": "topik pembicaraan"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你是从哪里看到这条新闻的？",
+      "ok": "我在网上看到的。",
+      "wrong": [
+        "我是一名记者。",
+        "新闻很短。"
+      ],
+      "tq": "Dari mana kamu melihat berita ini?",
+      "ta": "Aku melihatnya di internet."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：这个消息是真的吗？/男：我也不知道，最好先看看记者的报道。",
+      "q": "男的建议女的怎么做？",
+      "ok": "先看记者的报道",
+      "wrong": [
+        "马上告诉朋友",
+        "不要看新闻"
+      ],
+      "t_text": "Perempuan: Apakah kabar ini benar? / Laki-laki: Aku juga tidak tahu, sebaiknya baca dulu laporan wartawan.",
+      "t_q": "Apa saran si laki-laki?",
+      "t_ok": "Membaca dulu laporan wartawan"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：这个话题现在很热。/女：是啊，网友们的看法都不太一样。",
+      "q": "网友们的看法怎么样？",
+      "ok": "不一样",
+      "wrong": [
+        "完全相同",
+        "没有人关注"
+      ],
+      "t_text": "Laki-laki: Topik ini sedang hangat. / Perempuan: Betul, pendapat warganet tidak sama.",
+      "t_q": "Bagaimana pendapat warganet?",
+      "t_ok": "Berbeda-beda"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "在没有（　）以前，我们不要相信这个消息。",
+      "ok": "证据",
+      "wrong": [
+        "现象",
+        "媒体",
+        "话题"
+      ],
+      "zh": "在没有证据以前，我们不要相信这个消息。",
+      "id": "Sebelum ada bukti, kita jangan percaya kabar ini."
+    },
+    {
+      "kind": "cloze",
+      "stem": "这个消息很快就在网上（　）开了。",
+      "ok": "传播",
+      "wrong": [
+        "报道",
+        "调查",
+        "发布"
+      ],
+      "zh": "这个消息很快就在网上传播开了。",
+      "id": "Kabar ini cepat tersebar di internet."
+    },
+    {
+      "kind": "text",
+      "text": "昨天，一条关于城市交通的新闻在网上很快传开了，很多网友都在讨论。可是后来记者调查发现，这条新闻里有一些内容并不真实。这件事让大家明白：看到消息以后，不要马上相信，也不要马上转发，应该先看看事实和证据。",
+      "q": "★ 这件事让大家明白什么？",
+      "ok": "看到消息要先看事实和证据",
+      "wrong": [
+        "新闻都是假的",
+        "不要看网上的话题"
+      ],
+      "t_text": "Kemarin sebuah berita tentang lalu lintas kota cepat menyebar di internet dan banyak warganet membicarakannya. Namun kemudian wartawan menyelidiki dan menemukan sebagian isi berita itu tidak benar. Hal ini membuat semua orang paham: setelah membaca kabar, jangan langsung percaya, jangan langsung membagikannya, tetapi lihat dulu fakta dan buktinya.",
+      "t_q": "Apa yang dipahami semua orang dari kejadian ini?",
+      "t_ok": "Lihat dulu fakta dan bukti"
+    }
+  ],
+  "speaking": [
+    "网上的消息不一定都可靠。",
+    "我们应该理性看待这种现象。",
+    "事实比传说更重要。"
+  ]
+}

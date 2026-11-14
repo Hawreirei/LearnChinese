@@ -1,0 +1,217 @@
+{
+  "id": "sewa-rumah",
+  "level": 3,
+  "seq": 5,
+  "zh": "租房子",
+  "title": "Mencari rumah sewaan",
+  "summary": "Menanyakan kondisi rumah, lokasi, dan harga sewa.",
+  "readings": {
+    "便宜": "pián yi",
+    "干净": "gān jìng"
+  },
+  "keySentences": [
+    {
+      "zh": "这个房子离地铁站很近。",
+      "id": "Rumah ini dekat dengan stasiun kereta bawah tanah.",
+      "tokens": [
+        "这个",
+        "房子",
+        "离",
+        "地铁",
+        "站",
+        "很",
+        "近",
+        "。"
+      ]
+    },
+    {
+      "zh": "房间很大，也很干净。",
+      "id": "Kamarnya besar dan juga bersih.",
+      "tokens": [
+        "房间",
+        "很",
+        "大",
+        "，",
+        "也",
+        "很",
+        "干净",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "附近很安静。",
+      "id": "Sekitarnya sangat tenang.",
+      "tokens": [
+        "附近",
+        "很",
+        "安静",
+        "。"
+      ]
+    },
+    {
+      "zh": "我想租一个便宜的房子。",
+      "id": "Aku ingin menyewa rumah yang murah.",
+      "tokens": [
+        "我",
+        "想",
+        "租",
+        "一",
+        "个",
+        "便宜",
+        "的",
+        "房子",
+        "。"
+      ]
+    },
+    {
+      "zh": "这里去哪里都很方便。",
+      "id": "Dari sini pergi ke mana pun mudah.",
+      "tokens": [
+        "这里",
+        "去",
+        "哪里",
+        "都",
+        "很",
+        "方便",
+        "。"
+      ]
+    },
+    {
+      "zh": "房子有两个房间。",
+      "id": "Rumah ini punya dua kamar.",
+      "tokens": [
+        "房子",
+        "有",
+        "两",
+        "个",
+        "房间",
+        "。"
+      ]
+    },
+    {
+      "zh": "我下个月搬家。",
+      "id": "Bulan depan aku pindah rumah.",
+      "tokens": [
+        "我",
+        "下",
+        "个",
+        "月",
+        "搬",
+        "家",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "房子很新，也很干净。",
+      "id": "Rumahnya baru dan juga bersih.",
+      "tokens": [
+        "房子",
+        "很",
+        "新",
+        "，",
+        "也",
+        "很",
+        "干净",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    "房子",
+    "搬",
+    "干净",
+    "安静",
+    "附近",
+    "方便",
+    "房间",
+    "楼",
+    "地铁",
+    "便宜"
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "这个房子怎么样？",
+      "ok": "很干净，也很安静。",
+      "wrong": [
+        "我在学校。",
+        "他是医生。"
+      ],
+      "tq": "Bagaimana rumah ini?",
+      "ta": "Bersih dan juga tenang."
+    },
+    {
+      "kind": "dialog",
+      "text": "男：这个房子离地铁站远吗？/女：不远，走路五分钟。",
+      "q": "房子离地铁站远吗？",
+      "ok": "不远",
+      "wrong": [
+        "很远",
+        "没有地铁站"
+      ],
+      "t_text": "Laki-laki: Apakah rumah ini jauh dari stasiun? / Perempuan: Tidak jauh, jalan kaki lima menit.",
+      "t_q": "Apakah rumah jauh dari stasiun?",
+      "t_ok": "Tidak jauh"
+    },
+    {
+      "kind": "dialog",
+      "text": "女：一个月多少钱？/男：三千块，很便宜。",
+      "q": "房子一个月多少钱？",
+      "ok": "三千块",
+      "wrong": [
+        "三百块",
+        "三万块"
+      ],
+      "t_text": "Perempuan: Sebulan berapa? / Laki-laki: Tiga ribu yuan, murah sekali.",
+      "t_q": "Berapa harga sewa sebulan?",
+      "t_ok": "Tiga ribu yuan"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "这个房子（　）地铁站很近。",
+      "ok": "离",
+      "wrong": [
+        "在",
+        "给",
+        "吗"
+      ],
+      "zh": "这个房子离地铁站很近。",
+      "id": "Rumah ini dekat dengan stasiun kereta bawah tanah."
+    },
+    {
+      "kind": "cloze",
+      "stem": "附近很（　），晚上我可以休息。",
+      "ok": "安静",
+      "wrong": [
+        "医院",
+        "学校",
+        "朋友"
+      ],
+      "zh": "附近很安静，晚上我可以休息。",
+      "id": "Sekitarnya tenang, malam hari aku bisa beristirahat."
+    },
+    {
+      "kind": "text",
+      "text": "我想租一个房子。这个房子离公司很近，附近很安静，也很干净。房子有两个房间，一个月三千块。",
+      "q": "★ 这个房子怎么样？",
+      "ok": "离公司近，也很干净",
+      "wrong": [
+        "离公司很远",
+        "很小，不干净"
+      ],
+      "t_text": "Aku ingin menyewa rumah. Rumah ini dekat dengan kantor, sekitarnya tenang dan juga bersih. Rumahnya punya dua kamar, sebulan tiga ribu yuan.",
+      "t_q": "Bagaimana rumah ini?",
+      "t_ok": "Dekat kantor dan bersih"
+    }
+  ],
+  "speaking": [
+    "这个房子离地铁站很近。",
+    "附近很安静。",
+    "我想租一个便宜的房子。"
+  ]
+}

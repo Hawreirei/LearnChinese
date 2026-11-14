@@ -1,0 +1,267 @@
+{
+  "id": "wawancara",
+  "level": 4,
+  "seq": 1,
+  "zh": "面试",
+  "title": "Wawancara kerja",
+  "summary": "Memperkenalkan diri, menceritakan pengalaman, dan menjawab pertanyaan pewawancara.",
+  "readings": {
+    "感兴趣": "gǎn xìng qù",
+    "应聘": "yìng pìn"
+  },
+  "keySentences": [
+    {
+      "zh": "请你先介绍一下自己。",
+      "id": "Silakan perkenalkan diri Anda dulu.",
+      "tokens": [
+        "请你",
+        "先",
+        "介绍",
+        "一下",
+        "自己",
+        "。"
+      ]
+    },
+    {
+      "zh": "我对这个工作很感兴趣。",
+      "id": "Aku sangat tertarik pada pekerjaan ini.",
+      "tokens": [
+        "我",
+        "对",
+        "这个",
+        "工作",
+        "很",
+        "感兴趣",
+        "。"
+      ],
+      "pieces": [
+        "我",
+        "对这个工作",
+        "很",
+        "感兴趣",
+        "。"
+      ]
+    },
+    {
+      "zh": "我在这方面有三年的经验。",
+      "id": "Dalam bidang ini aku punya pengalaman tiga tahun.",
+      "tokens": [
+        "我",
+        "在",
+        "这方面",
+        "有",
+        "三年",
+        "的",
+        "经验",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "我希望能有机会证明自己。",
+      "id": "Aku berharap punya kesempatan membuktikan diri.",
+      "tokens": [
+        "我",
+        "希望",
+        "能",
+        "有",
+        "机会",
+        "证明",
+        "自己",
+        "。"
+      ],
+      "pieces": [
+        "我",
+        "希望",
+        "能有机会",
+        "证明自己",
+        "。"
+      ]
+    },
+    {
+      "zh": "我是去年毕业的。",
+      "id": "Aku lulus tahun lalu.",
+      "tokens": [
+        "我",
+        "是",
+        "去年",
+        "毕业",
+        "的",
+        "。"
+      ]
+    },
+    {
+      "zh": "你为什么想应聘这个职位？",
+      "id": "Mengapa Anda ingin melamar posisi ini?",
+      "tokens": [
+        "你",
+        "为什么",
+        "想",
+        "应聘",
+        "这个",
+        "职位",
+        "？"
+      ],
+      "pieces": [
+        "你",
+        "为什么",
+        "想",
+        "应聘这个职位",
+        "？"
+      ]
+    },
+    {
+      "zh": "我的专业是经济。",
+      "id": "Jurusanku adalah ekonomi.",
+      "tokens": [
+        "我",
+        "的",
+        "专业",
+        "是",
+        "经济",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "请问工资和加班的情况怎么样？",
+      "id": "Permisi, bagaimana soal gaji dan lembur?",
+      "tokens": [
+        "请问",
+        "工资",
+        "和",
+        "加班",
+        "的",
+        "情况",
+        "怎么样",
+        "？"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "面试",
+      "arti": "wawancara kerja"
+    },
+    {
+      "word": "应聘",
+      "arti": "melamar pekerjaan"
+    },
+    {
+      "word": "经验",
+      "arti": "pengalaman"
+    },
+    {
+      "word": "工资",
+      "arti": "gaji"
+    },
+    {
+      "word": "专业",
+      "arti": "jurusan; bidang keahlian"
+    },
+    {
+      "word": "毕业",
+      "arti": "lulus"
+    },
+    {
+      "word": "竞争",
+      "arti": "bersaing; persaingan"
+    },
+    {
+      "word": "优点",
+      "arti": "kelebihan"
+    },
+    {
+      "word": "缺点",
+      "arti": "kekurangan"
+    },
+    {
+      "word": "紧张",
+      "arti": "gugup; tegang"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你为什么想应聘这个工作？",
+      "ok": "因为我对这个工作很感兴趣。",
+      "wrong": [
+        "我是去年毕业的。",
+        "我的工资很高。"
+      ],
+      "tq": "Mengapa Anda ingin melamar pekerjaan ini?",
+      "ta": "Karena aku sangat tertarik pada pekerjaan ini."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：你有工作经验吗？/男：有，我在一家公司工作过三年。",
+      "q": "男的有多少年工作经验？",
+      "ok": "三年",
+      "wrong": [
+        "一年",
+        "五年"
+      ],
+      "t_text": "Perempuan: Apakah kamu punya pengalaman kerja? / Laki-laki: Ada, aku pernah bekerja di sebuah perusahaan selama tiga tahun.",
+      "t_q": "Berapa tahun pengalaman kerja si laki-laki?",
+      "t_ok": "Tiga tahun"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：明天的面试，你紧张吗？/女：有一点儿紧张，不过我准备得很好。",
+      "q": "女的觉得怎么样？",
+      "ok": "有点儿紧张，但是准备好了",
+      "wrong": [
+        "一点儿也不紧张",
+        "还没有准备"
+      ],
+      "t_text": "Laki-laki: Wawancara besok, kamu gugup? / Perempuan: Agak gugup, tapi aku sudah mempersiapkan diri dengan baik.",
+      "t_q": "Bagaimana perasaan si perempuan?",
+      "t_ok": "Agak gugup tetapi sudah siap"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "面试的时候，你要（　）一点儿，不要太紧张。",
+      "ok": "自信",
+      "wrong": [
+        "竞争",
+        "毕业",
+        "缺点"
+      ],
+      "zh": "面试的时候，你要自信一点儿，不要太紧张。",
+      "id": "Saat wawancara, kamu harus lebih percaya diri dan jangan terlalu gugup."
+    },
+    {
+      "kind": "cloze",
+      "stem": "他的优点是认真，（　）是有时候不够细心。",
+      "ok": "缺点",
+      "wrong": [
+        "专业",
+        "工资",
+        "经验"
+      ],
+      "zh": "他的优点是认真，缺点是有时候不够细心。",
+      "id": "Kelebihannya adalah teliti, kekurangannya kadang kurang cermat."
+    },
+    {
+      "kind": "text",
+      "text": "昨天我去一家公司面试。面试以前，我准备了很多问题，所以不太紧张。面试的人问我有什么优点，我说自己很认真，也愿意加班。最后，他说下个星期会给我打电话。",
+      "q": "★ 面试的人下个星期会做什么？",
+      "ok": "给我打电话",
+      "wrong": [
+        "让我加班",
+        "请我吃饭"
+      ],
+      "t_text": "Kemarin aku wawancara di sebuah perusahaan. Sebelumnya aku menyiapkan banyak pertanyaan sehingga tidak terlalu gugup. Pewawancara bertanya apa kelebihanku, kujawab aku teliti dan bersedia lembur. Terakhir dia bilang minggu depan akan meneleponku.",
+      "t_q": "Apa yang akan dilakukan pewawancara minggu depan?",
+      "t_ok": "Menelepon aku"
+    }
+  ],
+  "speaking": [
+    "请你先介绍一下自己。",
+    "我对这个工作很感兴趣。",
+    "我希望能有机会证明自己。"
+  ]
+}

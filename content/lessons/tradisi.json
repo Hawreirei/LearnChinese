@@ -1,0 +1,274 @@
+{
+  "id": "tradisi",
+  "level": 6,
+  "seq": 3,
+  "zh": "传统节日",
+  "title": "Festival dan adat tradisional",
+  "summary": "Tahun Baru Imlek, tradisi keluarga, dan perbedaan adat antardaerah.",
+  "readings": {
+    "不尽相同": "bù jìn xiāng tóng",
+    "差异": "chā yì"
+  },
+  "keySentences": [
+    {
+      "zh": "春节是中国最重要的节日。",
+      "id": "Imlek adalah festival terpenting di Tiongkok.",
+      "tokens": [
+        "春节",
+        "是",
+        "中国",
+        "最",
+        "重要",
+        "的",
+        "节日",
+        "。"
+      ],
+      "pieces": [
+        "春节",
+        "是",
+        "中国",
+        "最重要的",
+        "节日",
+        "。"
+      ]
+    },
+    {
+      "zh": "除夕夜，全家人团圆吃年夜饭。",
+      "id": "Pada malam tahun baru, seluruh keluarga berkumpul dan makan malam bersama.",
+      "tokens": [
+        "除夕夜",
+        "，",
+        "全家人",
+        "团圆",
+        "吃",
+        "年夜饭",
+        "。"
+      ],
+      "pieces": [
+        "除夕夜",
+        "，",
+        "全家人",
+        "团圆",
+        "吃年夜饭",
+        "。"
+      ]
+    },
+    {
+      "zh": "按照习俗，长辈要给孩子压岁钱。",
+      "id": "Menurut adat, orang yang lebih tua memberi anak-anak angpao.",
+      "tokens": [
+        "按照",
+        "习俗",
+        "，",
+        "长辈",
+        "要",
+        "给",
+        "孩子",
+        "压岁钱",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "各地的庆祝方式不尽相同。",
+      "id": "Cara merayakannya berbeda-beda di tiap daerah.",
+      "tokens": [
+        "各地",
+        "的",
+        "庆祝",
+        "方式",
+        "不尽相同",
+        "。"
+      ],
+      "pieces": [
+        "各地",
+        "的",
+        "庆祝方式",
+        "不尽相同",
+        "。"
+      ]
+    },
+    {
+      "zh": "元宵节要吃汤圆。",
+      "id": "Pada Festival Yuanxiao orang makan tangyuan.",
+      "tokens": [
+        "元宵节",
+        "要",
+        "吃",
+        "汤圆",
+        "。"
+      ]
+    },
+    {
+      "zh": "家家户户都贴春联。",
+      "id": "Setiap rumah menempel kertas syair Imlek.",
+      "tokens": [
+        "家家户户",
+        "都",
+        "贴",
+        "春联",
+        "。"
+      ],
+      "pieces": [
+        "家家户户",
+        "都",
+        "贴",
+        "春联",
+        "。"
+      ]
+    },
+    {
+      "zh": "他回家乡和家人团圆。",
+      "id": "Dia pulang kampung untuk berkumpul dengan keluarga.",
+      "tokens": [
+        "他",
+        "回",
+        "家乡",
+        "和",
+        "家人",
+        "团圆",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "大家互相拜年，表示祝福。",
+      "id": "Semua orang saling memberi ucapan tahun baru sebagai tanda doa baik.",
+      "tokens": [
+        "大家",
+        "互相",
+        "拜年",
+        "，",
+        "表示",
+        "祝福",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "习俗",
+      "arti": "adat; kebiasaan"
+    },
+    {
+      "word": "团圆",
+      "arti": "berkumpul kembali (dengan keluarga)"
+    },
+    {
+      "word": "长辈",
+      "arti": "orang yang lebih tua; angkatan tua"
+    },
+    {
+      "word": "灯笼",
+      "arti": "lampion"
+    },
+    {
+      "word": "元宵",
+      "arti": "Festival Yuanxiao; tangyuan"
+    },
+    {
+      "word": "粽子",
+      "arti": "zongzi (kue nasi berbungkus daun)"
+    },
+    {
+      "word": "拜年",
+      "arti": "mengucapkan selamat tahun baru"
+    },
+    {
+      "word": "祝福",
+      "arti": "mendoakan; ucapan doa baik"
+    },
+    {
+      "word": "仪式",
+      "arti": "upacara; ritual"
+    },
+    {
+      "word": "差异",
+      "arti": "perbedaan"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "春节的时候你们做什么？",
+      "ok": "全家人一起吃年夜饭，还要拜年。",
+      "wrong": [
+        "我们去海边游泳。",
+        "我在公司加班。"
+      ],
+      "tq": "Apa yang kalian lakukan saat Imlek?",
+      "ta": "Seluruh keluarga makan malam bersama dan juga saling mengucapkan selamat tahun baru."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：你们那儿元宵节吃什么？/男：我们吃汤圆，象征团圆。",
+      "q": "元宵节吃什么？",
+      "ok": "汤圆",
+      "wrong": [
+        "粽子",
+        "月饼"
+      ],
+      "t_text": "Perempuan: Di tempatmu, saat Yuanxiao makan apa? / Laki-laki: Kami makan tangyuan, melambangkan berkumpulnya keluarga.",
+      "t_q": "Apa yang dimakan saat Yuanxiao?",
+      "t_ok": "Tangyuan"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：过年的时候，长辈为什么给孩子红包？/女：这是一种祝福，希望孩子平安。",
+      "q": "红包代表什么？",
+      "ok": "祝福",
+      "wrong": [
+        "工资",
+        "批评"
+      ],
+      "t_text": "Laki-laki: Saat tahun baru, mengapa orang tua memberi angpao kepada anak-anak? / Perempuan: Itu semacam doa baik, berharap anak selamat dan sehat.",
+      "t_q": "Apa makna angpao?",
+      "t_ok": "Doa baik"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "春节快到了，街上挂满了红红的（　），非常热闹。",
+      "ok": "灯笼",
+      "wrong": [
+        "习俗",
+        "差异",
+        "仪式"
+      ],
+      "zh": "春节快到了，街上挂满了红红的灯笼，非常热闹。",
+      "id": "Imlek hampir tiba, jalanan penuh lampion merah dan sangat meriah."
+    },
+    {
+      "kind": "cloze",
+      "stem": "不同的地区有不同的（　），比如北方人爱吃饺子，南方人爱吃汤圆。",
+      "ok": "习俗",
+      "wrong": [
+        "灯笼",
+        "元宵",
+        "长辈"
+      ],
+      "zh": "不同的地区有不同的习俗，比如北方人爱吃饺子，南方人爱吃汤圆。",
+      "id": "Tiap daerah punya adat yang berbeda, misalnya orang utara suka makan pangsit, orang selatan suka tangyuan."
+    },
+    {
+      "kind": "text",
+      "text": "春节是中国人最重视的节日。除夕那天，在外工作的人都要赶回家，全家人团圆，一起吃年夜饭。春节期间，人们互相拜年，长辈会给孩子红包，表示祝福。虽然各地的习俗有一些差异，但是人们盼望团圆的心情是一样的。",
+      "q": "★ 各地春节习俗怎么样？",
+      "ok": "有些不同，但都盼望团圆",
+      "wrong": [
+        "完全一样",
+        "没有人过春节"
+      ],
+      "t_text": "Imlek adalah festival yang paling dihargai orang Tionghoa. Pada hari malam tahun baru, orang yang bekerja di perantauan bergegas pulang, seluruh keluarga berkumpul dan makan malam bersama. Selama Imlek orang saling mengucapkan selamat tahun baru, dan orang yang lebih tua memberi angpao kepada anak-anak sebagai doa baik. Meskipun adat tiap daerah ada perbedaan, perasaan orang yang mendambakan berkumpul tetap sama.",
+      "t_q": "Bagaimana adat Imlek di berbagai daerah?",
+      "t_ok": "Ada yang berbeda, tetapi semua mendambakan berkumpul"
+    }
+  ],
+  "speaking": [
+    "春节是中国最重要的节日。",
+    "元宵节要吃汤圆。",
+    "各地的庆祝方式不尽相同。"
+  ]
+}

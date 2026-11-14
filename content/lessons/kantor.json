@@ -1,0 +1,219 @@
+{
+  "id": "kantor",
+  "level": 3,
+  "seq": 4,
+  "zh": "在办公室",
+  "title": "Di kantor",
+  "summary": "Pekerjaan sehari-hari, rapat singkat, dan meminta bantuan rekan.",
+  "keySentences": [
+    {
+      "zh": "经理在办公室开会。",
+      "id": "Manajer sedang rapat di kantor.",
+      "tokens": [
+        "经理",
+        "在",
+        "办公室",
+        "开会",
+        "。"
+      ]
+    },
+    {
+      "zh": "你能帮我一下吗？",
+      "id": "Bisa tolong bantu aku sebentar?",
+      "tokens": [
+        "你",
+        "能",
+        "帮",
+        "我",
+        "一下",
+        "吗",
+        "？"
+      ]
+    },
+    {
+      "zh": "我今天工作很忙。",
+      "id": "Hari ini pekerjaanku sangat sibuk.",
+      "tokens": [
+        "我",
+        "今天",
+        "工作",
+        "很",
+        "忙",
+        "。"
+      ],
+      "alt": [
+        "今天我工作很忙。"
+      ]
+    },
+    {
+      "zh": "请给我发一个邮件。",
+      "id": "Tolong kirimi aku sebuah email.",
+      "tokens": [
+        "请",
+        "给",
+        "我",
+        "发",
+        "一",
+        "个",
+        "邮件",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "同事们都在工作。",
+      "id": "Para rekan semua sedang bekerja.",
+      "tokens": [
+        "同事",
+        "们",
+        "都",
+        "在",
+        "工作",
+        "。"
+      ]
+    },
+    {
+      "zh": "我马上去办公室。",
+      "id": "Aku segera ke kantor.",
+      "tokens": [
+        "我",
+        "马上",
+        "去",
+        "办公室",
+        "。"
+      ],
+      "alt": [
+        "马上我去办公室。"
+      ]
+    },
+    {
+      "zh": "经理让我给他打电话。",
+      "id": "Manajer menyuruhku meneleponnya.",
+      "tokens": [
+        "经理",
+        "让",
+        "我",
+        "给",
+        "他",
+        "打",
+        "电话",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "今天的工作很多，我需要你的帮助。",
+      "id": "Pekerjaan hari ini banyak, aku butuh bantuanmu.",
+      "tokens": [
+        "今天",
+        "的",
+        "工作",
+        "很",
+        "多",
+        "，",
+        "我",
+        "需要",
+        "你",
+        "的",
+        "帮助",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    "公司",
+    "经理",
+    "同事",
+    "工作",
+    "办公室",
+    "开会",
+    "忙",
+    "邮件",
+    "帮助",
+    "需要"
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "经理在哪里？",
+      "ok": "经理在办公室。",
+      "wrong": [
+        "经理是老师。",
+        "我不忙。"
+      ],
+      "tq": "Di mana manajernya?",
+      "ta": "Manajer ada di kantor."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：你今天忙吗？/男：很忙，我要开会。",
+      "q": "男的今天要做什么？",
+      "ok": "开会",
+      "wrong": [
+        "休息",
+        "看电影"
+      ],
+      "t_text": "Perempuan: Kamu sibuk hari ini? / Laki-laki: Sangat sibuk, aku harus rapat.",
+      "t_q": "Apa yang harus dilakukan si laki-laki hari ini?",
+      "t_ok": "Rapat"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：你能帮我一下吗？/女：好的，我马上来。",
+      "q": "女的会帮男的吗？",
+      "ok": "会",
+      "wrong": [
+        "不会",
+        "不知道"
+      ],
+      "t_text": "Laki-laki: Bisa tolong bantu aku sebentar? / Perempuan: Baik, aku segera datang.",
+      "t_q": "Apakah si perempuan akan membantu?",
+      "t_ok": "Ya, akan"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "经理在办公室（　）。",
+      "ok": "开会",
+      "wrong": [
+        "游泳",
+        "跳舞",
+        "喝水"
+      ],
+      "zh": "经理在办公室开会。",
+      "id": "Manajer sedang rapat di kantor."
+    },
+    {
+      "kind": "cloze",
+      "stem": "我今天很（　），没有时间休息。",
+      "ok": "忙",
+      "wrong": [
+        "吗",
+        "的",
+        "和"
+      ],
+      "zh": "我今天很忙，没有时间休息。",
+      "id": "Hari ini aku sangat sibuk, tidak ada waktu istirahat."
+    },
+    {
+      "kind": "text",
+      "text": "我在公司工作。今天经理开会，同事们都很忙。我需要同事帮助，他们说马上来。",
+      "q": "★ 谁在开会？",
+      "ok": "经理",
+      "wrong": [
+        "同事",
+        "我"
+      ],
+      "t_text": "Aku bekerja di perusahaan. Hari ini manajer rapat, para rekan semua sibuk. Aku butuh bantuan rekan, mereka bilang segera datang.",
+      "t_q": "Siapa yang sedang rapat?",
+      "t_ok": "Manajer"
+    }
+  ],
+  "speaking": [
+    "经理在办公室开会。",
+    "你能帮我一下吗？",
+    "我今天工作很忙。"
+  ]
+}

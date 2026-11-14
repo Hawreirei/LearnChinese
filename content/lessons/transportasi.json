@@ -1,0 +1,208 @@
+{
+  "id": "transportasi",
+  "level": 2,
+  "seq": 4,
+  "zh": "坐车出行",
+  "title": "Naik transportasi umum",
+  "summary": "Memilih kendaraan, menanyakan rute, dan memperkirakan waktu tempuh.",
+  "keySentences": [
+    {
+      "zh": "我每天坐地铁上班。",
+      "id": "Setiap hari aku naik kereta bawah tanah ke kantor.",
+      "tokens": [
+        "我",
+        "每",
+        "天",
+        "坐",
+        "地铁",
+        "上班",
+        "。"
+      ],
+      "alt": [
+        "每天我坐地铁上班。"
+      ]
+    },
+    {
+      "zh": "去机场坐什么车？",
+      "id": "Naik apa untuk pergi ke bandara?",
+      "tokens": [
+        "去",
+        "机场",
+        "坐",
+        "什么",
+        "车",
+        "？"
+      ]
+    },
+    {
+      "zh": "坐出租车很快。",
+      "id": "Naik taksi cepat.",
+      "tokens": [
+        "坐",
+        "出租车",
+        "很",
+        "快",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "火车站离这里不远。",
+      "id": "Stasiun kereta tidak jauh dari sini.",
+      "tokens": [
+        "火车",
+        "站",
+        "离",
+        "这里",
+        "不",
+        "远",
+        "。"
+      ]
+    },
+    {
+      "zh": "公交车站在哪里？",
+      "id": "Halte bus di mana?",
+      "tokens": [
+        "公交车",
+        "站",
+        "在",
+        "哪里",
+        "？"
+      ]
+    },
+    {
+      "zh": "我坐公交车去学校。",
+      "id": "Aku naik bus ke sekolah.",
+      "tokens": [
+        "我",
+        "坐",
+        "公交车",
+        "去",
+        "学校",
+        "。"
+      ]
+    },
+    {
+      "zh": "走路要十分钟。",
+      "id": "Jalan kaki butuh sepuluh menit.",
+      "tokens": [
+        "走路",
+        "要",
+        "十",
+        "分钟",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "请问，这车到机场吗？",
+      "id": "Permisi, apakah bus ini sampai ke bandara?",
+      "tokens": [
+        "请问",
+        "，",
+        "这",
+        "车",
+        "到",
+        "机场",
+        "吗",
+        "？"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    "公交车",
+    "地铁",
+    "出租车",
+    "火车",
+    "机场",
+    "坐",
+    "快",
+    "慢",
+    "站",
+    "走路"
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "去机场坐什么车？",
+      "ok": "坐地铁去。",
+      "wrong": [
+        "我很喜欢。",
+        "在学校里。"
+      ],
+      "tq": "Naik apa untuk ke bandara?",
+      "ta": "Naik kereta bawah tanah."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：你怎么去学校？/男：我坐公交车去。",
+      "q": "男的怎么去学校？",
+      "ok": "坐公交车",
+      "wrong": [
+        "走路",
+        "坐地铁"
+      ],
+      "t_text": "Perempuan: Kamu pergi ke sekolah dengan apa? / Laki-laki: Aku naik bus.",
+      "t_q": "Bagaimana si laki-laki pergi ke sekolah?",
+      "t_ok": "Naik bus"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：坐出租车到机场要多长时间？/女：很快，二十分钟。",
+      "q": "到机场要多长时间？",
+      "ok": "二十分钟",
+      "wrong": [
+        "十分钟",
+        "两个小时"
+      ],
+      "t_text": "Laki-laki: Naik taksi ke bandara butuh berapa lama? / Perempuan: Cepat, dua puluh menit.",
+      "t_q": "Berapa lama ke bandara?",
+      "t_ok": "Dua puluh menit"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "我每天（　）地铁上班。",
+      "ok": "坐",
+      "wrong": [
+        "吃",
+        "喝",
+        "写"
+      ],
+      "zh": "我每天坐地铁上班。",
+      "id": "Setiap hari aku naik kereta bawah tanah ke kantor."
+    },
+    {
+      "kind": "cloze",
+      "stem": "火车站（　）这里不远。",
+      "ok": "离",
+      "wrong": [
+        "给",
+        "吗",
+        "吃"
+      ],
+      "zh": "火车站离这里不远。",
+      "id": "Stasiun kereta tidak jauh dari sini."
+    },
+    {
+      "kind": "text",
+      "text": "我家离学校不远。我早上坐地铁去学校，坐地铁要十分钟。晚上我走路回家。",
+      "q": "★ 他早上怎么去学校？",
+      "ok": "坐地铁",
+      "wrong": [
+        "走路",
+        "坐公交车"
+      ],
+      "t_text": "Rumahku tidak jauh dari sekolah. Pagi hari aku naik kereta bawah tanah ke sekolah, butuh sepuluh menit. Malam hari aku berjalan kaki pulang.",
+      "t_q": "Bagaimana dia pergi ke sekolah di pagi hari?",
+      "t_ok": "Naik kereta bawah tanah"
+    }
+  ],
+  "speaking": [
+    "去机场坐什么车？",
+    "火车站离这里不远。",
+    "我坐公交车去学校。"
+  ]
+}

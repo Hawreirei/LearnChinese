@@ -1,0 +1,285 @@
+{
+  "id": "debat",
+  "level": 6,
+  "seq": 1,
+  "zh": "辩论和观点",
+  "title": "Debat dan menyampaikan pendapat",
+  "summary": "Menyatakan sikap, memberi dasar argumen, membantah, dan menarik kesimpulan.",
+  "readings": {
+    "充分": "chōng fèn",
+    "认为": "rèn wéi",
+    "兴趣": "xìng qù",
+    "要求": "yāo qiú",
+    "为什么": "wèi shén me"
+  },
+  "keySentences": [
+    {
+      "zh": "我对这个观点持保留态度。",
+      "id": "Aku bersikap menahan diri terhadap pendapat ini.",
+      "tokens": [
+        "我",
+        "对",
+        "这个",
+        "观点",
+        "持",
+        "保留",
+        "态度",
+        "。"
+      ],
+      "pieces": [
+        "我",
+        "对这个观点",
+        "持",
+        "保留态度",
+        "。"
+      ]
+    },
+    {
+      "zh": "你的依据不够充分。",
+      "id": "Dasar pendapatmu kurang kuat.",
+      "tokens": [
+        "你的",
+        "依据",
+        "不够",
+        "充分",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "他从另一个角度提出了不同的看法。",
+      "id": "Dia mengemukakan pandangan lain dari sudut pandang berbeda.",
+      "tokens": [
+        "他",
+        "从",
+        "另一个",
+        "角度",
+        "提出了",
+        "不同的",
+        "看法",
+        "。"
+      ],
+      "pieces": [
+        "他",
+        "从另一个角度",
+        "提出了",
+        "不同的看法",
+        "。"
+      ]
+    },
+    {
+      "zh": "综上所述，我们可以得出以下结论。",
+      "id": "Singkatnya, kita dapat menarik kesimpulan berikut.",
+      "tokens": [
+        "综上所述",
+        "，",
+        "我们",
+        "可以",
+        "得出",
+        "以下",
+        "结论",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "这个结论缺乏事实依据。",
+      "id": "Kesimpulan ini kekurangan dasar fakta.",
+      "tokens": [
+        "这个",
+        "结论",
+        "缺乏",
+        "事实",
+        "依据",
+        "。"
+      ],
+      "pieces": [
+        "这个结论",
+        "缺乏",
+        "事实",
+        "依据",
+        "。"
+      ]
+    },
+    {
+      "zh": "我们不能只看表面现象。",
+      "id": "Kita tidak boleh hanya melihat gejala permukaan.",
+      "tokens": [
+        "我们",
+        "不能",
+        "只",
+        "看",
+        "表面",
+        "现象",
+        "。"
+      ],
+      "pieces": [
+        "我们",
+        "不能",
+        "只看",
+        "表面现象",
+        "。"
+      ]
+    },
+    {
+      "zh": "对方的立场很明确。",
+      "id": "Pendirian lawan bicara sangat jelas.",
+      "tokens": [
+        "对方",
+        "的",
+        "立场",
+        "很",
+        "明确",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "他强调了客观分析的重要性。",
+      "id": "Dia menekankan pentingnya analisis yang objektif.",
+      "tokens": [
+        "他",
+        "强调",
+        "了",
+        "客观",
+        "分析",
+        "的",
+        "重要性",
+        "。"
+      ],
+      "pieces": [
+        "他",
+        "强调了",
+        "客观分析",
+        "的",
+        "重要性",
+        "。"
+      ]
+    }
+  ],
+  "keyWords": [
+    {
+      "word": "立场",
+      "arti": "pendirian; sikap"
+    },
+    {
+      "word": "争议",
+      "arti": "perdebatan; kontroversi"
+    },
+    {
+      "word": "质疑",
+      "arti": "meragukan; mempertanyakan"
+    },
+    {
+      "word": "倾向",
+      "arti": "kecenderungan; condong"
+    },
+    {
+      "word": "主张",
+      "arti": "berpendapat; pandangan"
+    },
+    {
+      "word": "片面",
+      "arti": "sepihak; tidak menyeluruh"
+    },
+    {
+      "word": "结论",
+      "arti": "kesimpulan"
+    },
+    {
+      "word": "保留",
+      "arti": "mempertahankan; menahan (pendapat)"
+    },
+    {
+      "word": "逻辑",
+      "arti": "logika"
+    },
+    {
+      "word": "客观",
+      "arti": "objektif"
+    }
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你同意他的观点吗？",
+      "ok": "我持保留态度，他的依据不够充分。",
+      "wrong": [
+        "我同意，我们明天开会。",
+        "我不认识他。"
+      ],
+      "tq": "Apakah kamu setuju dengan pendapatnya?",
+      "ta": "Aku bersikap menahan diri, dasarnya kurang kuat."
+    },
+    {
+      "kind": "dialog",
+      "text": "男：你怎么看这个争议？/女：我认为不能只看一个角度，要全面分析。",
+      "q": "女的认为应该怎么看？",
+      "ok": "全面分析",
+      "wrong": [
+        "只看一个角度",
+        "不用分析"
+      ],
+      "t_text": "Laki-laki: Bagaimana kamu melihat perdebatan ini? / Perempuan: Menurutku tidak boleh hanya melihat dari satu sudut, harus dianalisis secara menyeluruh.",
+      "t_q": "Menurut si perempuan bagaimana seharusnya melihatnya?",
+      "t_ok": "Menganalisis secara menyeluruh"
+    },
+    {
+      "kind": "dialog",
+      "text": "女：他的主张很有说服力吗？/男：不太有，他的逻辑有问题。",
+      "q": "男的为什么不相信他的主张？",
+      "ok": "逻辑有问题",
+      "wrong": [
+        "时间太短",
+        "声音太小"
+      ],
+      "t_text": "Perempuan: Apakah pendapatnya sangat meyakinkan? / Laki-laki: Kurang, logikanya bermasalah.",
+      "t_q": "Mengapa si laki-laki tidak percaya pada pendapatnya?",
+      "t_ok": "Logikanya bermasalah"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "他只看到问题的一面，观点太（　）了。",
+      "ok": "片面",
+      "wrong": [
+        "充分",
+        "保留",
+        "立场"
+      ],
+      "zh": "他只看到问题的一面，观点太片面了。",
+      "id": "Dia hanya melihat satu sisi masalah, pendapatnya terlalu sepihak."
+    },
+    {
+      "kind": "cloze",
+      "stem": "在讨论中，我们应该保持（　），不能只听自己喜欢的意见。",
+      "ok": "客观",
+      "wrong": [
+        "争议",
+        "结论",
+        "理由"
+      ],
+      "zh": "在讨论中，我们应该保持客观，不能只听自己喜欢的意见。",
+      "id": "Dalam diskusi kita harus tetap objektif dan tidak hanya mendengar pendapat yang kita sukai."
+    },
+    {
+      "kind": "text",
+      "text": "在一次公开讨论中，有人主张所有学生都应该参加课外活动，理由是这样可以提高能力。但也有人持保留态度，他们认为不同的学生有不同的兴趣，不能要求大家都一样。双方都有自己的依据，争议很大。最后主持人总结说，在作出结论以前，应该客观地分析各种情况。",
+      "q": "★ 主持人认为作出结论以前应该怎么做？",
+      "ok": "客观分析各种情况",
+      "wrong": [
+        "马上投票",
+        "听大多数人的话"
+      ],
+      "t_text": "Dalam sebuah diskusi terbuka, ada yang berpendapat semua pelajar harus ikut kegiatan ekstrakurikuler dengan alasan hal itu dapat meningkatkan kemampuan. Namun ada juga yang bersikap menahan diri; mereka menganggap tiap pelajar punya minat berbeda dan tidak bisa menuntut semuanya sama. Kedua pihak punya dasar masing-masing, perdebatannya sengit. Terakhir pembawa acara menyimpulkan bahwa sebelum mengambil kesimpulan, kita harus menganalisis berbagai keadaan secara objektif.",
+      "t_q": "Menurut pembawa acara, apa yang harus dilakukan sebelum mengambil kesimpulan?",
+      "t_ok": "Menganalisis berbagai keadaan secara objektif"
+    }
+  ],
+  "speaking": [
+    "我对这个观点持保留态度。",
+    "你的依据不够充分。",
+    "我们不能只看表面现象。"
+  ]
+}
