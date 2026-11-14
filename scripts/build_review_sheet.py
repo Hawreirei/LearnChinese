@@ -75,7 +75,7 @@ def main():
     ws.title = "说明 Petunjuk"
     lines = [
         ("Lembar review konten Learning Chinese (aplikasi latihan HSK 3.0, bahasa pengantar Indonesia)", True),
-        (f"Versi data: {sha}. Cakupan: HSK 1–3 (kosakata 1.000 kata, soal membaca/mendengar/menulis, soal bergambar).", False),
+        (f"Versi data: {sha}. Cakupan: HSK 1–3 (kosakata 1.000 kata bercontoh, soal membaca/mendengar/menulis, soal bergambar).", False),
         ("", False),
         ("感谢您帮忙审阅！Terima kasih sudah membantu mengoreksi.", True),
         ("", False),
@@ -93,6 +93,7 @@ def main():
         ("• Pinyin kalimat dibuat otomatis (nada 3 tidak diubah) dan mungkin ada yang kurang tepat; mohon tandai jika terlihat salah.", False),
         ("", False),
         ("Konten ini dibuat dengan bantuan AI dan BELUM direview penutur asli. Koreksi Anda akan dimasukkan ke proyek sumber terbuka Learning Chinese (konten CC BY-SA 4.0).", True),
+        ("Lembar 全部词汇 memuat seluruh 11.000 kata silabus HSK 3.0 (level 1–9) dan 手写汉字 memuat 1.200 hanzi tulis; arti Indonesia ditulis sendiri (AI) dan belum direview.", False),
         ("Kolom ID (mis. 391, c190, p63, t41) sama dengan nomor yang tampil di aplikasi.", False),
     ]
     for text, bold in lines:
@@ -109,6 +110,34 @@ def main():
         rows.append([wid, w["level"], label, w["pinyin"], w["pos"], e["arti"], e["contoh"]["zh"], e["contoh"]["pinyin"], e["contoh"]["id"]])
     sheet(wb, "词汇 Kosakata", ["ID", "Level", "汉字 Hanzi", "拼音 Pinyin (resmi)", "词性 Jenis kata", "释义 Arti Indonesia", "例句 Kalimat contoh", "例句拼音 Pinyin kalimat", "翻译 Terjemahan Indonesia"],
           rows, [7, 7, 12, 16, 10, 34, 30, 34, 40], ["状态 Status", "建议：释义 Usulan arti", "建议：例句/翻译 Usulan kalimat/terjemahan", "备注 Catatan"])
+
+    # 1b. every syllabus word (HSK 1-9): Indonesian meaning where hand-written, else the English CC-CEDICT gloss
+    rows = []
+    for w in load("vocab.json"):
+        e = vid.get(w["id"])
+        label = w["word"] + (str(w["homograph"]) if w["homograph"] else "")
+        rows.append([w["id"], w["level"], label, w["pinyin"], w["pos"], e["arti"] if e else "", "; ".join(w.get("gloss_en") or [])])
+    sheet(wb, "全部词汇 Semua kata", ["ID", "Level", "汉字 Hanzi", "拼音 Pinyin (resmi)", "词性 Jenis kata", "释义 Arti Indonesia (kosong = belum ada)", "English gloss (CC-CEDICT)"],
+          rows, [7, 7, 14, 18, 10, 34, 50], ["状态 Status", "建议：释义 Usulan arti", "备注 Catatan"])
+
+    # 1c. handwriting characters (Tulis tab): pinyin and meaning as the app shows them
+    single = {}
+    for w in load("vocab.json"):
+        if len(w["word"]) == 1:
+            single.setdefault(w["word"], w)
+    extra = load("chars.json")
+    rows = []
+    for x in load("handwriting.json"):
+        c = x["char"]
+        w = single.get(c)
+        ex = extra.get(c)
+        e = vid.get(w["id"]) if w else None
+        arti = (e["arti"] if e else None) or (ex["arti"] if ex else None) or (("; ".join(w["gloss_en"][:3]) if w and w.get("gloss_en") else ""))
+        pinyin = w["pinyin"] if w else (ex["pinyin"] if ex else "")
+        src = "tulisan tangan sendiri" if (ex and not (e or (w and w.get("gloss_en")))) else ("kamus Indonesia" if e else "CC-CEDICT (Inggris)")
+        rows.append([x["id"], x["level"], c, pinyin, arti, src])
+    sheet(wb, "手写汉字 Hanzi tulis", ["No.", "Level", "汉字 Hanzi", "拼音 Pinyin", "释义 Arti (seperti tampil di tab Tulis)", "Sumber arti"],
+          rows, [7, 7, 10, 14, 44, 24], ["状态 Status", "建议：释义 Usulan arti", "备注 Catatan"])
 
     # 2. listening (Q&A, dialogs, passages)
     rows = []
