@@ -1,6 +1,6 @@
 # Rencana Skenario Tambahan HSK 1–6
 
-Status: **gelombang 0 (persiapan: arti Indonesia per kata kunci, kepingan frasa HSK 4+, pemeriksa bacaan khusus, pengelompokan UI per level, lembar review) sudah dikerjakan; gelombang 1 (HSK 1, 6 skenario baru → 7) sudah dikerjakan.** Sisanya masih rencana.
+Status: **gelombang 0 (persiapan: arti Indonesia per kata kunci, kepingan frasa HSK 4+, pemeriksa bacaan khusus, pengelompokan UI per level, lembar review) sudah dikerjakan; gelombang 1 (HSK 1, 6 skenario baru → 7), gelombang 2 (HSK 2, +4 → 6) dan gelombang 3 (HSK 3, +4 → 6) sudah dikerjakan.** Yang tersisa: HSK 4, 5, dan 6 (gelombang 4–6). Sisanya masih rencana.
 
 Permintaan: tambah skenario pelajaran untuk HSK 1–6, **minimal 5 per level** (jangan hanya 1 atau sedikit di HSK 1), dengan memperhatikan kosakata tiap level. Dokumen ini berisi daftar skenario, kosakata kandidat, perubahan teknis yang dibutuhkan, urutan kerja, dan hal yang perlu Anda putuskan.
 
@@ -536,16 +536,16 @@ Per skenario: ±8 kalimat kunci, 10–12 kata kunci, 3 soal dengar, 3 soal baca,
 | HSK 1 | `sekolah` | 在学校 · Di sekolah | **sudah ada (gelombang 1)** |
 | HSK 2 | `belanja` | 买东西 · Belanja | sudah ada |
 | HSK 2 | `tanya-arah` | 问路 · Bertanya arah | sudah ada |
-| HSK 2 | `telepon` | 打电话 · Menelepon dan janjian | **rencana** |
-| HSK 2 | `transportasi` | 坐车出行 · Naik transportasi umum | **rencana** |
-| HSK 2 | `olahraga` | 运动和爱好 · Olahraga dan hobi | **rencana** |
-| HSK 2 | `sekolah-2` | 学校生活 · Kehidupan sekolah | **rencana** |
+| HSK 2 | `telepon` | 打电话 · Menelepon dan janjian | **sudah ada** |
+| HSK 2 | `transportasi` | 坐车出行 · Naik transportasi umum | **sudah ada** |
+| HSK 2 | `olahraga` | 运动和爱好 · Olahraga dan hobi | **sudah ada** |
+| HSK 2 | `sekolah-2` | 学校生活 · Kehidupan sekolah | **sudah ada** |
 | HSK 3 | `restoran` | 在餐厅 · Di restoran | sudah ada |
 | HSK 3 | `rumah-sakit` | 看病 · Di rumah sakit | sudah ada |
-| HSK 3 | `hotel` | 订酒店 · Memesan dan check-in hotel | **rencana** |
-| HSK 3 | `kantor` | 在办公室 · Di kantor | **rencana** |
-| HSK 3 | `sewa-rumah` | 租房子 · Mencari dan menyewa rumah | **rencana** |
-| HSK 3 | `belajar-mandarin` | 学汉语 · Belajar bahasa Mandarin | **rencana** |
+| HSK 3 | `hotel` | 订酒店 · Memesan dan check-in hotel | **sudah ada** |
+| HSK 3 | `kantor` | 在办公室 · Di kantor | **sudah ada** |
+| HSK 3 | `sewa-rumah` | 租房子 · Mencari dan menyewa rumah | **sudah ada** |
+| HSK 3 | `belajar-mandarin` | 学汉语 · Belajar bahasa Mandarin | **sudah ada** |
 | HSK 4 | `wawancara` | 面试 · Wawancara kerja | **rencana** |
 | HSK 4 | `perjalanan` | 旅行和机场 · Perjalanan dan bandara | **rencana** |
 | HSK 4 | `kesehatan` | 健康生活 · Hidup sehat | **rencana** |

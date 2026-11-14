@@ -1,0 +1,215 @@
+{
+  "id": "telepon",
+  "level": 2,
+  "seq": 3,
+  "zh": "打电话",
+  "title": "Menelepon dan janjian",
+  "summary": "Menelepon teman, mengajak, dan menentukan waktu serta tempat bertemu.",
+  "keySentences": [
+    {
+      "zh": "喂，你在哪里？",
+      "id": "Halo, kamu di mana?",
+      "tokens": [
+        "喂",
+        "，",
+        "你",
+        "在",
+        "哪里",
+        "？"
+      ],
+      "order": false
+    },
+    {
+      "zh": "我在学校门口。",
+      "id": "Aku di depan pintu sekolah.",
+      "tokens": [
+        "我",
+        "在",
+        "学校",
+        "门口",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "明天我们一起去看电影，好吗？",
+      "id": "Besok kita nonton film bersama, bagaimana?",
+      "tokens": [
+        "明天",
+        "我们",
+        "一起",
+        "去",
+        "看",
+        "电影",
+        "，",
+        "好",
+        "吗",
+        "？"
+      ],
+      "order": false
+    },
+    {
+      "zh": "你的电话是多少？",
+      "id": "Nomor teleponmu berapa?",
+      "tokens": [
+        "你",
+        "的",
+        "电话",
+        "是",
+        "多少",
+        "？"
+      ]
+    },
+    {
+      "zh": "我七点在门口等你。",
+      "id": "Aku menunggumu di pintu jam tujuh.",
+      "tokens": [
+        "我",
+        "七",
+        "点",
+        "在",
+        "门口",
+        "等",
+        "你",
+        "。"
+      ],
+      "alt": [
+        "七点我在门口等你。"
+      ]
+    },
+    {
+      "zh": "你可以告诉我吗？",
+      "id": "Bisakah kamu memberitahuku?",
+      "tokens": [
+        "你",
+        "可以",
+        "告诉",
+        "我",
+        "吗",
+        "？"
+      ]
+    },
+    {
+      "zh": "我现在没有时间。",
+      "id": "Aku sekarang tidak punya waktu.",
+      "tokens": [
+        "我",
+        "现在",
+        "没有",
+        "时间",
+        "。"
+      ],
+      "alt": [
+        "现在我没有时间。"
+      ]
+    },
+    {
+      "zh": "请你再说一次。",
+      "id": "Tolong katakan sekali lagi.",
+      "tokens": [
+        "请",
+        "你",
+        "再",
+        "说",
+        "一",
+        "次",
+        "。"
+      ]
+    }
+  ],
+  "keyWords": [
+    "喂",
+    "手机",
+    "电话",
+    "一起",
+    "告诉",
+    "门口",
+    "等",
+    "时间",
+    "可以",
+    "问"
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "喂，你在哪里？",
+      "ok": "我在学校门口。",
+      "wrong": [
+        "我是学生。",
+        "明天见。"
+      ],
+      "tq": "Halo, kamu di mana?",
+      "ta": "Aku di depan pintu sekolah."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：喂，明天你有时间吗？/男：有，我们一起去看电影吧。",
+      "q": "他们明天想做什么？",
+      "ok": "看电影",
+      "wrong": [
+        "去学校",
+        "吃面包"
+      ],
+      "t_text": "Perempuan: Halo, besok kamu ada waktu? / Laki-laki: Ada, ayo kita nonton film bersama.",
+      "t_q": "Apa yang ingin mereka lakukan besok?",
+      "t_ok": "Menonton film"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：喂，你在哪里？/女：我在家，请你等我一下。",
+      "q": "女的在哪里？",
+      "ok": "在家",
+      "wrong": [
+        "在学校",
+        "在门口"
+      ],
+      "t_text": "Laki-laki: Halo, kamu di mana? / Perempuan: Aku di rumah, tolong tunggu aku sebentar.",
+      "t_q": "Di mana si perempuan?",
+      "t_ok": "Di rumah"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "喂，你（　）哪里？",
+      "ok": "在",
+      "wrong": [
+        "吃",
+        "喝",
+        "看"
+      ],
+      "zh": "喂，你在哪里？",
+      "id": "Halo, kamu di mana?"
+    },
+    {
+      "kind": "cloze",
+      "stem": "我七点在门口（　）你。",
+      "ok": "等",
+      "wrong": [
+        "吃",
+        "喝",
+        "去"
+      ],
+      "zh": "我七点在门口等你。",
+      "id": "Aku menunggumu di pintu jam tujuh."
+    },
+    {
+      "kind": "text",
+      "text": "明天我和朋友一起去看电影。我们七点在学校门口，我六点五十到，朋友七点到。",
+      "q": "★ 他们几点在学校门口？",
+      "ok": "七点",
+      "wrong": [
+        "六点",
+        "八点"
+      ],
+      "t_text": "Besok aku dan temanku pergi nonton film bersama. Kami bertemu jam tujuh di depan sekolah, aku tiba jam enam lima puluh, temanku jam tujuh.",
+      "t_q": "Jam berapa mereka di depan sekolah?",
+      "t_ok": "Jam tujuh"
+    }
+  ],
+  "speaking": [
+    "喂，你在哪里？",
+    "你的电话是多少？",
+    "我七点在门口等你。"
+  ]
+}

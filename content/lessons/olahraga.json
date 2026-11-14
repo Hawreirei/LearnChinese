@@ -1,0 +1,202 @@
+{
+  "id": "olahraga",
+  "level": 2,
+  "seq": 5,
+  "zh": "运动和爱好",
+  "title": "Olahraga dan hobi",
+  "summary": "Menyebut olahraga yang disukai, membandingkan, dan mengajak berolahraga.",
+  "keySentences": [
+    {
+      "zh": "我喜欢游泳。",
+      "id": "Aku suka berenang.",
+      "tokens": [
+        "我",
+        "喜欢",
+        "游泳",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "你每天跑步吗？",
+      "id": "Apakah kamu berlari setiap hari?",
+      "tokens": [
+        "你",
+        "每",
+        "天",
+        "跑步",
+        "吗",
+        "？"
+      ]
+    },
+    {
+      "zh": "他比我跑得快。",
+      "id": "Dia berlari lebih cepat dariku.",
+      "tokens": [
+        "他",
+        "比",
+        "我",
+        "跑",
+        "得",
+        "快",
+        "。"
+      ]
+    },
+    {
+      "zh": "运动对身体好。",
+      "id": "Olahraga baik untuk tubuh.",
+      "tokens": [
+        "运动",
+        "对",
+        "身体",
+        "好",
+        "。"
+      ]
+    },
+    {
+      "zh": "我们一起去跑步吧。",
+      "id": "Ayo kita lari bersama.",
+      "tokens": [
+        "我们",
+        "一起",
+        "去",
+        "跑步",
+        "吧",
+        "。"
+      ]
+    },
+    {
+      "zh": "你喜欢什么运动？",
+      "id": "Kamu suka olahraga apa?",
+      "tokens": [
+        "你",
+        "喜欢",
+        "什么",
+        "运动",
+        "？"
+      ]
+    },
+    {
+      "zh": "我不会跳舞。",
+      "id": "Aku tidak bisa menari.",
+      "tokens": [
+        "我",
+        "不",
+        "会",
+        "跳舞",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "她唱歌唱得很好。",
+      "id": "Dia menyanyi dengan sangat baik.",
+      "tokens": [
+        "她",
+        "唱",
+        "歌",
+        "唱",
+        "得",
+        "很",
+        "好",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "keyWords": [
+    "运动",
+    "跑步",
+    "游泳",
+    "跳舞",
+    "喜欢",
+    "比",
+    "觉得",
+    "身体",
+    "一起",
+    "快"
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你喜欢什么运动？",
+      "ok": "我喜欢游泳。",
+      "wrong": [
+        "我在学校。",
+        "我是老师。"
+      ],
+      "tq": "Kamu suka olahraga apa?",
+      "ta": "Aku suka berenang."
+    },
+    {
+      "kind": "dialog",
+      "text": "男：你每天跑步吗？/女：不，我每个星期游泳。",
+      "q": "女的做什么运动？",
+      "ok": "游泳",
+      "wrong": [
+        "跑步",
+        "跳舞"
+      ],
+      "t_text": "Laki-laki: Kamu berlari setiap hari? / Perempuan: Tidak, aku berenang setiap minggu.",
+      "t_q": "Olahraga apa yang dilakukan si perempuan?",
+      "t_ok": "Berenang"
+    },
+    {
+      "kind": "dialog",
+      "text": "女：他跑得很快。/男：对，他比我快。",
+      "q": "谁跑得快？",
+      "ok": "他",
+      "wrong": [
+        "男的",
+        "女的"
+      ],
+      "t_text": "Perempuan: Dia berlari sangat cepat. / Laki-laki: Benar, dia lebih cepat dariku.",
+      "t_q": "Siapa yang berlari cepat?",
+      "t_ok": "Dia"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "运动对（　）好。",
+      "ok": "身体",
+      "wrong": [
+        "学校",
+        "苹果",
+        "电话"
+      ],
+      "zh": "运动对身体好。",
+      "id": "Olahraga baik untuk tubuh."
+    },
+    {
+      "kind": "cloze",
+      "stem": "他（　）我跑得快。",
+      "ok": "比",
+      "wrong": [
+        "给",
+        "吗",
+        "吃"
+      ],
+      "zh": "他比我跑得快。",
+      "id": "Dia berlari lebih cepat dariku."
+    },
+    {
+      "kind": "text",
+      "text": "我每天早上跑步，下午游泳。运动让我身体很好。我喜欢和朋友一起运动。",
+      "q": "★ 他什么时候游泳？",
+      "ok": "下午",
+      "wrong": [
+        "早上",
+        "晚上"
+      ],
+      "t_text": "Setiap pagi aku berlari, sore hari berenang. Olahraga membuat tubuhku sehat. Aku suka berolahraga bersama teman.",
+      "t_q": "Kapan dia berenang?",
+      "t_ok": "Sore hari"
+    }
+  ],
+  "speaking": [
+    "你喜欢什么运动？",
+    "运动对身体好。",
+    "我们一起去跑步吧。"
+  ]
+}

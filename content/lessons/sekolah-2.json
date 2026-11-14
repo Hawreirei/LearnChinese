@@ -1,0 +1,213 @@
+{
+  "id": "sekolah-2",
+  "level": 2,
+  "seq": 6,
+  "zh": "学校生活",
+  "title": "Kehidupan sekolah",
+  "summary": "Pelajaran, ujian, bertanya kepada guru, dan istirahat.",
+  "keySentences": [
+    {
+      "zh": "现在是上课时间。",
+      "id": "Sekarang waktunya pelajaran.",
+      "tokens": [
+        "现在",
+        "是",
+        "上课",
+        "时间",
+        "。"
+      ]
+    },
+    {
+      "zh": "这个题我不懂。",
+      "id": "Soal ini aku tidak mengerti.",
+      "tokens": [
+        "这个",
+        "题",
+        "我",
+        "不",
+        "懂",
+        "。"
+      ],
+      "alt": [
+        "我不懂这个题。"
+      ]
+    },
+    {
+      "zh": "老师，我可以问一个问题吗？",
+      "id": "Pak/Bu guru, boleh saya bertanya?",
+      "tokens": [
+        "老师",
+        "，",
+        "我",
+        "可以",
+        "问",
+        "一",
+        "个",
+        "问题",
+        "吗",
+        "？"
+      ],
+      "order": false
+    },
+    {
+      "zh": "明天有考试。",
+      "id": "Besok ada ujian.",
+      "tokens": [
+        "明天",
+        "有",
+        "考试",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "同学们都在教室里。",
+      "id": "Teman-teman semua ada di dalam kelas.",
+      "tokens": [
+        "同学",
+        "们",
+        "都",
+        "在",
+        "教室",
+        "里",
+        "。"
+      ]
+    },
+    {
+      "zh": "下课以后我们休息。",
+      "id": "Setelah pelajaran selesai kami beristirahat.",
+      "tokens": [
+        "下课",
+        "以",
+        "后",
+        "我们",
+        "休息",
+        "。"
+      ],
+      "alt": [
+        "我们下课以后休息。"
+      ]
+    },
+    {
+      "zh": "我听懂了。",
+      "id": "Aku sudah mengerti (yang kudengar).",
+      "tokens": [
+        "我",
+        "听",
+        "懂",
+        "了",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "老师说我的汉语很好。",
+      "id": "Guru bilang bahasa Mandarinku bagus.",
+      "tokens": [
+        "老师",
+        "说",
+        "我",
+        "的",
+        "汉语",
+        "很",
+        "好",
+        "。"
+      ]
+    }
+  ],
+  "keyWords": [
+    "教室",
+    "考试",
+    "题",
+    "上课",
+    "下课",
+    "同学",
+    "老师",
+    "问题",
+    "休息",
+    "懂"
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你们几点下课？",
+      "ok": "我们四点下课。",
+      "wrong": [
+        "我在教室。",
+        "我很喜欢。"
+      ],
+      "tq": "Jam berapa kalian selesai pelajaran?",
+      "ta": "Kami selesai jam empat."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：这个题你懂吗？/男：我不懂，我们问老师吧。",
+      "q": "男的想做什么？",
+      "ok": "问老师",
+      "wrong": [
+        "去休息",
+        "回家"
+      ],
+      "t_text": "Perempuan: Soal ini kamu mengerti? / Laki-laki: Aku tidak mengerti, ayo kita tanya guru.",
+      "t_q": "Apa yang ingin dilakukan si laki-laki?",
+      "t_ok": "Bertanya kepada guru"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：明天有考试吗？/女：有，你要学习。",
+      "q": "明天有什么？",
+      "ok": "考试",
+      "wrong": [
+        "电影",
+        "运动"
+      ],
+      "t_text": "Laki-laki: Besok ada ujian? / Perempuan: Ada, kamu harus belajar.",
+      "t_q": "Besok ada apa?",
+      "t_ok": "Ujian"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "老师，我可以问一个（　）吗？",
+      "ok": "问题",
+      "wrong": [
+        "苹果",
+        "电话",
+        "房间"
+      ],
+      "zh": "老师，我可以问一个问题吗？",
+      "id": "Pak/Bu guru, boleh saya bertanya?"
+    },
+    {
+      "kind": "cloze",
+      "stem": "下课以后，我们（　）一下。",
+      "ok": "休息",
+      "wrong": [
+        "考试",
+        "上课",
+        "汉语"
+      ],
+      "zh": "下课以后，我们休息一下。",
+      "id": "Setelah pelajaran selesai, kami beristirahat sebentar."
+    },
+    {
+      "kind": "text",
+      "text": "今天我八点上课，十二点下课。下课以后，我和同学在教室休息。明天有考试，我们要学习。",
+      "q": "★ 明天有什么？",
+      "ok": "考试",
+      "wrong": [
+        "休息",
+        "上课"
+      ],
+      "t_text": "Hari ini aku mulai pelajaran jam delapan, selesai jam dua belas. Setelah itu aku dan teman beristirahat di kelas. Besok ada ujian, kami harus belajar.",
+      "t_q": "Besok ada apa?",
+      "t_ok": "Ujian"
+    }
+  ],
+  "speaking": [
+    "现在是上课时间。",
+    "这个题我不懂。",
+    "老师，我可以问一个问题吗？"
+  ]
+}

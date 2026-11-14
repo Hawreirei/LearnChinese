@@ -1,0 +1,211 @@
+{
+  "id": "hotel",
+  "level": 3,
+  "seq": 3,
+  "zh": "住酒店",
+  "title": "Menginap di hotel",
+  "summary": "Menanyakan kamar kosong, harga, dan sarapan, serta check-in.",
+  "keySentences": [
+    {
+      "zh": "请问，有空房间吗？",
+      "id": "Permisi, ada kamar kosong?",
+      "tokens": [
+        "请问",
+        "，",
+        "有",
+        "空",
+        "房间",
+        "吗",
+        "？"
+      ]
+    },
+    {
+      "zh": "我想住两个晚上。",
+      "id": "Aku ingin menginap dua malam.",
+      "tokens": [
+        "我",
+        "想",
+        "住",
+        "两",
+        "个",
+        "晚上",
+        "。"
+      ]
+    },
+    {
+      "zh": "房间在三楼。",
+      "id": "Kamarnya di lantai tiga.",
+      "tokens": [
+        "房间",
+        "在",
+        "三",
+        "楼",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "早饭几点开始？",
+      "id": "Sarapan mulai jam berapa?",
+      "tokens": [
+        "早饭",
+        "几",
+        "点",
+        "开始",
+        "？"
+      ]
+    },
+    {
+      "zh": "欢迎您来我们酒店。",
+      "id": "Selamat datang di hotel kami.",
+      "tokens": [
+        "欢迎",
+        "您",
+        "来",
+        "我们",
+        "酒店",
+        "。"
+      ]
+    },
+    {
+      "zh": "这个房间太贵了。",
+      "id": "Kamar ini terlalu mahal.",
+      "tokens": [
+        "这个",
+        "房间",
+        "太",
+        "贵",
+        "了",
+        "。"
+      ]
+    },
+    {
+      "zh": "有便宜的房间吗？",
+      "id": "Ada kamar yang lebih murah?",
+      "tokens": [
+        "有",
+        "便宜",
+        "的",
+        "房间",
+        "吗",
+        "？"
+      ],
+      "order": false
+    },
+    {
+      "zh": "我想要一个安静的房间。",
+      "id": "Aku ingin kamar yang tenang.",
+      "tokens": [
+        "我",
+        "想",
+        "要",
+        "一",
+        "个",
+        "安静",
+        "的",
+        "房间",
+        "。"
+      ],
+      "order": false
+    }
+  ],
+  "readings": {
+    "空房间": "kòng fáng jiān",
+    "便宜": "pián yi"
+  },
+  "keyWords": [
+    "酒店",
+    "宾馆",
+    "房间",
+    "住",
+    "楼",
+    "早饭",
+    "欢迎",
+    "贵",
+    "便宜",
+    "晚上"
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "请问，有空房间吗？",
+      "ok": "有，您住几个晚上？",
+      "wrong": [
+        "我很喜欢。",
+        "明天见。"
+      ],
+      "tq": "Permisi, ada kamar kosong?",
+      "ta": "Ada, Anda menginap berapa malam?"
+    },
+    {
+      "kind": "dialog",
+      "text": "女：我想住两个晚上，多少钱？/男：一个晚上三百块。",
+      "q": "一个晚上多少钱？",
+      "ok": "三百块",
+      "wrong": [
+        "两百块",
+        "六百块"
+      ],
+      "t_text": "Perempuan: Aku ingin menginap dua malam, berapa harganya? / Laki-laki: Satu malam tiga ratus yuan.",
+      "t_q": "Berapa harga satu malam?",
+      "t_ok": "Tiga ratus yuan"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：早饭几点开始？/女：七点开始，在一楼。",
+      "q": "早饭几点开始？",
+      "ok": "七点",
+      "wrong": [
+        "六点",
+        "八点"
+      ],
+      "t_text": "Laki-laki: Sarapan mulai jam berapa? / Perempuan: Mulai jam tujuh, di lantai satu.",
+      "t_q": "Sarapan mulai jam berapa?",
+      "t_ok": "Jam tujuh"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "请问，有（　）房间吗？",
+      "ok": "空",
+      "wrong": [
+        "吃",
+        "喝",
+        "写"
+      ],
+      "zh": "请问，有空房间吗？",
+      "id": "Permisi, ada kamar kosong?"
+    },
+    {
+      "kind": "cloze",
+      "stem": "这个房间太（　）了，有便宜的吗？",
+      "ok": "贵",
+      "wrong": [
+        "医院",
+        "学校",
+        "苹果"
+      ],
+      "zh": "这个房间太贵了，有便宜的吗？",
+      "id": "Kamar ini terlalu mahal, ada yang murah?"
+    },
+    {
+      "kind": "text",
+      "text": "我和朋友住在酒店三楼。房间很大，也很安静。早饭七点开始，我们七点半去吃。",
+      "q": "★ 他们的房间怎么样？",
+      "ok": "很大，也很安静",
+      "wrong": [
+        "很小，很热",
+        "很贵，不安静"
+      ],
+      "t_text": "Aku dan temanku menginap di lantai tiga hotel. Kamarnya besar dan juga tenang. Sarapan mulai jam tujuh, kami makan jam setengah delapan.",
+      "t_q": "Bagaimana kamar mereka?",
+      "t_ok": "Besar dan tenang"
+    }
+  ],
+  "speaking": [
+    "请问，有空房间吗？",
+    "我想住两个晚上。",
+    "早饭几点开始？"
+  ]
+}

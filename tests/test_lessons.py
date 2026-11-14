@@ -78,6 +78,8 @@ class LessonTests(unittest.TestCase):
         for l in L:
             count[l["level"]] = count.get(l["level"], 0) + 1
         self.assertGreaterEqual(count[1], 7)
+        self.assertGreaterEqual(count[2], 6)
+        self.assertGreaterEqual(count[3], 6)
 
     def test_hsk1_wave_lessons_present(self):
         ids = {l["id"] for l in L if l["level"] == 1}
@@ -85,6 +87,17 @@ class LessonTests(unittest.TestCase):
         for l in L:
             if l["level"] == 1:
                 self.assertFalse(any(re.search("(?<!女)儿(?!子)", s["zh"]) for s in l["keySentences"]), l["id"])   # erhua; 女儿/儿子 are words
+
+    def test_hsk2_and_hsk3_waves_present(self):
+        ids = {l["level"]: set() for l in L}
+        for l in L:
+            ids[l["level"]].add(l["id"])
+        self.assertTrue({"belanja", "tanya-arah", "telepon", "transportasi", "olahraga", "sekolah-2"} <= ids[2])
+        self.assertTrue({"restoran", "rumah-sakit", "hotel", "kantor", "sewa-rumah", "belajar-mandarin"} <= ids[3])
+        # teaching order inside a level follows "seq": the existing lessons come first
+        order = [l["id"] for l in L if l["level"] == 2]
+        self.assertEqual(order[:2], ["belanja", "tanya-arah"])
+        self.assertEqual([l["id"] for l in L if l["level"] == 3][:2], ["restoran", "rumah-sakit"])
 
     def test_lessons_sorted_easiest_first(self):
         levels = [l["level"] for l in L]

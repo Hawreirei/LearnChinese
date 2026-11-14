@@ -1,0 +1,219 @@
+{
+  "id": "belajar-mandarin",
+  "level": 3,
+  "seq": 6,
+  "zh": "学汉语",
+  "title": "Belajar bahasa Mandarin",
+  "summary": "Cara belajar, latihan, ujian, dan kemajuan.",
+  "keySentences": [
+    {
+      "zh": "我每天练习写汉字。",
+      "id": "Setiap hari aku berlatih menulis hanzi.",
+      "tokens": [
+        "我",
+        "每",
+        "天",
+        "练习",
+        "写",
+        "汉字",
+        "。"
+      ],
+      "alt": [
+        "每天我练习写汉字。"
+      ]
+    },
+    {
+      "zh": "他学习很认真。",
+      "id": "Dia belajar dengan sungguh-sungguh.",
+      "tokens": [
+        "他",
+        "学习",
+        "很",
+        "认真",
+        "。"
+      ]
+    },
+    {
+      "zh": "这次考试我的成绩很好。",
+      "id": "Dalam ujian kali ini nilaiku bagus.",
+      "tokens": [
+        "这",
+        "次",
+        "考试",
+        "我",
+        "的",
+        "成绩",
+        "很",
+        "好",
+        "。"
+      ]
+    },
+    {
+      "zh": "复习以后我就不怕了。",
+      "id": "Setelah mengulang aku tidak takut lagi.",
+      "tokens": [
+        "复习",
+        "以",
+        "后",
+        "我",
+        "就",
+        "不",
+        "怕",
+        "了",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "汉语不太难。",
+      "id": "Bahasa Mandarin tidak terlalu sulit.",
+      "tokens": [
+        "汉语",
+        "不",
+        "太",
+        "难",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "你要多听，多说，多写。",
+      "id": "Kamu harus banyak mendengar, berbicara, dan menulis.",
+      "tokens": [
+        "你",
+        "要",
+        "多",
+        "听",
+        "，",
+        "多",
+        "说",
+        "，",
+        "多",
+        "写",
+        "。"
+      ],
+      "order": false
+    },
+    {
+      "zh": "我的汉语比以前好。",
+      "id": "Bahasa Mandarinku lebih baik daripada dulu.",
+      "tokens": [
+        "我",
+        "的",
+        "汉语",
+        "比",
+        "以前",
+        "好",
+        "。"
+      ]
+    },
+    {
+      "zh": "老师让我们认真写作业。",
+      "id": "Guru menyuruh kami mengerjakan PR dengan sungguh-sungguh.",
+      "tokens": [
+        "老师",
+        "让",
+        "我们",
+        "认真",
+        "写",
+        "作业",
+        "。"
+      ]
+    }
+  ],
+  "keyWords": [
+    "成绩",
+    "认真",
+    "练习",
+    "作业",
+    "汉字",
+    "努力",
+    "复习",
+    "考试",
+    "汉语",
+    "难"
+  ],
+  "listening": [
+    {
+      "kind": "qa",
+      "q": "你每天练习汉语吗？",
+      "ok": "练习，我每天写汉字。",
+      "wrong": [
+        "我不吃苹果。",
+        "我在医院。"
+      ],
+      "tq": "Apakah kamu berlatih bahasa Mandarin setiap hari?",
+      "ta": "Ya, setiap hari aku menulis hanzi."
+    },
+    {
+      "kind": "dialog",
+      "text": "女：这次考试怎么样？/男：我的成绩很好。",
+      "q": "男的考试怎么样？",
+      "ok": "成绩很好",
+      "wrong": [
+        "成绩不好",
+        "没有考试"
+      ],
+      "t_text": "Perempuan: Ujian kali ini bagaimana? / Laki-laki: Nilaiku bagus.",
+      "t_q": "Bagaimana ujian si laki-laki?",
+      "t_ok": "Nilainya bagus"
+    },
+    {
+      "kind": "dialog",
+      "text": "男：你的汉语很好！/女：谢谢，我每天都练习。",
+      "q": "女的怎么学汉语？",
+      "ok": "每天练习",
+      "wrong": [
+        "不学习",
+        "一个星期一次"
+      ],
+      "t_text": "Laki-laki: Bahasa Mandarinmu bagus! / Perempuan: Terima kasih, aku berlatih setiap hari.",
+      "t_q": "Bagaimana si perempuan belajar bahasa Mandarin?",
+      "t_ok": "Berlatih setiap hari"
+    }
+  ],
+  "reading": [
+    {
+      "kind": "cloze",
+      "stem": "他学习很（　）。",
+      "ok": "认真",
+      "wrong": [
+        "医院",
+        "苹果",
+        "老师"
+      ],
+      "zh": "他学习很认真。",
+      "id": "Dia belajar dengan sungguh-sungguh."
+    },
+    {
+      "kind": "cloze",
+      "stem": "老师让我们认真写（　）。",
+      "ok": "作业",
+      "wrong": [
+        "天气",
+        "面包",
+        "出租车"
+      ],
+      "zh": "老师让我们认真写作业。",
+      "id": "Guru menyuruh kami mengerjakan PR dengan sungguh-sungguh."
+    },
+    {
+      "kind": "text",
+      "text": "我学汉语一年了。我每天练习写汉字，也听老师说汉语。这次考试，我的成绩很好，老师说我很认真。",
+      "q": "★ 老师说他怎么样？",
+      "ok": "很认真",
+      "wrong": [
+        "很忙",
+        "很高"
+      ],
+      "t_text": "Aku belajar bahasa Mandarin sudah satu tahun. Setiap hari aku berlatih menulis hanzi dan mendengarkan guru berbicara. Dalam ujian kali ini nilaiku bagus, guru bilang aku sangat sungguh-sungguh.",
+      "t_q": "Kata guru, bagaimana dia?",
+      "t_ok": "Sangat sungguh-sungguh"
+    }
+  ],
+  "speaking": [
+    "我每天练习写汉字。",
+    "他学习很认真。",
+    "老师让我们认真写作业。"
+  ]
+}
