@@ -10,7 +10,7 @@ Aplikasi web gratis dan sumber terbuka untuk berlatih **HSK 3.0 (silabus 2025)**
 
 *English:* a free, open-source, Indonesian-language practice app for the new HSK 3.0: spaced-repetition flashcards for the official 2025 word list, practice questions (reading, writing, listening, including picture and long-text items), timed exam simulations for HSK 1–3 that follow CTI's official section sizes and timings, and progress/weakness analytics. Static site, no accounts. Not affiliated with CLEC/CTI. Questions are original practice material and **not yet reviewed by native speakers**; corrections are welcome.
 
-> **Status:** konten HSK 1–3 tersedia. HSK 4–6, foto asli, dan speaking belum ada. Seluruh konten buatan sendiri **belum direview penutur asli**; bantu koreksi lewat [issue "Koreksi konten"](../../issues/new/choose) atau lihat [CONTRIBUTING.md](CONTRIBUTING.md).
+> **Status:** konten HSK 1–3 tersedia. HSK 4–6, foto asli, dan speaking belum ada. Seluruh konten buatan sendiri **belum direview penutur asli**; bantu koreksi lewat [issue "Koreksi konten"](../../issues/new/choose) atau lihat [CONTRIBUTING.md](CONTRIBUTING.md). Rencana fitur berikutnya (HSK 4–6, tata bahasa, speaking, rencana belajar menuju tanggal ujian): [docs/RENCANA-PENGEMBANGAN.md](docs/RENCANA-PENGEMBANGAN.md).
 
 ## Fitur
 
