@@ -7,7 +7,8 @@ import { STEPS, doneCount, nextLesson, levelSummary } from "../lesson.js";
 import { openLesson, openLessonList } from "./lessons.js";
 import { countdown, countdownText, dayActivity, todayTasks, targetLevelMissing } from "../plan.js";
 import { buildWeakSet } from "../analytics.js";
-import { startPracticeWith } from "./practice.js";
+import { startPracticeWith, startMistakes } from "./practice.js";
+import { mistakeCounts } from "../mistakes.js";
 import { presetExamLevel } from "./exam.js";
 import { h, btn, speak } from "../ui.js";
 
@@ -86,6 +87,7 @@ function today(app) {
     practiceAvailable: qLevels.length > 0,
     writingAvailable: app.handwritingList.some((x) => levels.includes(x.level)),
     examAvailable: !!bp && examAvailable(app.questions, bp),
+    mistakesDue: mistakeCounts(store.mistakes, app.questionIndex).due,
   });
   const start = (t) => {
     if (t.id === "lesson") return openLesson(app, t.lessonId);
@@ -94,6 +96,7 @@ function today(app) {
       if (set.length) { app.go("practice"); startPracticeWith(app, set); }
       return;
     }
+    if (t.id === "mistakes") { app.go("practice"); return startMistakes(app); }
     if (t.id === "exam") presetExamLevel(t.level);
     app.go(t.tab);
   };

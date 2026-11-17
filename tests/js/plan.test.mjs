@@ -151,7 +151,7 @@ test("dayActivity reads today's work only", () => {
   const today = at(2026, 11, 17, 9), yesterday = at(2026, 11, 16, 23, 30);
   const data = {
     events: [
-      { t: today, k: "practice", id: "c1", ok: 1 }, { t: today, k: "practice", id: "c2", ok: 0 },
+      { t: today, k: "practice", id: "c1", ok: 1, mb: 1 }, { t: today, k: "practice", id: "c2", ok: 0 },
       { t: today, k: "practice", id: "ls-sapaan-l1", ok: 1 },       // lesson questions are not "Latihan"
       { t: today, k: "exam", id: "c3", ok: 1 }, { t: yesterday, k: "practice", id: "c4", ok: 1 },
     ],
@@ -159,13 +159,13 @@ test("dayActivity reads today's work only", () => {
     writing: { 爱: { n: 1, t: today }, 八: { n: 2, t: yesterday } },
     exams: [{ level: 3, t: at(2026, 11, 7, 10) }, { level: 1, t: today }],
   };
-  assert.deepEqual(dayActivity(data, 3, now), { practice: 2, lessonSteps: 1, writing: 1, examToday: false, lastMockDays: 10 });
+  assert.deepEqual(dayActivity(data, 3, now), { practice: 2, lessonSteps: 1, writing: 1, mistakes: 1, examToday: false, lastMockDays: 10 });
   assert.equal(dayActivity(data, 1, now).examToday, true);
-  assert.deepEqual(dayActivity({}, 3, now), { practice: 0, lessonSteps: 0, writing: 0, examToday: false, lastMockDays: null });
+  assert.deepEqual(dayActivity({}, 3, now), { practice: 0, lessonSteps: 0, writing: 0, mistakes: 0, examToday: false, lastMockDays: null });
 });
 
 test("todayTasks: tasks, targets, final week", () => {
-  const act = { practice: 4, lessonSteps: 0, writing: 5, examToday: false, lastMockDays: null };
+  const act = { practice: 4, lessonSteps: 0, writing: 5, mistakes: 0, examToday: false, lastMockDays: null };
   const base = { plan: { level: 3, examDate: "2026-12-13", minutes: 30 }, days: 26, queue: { due: 5, fresh: 3 }, act,
     lesson: { id: "restoran", zh: "在餐厅", title: "Di restoran" }, practiceAvailable: true, writingAvailable: true, examAvailable: true };
   const t = todayTasks(base);
@@ -187,4 +187,14 @@ test("targetLevelMissing", () => {
   assert.equal(targetLevelMissing({ level: 3 }, [1, 2]), true);
   assert.equal(targetLevelMissing({ level: 3 }, [3]), false);
   assert.equal(targetLevelMissing({}, [1]), false);
+});
+
+test("todayTasks: buku kesalahan task when items are due or were practised today", () => {
+  const act = { practice: 0, lessonSteps: 0, writing: 0, mistakes: 0, examToday: false, lastMockDays: 1 };
+  const base = { plan: { level: 3, examDate: "2026-12-13" }, days: 26, queue: { due: 0, fresh: 0 }, act, lesson: null, practiceAvailable: false, writingAvailable: false, examAvailable: false };
+  assert.ok(!todayTasks(base).some((t) => t.id === "mistakes"));
+  const due = todayTasks({ ...base, mistakesDue: 4 }).find((t) => t.id === "mistakes");
+  assert.deepEqual([due.detail, due.done], ["4 soal jatuh tempo", false]);
+  const done = todayTasks({ ...base, mistakesDue: 0, act: { ...act, mistakes: 3 } }).find((t) => t.id === "mistakes");
+  assert.equal(done.done, true);
 });

@@ -8,6 +8,7 @@ import { viewStudy, resetStudy, studyKey } from "./views/study.js";
 import { viewLessons, leaveLessons } from "./views/lessons.js";
 import { viewPractice } from "./views/practice.js";
 import { viewExam, examRunning, abortExam, leaveExam } from "./views/exam.js";
+import { indexQuestions } from "./mistakes.js";
 import { viewQuiz } from "./views/quiz.js";
 import { viewBrowse } from "./views/browse.js";
 import { viewProgress } from "./views/progress.js";
@@ -26,6 +27,7 @@ const app = {
   questions: [],            // questions.json
   blueprints: {},           // blueprints.json (official exam structure per level)
   lessons: [],              // lessons.json (themed lessons with their own questions)
+  questionIndex: new Map(), // id -> question, bank + lesson questions (buku kesalahan)
   render: (...nodes) => view.replaceChildren(...nodes.flat().filter((n) => n != null && n !== false)),   // replaceChildren(null) would print "null"
   go,
 };
@@ -76,6 +78,7 @@ async function boot() {
     ]);
     setLookalikes(lookalikes);
     Object.assign(app, { vocab, handwriting: new Set(handwriting.map((x) => x.char)), handwritingList: handwriting, idData, questions, blueprints, lessons, chars });
+    app.questionIndex = indexQuestions(questions, lessons);
     go("home");
   } catch (err) {
     app.render(h("p", { class: "notice" }, `Gagal memuat data: ${err.message}. Jalankan server dari akar repo: python3 -m http.server 8080, lalu buka /app/.`));

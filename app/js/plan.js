@@ -121,7 +121,8 @@ export function mockDue(days, lastMockDays) {
 }
 
 const sameDay = (t, now) => t != null && daysUntil(dayKeyOf(t), now) === 0;
-function dayKeyOf(t) {
+/** Local calendar day of a timestamp, "YYYY-MM-DD". */
+export function dayKeyOf(t) {
   const d = new Date(t);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
@@ -132,10 +133,11 @@ export function dayActivity(data, level, now = Date.now()) {
   const practice = events.filter((e) => e.k === "practice" && !String(e.id ?? "").startsWith("ls-") && sameDay(e.t, now)).length;
   const lessonSteps = Object.values(data.lessons || {}).reduce((n, l) => n + Object.values(l.steps || {}).filter((s) => sameDay(s.t, now)).length, 0);
   const writing = Object.values(data.writing || {}).filter((r) => sameDay(r.t, now)).length;
+  const mistakes = events.filter((e) => e.mb && sameDay(e.t, now)).length;
   const exams = (data.exams || []).filter((x) => level == null || x.level === level);
   const last = exams.length ? Math.max(...exams.map((x) => x.t)) : null;
   return {
-    practice, lessonSteps, writing,
+    practice, lessonSteps, writing, mistakes,
     examToday: last != null && sameDay(last, now),
     lastMockDays: last == null ? null : -daysUntil(dayKeyOf(last), now),
   };
@@ -143,7 +145,7 @@ export function dayActivity(data, level, now = Date.now()) {
 
 /** The "Hari ini" checklist. Every task is marked done from recorded activity, never by hand.
  *  ctx: { plan, days, queue: {due, fresh}, act (dayActivity), lesson (next lesson or null),
- *         practiceAvailable, writingAvailable, examAvailable } */
+ *         practiceAvailable, writingAvailable, examAvailable, mistakesDue (buku kesalahan items due now) } */
 export function todayTasks(ctx) {
   const p = normalizePlan(ctx.plan);
   const final = ctx.days != null && ctx.days >= 0 && ctx.days <= FINAL_WEEK;
@@ -158,6 +160,11 @@ export function todayTasks(ctx) {
     const n = Math.round(PRACTICE_N[p.minutes] * (final ? 1.5 : 1));
     tasks.push({ id: "practice", label: "Latihan kelemahan", target: n,
       detail: `${Math.min(ctx.act.practice, n)}/${n} soal`, done: ctx.act.practice >= n });
+  }
+  const due = ctx.mistakesDue ?? 0;
+  if (due > 0 || ctx.act.mistakes > 0) {
+    tasks.push({ id: "mistakes", label: "Buku kesalahan",
+      detail: due ? `${due} soal jatuh tempo` : "Semua soal yang jatuh tempo sudah diulang", done: due === 0 });
   }
   if (ctx.writingAvailable && !final) {
     const n = WRITE_N[p.minutes];

@@ -1,6 +1,7 @@
 // Progress persistence. Storage is injectable (tests / private-mode fallback).
 import { newCard } from "./srs.js";
 import { normalizePlan } from "./plan.js";
+import { applyAnswer, addMistake, removeMistake } from "./mistakes.js";
 
 const KEY = "learning-chinese.vocab.v1";
 const LEGACY_KEY = "buatin.vocab.v1";   // name used before the rename; read once so saved progress survives
@@ -80,9 +81,19 @@ export class Store {
     const s = (p[skill] ||= { n: 0, ok: 0 });
     s.n += 1;
     if (correct) s.ok += 1;
-    if (meta) this.#pushEvent({ t: meta.t ?? Date.now(), k: meta.k ?? "practice", s: skill, l: meta.l, ty: meta.ty, id: meta.id, w: meta.w ?? null, ok: correct ? 1 : 0, ms: meta.ms ?? 0, ...(meta.un ? { un: 1 } : {}) });
+    if (meta) {
+      const t = meta.t ?? Date.now();
+      this.#pushEvent({ t, k: meta.k ?? "practice", s: skill, l: meta.l, ty: meta.ty, id: meta.id, w: meta.w ?? null, ok: correct ? 1 : 0, ms: meta.ms ?? 0, ...(meta.un ? { un: 1 } : {}), ...(meta.mb ? { mb: 1 } : {}) });
+      this.data.mistakes = applyAnswer(this.mistakes, { id: meta.id, ok: correct, t, k: meta.k, un: !!meta.un, skill });
+    }
     this.save();
   }
+
+  /** Buku kesalahan (mistakes.js): question id → { added, due, streak, src, day }. Updated by every recordAnswer. */
+  get mistakes() { return this.data.mistakes ?? {}; }
+  addMistake(id, now = Date.now()) { this.data.mistakes = addMistake(this.mistakes, id, now, "manual"); this.save(); }
+  removeMistake(id) { this.data.mistakes = removeMistake(this.mistakes, id); this.save(); }
+  clearMistakes() { this.data.mistakes = {}; this.save(); }
 
   #pushEvent(e) {
     const list = (this.data.events ||= []);

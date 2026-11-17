@@ -208,7 +208,10 @@ function reviewItem(app, row) {
       ...questionBody(q, m),
       h("p", { class: "review-answer" }, h("span", {}, "Jawaban Anda: ", h("strong", { lang: "zh-Hans" }, responseText(q, row.response))),
         h("span", {}, "Jawaban benar: ", h("strong", { lang: "zh-Hans" }, answerLabel(q)))),
-      explanation(q));
+      explanation(q),
+      app.store.mistakes[q.id]
+        ? h("p", { class: "hint" }, "✓ Ada di buku kesalahan (tab Latihan).")
+        : h("div", { class: "row left" }, btn("Masukkan ke buku kesalahan", () => { app.store.addMistake(q.id); draw(); }, "btn")));
   };
   draw();
   return el;
@@ -225,11 +228,16 @@ function reviewView(app) {
   const back = S.from === "result"
     ? btn("← Kembali ke hasil", () => { stopSpeaking(); S = { ...S, phase: "result" }; viewExam(app); }, "btn")
     : btn("← Kembali ke Kemajuan", () => app.go("progress"), "btn");
+  const notInBook = shown.flatMap((s) => s.rows).filter((r) => !app.store.mistakes[r.q.id]);
+  const addAll = notInBook.length
+    ? btn(`Masukkan ${notInBook.length} soal yang tampil ke buku kesalahan`, () => { for (const r of notInBook) app.store.addMistake(r.q.id); viewExam(app); }, "btn")
+    : null;
   app.render(
     h("div", { class: "pagehead" }, h("div", {}, h("h2", {}, `Pembahasan Simulasi HSK ${R.level}`),
       h("p", { class: "hint" }, `${new Date(R.t).toLocaleString("id-ID", { dateStyle: "long", timeStyle: "short" })} · audio bisa diputar ulang tanpa batas di sini.`))),
-    h("div", { class: "row left" }, back),
+    h("div", { class: "row left" }, back, addAll),
     filter,
+    h("p", { class: "hint" }, "Soal yang dijawab salah sudah otomatis masuk buku kesalahan; soal kosong bisa dimasukkan dengan tombol."),
     R.missing ? h("p", { class: "notice" }, `${R.missing} soal tidak bisa ditampilkan karena bank soal sudah diperbarui sejak ujian ini.`) : null,
     total ? null : h("p", { class: "empty" }, S.filter === "blank" ? "Semua soal dijawab." : "Tidak ada soal yang salah. 太好了！"),
     ...shown.filter((s) => s.rows.length).flatMap((s) => [
