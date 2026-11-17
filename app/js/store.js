@@ -1,5 +1,6 @@
 // Progress persistence. Storage is injectable (tests / private-mode fallback).
 import { newCard } from "./srs.js";
+import { normalizePlan } from "./plan.js";
 
 const KEY = "learning-chinese.vocab.v1";
 const LEGACY_KEY = "buatin.vocab.v1";   // name used before the rename; read once so saved progress survives
@@ -53,6 +54,10 @@ export class Store {
 
   get settings() { return this.data.settings; }
   setSettings(patch) { Object.assign(this.data.settings, patch); this.save(); }
+
+  /** Exam target { level, examDate, minutes }; always valid (see plan.js). Old data without it gets the default. */
+  get plan() { return normalizePlan(this.data.plan); }
+  setPlan(patch) { this.data.plan = normalizePlan({ ...this.plan, ...patch }); this.save(); return this.data.plan; }
 
   card(id) { return this.data.cards[id] || null; }
   putCard(card) { this.data.cards[card.id] = card; this.save(); }

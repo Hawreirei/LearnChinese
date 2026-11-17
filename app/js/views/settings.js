@@ -1,6 +1,29 @@
 import { LEVEL_LABEL } from "../deck.js";
 import { h, btn, speak } from "../ui.js";
 import { resetQuiz } from "./quiz.js";
+import { PLAN_LEVELS, PLAN_MINUTES, countdown, countdownText } from "../plan.js";
+
+/** Exam target: level, exam date, minutes per day (issue #22). The line below the fields previews the Beranda card. */
+function targetPanel(store, panel) {
+  const p = store.plan;
+  const preview = h("p", { class: "hint", "aria-live": "polite" });
+  const refresh = () => {
+    const t = countdownText(countdown(store.plan));
+    preview.textContent = `${t.title}. ${t.detail}`;
+  };
+  const field = (label, control) => h("label", { class: "field" }, h("span", {}, label), control);
+  const level = h("select", { onchange: (e) => { store.setPlan({ level: e.target.value ? Number(e.target.value) : null }); refresh(); } },
+    h("option", { value: "", selected: p.level == null }, "Belum ditentukan"),
+    ...PLAN_LEVELS.map((l) => h("option", { value: String(l), selected: p.level === l }, `HSK ${l}`)));
+  const date = h("input", { type: "date", value: p.examDate, onchange: (e) => { store.setPlan({ examDate: e.target.value }); e.target.value = store.plan.examDate; refresh(); } });
+  const minutes = h("select", { onchange: (e) => { store.setPlan({ minutes: Number(e.target.value) }); refresh(); } },
+    ...PLAN_MINUTES.map((m) => h("option", { value: String(m), selected: p.minutes === m }, `${m} menit`)));
+  refresh();
+  return panel("Target ujian",
+    h("div", { class: "fields" }, field("Level ujian", level), field("Tanggal ujian", date), field("Waktu belajar per hari", minutes)),
+    preview,
+    h("p", { class: "hint" }, "Tanggal boleh dikosongkan. Cek tanggal dan batas pendaftaran di pusat ujian Anda atau chinesetest.cn; jadwal bisa berbeda antar negara dan antara ujian kertas dan komputer."));
+}
 
 export function viewSettings(app) {
   const { store } = app;
@@ -47,6 +70,7 @@ export function viewSettings(app) {
   const panel = (title, ...kids) => h("div", { class: "panel" }, h("h2", {}, title), ...kids);
   app.render(h("div", { class: "pagehead" }, h("div", {}, h("h2", {}, "Pengaturan"), h("p", { class: "hint" }, "Disimpan di perangkat ini."))),
     h("div", { class: "grid-2" },
+      targetPanel(store, panel),
       panel("Level yang dipelajari", h("div", {}, ...levelBoxes)),
       panel("Kata baru per hari", newPer),
       panel("Soal menulis hanzi", h("div", {}, modeRadio("choice", "Pilihan ganda (4 hanzi, ketuk langsung)"), h("br"), modeRadio("tiles", "Bank hanzi (6 kepingan + kotak ketik, lalu Periksa)")),

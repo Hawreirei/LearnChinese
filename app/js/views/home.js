@@ -5,6 +5,7 @@ import { accuracy, streak, activeDayKeys } from "../analytics.js";
 import { examAvailable } from "../exam.js";
 import { STEPS, doneCount, nextLesson, levelSummary } from "../lesson.js";
 import { openLesson, openLessonList } from "./lessons.js";
+import { countdown, countdownText } from "../plan.js";
 import { h, btn, speak } from "../ui.js";
 
 const nf = new Intl.NumberFormat("id-ID");
@@ -51,6 +52,17 @@ function hero(app) {
         btn("Coba kuis", () => app.go("quiz"))),
       h("p", { class: "hint" }, todo ? `Hari ini ada ${todo} kartu menunggu (jatuh tempo ${due.due.length}, baru ${due.fresh.length}).` : "Tidak ada kartu yang perlu dipelajari sekarang.")),
     card);
+}
+
+/** Exam target and countdown (issue #22). Without a target it is a short invitation to set one. */
+function target(app) {
+  const c = countdown(app.store.plan);
+  const t = countdownText(c);
+  const days = c.state === "upcoming" ? h("div", { class: "tc-days", "aria-hidden": "true" }, String(c.days)) : null;
+  return h("section", { class: `target-card ${c.state}`, "aria-label": "Target ujian" },
+    days,
+    h("div", { class: "tc-main" }, h("div", { class: "eyebrow" }, "Target ujian"), h("strong", {}, t.title), h("p", { class: "hint" }, t.detail)),
+    btn(c.state === "none" ? "Tentukan target" : "Ubah target", () => app.go("settings"), c.state === "none" || c.state === "past" ? "btn primary" : "btn"));
 }
 
 /** Numbers from the loaded data and the learner's own history. */
@@ -148,5 +160,5 @@ function cta(app) {
 }
 
 export function viewHome(app) {
-  app.render(h("div", { class: "home" }, hero(app), strip(app), how(app), lessons(app), path(app), sample(app), cta(app)));
+  app.render(h("div", { class: "home" }, hero(app), target(app), strip(app), how(app), lessons(app), path(app), sample(app), cta(app)));
 }

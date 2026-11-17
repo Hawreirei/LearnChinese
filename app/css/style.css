@@ -47,7 +47,7 @@ main[data-view="practice"], main[data-view="exam"] { max-width: 980px; }
 main > p.hint:first-child { text-transform: uppercase; letter-spacing: .08em; font-size: 11px; font-weight: 600; color: var(--accent); }
 
 /* ---- controls ---- */
-button.btn, select, input[type="number"], input[type="search"] {
+button.btn, select, input[type="number"], input[type="search"], input[type="date"] {
   font: inherit; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--text); cursor: pointer;
   transition: transform .08s, background .15s, border-color .15s, box-shadow .15s; }
 input[type="search"] { cursor: text; width: 100%; padding: 12px 18px; margin: 8px 0; }
@@ -372,3 +372,15 @@ label.inline { display: inline-flex; align-items: center; gap: 6px; font-size: 1
 .level-head { margin: 0 0 4px; font-size: 18px; } .level-head small { font-size: 13px; font-weight: 400; color: var(--muted); }
 .level-details { margin: 10px 0; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); padding: 4px 12px 10px; }
 .level-details > summary { cursor: pointer; padding: 8px 0; list-style-position: inside; }
+
+/* ---- exam target (Pengaturan) and countdown (Beranda) ---- */
+.fields { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.field { display: grid; gap: 6px; font-size: 13px; color: var(--muted); }
+.field select, .field input { width: 100%; min-width: 0; color-scheme: light dark; }
+.target-card { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 16px 20px; border: 1px solid var(--line); border-left: 4px solid var(--brand); border-radius: var(--r-md); background: var(--surface); box-shadow: var(--shadow); }
+.target-card.past { border-left-color: var(--warn); }
+.target-card.today { border-left-color: var(--accent); }
+.target-card .tc-main { flex: 1 1 220px; min-width: 0; }
+.target-card .tc-days { font-size: 34px; line-height: 1; font-weight: 700; color: var(--heading); font-variant-numeric: tabular-nums; }
+.target-card strong { display: block; font-size: 17px; color: var(--heading); }
+.target-card .hint { margin: 4px 0 0; }
