@@ -1,0 +1,63 @@
+# Dengar pernyataan pendek + pertanyaan, pilih jawaban (audio_statement_question_mcq), HSK 1 bagian 4.
+# Ditulis sendiri, belum direview penutur asli. Pilihan pertama = jawaban benar (diacak saat build).
+# level|pernyataan|pertanyaan|benar|salah 1|salah 2|terjemahan pernyataan|terjemahan pertanyaan|terjemahan jawaban
+1|下午我去商店，我想买一些水果。|他下午去哪儿？|商店|医院|学校|Sore ini aku pergi ke toko, aku ingin membeli beberapa buah.|Sore ini dia pergi ke mana?|Toko.
+1|我叫高明，我是中学老师。|高明做什么工作？|老师|医生|学生|Namaku Gao Ming, aku guru SMP.|Gao Ming bekerja sebagai apa?|Guru.
+1|今天是星期三，我和朋友去看电影。|今天星期几？|星期三|星期一|星期五|Hari ini hari Rabu, aku dan teman pergi menonton film.|Hari ini hari apa?|Rabu.
+1|我家有四口人：爸爸、妈妈、哥哥和我。|他家有几口人？|四口|三口|五口|Keluargaku ada empat orang: ayah, ibu, kakak laki-laki, dan aku.|Keluarganya ada berapa orang?|Empat orang.
+1|这个杯子二十块钱，那个杯子十块钱。|那个杯子多少钱？|十块|二十块|三十块|Cangkir ini dua puluh yuan, cangkir itu sepuluh yuan.|Cangkir itu berapa harganya?|Sepuluh yuan.
+1|我昨天生病了，没去上学。|他昨天怎么了？|生病了|去上学了|去工作了|Kemarin aku sakit, tidak pergi sekolah.|Kemarin dia kenapa?|Sakit.
+1|现在是上午九点，我在学校上课。|现在几点？|九点|十点|八点|Sekarang pukul sembilan pagi, aku sedang belajar di sekolah.|Sekarang pukul berapa?|Pukul sembilan.
+1|我喜欢喝茶，不喜欢喝牛奶。|他喜欢喝什么？|茶|牛奶|水|Aku suka minum teh, tidak suka minum susu.|Dia suka minum apa?|Teh.
+1|我女儿今年六岁，她喜欢小猫。|他女儿几岁？|六岁|七岁|八岁|Putriku tahun ini berumur enam tahun, dia suka anak kucing.|Putrinya berumur berapa?|Enam tahun.
+1|我的书在桌子上，你的书在椅子上。|说话人的书在哪儿？|桌子上|椅子上|电脑里|Bukuku di atas meja, bukumu di atas kursi.|Buku pembicara ada di mana?|Di atas meja.
+1|天气太冷了，我们明天再去吧。|天气怎么样？|很冷|很热|下雨了|Cuacanya terlalu dingin, kita pergi besok saja.|Bagaimana cuacanya?|Dingin.
+1|今天晚上我坐出租车去饭店吃饭。|他怎么去饭店？|坐出租车|坐飞机|开车|Malam ini aku naik taksi ke restoran untuk makan.|Bagaimana dia pergi ke restoran?|Naik taksi.
+1|我哥哥在医院工作，他是医生。|他哥哥在哪儿工作？|医院|商店|学校|Kakakku bekerja di rumah sakit, dia dokter.|Kakaknya bekerja di mana?|Rumah sakit.
+1|我今天早上六点起床，七点吃早饭。|他几点吃早饭？|七点|六点|八点|Pagi ini aku bangun pukul enam, sarapan pukul tujuh.|Dia sarapan pukul berapa?|Pukul tujuh.
+1|我的同学会做饭，他做的饺子很好吃。|他的同学会做什么？|饺子|面条儿|包子|Teman sekelasku bisa memasak, jiaozi buatannya enak sekali.|Teman sekelasnya bisa membuat apa?|Jiaozi.
+1|我想买那件衣服，它很漂亮。|他想买什么？|衣服|手机|电脑|Aku ingin membeli baju itu, bajunya cantik.|Dia ingin membeli apa?|Baju.
+1|明天下雨，我不去学校了，在家看书。|明天他做什么？|在家看书|去学校|去商店|Besok hujan, aku tidak ke sekolah, membaca buku di rumah.|Besok dia melakukan apa?|Membaca buku di rumah.
+1|我家在饭店前边，你来我家吧。|他家在哪儿？|饭店前边|饭店后边|学校里|Rumahku di depan restoran, datanglah ke rumahku.|Rumahnya di mana?|Di depan restoran.
+1|我有两个弟弟，没有妹妹。|他有几个弟弟？|两个|一个|三个|Aku punya dua adik laki-laki, tidak punya adik perempuan.|Dia punya berapa adik laki-laki?|Dua.
+1|我买了三个苹果和一些面包。|他买了几个苹果？|三个|两个|四个|Aku membeli tiga apel dan beberapa roti.|Dia membeli berapa apel?|Tiga.
+1|我爸爸开车去公司上班。|他爸爸怎么去公司？|开车|坐出租车|坐火车|Ayahku berangkat kerja ke kantor dengan menyetir mobil.|Bagaimana ayahnya pergi ke kantor?|Menyetir mobil.
+1|我妈妈是医生，她工作很忙。|他妈妈做什么工作？|医生|老师|学生|Ibuku dokter, pekerjaannya sangat sibuk.|Ibunya bekerja sebagai apa?|Dokter.
+1|星期天我们去饭店吃饭，好吗？|他们星期天去哪儿？|饭店|医院|学校|Hari Minggu kita makan di restoran, mau?|Hari Minggu mereka pergi ke mana?|Restoran.
+1|我的猫很小，它在椅子下边睡觉。|猫在做什么？|睡觉|吃饭|看电视|Kucingku masih kecil, dia tidur di bawah kursi.|Kucing itu sedang apa?|Tidur.
+1|今天中午我想吃米饭，不想吃面条儿。|他中午想吃什么？|米饭|面条儿|包子|Siang ini aku ingin makan nasi, tidak ingin makan mi.|Siang ini dia ingin makan apa?|Nasi.
+1|我是去年九月来中国的。|他什么时候来中国的？|去年九月|今年九月|去年八月|Aku datang ke Tiongkok bulan September tahun lalu.|Kapan dia datang ke Tiongkok?|September tahun lalu.
+1|我在商店买了一个杯子，八块钱。|杯子多少钱？|八块|十块|六块|Aku membeli sebuah cangkir di toko, delapan yuan.|Cangkirnya berapa harganya?|Delapan yuan.
+1|下午我要去看病，不能和你去看电影了。|他下午去做什么？|看病|看电影|上课|Sore ini aku harus berobat, tidak bisa menonton film bersamamu.|Sore ini dia pergi untuk apa?|Berobat.
+1|我朋友明天来我家吃饭。|谁明天来他家？|朋友|老师|医生|Besok temanku datang makan di rumahku.|Siapa yang besok datang ke rumahnya?|Teman.
+1|我的汉语老师是中国人，她非常好。|谁是中国人？|汉语老师|他的朋友|他妈妈|Guru bahasa Mandarinku orang Tiongkok, dia sangat baik.|Siapa yang orang Tiongkok?|Guru bahasa Mandarin.
+1|这本书很好看，我想再看一下。|他觉得这本书怎么样？|很好看|很贵|不好看|Buku ini bagus sekali, aku ingin membacanya lagi.|Menurutnya buku ini bagaimana?|Bagus.
+1|今天很热，我想喝一杯水。|他想喝什么？|水|茶|牛奶|Hari ini panas, aku ingin minum segelas air.|Dia ingin minum apa?|Air.
+1|我和妹妹都喜欢看电视。|谁喜欢看电视？|他和妹妹|他和哥哥|他和妈妈|Aku dan adik perempuanku sama-sama suka menonton televisi.|Siapa yang suka menonton televisi?|Dia dan adik perempuannya.
+1|我昨天晚上十一点睡觉的。|他昨天几点睡觉的？|十一点|十点|十二点|Tadi malam aku tidur pukul sebelas.|Kemarin dia tidur pukul berapa?|Pukul sebelas.
+1|你好，请问，医院在哪儿？|他想去哪儿？|医院|学校|商店|Halo, permisi, rumah sakit di mana?|Dia ingin pergi ke mana?|Rumah sakit.
+1|我在一个大公司工作，工作很忙。|他在哪儿工作？|公司|医院|饭店|Aku bekerja di sebuah perusahaan besar, pekerjaannya sibuk.|Dia bekerja di mana?|Perusahaan.
+1|这件衣服两百块，太贵了，我不买了。|他觉得衣服怎么样？|太贵了|很便宜|不好看|Baju ini dua ratus yuan, terlalu mahal, aku tidak jadi membeli.|Menurutnya baju itu bagaimana?|Terlalu mahal.
+1|今天是十月一号，我们不上班。|今天几号？|一号|十号|七号|Hari ini tanggal satu Oktober, kami tidak bekerja.|Hari ini tanggal berapa?|Tanggal satu.
+1|我爸爸会开车，我妈妈不会。|谁会开车？|他爸爸|他妈妈|他哥哥|Ayahku bisa menyetir mobil, ibuku tidak bisa.|Siapa yang bisa menyetir mobil?|Ayahnya.
+1|我想去中国学习汉语。|他想学习什么？|汉语|做饭|开车|Aku ingin pergi ke Tiongkok untuk belajar bahasa Mandarin.|Dia ingin belajar apa?|Bahasa Mandarin.
+1|前边那个人是我们的老师。|前边那个人是谁？|老师|医生|同学|Orang di depan itu guru kami.|Orang di depan itu siapa?|Guru.
+1|我家有一只小狗，它很喜欢玩儿。|他家有什么？|狗|猫|鸡|Di rumahku ada seekor anak anjing, dia sangat suka bermain.|Di rumahnya ada apa?|Anjing.
+1|我中午在学校吃饭，晚上回家吃饭。|他中午在哪儿吃饭？|学校|家里|饭店|Siang aku makan di sekolah, malam makan di rumah.|Siang hari dia makan di mana?|Sekolah.
+1|那个饭店的菜很好吃，也不贵。|那个饭店的菜怎么样？|很好吃|很贵|不好吃|Masakan restoran itu enak sekali, juga tidak mahal.|Bagaimana masakan restoran itu?|Enak sekali.
+1|我们下午三点去看电影，你去吗？|他们几点去看电影？|三点|四点|两点|Kami pergi menonton film pukul tiga sore, kamu ikut?|Mereka menonton film pukul berapa?|Pukul tiga.
+1|我明天坐飞机回家。|他明天怎么回家？|坐飞机|坐火车|开车|Besok aku pulang naik pesawat.|Besok dia pulang naik apa?|Naik pesawat.
+1|我儿子是大学生，今年二十岁。|他儿子多大？|二十岁|十八岁|二十二岁|Putraku mahasiswa, tahun ini berumur dua puluh tahun.|Putranya umur berapa?|Dua puluh tahun.
+1|我现在很忙，下午给你打电话。|他下午做什么？|打电话|看书|看病|Sekarang aku sibuk sekali, sore nanti aku meneleponmu.|Sore nanti dia melakukan apa?|Menelepon.
+1|这些水果是我妈妈买的。|这些水果是谁买的？|他妈妈|他爸爸|他姐姐|Buah-buahan ini dibeli ibuku.|Siapa yang membeli buah-buahan ini?|Ibunya.
+1|我的同学都很喜欢那个老师。|同学们喜欢谁？|那个老师|那个医生|那个学生|Teman-teman sekelasku semua sangat suka guru itu.|Teman-teman sekelas menyukai siapa?|Guru itu.
+1|今天下雪了，外边很冷。|今天天气怎么样？|下雪了|很热|下雨了|Hari ini turun salju, di luar dingin sekali.|Bagaimana cuaca hari ini?|Turun salju.
+1|我不喜欢吃包子，我喜欢吃饺子。|他喜欢吃什么？|饺子|包子|面包|Aku tidak suka makan bakpao, aku suka makan jiaozi.|Dia suka makan apa?|Jiaozi.
+1|我的姐姐在超市工作。|他姐姐在哪儿工作？|超市|书店|医院|Kakak perempuanku bekerja di supermarket.|Kakak perempuannya bekerja di mana?|Supermarket.
+1|我昨天去书店买了两本书。|他昨天买了什么？|书|衣服|水果|Kemarin aku ke toko buku membeli dua buku.|Kemarin dia membeli apa?|Buku.
+1|现在十二点了，我们去吃午饭吧。|现在几点了？|十二点|十一点|一点|Sekarang sudah pukul dua belas, ayo kita makan siang.|Sekarang pukul berapa?|Pukul dua belas.
+1|我是学生，我在大学学习。|他在哪儿学习？|大学|中学|小学|Aku pelajar, aku belajar di universitas.|Dia belajar di mana?|Universitas.
+1|我今天很高兴，我的朋友来看我了。|谁来看他了？|朋友|老师|妈妈|Hari ini aku senang sekali, temanku datang menjengukku.|Siapa yang datang menjenguknya?|Teman.
+1|这个电脑太贵了，那个便宜。|哪个电脑便宜？|那个|这个|都不便宜|Komputer ini terlalu mahal, yang itu murah.|Komputer mana yang murah?|Yang itu.
+1|我们明天上午去医院看朋友。|他们明天上午做什么？|看朋友|看病|上课|Besok pagi kami pergi ke rumah sakit menjenguk teman.|Besok pagi mereka melakukan apa?|Menjenguk teman.
+1|我今天没有时间，明天再去吧。|他什么时候去？|明天|今天|昨天|Hari ini aku tidak punya waktu, besok saja perginya.|Kapan dia pergi?|Besok.

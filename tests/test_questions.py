@@ -27,7 +27,46 @@ class QuestionBankTests(unittest.TestCase):
         self.assertGreaterEqual(len(by("cloze_wordbank")), 400)
         self.assertGreaterEqual(len(by("write_hanzi_from_pinyin")), 300)
         self.assertEqual(len(by("audio_question_pick_answer")), 68)
-        self.assertEqual(len(by("audio_dialog_question_mcq")) + len(by("audio_passage_question_mcq")), 36)
+        self.assertEqual(len(by("audio_dialog_question_mcq")) + len(by("audio_passage_question_mcq")), 76)
+
+    def test_match_groups(self):
+        groups = {}
+        for q in by("match_question_to_answer"):
+            groups.setdefault(q["group"], []).append(q)
+        per_level = {}
+        for g, items in groups.items():
+            per_level[items[0]["level"]] = per_level.get(items[0]["level"], 0) + 1
+            self.assertEqual(len(items), 5, g)
+            opts = [o["zh"] for o in items[0]["options"]]
+            self.assertEqual(len(opts), 6, g)
+            self.assertEqual(len(set(opts)), 6, g)
+            for q in items:
+                self.assertEqual([o["zh"] for o in q["options"]], opts, (g, q["id"]))   # one A-F list per group
+                self.assertIn(q["answer"], opts, q["id"])
+                self.assertTrue(q["stem"] and q["stem_pinyin"] and q["explain"]["question_id"] and q["explain"]["answer_id"], q["id"])
+            self.assertEqual(len({q["answer"] for q in items}), 5, g)                    # the sixth answer is the extra
+            tags = [bq.question_tag(q["stem"]) for q in items]
+            self.assertEqual(len(set(tags)), 5, (g, tags))
+        for level in (1, 2, 3):
+            self.assertGreaterEqual(per_level.get(level, 0), 10, level)
+
+    def test_statement_listening(self):
+        items = by("audio_statement_question_mcq")
+        self.assertGreaterEqual(len(items), 60)
+        for q in items:
+            self.assertEqual(q["level"], 1, q["id"])
+            self.assertEqual(len(q["turns"]), 1, q["id"])
+            self.assertEqual(len({o["zh"] for o in q["options"]}), 3, q["id"])
+            self.assertIn(q["answer"], [o["zh"] for o in q["options"]], q["id"])
+            self.assertTrue(q["question"] and q["explain"]["text_id"] and q["explain"]["answer_id"], q["id"])
+
+    def test_question_tags(self):
+        cases = {"你叫什么名字？": "apa", "你今年几岁了？": "jumlah", "现在几点了？": "kapan", "这个多少钱？": "harga",
+                 "你家在哪儿？": "tempat", "谁会做饭？": "siapa", "今天天气怎么样？": "kondisi", "你怎么去学校？": "cara",
+                 "你是老师吗？": "ya-tidak", "你能不能来？": "ya-tidak", "你喝茶还是咖啡？": "pilihan", "你为什么笑？": "mengapa",
+                 "你等了多长时间？": "durasi", "这个箱子有多重？": "ukuran", "你是哪国人？": "yang-mana", "你是学生？": "lain"}
+        for q, tag in cases.items():
+            self.assertEqual(bq.question_tag(q), tag, q)
 
     def test_types_match_blueprints(self):
         import yaml

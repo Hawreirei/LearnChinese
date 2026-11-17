@@ -21,7 +21,7 @@ const LETTERS = "ABCDEF";
 
 export const PICTURE_LISTENING = new Set(["audio_phrase_pick_picture", "audio_sentence_pick_picture", "audio_dialog_match_picture"]);
 export const TEXT_READING = new Set(["short_text_mcq", "passage_mcq"]);
-const AUDIO_TYPES = new Set(["audio_question_pick_answer", "audio_dialog_question_mcq", "audio_passage_question_mcq", ...PICTURE_LISTENING]);
+const AUDIO_TYPES = new Set(["audio_question_pick_answer", "audio_dialog_question_mcq", "audio_passage_question_mcq", "audio_statement_question_mcq", ...PICTURE_LISTENING]);
 
 export const isListening = (q) => AUDIO_TYPES.has(q.type);
 export { optionKey };
@@ -169,6 +169,12 @@ export function questionBody(q, m) {
   if (PICTURE_LISTENING.has(q.type)) return [help, listeningCard(q, m), pictureGrid(q, m)];
   if (isListening(q)) return [help, listeningCard(q, m), textOptions(q, m)];
   if (q.type === "sentence_match_picture") return [help, textCard(q, true), pictureGrid(q, m)];
+  if (q.type === "match_question_to_answer") {   // one question of a matching group; the six answers are shared (A-F)
+    const show = q.level === 1 || !!m.pinyin.shown;
+    return [help, h("div", { class: "card" }, h("div", { class: "stem", lang: "zh-Hans" }, q.stem), show ? h("div", { class: "pinyin" }, q.stem_pinyin) : null),
+      q.level > 1 ? h("div", { class: "row" }, btn(show ? "Sembunyikan pinyin" : "Tampilkan pinyin", m.pinyin.toggle, "btn")) : null,
+      textOptions(q, m)];
+  }
   // short_text_mcq / passage_mcq
   const showPinyin = q.level === 1 || !!m.pinyin.shown;
   return [help, textCard(q, showPinyin),
@@ -192,6 +198,11 @@ export function explanation(q) {
 
   if (PICTURE_LISTENING.has(q.type)) return h("div", { class: "example" }, pic, listeningText(q), h("div", { class: "tr" }, e.audio_id ?? e.text_id));
   if (q.type === "sentence_match_picture") return h("div", { class: "example" }, pic, zh(q.sentence), h("div", { class: "py" }, q.sentence_pinyin), h("div", { class: "tr" }, e.sentence_id));
+  if (q.type === "match_question_to_answer") {
+    const a = q.options.find((o) => o.zh === q.answer);
+    return h("div", { class: "example" }, zh(q.stem), h("div", { class: "py" }, q.stem_pinyin), h("div", { class: "tr" }, e.question_id),
+      zh(q.answer, "margin-top:8px"), h("div", { class: "py" }, a?.pinyin ?? ""), h("div", { class: "tr" }, e.answer_id));
+  }
   if (TEXT_READING.has(q.type)) {
     return h("div", { class: "example" }, zh(q.text, "font-size:18px"), h("div", { class: "tr" }, e.text_id),
       zh(q.question, "margin-top:8px"), h("div", { class: "tr" }, e.question_id), zh(q.answer, "margin-top:8px"), h("div", { class: "tr" }, e.answer_id));

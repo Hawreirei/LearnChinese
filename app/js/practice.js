@@ -16,6 +16,8 @@ export const TYPE_HELP = {
   sentence_match_picture: "Baca kalimat, lalu pilih gambar yang sesuai.",
   short_text_mcq: "Baca teks, lalu pilih jawaban yang tepat.",
   passage_mcq: "Baca paragraf, lalu pilih jawaban yang tepat.",
+  match_question_to_answer: "Pilih jawaban (A–F) yang cocok dengan pertanyaan ini. Di ujian, lima pertanyaan berturut-turut memakai daftar jawaban yang sama, dan satu jawaban tidak dipakai.",
+  audio_statement_question_mcq: "Dengarkan kalimat dan pertanyaannya, lalu pilih jawaban yang tepat.",
 };
 
 /** Key that makes two questions "the same question" (so a set never repeats one; a cloze and a write item

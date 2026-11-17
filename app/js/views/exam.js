@@ -202,7 +202,7 @@ function reviewItem(app, row) {
       listening: { playsLeft: null, play: (rate) => speakSequence(listeningParts(q), rate), textShown, toggleText: () => { textShown = !textShown; draw(); } },
       pinyin: { shown: pinyinShown, toggle: () => { pinyinShown = !pinyinShown; draw(); } },
     };
-    el.replaceChildren(
+    el.replaceChildren(...[
       h("div", { class: "review-head" }, h("strong", {}, `Soal ${row.n}`), h("span", { class: `badge ${cls}` }, label),
         row.substitute ? h("span", { class: "badge", title: "Jenis soal resmi belum tersedia; diganti jenis terdekat" }, "pengganti") : null),
       ...questionBody(q, m),
@@ -211,7 +211,8 @@ function reviewItem(app, row) {
       explanation(q),
       app.store.mistakes[q.id]
         ? h("p", { class: "hint" }, "✓ Ada di buku kesalahan (tab Latihan).")
-        : h("div", { class: "row left" }, btn("Masukkan ke buku kesalahan", () => { app.store.addMistake(q.id); draw(); }, "btn")));
+        : h("div", { class: "row left" }, btn("Masukkan ke buku kesalahan", () => { app.store.addMistake(q.id); draw(); }, "btn")),
+    ].filter((n) => n != null));   // questionBody may return null slots; replaceChildren would print "null"
   };
   draw();
   return el;

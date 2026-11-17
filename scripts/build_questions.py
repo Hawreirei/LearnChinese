@@ -6,6 +6,8 @@ Types (names follow blueprints/hsk3.0):
   write_hanzi_from_pinyin     writing   type the missing hanzi given its pinyin
   order_sentence              writing   put shuffled word/punctuation pieces of an example sentence in order
   audio_question_pick_answer  listening hear a question (TTS), pick the answer (3 options)
+  audio_statement_question_mcq listening hear a short statement and a question about it (HSK 1 part 4)
+  match_question_to_answer    reading   groups of 5 questions + 6 answers (one extra); each question is one item
 
 Sources are the hand-written, level-linted sentences (content/id/level-*.psv -> vocab_id.json) and the
 hand-written Q&A pairs (content/id/qa-level-*.psv). Everything is deterministic (seeded by word id).
@@ -427,15 +429,15 @@ def make_texts(allowed, problems):
 
 
 def make_dialogs(allowed, problems, start_id):
-    """HSK 3 listening: dialogs (audio_dialog_question_mcq) and short passages (audio_passage_question_mcq)."""
+    """HSK 2-3 listening: dialogs (audio_dialog_question_mcq) and short passages (audio_passage_question_mcq)."""
     from pypinyin import Style, lazy_pinyin
     py = lambda t: bid.pinyin_line(t, Style, lazy_pinyin)
     out = []
-    path = ROOT / "content" / "id" / "dialog-level-3.psv"
-    if not path.exists():
-        return out
     seen = set()
-    for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+    # dialog-level-3.psv first so the ids it has always had (d1...) stay stable for saved reviews and mistakes
+    first = ROOT / "content" / "id" / "dialog-level-3.psv"
+    paths = [first] + sorted(p for p in (ROOT / "content" / "id").glob("dialog-level-*.psv") if p != first)
+    for path, n, line in ((p, n, line) for p in paths if p.exists() for n, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1)):
         if not line.strip() or line.startswith("#"):
             continue
         f = [x.strip() for x in line.split("|")]
@@ -473,6 +475,120 @@ def make_dialogs(allowed, problems, start_id):
     return out
 
 
+# ----------------------------------------------------------------------------------------------
+# Matching (match_question_to_answer) and statement listening (audio_statement_question_mcq).
+# ----------------------------------------------------------------------------------------------
+# What a question asks for, from its question word. Inside one matching group every question must ask for a
+# different thing, and the extra answer must answer yet another kind, so each answer fits exactly one question.
+QTAGS = [
+    ("pilihan", r"还是"), ("mengapa", r"为什么"), ("harga", r"多少钱|怎么卖"), ("siapa", r"谁"),
+    ("kapan", r"什么时候|几点|几号|几月|星期几|哪天|哪年"), ("durasi", r"多长时间|多久"), ("ukuran", r"多重|多高|多远|多长(?!时间)"),
+    ("tempat", r"哪儿|哪里|在哪"), ("kondisi", r"怎么样"), ("cara", r"怎么"), ("jumlah", r"几|多少|多大"),
+    ("yang-mana", r"哪"), ("apa", r"什么"), ("ya-tidak", r"吗[？?]?$|(.)不\1"),
+]
+
+
+def question_tag(q):
+    q = q.lstrip("*").strip()
+    for tag, pat in QTAGS:
+        if re.search(pat, q):
+            return tag
+    return "lain"
+
+
+def make_match(allowed, problems):
+    """5 questions + 1 extra answer per group. Every question becomes one item whose options are the group's six
+    answers in one fixed order (A-F), so consecutive items of a group read like the official matching part."""
+    from pypinyin import Style, lazy_pinyin
+    py = lambda t: bid.pinyin_line(t, Style, lazy_pinyin)
+    out, seen = [], set()
+    for path in sorted((ROOT / "content" / "id").glob("match-level-*.psv")):
+        groups = {}
+        for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.strip() or line.startswith("#"):
+                continue
+            f = [x.strip() for x in line.split("|")]
+            loc = f"{path.name}:{n}"
+            if len(f) != 6:
+                problems.append(f"{loc}: expected 6 fields, got {len(f)}")
+                continue
+            level, gid, q, a, tq, ta = f
+            level = int(level)
+            for t in [q.lstrip("*"), a]:
+                bad = sorted({c for c in t if HAN.match(c) and c not in allowed[level]})
+                if bad:
+                    problems.append(f"{loc}: chars above level {level}: {''.join(bad)} in {t!r}")
+            g = groups.setdefault((level, gid), {"pairs": [], "extra": [], "loc": loc})
+            (g["extra"] if q.startswith("*") else g["pairs"]).append({"q": q, "a": a, "tq": tq, "ta": ta, "loc": loc})
+        for (level, gid), g in groups.items():
+            where = f"{path.name} group {gid}"
+            if len(g["pairs"]) != 5 or len(g["extra"]) != 1:
+                problems.append(f"{where}: need 5 pairs and 1 extra answer, got {len(g['pairs'])} + {len(g['extra'])}")
+                continue
+            tags = [question_tag(p["q"]) for p in g["pairs"]]
+            extra_tag = question_tag(g["extra"][0]["q"])
+            if len(set(tags)) != 5 or "lain" in tags:
+                problems.append(f"{where}: questions must ask for 5 different things, got {tags}")
+            if extra_tag in tags or extra_tag == "lain":
+                problems.append(f"{where}: the extra answer ({extra_tag}) could answer one of the questions {tags}")
+            answers = [p["a"] for p in g["pairs"]] + [g["extra"][0]["a"]]
+            if len(set(answers)) != 6:
+                problems.append(f"{where}: answers not distinct")
+            rng = random.Random(f"{level}{gid}{answers[0]}")
+            order = answers[:]
+            rng.shuffle(order)
+            options = [{"zh": a, "pinyin": py(a)} for a in order]
+            for p in g["pairs"]:
+                if p["q"] in seen:
+                    problems.append(f"{p['loc']}: duplicate question {p['q']!r}")
+                seen.add(p["q"])
+                out.append({
+                    "id": f"m{len(out) + 1}", "type": "match_question_to_answer", "skill": "reading", "level": level,
+                    "group": f"{level}{gid}", "stem": p["q"], "stem_pinyin": py(p["q"]), "dedupe": "m:" + p["q"],
+                    "options": options, "answer": p["a"],
+                    "explain": {"question_id": p["tq"], "answer_id": p["ta"]},
+                })
+    return out
+
+
+def make_statements(allowed, problems):
+    """HSK 1 listening part 4: a short statement and a question about it, three short answers."""
+    from pypinyin import Style, lazy_pinyin
+    py = lambda t: bid.pinyin_line(t, Style, lazy_pinyin)
+    out, seen = [], set()
+    for path in sorted((ROOT / "content" / "id").glob("statement-level-*.psv")):
+        for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.strip() or line.startswith("#"):
+                continue
+            f = [x.strip() for x in line.split("|")]
+            loc = f"{path.name}:{n}"
+            if len(f) != 9:
+                problems.append(f"{loc}: expected 9 fields, got {len(f)}")
+                continue
+            level, text, q, ok, w1, w2, t_text, t_q, t_ok = f
+            level = int(level)
+            opts = [ok, w1, w2]
+            if len(set(opts)) != 3:
+                problems.append(f"{loc}: options not distinct")
+            if text in seen:
+                problems.append(f"{loc}: duplicate statement")
+            seen.add(text)
+            for t in [text, q] + opts:
+                bad = sorted({c for c in t if HAN.match(c) and c not in allowed[level]})
+                if bad:
+                    problems.append(f"{loc}: chars above level {level}: {''.join(bad)} in {t!r}")
+            rng = random.Random(text)
+            shuffled = opts[:]
+            rng.shuffle(shuffled)
+            out.append({
+                "id": f"s{len(out) + 1}", "type": "audio_statement_question_mcq", "skill": "listening", "level": level,
+                "turns": [{"who": "", "zh": text, "pinyin": py(text)}], "question": q, "question_pinyin": py(q),
+                "dedupe": "s:" + text, "options": [{"zh": o, "pinyin": py(o)} for o in shuffled], "answer": ok,
+                "explain": {"text_id": t_text, "question_id": t_q, "answer_id": t_ok},
+            })
+    return out
+
+
 def main():
     vocab, ent = load_all()
     problems = []
@@ -481,6 +597,8 @@ def main():
     items += make_dialogs(allowed, problems, 1)
     items += make_pictures(problems)
     items += make_texts(allowed, problems)
+    items += make_match(allowed, problems)
+    items += make_statements(allowed, problems)
     if problems:
         print("\n".join(problems))
         sys.exit(1)

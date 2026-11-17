@@ -78,16 +78,18 @@ Nama sama dengan `part.type` di `blueprints/hsk3.0/*.yaml`. Dibangun oleh `scrip
 | Membaca | `sentence_match_picture` (6 gambar) | 53 | `content/pic/scenes.json` |
 | Membaca | `short_text_mcq` (HSK 1–2) | 30 | `content/id/reading-level-1/2.psv` |
 | Membaca | `passage_mcq` (paragraf 58–84 hanzi, HSK 3) | 28 | `content/id/reading-level-3.psv` |
+| Membaca | `match_question_to_answer` (grup 5 pertanyaan + 6 jawaban, satu pengecoh; tiap pertanyaan = 1 soal, satu urutan A–F per grup) | 150 (30 grup) | `content/id/match-level-1..3.psv`; pembangun menandai jenis pertanyaan (siapa/di mana/kapan/berapa/apa/ya-tidak/…) dan menolak grup yang dua pertanyaannya sejenis atau pengecohnya menjawab salah satu jenis itu; ujian mengambil grup utuh |
 | Menulis | `write_hanzi_from_pinyin` | 601 | kalimat contoh; hanya hanzi yang bacaannya unik di level itu |
 | Menulis | `order_sentence` (susun kalimat; hanya Latihan, belum ada di blueprint resmi) | 828 | kalimat contoh dipecah per kata silabus (maximum matching) + tanda baca; dibuang bila ada kata yang bisa pindah tempat (waktu, 和, dst.), dua klausa penuh, atau deretan angka |
 | Mendengar | `audio_phrase_pick_picture` (HSK 1) | 45 | dibangkitkan: 9 benda × jumlah 1–5 |
 | Mendengar | `audio_sentence_pick_picture` (HSK 2) | 53 | `scenes.json` |
 | Mendengar | `audio_dialog_match_picture` | 42 | `content/pic/dialogs.psv` |
-| Mendengar | `audio_question_pick_answer` / `audio_dialog_question_mcq` / `audio_passage_question_mcq` | 68 / 24 / 12 | `content/id/qa-level-*.psv`, `dialog-level-3.psv` |
+| Mendengar | `audio_question_pick_answer` / `audio_dialog_question_mcq` / `audio_passage_question_mcq` | 68 / 64 / 12 | `content/id/qa-level-*.psv`, `dialog-level-2.psv` (HSK 2), `dialog-level-3.psv` |
+| Mendengar | `audio_statement_question_mcq` (HSK 1 bagian 4: pernyataan + pertanyaan, 3 pilihan) | 60 | `content/id/statement-level-1.psv` |
 
 **Soal bergambar** memakai emoji sebagai gambar (buatan sendiri, bebas lisensi; tampilan mengikuti font perangkat). 76 adegan dalam 21 kelompok; semua pilihan gambar berasal dari **kelompok berbeda**, sehingga paling banyak satu gambar yang cocok dengan teks. Foto asli: isi `src` pada opsi gambar (UI sudah mendukung `<img>`).
 
-Belum ada: `match_question_to_answer`, `audio_statement_question_mcq`, `choose_missing_character_component`, `write_sentence_from_picture_and_word`, soal level 4+, speaking. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
+Belum ada: `choose_missing_character_component` (HSK 2 W1), `write_sentence_from_picture_and_word` (HSK 3 W2), soal level 4+, speaking. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
 
 ## Aturan mutu yang dijaga otomatis
 

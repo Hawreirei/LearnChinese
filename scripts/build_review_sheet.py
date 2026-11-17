@@ -88,6 +88,7 @@ def main():
         ("Yang mohon diperhatikan / 请特别注意", True),
         ("• 词汇: apakah arti Indonesia sesuai dengan makna kata dalam HSK (bukan makna kamus pertama)? Apakah kalimat contoh alami, sederhana, dan sesuai level? Apakah terjemahan Indonesianya wajar?", False),
         ("• 听力/阅读: apakah jawaban benar tepat satu? Adakah pilihan salah yang sebenarnya juga benar (soal ambigu)? Apakah dialog terdengar alami?", False),
+        ("• 配对: dalam satu grup, apakah setiap jawaban hanya cocok dengan satu pertanyaan, dan jawaban pengecoh tidak cocok dengan pertanyaan mana pun?", False),
         ("• 图片: apakah gambar (emoji) sesuai dengan kalimat, dan tidak ada gambar lain yang juga cocok?", False),
         ("• 填空: soal isi kata dibuat otomatis dari kalimat contoh; tandai jika ada pilihan salah yang juga bisa dipakai (ambigu) atau kalimat tidak wajar.", False),
         ("• Pinyin kalimat dibuat otomatis (nada 3 tidak diubah) dan mungkin ada yang kurang tepat; mohon tandai jika terlihat salah.", False),
@@ -149,7 +150,7 @@ def main():
             rows.append([q["id"], q["level"], "tanya-jawab 问答", q["audio"], "", q["answer"], wrong[0], wrong[1], f'{q["explain"]["question_id"]} → {q["explain"]["answer_id"]}'])
         else:
             text = "\n".join((f'{t["who"]}：' if t["who"] else "") + t["zh"] for t in q["turns"])
-            kind = "dialog 对话" if q["type"] == "audio_dialog_question_mcq" else "teks 短文"
+            kind = {"audio_dialog_question_mcq": "dialog 对话", "audio_statement_question_mcq": "pernyataan 陈述"}.get(q["type"], "teks 短文")
             rows.append([q["id"], q["level"], kind, text, q["question"], q["answer"], wrong[0], wrong[1], f'{q["explain"]["text_id"]}\n问：{q["explain"]["question_id"]}\n答：{q["explain"]["answer_id"]}'])
     sheet(wb, "听力 Mendengar", ["ID", "Level", "Jenis", "音频文本 Teks audio", "问题 Pertanyaan", "正确答案 Jawaban benar", "错误选项 1 Pilihan salah 1", "错误选项 2 Pilihan salah 2", "翻译 Terjemahan"],
           rows, [7, 7, 14, 40, 26, 22, 22, 22, 48], ["状态 Status", "建议 Usulan koreksi", "备注 Catatan"])
@@ -164,6 +165,21 @@ def main():
                      f'{q["explain"]["text_id"]}\n{q["explain"]["question_id"]} → {q["explain"]["answer_id"]}'])
     sheet(wb, "阅读 Membaca", ["ID", "Level", "Jenis", "文章 Teks", "问题 Pertanyaan", "正确答案 Jawaban benar", "错误选项 1", "错误选项 2", "翻译 Terjemahan"],
           rows, [7, 7, 14, 60, 26, 20, 20, 20, 60], ["状态 Status", "建议 Usulan koreksi", "备注 Catatan"])
+
+    # 3b. matching groups: 5 questions with their answers + the extra answer, one row per group
+    groups = {}
+    for q in qs:
+        if q["type"] == "match_question_to_answer":
+            groups.setdefault(q["group"], []).append(q)
+    rows = []
+    for gid, items in groups.items():
+        used = {q["answer"] for q in items}
+        extra = next(o["zh"] for o in items[0]["options"] if o["zh"] not in used)
+        pairs = "\n".join(f'{i}. {q["stem"]} → {q["answer"]}' for i, q in enumerate(items, 1))
+        tr = "\n".join(f'{i}. {q["explain"]["question_id"]} → {q["explain"]["answer_id"]}' for i, q in enumerate(items, 1))
+        rows.append([gid, items[0]["level"], pairs, extra, tr])
+    sheet(wb, "配对 Mencocokkan", ["Grup", "Level", "问题 → 答案 Pertanyaan → jawaban", "多余答案 Jawaban pengecoh (tidak cocok dengan pertanyaan mana pun)", "翻译 Terjemahan"],
+          rows, [8, 7, 52, 30, 60], ["状态 Status", "建议 Usulan koreksi", "备注 Catatan"])
 
     # 4. pictures: scene sentences, then picture dialogs
     rows = []
