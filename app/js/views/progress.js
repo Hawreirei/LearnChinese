@@ -4,6 +4,7 @@ import { todayKey } from "../store.js";
 import { stats } from "../session.js";
 import { accuracy, groupAccuracy, dailySeries, streak, activeDayKeys, weakWords, posAccuracy, examTrend, leeches, buildWeakSet, recommendations } from "../analytics.js";
 import { SKILL_LABEL } from "../exam.js";
+import { openExamReview } from "./exam.js";
 import { startPracticeWith, presetPractice } from "./practice.js";
 import { openLesson } from "./lessons.js";
 import { lessonSummary, groupByLevel } from "../lesson.js";
@@ -107,10 +108,11 @@ function progressNodes(app, latihan) {
         const last = list[list.length - 1];
         return h("div", { class: "examhist" }, h("strong", {}, LEVEL_LABEL[lvl]), " ", sparkline(list.map((x) => x.pct)),
           h("span", { class: "hint" }, ` ${list.length}× · terakhir ${last.pct}%${last.delta == null ? "" : ` (${last.delta >= 0 ? "+" : ""}${last.delta})`}`),
-          table(["Tanggal", "Skor", "Perubahan", "Mendengar", "Membaca", "Menulis"], list.slice().reverse().slice(0, 5).map((x) => h("tr", {},
+          table(["Tanggal", "Skor", "Perubahan", "Mendengar", "Membaca", "Menulis", "Pembahasan"], list.slice().reverse().slice(0, 5).map((x) => h("tr", {},
             h("td", {}, new Date(x.t).toLocaleDateString("id-ID")), h("td", {}, `${x.pct}%${x.assisted ? " *" : ""}`), h("td", {}, x.delta == null ? "—" : `${x.delta >= 0 ? "+" : ""}${x.delta}`),
-            ...["listening", "reading", "writing"].map((k) => h("td", {}, x.sections.find((s) => s.skill === k) ? `${x.sections.find((s) => s.skill === k).pct}%` : "—"))))));
-      }), h("p", { class: "hint" }, "* dibantu teks audio. Skor perkiraan latihan, bukan skor resmi."))
+            ...["listening", "reading", "writing"].map((k) => h("td", {}, x.sections.find((s) => s.skill === k) ? `${x.sections.find((s) => s.skill === k).pct}%` : "—")),
+            h("td", {}, store.examReview(Number(lvl))?.t === x.t ? btn("Buka", () => openExamReview(app, Number(lvl)), "btn", { "aria-label": `Buka pembahasan HSK ${lvl} ${new Date(x.t).toLocaleDateString("id-ID")}` }) : "—")))));
+      }), h("p", { class: "hint" }, "* dibantu teks audio. Skor perkiraan latihan, bukan skor resmi. Pembahasan disimpan untuk simulasi terakhir tiap level."))
     : h("p", { class: "empty" }, "Belum ada. Coba tab Ujian untuk simulasi bertimer."));
 
   // weaknesses

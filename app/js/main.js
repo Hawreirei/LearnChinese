@@ -7,7 +7,7 @@ import { viewWrite, leaveWrite } from "./views/write.js";
 import { viewStudy, resetStudy, studyKey } from "./views/study.js";
 import { viewLessons, leaveLessons } from "./views/lessons.js";
 import { viewPractice } from "./views/practice.js";
-import { viewExam, examRunning, abortExam } from "./views/exam.js";
+import { viewExam, examRunning, abortExam, leaveExam } from "./views/exam.js";
 import { viewQuiz } from "./views/quiz.js";
 import { viewBrowse } from "./views/browse.js";
 import { viewProgress } from "./views/progress.js";
@@ -40,6 +40,7 @@ function go(t) {
   }
   if (tab === "lessons" && t !== "lessons") leaveLessons();
   if (tab === "write" && t !== "write") leaveWrite();
+  if (tab === "exam" && t !== "exam") leaveExam();
   tab = t;
   view.dataset.view = t;
   for (const b of document.querySelectorAll("#tabs button")) b.setAttribute("aria-selected", String(b.dataset.tab === t));

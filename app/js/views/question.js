@@ -14,6 +14,7 @@
 import { h, btn, hasChineseVoice } from "../ui.js";
 import { TYPE_HELP } from "../practice.js";
 import { shuffledBank, checkOrder } from "../order.js";
+import { optionKey } from "../review.js";
 
 const BLANK = "（　）";
 const LETTERS = "ABCDEF";
@@ -23,8 +24,7 @@ export const TEXT_READING = new Set(["short_text_mcq", "passage_mcq"]);
 const AUDIO_TYPES = new Set(["audio_question_pick_answer", "audio_dialog_question_mcq", "audio_passage_question_mcq", ...PICTURE_LISTENING]);
 
 export const isListening = (q) => AUDIO_TYPES.has(q.type);
-/** The identity of an option, whatever its kind (cloze word, listening/text answer, picture key). */
-export const optionKey = (o) => o?.word ?? o?.zh ?? o?.key ?? null;
+export { optionKey };
 
 /* ---------- pieces ---------- */
 function choiceState(q, m) {

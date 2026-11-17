@@ -33,6 +33,7 @@ Logika murni (tanpa DOM, diuji di `tests/js/`):
 | `lesson.js` | pelajaran bertema: lima langkah, progres, nomor soal, id kata kunci, ringkasan per pelajaran, pelajaran berikutnya untuk Beranda |
 | `order.js` | soal susun kalimat: acak kepingan (tidak pernah langsung benar), periksa urutan (`alt` = urutan lain yang sah) |
 | `analytics.js` | tren, kelemahan, kata sulit, rekomendasi, set latihan kelemahan |
+| `review.js` | pembahasan simulasi: simpan ringkas (id soal, jawaban, urutan pilihan/kepingan yang dilihat) satu per level, bangun ulang dari `questions.json`, filter salah/kosong/semua; soal yang sudah hilang dari bank dilewati dan dihitung |
 | `plan.js` | target ujian: validasi `{level, examDate, minutes}`, hitung hari kalender lokal sampai ujian, teks kartu hitung mundur; rencana harian: kata baru/hari (sisa kata ÷ hari belajar, 14 hari cadangan, minggu terakhir tanpa kata baru, dibatasi menit belajar; dipakai `session.js` bila `settings.newPerDayAuto`), jadwal simulasi (tiap 10 hari, mingguan 3 minggu terakhir, tiap 3 hari minggu terakhir), aktivitas hari ini, dan daftar "Hari ini" |
 
 Tampilan (`app/js/views/`), semuanya menerima satu objek `app` dari `main.js` (`store`, `vocab`, `idData`, `questions`, `blueprints`, `render`, `go`):
@@ -59,7 +60,8 @@ Tampilan (`app/js/views/`), semuanya menerima satu objek `app` dari `main.js` (`
   "log":     { "YYYY-MM-DD": <jumlah ulasan hafalan> },
   "practice": { "reading": {"n": 0, "ok": 0}, "...": "penghitung ringkas per keterampilan" },
   "events":  [ { "t", "k": "practice|exam", "s": skill, "l": level, "ty": tipe, "id": "c190", "w": id kata, "ok": 0|1, "ms", "un"? } ],
-  "exams":   [ { "t", "level", "pct", "correct", "total", "assisted", "duration_ms", "sections": [...] } ] }
+  "exams":   [ { "t", "level", "pct", "correct", "total", "assisted", "duration_ms", "sections": [...] } ],
+  "examReviews": { "<level>": { "v": 1, "t", "level", "sections": [ { "skill", "items": [ { "id", "r", "a", "ok", "o"?, "tiles"?, "choices"?, "bank"?, "sub"? } ] } ] } } }
 ```
 
 Penamaan di `Store`: `recordAnswer` (jawaban soal), `recordExam`, `recordReview` (ulasan kartu), `markIntroduced`.

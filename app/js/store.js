@@ -99,6 +99,10 @@ export class Store {
     this.save();
   }
 
+  /** Review of the last mock exam per level (review.js packReview); older ones are replaced, so at most 6 are kept. */
+  examReview(level) { return this.data.examReviews?.[level] ?? null; }
+  saveExamReview(rec) { (this.data.examReviews ||= {})[rec.level] = rec; this.save(); }
+
   /** Lesson progress: { steps: { <step>: { ok, n, t } }, t } (speaking/vocab have ok = n = 0). */
   lessonProgress(id) { return this.data.lessons?.[id] ?? null; }
   saveLessonStep(id, step, { ok = 0, n = 0 } = {}, now = Date.now()) {

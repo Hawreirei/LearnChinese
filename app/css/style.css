@@ -397,3 +397,11 @@ label.inline { display: inline-flex; align-items: center; gap: 6px; font-size: 1
 .today-text .hint { overflow-wrap: anywhere; }
 .today-list .btn { flex: none; }
 .today .notice { margin: 0 0 10px; }
+/* ---- exam review (Ujian → Pembahasan) ---- */
+.review-sec { margin: 24px 0 10px; color: var(--heading); }
+.review-item { padding: 16px; margin: 0 0 14px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface-2); }
+.review-item > .card { margin-top: 8px; }
+.review-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.badge.ok { color: var(--ok); background: var(--brand-soft); }
+.badge.bad { color: var(--accent); background: var(--accent-soft); }
+.review-answer { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 12px 0 8px; font-size: 15px; }

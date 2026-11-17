@@ -20,7 +20,7 @@ Aplikasi web gratis dan sumber terbuka untuk berlatih **HSK 3.0 (silabus 2025)**
 | **Tulis** | Belajar menulis 1.200 hanzi tulis resmi: animasi urutan goresan, menebalkan hanzi samar (opsional diperiksa per goresan), dan menulis dari ingatan; progres per hanzi tersimpan |
 | **Hafalan** | Flashcard dengan pengulangan berjarak (SM-2 + langkah belajar), arti Indonesia, kalimat contoh + pinyin + terjemahan, suara; pintasan Spasi dan 1–4 |
 | **Latihan** | 2.746 soal: isi kata, tulis hanzi, susun kalimat, tanya-jawab, dialog dan teks mendengar, soal bergambar, teks pendek dan paragraf bacaan; umpan balik dan penjelasan langsung |
-| **Ujian** | Simulasi bertimer HSK 1–3: jumlah soal, bagian, dan waktu mengikuti tabel resmi CTI; bagian terkunci setelah selesai |
+| **Ujian** | Simulasi bertimer HSK 1–3: jumlah soal, bagian, dan waktu mengikuti tabel resmi CTI; bagian terkunci setelah selesai. Pembahasan per soal (jawaban Anda vs kunci, transkrip, audio tanpa batas, filter salah/kosong/semua) untuk simulasi terakhir tiap level, bisa dibuka lagi dari Kemajuan |
 | **Kuis**, **Daftar** | Kuis arti kata; pencarian kosakata |
 | **Kemajuan** | Tren akurasi, riwayat simulasi, ringkasan tiap pelajaran, kelemahan per keterampilan/jenis soal/level/jenis kata, kata yang sering salah, kata sulit di hafalan, tombol "Latihan kelemahan" |
 | **Pengaturan** | Target ujian (level, tanggal, menit per hari; Beranda menampilkan hitung mundur dan daftar "Hari ini": hafalan, pelajaran, latihan kelemahan, menulis hanzi, dan simulasi terjadwal yang tercentang otomatis), level, kata baru per hari (bisa mengikuti rencana target ujian), suara, ekspor/impor/reset progres |

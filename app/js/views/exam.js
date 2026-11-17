@@ -4,6 +4,7 @@ import { check } from "../practice.js";
 import { wordIdOfQuestion } from "../analytics.js";
 import { availability, examAvailable, buildExam, formatClock, gradeSection, summarizeExam, SKILL_LABEL, MAX_AUDIO_PLAYS } from "../exam.js";
 import { questionBody, explanation, answerLabel } from "./question.js";
+import { packReview, unpackReview, filterReview, reviewCounts, responseText } from "../review.js";
 
 let S = { phase: "intro", level: 1 };
 let timer = null;
@@ -13,7 +14,25 @@ export const examRunning = () => S.phase === "running" || S.phase === "between";
 export function presetExamLevel(level) { if (S.phase === "intro" && level) S.level = level; }
 export function abortExam() { clearInterval(timer); timer = null; stopSpeaking(); S = { phase: "intro", level: S.level }; }
 
+/** Open the saved review of the last mock exam of `level` (from Kemajuan). */
+export function openExamReview(app, level) {
+  if (examRunning()) return;
+  const review = loadReview(app, level);
+  if (!review) return;
+  S = { phase: "review", level, review, filter: "wrong", from: "progress" };
+  app.go("exam");
+}
+/** Leaving the tab: a review opened from Kemajuan closes; a review opened from a result goes back to the result. */
+export function leaveExam() {
+  stopSpeaking();
+  if (S.phase === "review") S = S.from === "result" ? { ...S, phase: "result" } : { phase: "intro", level: S.level };
+}
+function loadReview(app, level) {
+  return unpackReview(app.store.examReview(level), new Map(app.questions.map((q) => [q.id, q])));
+}
+
 export function viewExam(app) {
+  if (S.phase === "review") return reviewView(app);
   if (S.phase === "intro") return intro(app);
   if (S.phase === "between") return between(app);
   if (S.phase === "running") return running(app);
@@ -139,7 +158,9 @@ function finishExam(app) {
   const { store } = app;
   const before = store.exams.filter((x) => x.level === S.level).slice(-1)[0];
   S.graded.forEach((g) => g.rows.forEach((r) => store.recordAnswer(r.q.skill, r.correct, { k: "exam", l: S.level, ty: r.q.type, id: r.q.id, w: wordIdOfQuestion(r.q), ms: 0, un: !r.answered })));
-  store.recordExam({ t: Date.now(), level: S.level, pct: sum.pct, correct: sum.correct, total: sum.total, assisted: S.assisted, duration_ms: Date.now() - S.startedAt, sections: sum.sections });
+  const t = Date.now();
+  store.recordExam({ t, level: S.level, pct: sum.pct, correct: sum.correct, total: sum.total, assisted: S.assisted, duration_ms: Date.now() - S.startedAt, sections: sum.sections });
+  store.saveExamReview(packReview({ t, level: S.level, graded: S.graded }));
   S = { ...S, phase: "result", sum, before };
   viewExam(app);
 }
@@ -156,7 +177,63 @@ function result(app) {
     h("table", {}, h("thead", {}, h("tr", {}, ...["Bagian", "Benar", "Dijawab", "%", "Waktu"].map((t) => h("th", {}, t)))),
       h("tbody", {}, ...sum.sections.map((s) => h("tr", {}, h("td", {}, SKILL_LABEL[s.skill]), h("td", {}, `${s.correct}/${s.total}`), h("td", {}, s.answered), h("td", {}, `${s.pct}%`), h("td", {}, formatClock(s.ms)))))),
     h("p", { class: "hint" }, `${S.exam.official_items} dari ${S.exam.total} soal memakai jenis soal resmi; sisanya pengganti terdekat. Bukan skor resmi HSK: sistem penilaian resmi belum diketahui.`),
-    wrong.length ? h("h2", {}, `Pembahasan (${wrong.length} soal salah atau kosong)`) : h("p", {}, "Semua benar. 太好了！"),
-    ...wrong.map((r) => h("div", { class: "example" }, h("div", { class: "hint" }, `#${r.q.id} · ${SKILL_LABEL[r.q.skill]} · ${r.answered ? "salah" : "tidak dijawab"}`), explanation(r.q), h("div", { class: "hint" }, `Jawaban yang benar: ${answerLabel(r.q)}`))),
-    h("div", { class: "row" }, btn("Simulasi lagi", () => { S = { phase: "intro", level: S.level }; viewExam(app); }, "btn primary", { id: "exam-again" })));
+    wrong.length ? null : h("p", {}, "Semua benar. 太好了！"),
+    h("div", { class: "row" },
+      btn(wrong.length ? `Lihat pembahasan (${wrong.length} salah atau kosong)` : "Lihat pembahasan", () => {
+        const review = loadReview(app, S.level);
+        if (review) { S = { ...S, phase: "review", review, filter: wrong.length ? "wrong" : "all", from: "result" }; viewExam(app); window.scrollTo(0, 0); }
+      }, "btn primary", { id: "exam-review" }),
+      btn("Simulasi lagi", () => { S = { phase: "intro", level: S.level }; viewExam(app); }, "btn", { id: "exam-again" })));
+}
+
+/* ---------- review (issue #24) ---------- */
+const STATUS = (r) => (r.correct ? ["benar", "ok"] : r.answered ? ["salah", "bad"] : ["tidak dijawab", "bad"]);
+
+/** One question, drawn by question.js with the answer revealed. Toggles redraw only this item (keeps the scroll). */
+function reviewItem(app, row) {
+  const el = h("article", { class: "review-item" });
+  let textShown = false, pinyinShown = false;
+  const draw = () => {
+    const { q } = row;
+    const [label, cls] = STATUS(row);
+    const m = {
+      kind: "practice", response: row.response, reveal: true, writeMode: app.store.settings.writeMode,
+      onAnswer: () => {}, onWrite: () => {},
+      listening: { playsLeft: null, play: (rate) => speakSequence(listeningParts(q), rate), textShown, toggleText: () => { textShown = !textShown; draw(); } },
+      pinyin: { shown: pinyinShown, toggle: () => { pinyinShown = !pinyinShown; draw(); } },
+    };
+    el.replaceChildren(
+      h("div", { class: "review-head" }, h("strong", {}, `Soal ${row.n}`), h("span", { class: `badge ${cls}` }, label),
+        row.substitute ? h("span", { class: "badge", title: "Jenis soal resmi belum tersedia; diganti jenis terdekat" }, "pengganti") : null),
+      ...questionBody(q, m),
+      h("p", { class: "review-answer" }, h("span", {}, "Jawaban Anda: ", h("strong", { lang: "zh-Hans" }, responseText(q, row.response))),
+        h("span", {}, "Jawaban benar: ", h("strong", { lang: "zh-Hans" }, answerLabel(q)))),
+      explanation(q));
+  };
+  draw();
+  return el;
+}
+
+function reviewView(app) {
+  const R = S.review;
+  const counts = reviewCounts(R);
+  const shown = filterReview(R, S.filter);
+  const total = shown.reduce((a, s) => a + s.rows.length, 0);
+  const filter = h("div", { class: "seg", role: "radiogroup", "aria-label": "Tampilkan" },
+    ...[["wrong", `Salah/kosong (${counts.wrong})`], ["blank", `Kosong (${counts.blank})`], ["all", `Semua (${counts.all})`]].map(([k, label]) =>
+      h("label", {}, h("input", { type: "radio", name: "rvf", value: k, checked: S.filter === k, onchange: () => { S.filter = k; stopSpeaking(); viewExam(app); } }), h("span", {}, label))));
+  const back = S.from === "result"
+    ? btn("← Kembali ke hasil", () => { stopSpeaking(); S = { ...S, phase: "result" }; viewExam(app); }, "btn")
+    : btn("← Kembali ke Kemajuan", () => app.go("progress"), "btn");
+  app.render(
+    h("div", { class: "pagehead" }, h("div", {}, h("h2", {}, `Pembahasan Simulasi HSK ${R.level}`),
+      h("p", { class: "hint" }, `${new Date(R.t).toLocaleString("id-ID", { dateStyle: "long", timeStyle: "short" })} · audio bisa diputar ulang tanpa batas di sini.`))),
+    h("div", { class: "row left" }, back),
+    filter,
+    R.missing ? h("p", { class: "notice" }, `${R.missing} soal tidak bisa ditampilkan karena bank soal sudah diperbarui sejak ujian ini.`) : null,
+    total ? null : h("p", { class: "empty" }, S.filter === "blank" ? "Semua soal dijawab." : "Tidak ada soal yang salah. 太好了！"),
+    ...shown.filter((s) => s.rows.length).flatMap((s) => [
+      h("h3", { class: "review-sec" }, `${SKILL_LABEL[s.skill]} (${s.rows.length})`),
+      ...s.rows.map((r) => reviewItem(app, r))]),
+    total > 3 ? h("div", { class: "row left" }, back) : null);
 }
