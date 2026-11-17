@@ -23,7 +23,7 @@ Aplikasi web gratis dan sumber terbuka untuk berlatih **HSK 3.0 (silabus 2025)**
 | **Ujian** | Simulasi bertimer HSK 1–3: jumlah soal, bagian, dan waktu mengikuti tabel resmi CTI; bagian terkunci setelah selesai |
 | **Kuis**, **Daftar** | Kuis arti kata; pencarian kosakata |
 | **Kemajuan** | Tren akurasi, riwayat simulasi, ringkasan tiap pelajaran, kelemahan per keterampilan/jenis soal/level/jenis kata, kata yang sering salah, kata sulit di hafalan, tombol "Latihan kelemahan" |
-| **Pengaturan** | Target ujian (level, tanggal, menit per hari; Beranda menampilkan hitung mundur), level, kata baru per hari, suara, ekspor/impor/reset progres |
+| **Pengaturan** | Target ujian (level, tanggal, menit per hari; Beranda menampilkan hitung mundur dan daftar "Hari ini": hafalan, pelajaran, latihan kelemahan, menulis hanzi, dan simulasi terjadwal yang tercentang otomatis), level, kata baru per hari (bisa mengikuti rencana target ujian), suara, ekspor/impor/reset progres |
 
 Soal yang jenis resminya belum ada diganti pengganti terdekat dan ditandai di layar; skor simulasi adalah perkiraan, bukan skor resmi (sistem skor resmi HSK 3.0 belum diketahui). Detail teknis dan daftar jenis soal: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 

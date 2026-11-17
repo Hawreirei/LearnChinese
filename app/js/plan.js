@@ -75,3 +75,105 @@ export function countdownText(c) {
     default: return { title: "Belum ada target ujian", detail: "Tentukan level dan tanggal ujian HSK Anda." };
   }
 }
+
+// ---------- daily plan (issue #23) ----------
+// Heuristics, not research results: they are tuned so a learner who follows them finishes the new words
+// two weeks before the exam and spends the last week only reviewing and taking mock exams.
+
+export const FINAL_WEEK = 7;          // last days: no new words
+export const RESERVE_DAYS = 14;       // days kept free of new words when there is enough time
+/** New words per day that fit the daily minutes, counting the reviews they cause later. */
+export const NEW_CAP = { 15: 8, 30: 15, 45: 25, 60: 35 };
+const PRACTICE_N = { 15: 5, 30: 10, 45: 15, 60: 20 };
+const WRITE_N = { 15: 3, 30: 5, 45: 8, 60: 10 };
+
+/** New words per day so the remaining words are done before the reserve.
+ *  { perDay, needed, capped, phase: "learn" | "final" | "done" } or null without a future exam date. */
+export function newWordRate({ remaining, days, minutes = DEFAULT_PLAN.minutes }) {
+  if (days == null || days <= 0) return null;
+  if (days <= FINAL_WEEK) return { perDay: 0, needed: 0, capped: false, phase: "final" };
+  if (remaining <= 0) return { perDay: 0, needed: 0, capped: false, phase: "done" };
+  const reserve = days > RESERVE_DAYS + FINAL_WEEK ? RESERVE_DAYS : FINAL_WEEK;
+  const needed = Math.ceil(remaining / (days - reserve));
+  const cap = NEW_CAP[minutes] ?? NEW_CAP[DEFAULT_PLAN.minutes];
+  return { perDay: Math.min(needed, cap), needed, capped: needed > cap, phase: "learn" };
+}
+
+/** The daily new-word limit the study queue uses: the plan's rate when it is on and the exam date is
+ *  in the future, else the manual setting. `remaining` = target words not started yet (counting today's). */
+export function dailyNewLimit(plan, settings, remaining, now = Date.now()) {
+  const p = normalizePlan(plan);
+  const manual = { perDay: settings.newPerDay, source: "manual", rate: null };
+  if (settings.newPerDayAuto === false || !p.examDate) return manual;
+  const rate = newWordRate({ remaining, days: daysUntil(p.examDate, now), minutes: p.minutes });
+  return rate ? { perDay: rate.perDay, source: "plan", rate } : manual;
+}
+
+/** Days between mock exams: every 10 days, weekly in the last three weeks, every 3 days in the last week. */
+export function mockInterval(days) {
+  return days != null && days <= FINAL_WEEK ? 3 : days != null && days <= 21 ? 7 : 10;
+}
+
+/** Is a full mock exam due today? `lastMockDays` = days since the last one for this level (null = never). */
+export function mockDue(days, lastMockDays) {
+  if (days != null && days < 0) return false;
+  return lastMockDays == null || lastMockDays >= mockInterval(days);
+}
+
+const sameDay = (t, now) => t != null && daysUntil(dayKeyOf(t), now) === 0;
+function dayKeyOf(t) {
+  const d = new Date(t);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+/** What the learner already did today, read from the saved progress (`store.data`). */
+export function dayActivity(data, level, now = Date.now()) {
+  const events = data.events || [];
+  const practice = events.filter((e) => e.k === "practice" && !String(e.id ?? "").startsWith("ls-") && sameDay(e.t, now)).length;
+  const lessonSteps = Object.values(data.lessons || {}).reduce((n, l) => n + Object.values(l.steps || {}).filter((s) => sameDay(s.t, now)).length, 0);
+  const writing = Object.values(data.writing || {}).filter((r) => sameDay(r.t, now)).length;
+  const exams = (data.exams || []).filter((x) => level == null || x.level === level);
+  const last = exams.length ? Math.max(...exams.map((x) => x.t)) : null;
+  return {
+    practice, lessonSteps, writing,
+    examToday: last != null && sameDay(last, now),
+    lastMockDays: last == null ? null : -daysUntil(dayKeyOf(last), now),
+  };
+}
+
+/** The "Hari ini" checklist. Every task is marked done from recorded activity, never by hand.
+ *  ctx: { plan, days, queue: {due, fresh}, act (dayActivity), lesson (next lesson or null),
+ *         practiceAvailable, writingAvailable, examAvailable } */
+export function todayTasks(ctx) {
+  const p = normalizePlan(ctx.plan);
+  const final = ctx.days != null && ctx.days >= 0 && ctx.days <= FINAL_WEEK;
+  const tasks = [];
+  const cards = ctx.queue.due + ctx.queue.fresh;
+  tasks.push({ id: "study", tab: "study", label: "Hafalan",
+    detail: cards ? `${cards} kartu (${ctx.queue.due} ulangan, ${ctx.queue.fresh} baru)` : "Semua kartu hari ini sudah selesai",
+    done: cards === 0 });
+  if (ctx.lesson && !final) tasks.push({ id: "lesson", label: "Pelajaran", lessonId: ctx.lesson.id,
+    detail: `${ctx.lesson.zh} · ${ctx.lesson.title}`, done: ctx.act.lessonSteps > 0 });
+  if (ctx.practiceAvailable) {
+    const n = Math.round(PRACTICE_N[p.minutes] * (final ? 1.5 : 1));
+    tasks.push({ id: "practice", label: "Latihan kelemahan", target: n,
+      detail: `${Math.min(ctx.act.practice, n)}/${n} soal`, done: ctx.act.practice >= n });
+  }
+  if (ctx.writingAvailable && !final) {
+    const n = WRITE_N[p.minutes];
+    tasks.push({ id: "write", tab: "write", label: "Menulis hanzi", target: n,
+      detail: `${Math.min(ctx.act.writing, n)}/${n} hanzi`, done: ctx.act.writing >= n });
+  }
+  if (ctx.examAvailable && (ctx.act.examToday || mockDue(ctx.days, ctx.act.lastMockDays))) {
+    tasks.push({ id: "exam", tab: "exam", label: "Simulasi ujian", level: p.level,
+      detail: ctx.act.lastMockDays == null ? "Simulasi pertama sebagai patokan awal" : `Terakhir ${ctx.act.lastMockDays} hari lalu`,
+      done: ctx.act.examToday });
+  }
+  return tasks;
+}
+
+/** True when the target level is not among the levels Hafalan studies, so the plan's words never come up. */
+export function targetLevelMissing(plan, levels) {
+  const p = normalizePlan(plan);
+  return p.level != null && !levels.includes(p.level);
+}

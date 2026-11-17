@@ -9,6 +9,8 @@ let S = { phase: "intro", level: 1 };
 let timer = null;
 
 export const examRunning = () => S.phase === "running" || S.phase === "between";
+/** Preselect the level on the intro screen (the "Hari ini" mock exam task). No effect while an exam runs. */
+export function presetExamLevel(level) { if (S.phase === "intro" && level) S.level = level; }
 export function abortExam() { clearInterval(timer); timer = null; stopSpeaking(); S = { phase: "intro", level: S.level }; }
 
 export function viewExam(app) {

@@ -33,7 +33,7 @@ Logika murni (tanpa DOM, diuji di `tests/js/`):
 | `lesson.js` | pelajaran bertema: lima langkah, progres, nomor soal, id kata kunci, ringkasan per pelajaran, pelajaran berikutnya untuk Beranda |
 | `order.js` | soal susun kalimat: acak kepingan (tidak pernah langsung benar), periksa urutan (`alt` = urutan lain yang sah) |
 | `analytics.js` | tren, kelemahan, kata sulit, rekomendasi, set latihan kelemahan |
-| `plan.js` | target ujian: validasi `{level, examDate, minutes}`, hitung hari kalender lokal sampai ujian, teks kartu hitung mundur Beranda |
+| `plan.js` | target ujian: validasi `{level, examDate, minutes}`, hitung hari kalender lokal sampai ujian, teks kartu hitung mundur; rencana harian: kata baru/hari (sisa kata ÷ hari belajar, 14 hari cadangan, minggu terakhir tanpa kata baru, dibatasi menit belajar; dipakai `session.js` bila `settings.newPerDayAuto`), jadwal simulasi (tiap 10 hari, mingguan 3 minggu terakhir, tiap 3 hari minggu terakhir), aktivitas hari ini, dan daftar "Hari ini" |
 
 Tampilan (`app/js/views/`), semuanya menerima satu objek `app` dari `main.js` (`store`, `vocab`, `idData`, `questions`, `blueprints`, `render`, `go`):
 
@@ -53,7 +53,7 @@ Tampilan (`app/js/views/`), semuanya menerima satu objek `app` dari `main.js` (`
 ```json
 { "version": 1,
   "cards":   { "<id kata>": { "state", "step", "ease", "interval", "due", "reps", "lapses" } },
-  "settings": { "levels": [1], "newPerDay": 10, "speak": true },
+  "settings": { "levels": [1], "newPerDay": 10, "newPerDayAuto": true, "speak": true },
   "plan":    { "level": 3, "examDate": "2026-12-13", "minutes": 30 },
   "daily":   { "date": "YYYY-MM-DD", "introduced": 0 },
   "log":     { "YYYY-MM-DD": <jumlah ulasan hafalan> },

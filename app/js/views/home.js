@@ -5,10 +5,14 @@ import { accuracy, streak, activeDayKeys } from "../analytics.js";
 import { examAvailable } from "../exam.js";
 import { STEPS, doneCount, nextLesson, levelSummary } from "../lesson.js";
 import { openLesson, openLessonList } from "./lessons.js";
-import { countdown, countdownText } from "../plan.js";
+import { countdown, countdownText, dayActivity, todayTasks, targetLevelMissing } from "../plan.js";
+import { buildWeakSet } from "../analytics.js";
+import { startPracticeWith } from "./practice.js";
+import { presetExamLevel } from "./exam.js";
 import { h, btn, speak } from "../ui.js";
 
 const nf = new Intl.NumberFormat("id-ID");
+const upTo = (level) => [1, 2, 3, 4, 5, 6].filter((l) => level == null || l <= level);
 
 /** Words that have a hand-written Indonesian meaning, used for the hero card and the sample table. */
 function sampleWords(app) {
@@ -63,6 +67,49 @@ function target(app) {
     days,
     h("div", { class: "tc-main" }, h("div", { class: "eyebrow" }, "Target ujian"), h("strong", {}, t.title), h("p", { class: "hint" }, t.detail)),
     btn(c.state === "none" ? "Tentukan target" : "Ubah target", () => app.go("settings"), c.state === "none" || c.state === "past" ? "btn primary" : "btn"));
+}
+
+/** "Hari ini": the day's tasks toward the exam (issue #23), ticked from what the learner already did today. */
+function today(app) {
+  const { store } = app;
+  const plan = store.plan;
+  const c = countdown(plan);
+  if (c.state === "none" || c.state === "past") return null;
+  const levels = upTo(plan.level);
+  const qLevels = levels.filter((l) => app.questions.some((q) => q.level === l));
+  const bp = plan.level ? app.blueprints[String(plan.level)] : null;
+  const q = buildQueue(app.vocab, store);
+  const tasks = todayTasks({
+    plan, days: c.days, queue: { due: q.due.length, fresh: q.fresh.length },
+    act: dayActivity(store.data, plan.level),
+    lesson: nextLesson(app.lessons.filter((l) => levels.includes(l.level)), store),
+    practiceAvailable: qLevels.length > 0,
+    writingAvailable: app.handwritingList.some((x) => levels.includes(x.level)),
+    examAvailable: !!bp && examAvailable(app.questions, bp),
+  });
+  const start = (t) => {
+    if (t.id === "lesson") return openLesson(app, t.lessonId);
+    if (t.id === "practice") {
+      const set = buildWeakSet(app.questions, store.events, { count: t.target, levels: qLevels });
+      if (set.length) { app.go("practice"); startPracticeWith(app, set); }
+      return;
+    }
+    if (t.id === "exam") presetExamLevel(t.level);
+    app.go(t.tab);
+  };
+  const done = tasks.filter((t) => t.done).length;
+  const gap = targetLevelMissing(plan, store.settings.levels)
+    ? h("p", { class: "notice" }, `HSK ${plan.level} belum dipilih di "Level yang dipelajari", jadi kata-katanya tidak muncul di Hafalan. `,
+      btn(`Pelajari HSK 1–${plan.level}`, () => { store.setSettings({ levels: levels }); viewHome(app); }, "btn"))
+    : null;
+  return h("section", { class: "today", "aria-label": "Rencana hari ini" },
+    h("div", { class: "today-head" }, h("h2", { class: "section" }, "Hari ini"), h("span", { class: "hint" }, `${done}/${tasks.length} selesai`)),
+    gap,
+    h("ul", { class: "today-list" }, ...tasks.map((t) => h("li", { class: t.done ? "done" : "" },
+      h("span", { class: "tick", "aria-hidden": "true" }, t.done ? "✓" : ""),
+      h("div", { class: "today-text" }, h("strong", {}, t.label), h("span", { class: "hint" }, t.detail)),
+      h("span", { class: "sr-only" }, t.done ? "selesai" : "belum"),
+      btn(t.done ? "Lagi" : "Mulai", () => start(t), t.done ? "btn" : "btn primary", { "aria-label": `${t.done ? "Lagi" : "Mulai"}: ${t.label}` })))));
 }
 
 /** Numbers from the loaded data and the learner's own history. */
@@ -160,5 +207,5 @@ function cta(app) {
 }
 
 export function viewHome(app) {
-  app.render(h("div", { class: "home" }, hero(app), target(app), strip(app), how(app), lessons(app), path(app), sample(app), cta(app)));
+  app.render(h("div", { class: "home" }, hero(app), target(app), today(app), strip(app), how(app), lessons(app), path(app), sample(app), cta(app)));
 }

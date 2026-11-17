@@ -1,6 +1,7 @@
 // Builds the study queue and applies ratings. Pure logic over Store + vocab; no DOM.
 import { review, isDue, newCard } from "./srs.js";
 import { wordsForLevels } from "./deck.js";
+import { dailyNewLimit } from "./plan.js";
 
 /** Pinned words (added from a lesson) come first, whatever the level setting and the daily limit say. */
 function pinnedWords(vocab, store) {
@@ -9,7 +10,7 @@ function pinnedWords(vocab, store) {
 }
 
 export function buildQueue(vocab, store, now = Date.now()) {
-  const { levels, newPerDay } = store.settings;
+  const { levels } = store.settings;
   const pinned = pinnedWords(vocab, store);
   const pinnedIds = new Set(pinned.map((w) => w.id));
   const words = wordsForLevels(vocab, levels).filter((w) => !pinnedIds.has(w.id));
@@ -21,9 +22,18 @@ export function buildQueue(vocab, store, now = Date.now()) {
     else if (isDue(c, now)) dueCards.push({ w, c });
   }
   dueCards.sort((a, b) => a.c.due - b.c.due);
-  const slots = Math.max(0, newPerDay - store.introducedToday(now));
+  const limit = newCardLimit(store, unseen, now);
+  const slots = Math.max(0, limit.perDay - store.introducedToday(now));
   const fresh = [...pinned, ...unseen.slice(0, slots)].map((w) => ({ w, c: newCard(w.id) }));
-  return { due: dueCards, fresh, total: dueCards.length + fresh.length };
+  return { due: dueCards, fresh, total: dueCards.length + fresh.length, limit };
+}
+
+/** New cards allowed today: the exam plan's rate (words up to the target level still to start, counting the ones
+ *  started today so the number does not drift during the day) or the manual "Kata baru per hari" setting. */
+export function newCardLimit(store, unseen, now = Date.now()) {
+  const plan = store.plan;
+  const remaining = unseen.filter((w) => plan.level == null || w.level <= plan.level).length + store.introducedToday(now);
+  return dailyNewLimit(plan, store.settings, remaining, now);
 }
 
 /** Next item to study: due cards first, then new ones. */
