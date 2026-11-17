@@ -17,9 +17,9 @@ Aplikasi web gratis dan sumber terbuka untuk berlatih **HSK 3.0 (silabus 2025)**
 | Tab | Fungsi |
 |---|---|
 | **Pelajaran** | Skenario bertema dengan lima langkah (dengar, baca, tulis, bicara, kosakata): kalimat kunci berpinyin per kata, soal per langkah, kata kunci bisa ditambahkan ke Hafalan. Saat ini 34 pelajaran dari HSK 1 sampai 6 (HSK 1: 7, HSK 2: 6, HSK 3: 6, HSK 4–6: masing-masing 5), dari sapaan dan keluarga sampai wawancara kerja, rapat, debat, dan hukum; daftar lengkap dan kosakata ada di [docs/RENCANA-SKENARIO.md](docs/RENCANA-SKENARIO.md). Langkah bicara: rekam suara dan bandingkan dengan model, plus penilaian kata yang terdengar lewat pengenalan ucapan browser (Chrome/Edge/Safari), plus opsi eksperimental penilaian kontur nada per suku kata yang dihitung di perangkat |
-| **Tulis** | Belajar menulis 1.200 hanzi tulis resmi: animasi urutan goresan, menebalkan hanzi samar (opsional diperiksa per goresan), dan menulis dari ingatan; progres per hanzi tersimpan |
+| **Tulis** | Belajar menulis 1.200 hanzi tulis resmi: animasi urutan goresan, menebalkan hanzi samar (opsional diperiksa per goresan), dan menulis dari ingatan; progres per hanzi tersimpan. Tombol "Latihan komponen 部件": pilih komponen yang hilang (bentuk soal HSK 2 Menulis bagian 1) |
 | **Hafalan** | Flashcard dengan pengulangan berjarak (SM-2 + langkah belajar), arti Indonesia, kalimat contoh + pinyin + terjemahan, suara; pintasan Spasi dan 1–4 |
-| **Latihan** | 2.996 soal: isi kata, tulis hanzi, susun kalimat, tanya-jawab, mencocokkan pertanyaan dengan jawaban, dialog, pernyataan, dan teks mendengar, soal bergambar, teks pendek dan paragraf bacaan; umpan balik dan penjelasan langsung. **Buku kesalahan (错题本)**: soal yang salah di Latihan, Pelajaran, dan Ujian masuk otomatis, muncul lagi besok lalu 3 hari kemudian, dan keluar setelah benar dua kali di hari berbeda |
+| **Latihan** | 3.159 soal: isi kata, tulis hanzi, susun kalimat, tanya-jawab, mencocokkan pertanyaan dengan jawaban, pilih komponen hanzi yang hilang, dialog, pernyataan, dan teks mendengar, soal bergambar, teks pendek dan paragraf bacaan; umpan balik dan penjelasan langsung. **Buku kesalahan (错题本)**: soal yang salah di Latihan, Pelajaran, dan Ujian masuk otomatis, muncul lagi besok lalu 3 hari kemudian, dan keluar setelah benar dua kali di hari berbeda |
 | **Ujian** | Simulasi bertimer HSK 1–3: jumlah soal, bagian, dan waktu mengikuti tabel resmi CTI; bagian terkunci setelah selesai. Pembahasan per soal (jawaban Anda vs kunci, transkrip, audio tanpa batas, filter salah/kosong/semua) untuk simulasi terakhir tiap level, bisa dibuka lagi dari Kemajuan |
 | **Kuis**, **Daftar** | Kuis arti kata; pencarian kosakata |
 | **Kemajuan** | Tren akurasi, riwayat simulasi, ringkasan tiap pelajaran, kelemahan per keterampilan/jenis soal/level/jenis kata, kata yang sering salah, kata sulit di hafalan, tombol "Latihan kelemahan" |
@@ -68,5 +68,6 @@ Situs ada di `https://<pengguna>.github.io/<repositori>/`; jalur relatif membuat
 
 - **Kode** (`app/`, `scripts/`, `tests/`, `.github/`, `db/`): [MIT](LICENSE).
 - **Konten orisinal** (`content/`, `vocab_id.json`, `questions.json`, `docs/`): [CC BY-SA 4.0](LICENSE-CONTENT.md).
+- **Data komponen hanzi** (`data/hsk3/components.json`) dari Make Me a Hanzi: LGPL-3.0-or-later (`components-LGPL.txt`).
 - **Daftar kata dan hanzi tulis resmi** (`vocab.json`, `handwriting.json`) milik CLEC/CTI dan tidak tercakup lisensi di atas (bagian teks silabus seperti tata bahasa dan tugas sengaja tidak disertakan); **glos Inggris** dari CC-CEDICT (CC BY-SA 4.0). Rincian dan atribusi: [NOTICE.md](NOTICE.md).
 - Bukan produk resmi HSK. Kontribusi: [CONTRIBUTING.md](CONTRIBUTING.md), [kode etik](CODE_OF_CONDUCT.md).

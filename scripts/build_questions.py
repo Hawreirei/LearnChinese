@@ -8,6 +8,7 @@ Types (names follow blueprints/hsk3.0):
   audio_question_pick_answer  listening hear a question (TTS), pick the answer (3 options)
   audio_statement_question_mcq listening hear a short statement and a question about it (HSK 1 part 4)
   match_question_to_answer    reading   groups of 5 questions + 6 answers (one extra); each question is one item
+  choose_missing_character_component writing  a handwriting character with one component hidden; pick it (3 options)
 
 Sources are the hand-written, level-linted sentences (content/id/level-*.psv -> vocab_id.json) and the
 hand-written Q&A pairs (content/id/qa-level-*.psv). Everything is deterministic (seeded by word id).
@@ -589,6 +590,79 @@ def make_statements(allowed, problems):
     return out
 
 
+# ----------------------------------------------------------------------------------------------
+# Choose the missing component (choose_missing_character_component), HSK 2 writing part 1.
+# Splits come from data/hsk3/components.json (Make Me a Hanzi, LGPL; scripts/build_components.py); the app draws
+# the character from its stroke data with the hidden component's strokes left out.
+# ----------------------------------------------------------------------------------------------
+# Components learners mix up; tried first as distractors (only those that are components somewhere in the list).
+LOOKALIKE_PARTS = {
+    "氵": "冫讠彳", "冫": "氵讠", "讠": "氵冫亻", "亻": "彳讠扌", "彳": "亻氵", "扌": "木才亻", "木": "禾扌米",
+    "禾": "木米", "米": "木禾", "日": "目月口", "目": "日月", "月": "日目", "口": "日囗", "囗": "口日", "女": "子",
+    "子": "女了", "宀": "冖穴", "冖": "宀", "艹": "竹", "忄": "亻彳", "心": "忄必", "土": "士王工", "王": "土玉",
+    "钅": "饣车", "饣": "钅讠", "纟": "饣钅", "辶": "廴走", "力": "刀九", "刀": "力", "又": "叉文", "寸": "才丁",
+    "门": "冂问", "田": "由甲", "夕": "歹久", "马": "鸟与", "白": "日自", "山": "出", "火": "灬人", "灬": "火",
+    "车": "东", "阝": "卩", "广": "厂疒", "厂": "广", "疒": "广", "页": "贝见", "贝": "见页", "见": "贝",
+}
+
+
+def make_components(vocab, ent, problems):
+    comps = json.loads((ROOT / "data" / "hsk3" / "components.json").read_text("utf-8"))
+    hand = json.loads((ROOT / "data" / "hsk3" / "handwriting.json").read_text("utf-8"))
+    level_of = {x["char"]: x["level"] for x in hand}
+    cjk = lambda c: len(c) == 1 and "\u4e00" <= c <= "\u9fff"
+    # (IDS operator, parts) -> character, to reject a distractor that spells another character of the list
+    built = {}
+    for ch, e in comps.items():
+        if e["p"]:
+            built[(e["d"][0], tuple(p["c"] for p in e["p"]))] = ch
+    # components seen at each position (operator, index), with their stroke counts, for extra distractors
+    at_pos = {}
+    for ch, e in comps.items():
+        for i, p in enumerate(e["p"]):
+            if cjk(p["c"]) and len(p["s"]) >= 2:
+                at_pos.setdefault((e["d"][0], i), {})[p["c"]] = len(p["s"])
+    words = sorted(vocab.values(), key=lambda w: (len(w["word"]), w["level"], w["id"]))
+    out = []
+    for x in hand:
+        ch, level = x["char"], x["level"]
+        if level > 3 or ch not in comps or not comps[ch]["p"]:
+            continue
+        e = comps[ch]
+        parts = e["p"]
+        ok = [i for i, p in enumerate(parts) if cjk(p["c"]) and len(p["s"]) >= 2
+              and all(len(q["s"]) >= 2 for j, q in enumerate(parts) if j != i)]
+        if not ok or len({p["c"] for p in parts}) < len(parts):   # 比 匕+匕, 多 夕+夕: the answer would be in sight
+            continue
+        k = next((i for i in ok if parts[i]["c"] == e["r"]), ok[0])     # the radical when it can be hidden
+        ans, op = parts[k]["c"], e["d"][0]
+        rng = random.Random(f"k{ch}")
+
+        def spells_other(c):
+            alt = tuple(c if j == k else q["c"] for j, q in enumerate(parts))
+            return built.get((op, alt)) not in (None, ch)
+
+        pool = [c for c in LOOKALIKE_PARTS.get(ans, "") if c != ans]
+        near = sorted(at_pos.get((op, k), {}).items(), key=lambda kv: (abs(kv[1] - len(parts[k]["s"])), kv[0]))
+        pool += [c for c, _ in near if c != ans and c not in pool]
+        distractors = [c for c in pool if not spells_other(c)][:2]
+        if len(distractors) < 2:          # rare shapes (e.g. 区) have no believable look-alike: no question
+            continue
+        w = next((w for w in words if ch in w["word"] and w["level"] <= max(level, 1) and w["id"] in ent), None)
+        if not w:
+            continue
+        opts = [ans] + distractors
+        rng.shuffle(opts)
+        out.append({
+            "id": f"k{len(out) + 1}", "type": "choose_missing_character_component", "skill": "writing", "level": max(level, 2),
+            "char": ch, "part": k, "dedupe": "k:" + ch,
+            "word": w["word"].replace(ch, "□"), "word_pinyin": w["pinyin"], "word_arti": ent[w["id"]]["arti"],
+            "options": [{"zh": c} for c in opts], "answer": ans,
+            "explain": {"char": ch, "parts": " + ".join(p["c"] for p in parts), "word": w["word"], "word_pinyin": w["pinyin"], "arti": ent[w["id"]]["arti"]},
+        })
+    return out
+
+
 def main():
     vocab, ent = load_all()
     problems = []
@@ -599,6 +673,7 @@ def main():
     items += make_texts(allowed, problems)
     items += make_match(allowed, problems)
     items += make_statements(allowed, problems)
+    items += make_components(vocab, ent, problems)
     if problems:
         print("\n".join(problems))
         sys.exit(1)

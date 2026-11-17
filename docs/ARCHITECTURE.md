@@ -7,6 +7,7 @@ content/*.psv, content/pic/*      sumber tulisan sendiri (diedit manusia)
 content/lessons/*.json            pelajaran bertema (kalimat kunci, kata kunci, soal per langkah)
 blueprints/hsk3.0/*.yaml          struktur ujian resmi (angka dari dokumen CTI)
 data/hsk3/vocab.json, handwriting.json   daftar kata/hanzi tulis resmi (input)
+data/hsk3/components.json         komponen hanzi tulis (scripts/build_components.py dari Make Me a Hanzi, LGPL; di-commit)
         │  scripts/build_id.py  build_questions.py  build_blueprints_json.py  build_lessons.py
         ▼
 data/hsk3/vocab_id.json  questions.json  blueprints.json  lessons.json   (hasil build, di-commit)
@@ -80,6 +81,7 @@ Nama sama dengan `part.type` di `blueprints/hsk3.0/*.yaml`. Dibangun oleh `scrip
 | Membaca | `passage_mcq` (paragraf 58–84 hanzi, HSK 3) | 28 | `content/id/reading-level-3.psv` |
 | Membaca | `match_question_to_answer` (grup 5 pertanyaan + 6 jawaban, satu pengecoh; tiap pertanyaan = 1 soal, satu urutan A–F per grup) | 150 (30 grup) | `content/id/match-level-1..3.psv`; pembangun menandai jenis pertanyaan (siapa/di mana/kapan/berapa/apa/ya-tidak/…) dan menolak grup yang dua pertanyaannya sejenis atau pengecohnya menjawab salah satu jenis itu; ujian mengambil grup utuh |
 | Menulis | `write_hanzi_from_pinyin` | 601 | kalimat contoh; hanya hanzi yang bacaannya unik di level itu |
+| Menulis | `choose_missing_character_component` (HSK 2 W1; HSK 3 hanya Latihan) | 55 + 108 | `components.json` (Make Me a Hanzi, LGPL): hanzi tulis digambar dari data goresan tanpa goresan satu komponen (utamakan radikal; komponen dan sisanya ≥2 goresan; hanzi yang kedua bagiannya sama dilewati); 2 pengecoh dari tabel komponen mirip lalu komponen lain di posisi yang sama, ditolak bila membentuk hanzi lain di daftar hanzi tulis; petunjuk = kata berpinyin dengan hanzinya dikosongkan |
 | Menulis | `order_sentence` (susun kalimat; hanya Latihan, belum ada di blueprint resmi) | 828 | kalimat contoh dipecah per kata silabus (maximum matching) + tanda baca; dibuang bila ada kata yang bisa pindah tempat (waktu, 和, dst.), dua klausa penuh, atau deretan angka |
 | Mendengar | `audio_phrase_pick_picture` (HSK 1) | 45 | dibangkitkan: 9 benda × jumlah 1–5 |
 | Mendengar | `audio_sentence_pick_picture` (HSK 2) | 53 | `scenes.json` |
@@ -89,7 +91,7 @@ Nama sama dengan `part.type` di `blueprints/hsk3.0/*.yaml`. Dibangun oleh `scrip
 
 **Soal bergambar** memakai emoji sebagai gambar (buatan sendiri, bebas lisensi; tampilan mengikuti font perangkat). 76 adegan dalam 21 kelompok; semua pilihan gambar berasal dari **kelompok berbeda**, sehingga paling banyak satu gambar yang cocok dengan teks. Foto asli: isi `src` pada opsi gambar (UI sudah mendukung `<img>`).
 
-Belum ada: `choose_missing_character_component` (HSK 2 W1), `write_sentence_from_picture_and_word` (HSK 3 W2), soal level 4+, speaking. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
+Belum ada: `write_sentence_from_picture_and_word` (HSK 3 W2), soal level 4+, speaking. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
 
 ## Aturan mutu yang dijaga otomatis
 

@@ -71,7 +71,8 @@ class SyllabusTests(unittest.TestCase):
 
     def test_only_needed_syllabus_files_are_shipped(self):
         names = {p.name for p in D.glob("*.json")}
-        self.assertEqual(names, {"vocab.json", "handwriting.json", "vocab_id.json", "questions.json", "blueprints.json", "lookalikes.json", "lessons.json", "chars.json", "SOURCE.json"})
+        # components.json is not syllabus text: hanzi decomposition from Make Me a Hanzi (LGPL, see NOTICE.md)
+        self.assertEqual(names, {"vocab.json", "handwriting.json", "vocab_id.json", "questions.json", "blueprints.json", "lookalikes.json", "lessons.json", "chars.json", "SOURCE.json", "components.json"})
 
 
 class BlueprintTests(unittest.TestCase):

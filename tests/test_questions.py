@@ -60,6 +60,38 @@ class QuestionBankTests(unittest.TestCase):
             self.assertIn(q["answer"], [o["zh"] for o in q["options"]], q["id"])
             self.assertTrue(q["question"] and q["explain"]["text_id"] and q["explain"]["answer_id"], q["id"])
 
+    def test_component_data(self):
+        comps = json.loads((ROOT / "data/hsk3/components.json").read_text("utf-8"))
+        hand = {x["char"] for x in json.loads((ROOT / "data/hsk3/handwriting.json").read_text("utf-8"))}
+        self.assertEqual(set(comps), hand)
+        self.assertTrue((ROOT / "data/hsk3/components-LGPL.txt").exists(), "LGPL text must travel with components.json")
+        for ch, e in comps.items():
+            if not e["p"]:
+                continue
+            n = len(json.loads((ROOT / "data/hsk3/strokes" / f"{ord(ch):x}.json").read_text("utf-8"))["strokes"])
+            strokes = sorted(i for p in e["p"] for i in p["s"])
+            self.assertEqual(strokes, list(range(n)), ch)      # every stroke belongs to exactly one top-level part
+
+    def test_component_questions(self):
+        comps = json.loads((ROOT / "data/hsk3/components.json").read_text("utf-8"))
+        spelled = {(e["d"][0], tuple(p["c"] for p in e["p"])): ch for ch, e in comps.items() if e["p"]}
+        items = by("choose_missing_character_component")
+        self.assertGreaterEqual(len([q for q in items if q["level"] == 2]), 25)    # >= 5 papers of 5
+        for q in items:
+            opts = [o["zh"] for o in q["options"]]
+            self.assertEqual(len(opts), 3, q["id"])
+            self.assertEqual(len(set(opts)), 3, q["id"])
+            e = comps[q["char"]]
+            self.assertEqual(e["p"][q["part"]]["c"], q["answer"], q["id"])
+            self.assertIn(q["answer"], opts, q["id"])
+            self.assertNotIn(q["char"], q["word"], q["id"])                        # the word must not give it away
+            self.assertIn("□", q["word"], q["id"])
+            for o in opts:
+                if o == q["answer"]:
+                    continue
+                alt = tuple(o if j == q["part"] else p["c"] for j, p in enumerate(e["p"]))
+                self.assertIn(spelled.get((e["d"][0], alt)), (None, q["char"]), (q["id"], o))   # no other real character
+
     def test_question_tags(self):
         cases = {"你叫什么名字？": "apa", "你今年几岁了？": "jumlah", "现在几点了？": "kapan", "这个多少钱？": "harga",
                  "你家在哪儿？": "tempat", "谁会做饭？": "siapa", "今天天气怎么样？": "kondisi", "你怎么去学校？": "cara",

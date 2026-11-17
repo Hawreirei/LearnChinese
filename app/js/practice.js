@@ -18,6 +18,7 @@ export const TYPE_HELP = {
   passage_mcq: "Baca paragraf, lalu pilih jawaban yang tepat.",
   match_question_to_answer: "Pilih jawaban (A–F) yang cocok dengan pertanyaan ini. Di ujian, lima pertanyaan berturut-turut memakai daftar jawaban yang sama, dan satu jawaban tidak dipakai.",
   audio_statement_question_mcq: "Dengarkan kalimat dan pertanyaannya, lalu pilih jawaban yang tepat.",
+  choose_missing_character_component: "Pilih komponen yang mengisi kotak kosong agar hanzi itu lengkap (lihat kata dan pinyinnya).",
 };
 
 /** Key that makes two questions "the same question" (so a set never repeats one; a cloze and a write item

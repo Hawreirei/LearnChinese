@@ -1,8 +1,21 @@
 // Tulis: stroke-order animation, trace-over-faint-character, free writing. Uses the vendored Hanzi Writer (window.HanziWriter)
 // with stroke data from data/hsk3/strokes/. Logic that needs no DOM lives in ../writing.js.
-import { LEVEL_LABEL, meaning } from "../deck.js";
+import { LEVEL_LABEL, meaning, shuffle } from "../deck.js";
+import { startPracticeWith } from "./practice.js";
 import { buildCharIndex, charPinyin, filterChars, nextRecord, progressOf, strokeFile, strokePath, farEnough } from "../writing.js";
 import { h, btn, speak } from "../ui.js";
+
+/** Ten "choose the missing component" questions at the learner's levels (HSK 2 writing part 1), in Latihan. */
+function startComponents(app) {
+  const lv = new Set(app.store.settings.levels);
+  const all = app.questions.filter((q) => q.type === "choose_missing_character_component");
+  const mine = all.filter((q) => lv.has(q.level));
+  const set = shuffle(mine.length >= 5 ? mine : all).slice(0, 10).map((q) => ({ ...q, options: shuffle(q.options) }));
+  if (!set.length) return;
+  stop();
+  app.go("practice");
+  startPracticeWith(app, set);
+}
 
 const NS = "http://www.w3.org/2000/svg";
 const sv = (tag, attrs = {}) => {
@@ -301,7 +314,8 @@ export function viewWrite(app) {
     controls, status, info);
 
   app.render(
-    h("div", { class: "pagehead" }, h("div", {}, h("h2", {}, "Belajar menulis hanzi"), h("p", { class: "hint" }, "1.200 hanzi tulis resmi HSK 3.0: lihat urutan goresan, tebalkan hanzi samar, lalu tulis dari ingatan."))),
+    h("div", { class: "pagehead" }, h("div", {}, h("h2", {}, "Belajar menulis hanzi"), h("p", { class: "hint" }, "1.200 hanzi tulis resmi HSK 3.0: lihat urutan goresan, tebalkan hanzi samar, lalu tulis dari ingatan.")),
+      btn("Latihan komponen 部件", () => startComponents(app), "btn", { id: "comp-practice", title: "Pilih komponen yang hilang (bentuk soal HSK 2 Menulis bagian 1)" })),
     h("div", { class: "split write" },
       h("div", { class: "panel" }, body),
       h("div", { class: "panel wpick" }, search, chips, h("label", { class: "inline" }, todoBox, " Belum dikuasai saja"), prog, grid)));
