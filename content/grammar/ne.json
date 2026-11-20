@@ -1,0 +1,95 @@
+{
+ "id": "ne",
+ "level": 1,
+ "seq": 14,
+ "title": "呢: “kalau kamu?” dan “di mana?”",
+ "pattern": "Kata benda / kata ganti + 呢？",
+ "explain": [
+  "呢 setelah kata benda atau kata ganti menanyakan hal yang sama tentang orang atau benda lain: 我很好，你呢？ (Aku baik, kamu?)",
+  "呢 juga menanyakan keberadaan: 我的手机呢？ (Ponselku mana?)"
+ ],
+ "examples": [
+  [
+   "我是学生，你呢？",
+   "Aku pelajar, kamu?"
+  ],
+  [
+   "我的书呢？",
+   "Bukuku mana?"
+  ],
+  [
+   "我喜欢喝茶，你呢？",
+   "Aku suka minum teh, kamu?"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我很好，你吗？",
+   "right": "我很好，你呢？",
+   "why": "Pertanyaan balik singkat memakai 呢, bukan 吗."
+  }
+ ],
+ "contrast": [
+  "ma"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我叫小明，你呢？",
+   "blank": "呢",
+   "options": [
+    "呢",
+    "吗",
+    "的"
+   ],
+   "id": "Namaku Xiaoming, kamu?"
+  },
+  {
+   "type": "choose",
+   "zh": "我的手机呢？",
+   "blank": "呢",
+   "options": [
+    "呢",
+    "吗",
+    "了"
+   ],
+   "id": "Ponselku mana?"
+  },
+  {
+   "type": "choose",
+   "zh": "爸爸在家，妈妈呢？",
+   "blank": "呢",
+   "options": [
+    "呢",
+    "吗",
+    "很"
+   ],
+   "id": "Ayah di rumah, ibu?"
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我很忙，你呢？",
+    "你是学生吗？",
+    "我的书呢？"
+   ],
+   "wrong": "我想喝茶，你吗？",
+   "fix": "我想喝茶，你呢？",
+   "why": "Pertanyaan balik memakai 呢."
+  },
+  {
+   "type": "order",
+   "zh": "我是中国人，你呢？",
+   "pieces": [
+    "我",
+    "是",
+    "中国人",
+    "，",
+    "你",
+    "呢",
+    "？"
+   ],
+   "id": "Aku orang Tiongkok, kamu?"
+  }
+ ]
+}

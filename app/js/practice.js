@@ -20,6 +20,8 @@ export const TYPE_HELP = {
   match_question_to_answer: "Pilih jawaban (A–F) yang cocok dengan pertanyaan ini. Di ujian, lima pertanyaan berturut-turut memakai daftar jawaban yang sama, dan satu jawaban tidak dipakai.",
   audio_statement_question_mcq: "Dengarkan kalimat dan pertanyaannya, lalu pilih jawaban yang tepat.",
   choose_missing_character_component: "Pilih komponen yang mengisi kotak kosong agar hanzi itu lengkap (lihat kata dan pinyinnya).",
+  grammar_choose: "Pilih bentuk yang tepat untuk bagian kosong (lihat artinya di bawah kalimat).",
+  error_spot: "Pilih kalimat yang SALAH.",
   write_sentence_from_picture_and_word: "Tulis satu kalimat tentang gambar ini dengan memakai kata yang diberikan. Akhiri dengan tanda baca (。！？).",
 };
 

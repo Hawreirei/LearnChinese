@@ -1,0 +1,105 @@
+{
+ "id": "time-order",
+ "level": 1,
+ "seq": 9,
+ "title": "Keterangan waktu sebelum kata kerja",
+ "pattern": "Subjek + waktu + kata kerja · Waktu + subjek + kata kerja",
+ "explain": [
+  "Waktu (今天, 明天, 下午三点…) diletakkan sebelum kata kerja: di awal kalimat atau setelah subjek, tidak di akhir kalimat.",
+  "Jika ada waktu dan tempat: waktu dulu, lalu tempat: 我明天在家休息."
+ ],
+ "examples": [
+  [
+   "我明天去学校。",
+   "Besok aku ke sekolah."
+  ],
+  [
+   "下午三点我们看电影。",
+   "Pukul tiga sore kami menonton film."
+  ],
+  [
+   "他今天在家休息。",
+   "Hari ini dia beristirahat di rumah."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我去学校明天。",
+   "right": "我明天去学校。",
+   "why": "Waktu tidak diletakkan di akhir kalimat."
+  },
+  {
+   "wrong": "我在家明天休息。",
+   "right": "我明天在家休息。",
+   "why": "Waktu dulu, baru tempat."
+  }
+ ],
+ "contrast": [
+  "zai-verb"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我明年去中国。",
+   "blank": "明年",
+   "options": [
+    "明年",
+    "很",
+    "吗"
+   ],
+   "id": "Tahun depan aku ke Tiongkok."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我明天去商店。",
+    "今天下午我在家。",
+    "他们晚上看电视。"
+   ],
+   "wrong": "我们看电影明天。",
+   "fix": "我们明天看电影。",
+   "why": "Waktu di depan kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我今天在家休息。",
+    "明天我们在学校见。",
+    "他昨天去医院了。"
+   ],
+   "wrong": "我在家今天休息。",
+   "fix": "我今天在家休息。",
+   "why": "Waktu dulu, lalu tempat."
+  },
+  {
+   "type": "order",
+   "zh": "我明天上午去医院。",
+   "pieces": [
+    "我",
+    "明天上午",
+    "去",
+    "医院",
+    "。"
+   ],
+   "id": "Besok pagi aku ke rumah sakit.",
+   "alt": [
+    "明天上午我去医院。"
+   ]
+  },
+  {
+   "type": "order",
+   "zh": "他今天在家看书。",
+   "pieces": [
+    "他",
+    "今天",
+    "在家",
+    "看书",
+    "。"
+   ],
+   "id": "Hari ini dia membaca buku di rumah.",
+   "alt": [
+    "今天他在家看书。"
+   ]
+  }
+ ]
+}

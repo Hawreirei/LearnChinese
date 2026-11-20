@@ -13,6 +13,7 @@ import { viewQuiz } from "./views/quiz.js";
 import { viewBrowse } from "./views/browse.js";
 import { viewProgress } from "./views/progress.js";
 import { viewSettings } from "./views/settings.js";
+import { viewGrammar } from "./views/grammar.js";
 
 const view = document.getElementById("view");
 
@@ -28,12 +29,13 @@ const app = {
   blueprints: {},           // blueprints.json (official exam structure per level)
   lessons: [],              // lessons.json (themed lessons with their own questions)
   questionIndex: new Map(), // id -> question, bank + lesson questions (buku kesalahan)
+  grammar: [],              // grammar.json: grammar points with their drills (Tata bahasa tab)
   speaking: {},             // speaking.json: level -> { blueprint (unofficial), repeat, pictures, questions }
   render: (...nodes) => view.replaceChildren(...nodes.flat().filter((n) => n != null && n !== false)),   // replaceChildren(null) would print "null"
   go,
 };
 
-const views = { home: viewHome, lessons: viewLessons, write: viewWrite, study: viewStudy, practice: viewPractice, exam: viewExam, quiz: viewQuiz, browse: viewBrowse, progress: viewProgress, settings: viewSettings };
+const views = { home: viewHome, lessons: viewLessons, grammar: viewGrammar, write: viewWrite, study: viewStudy, practice: viewPractice, exam: viewExam, quiz: viewQuiz, browse: viewBrowse, progress: viewProgress, settings: viewSettings };
 let tab = "home";
 
 function go(t) {
@@ -73,14 +75,15 @@ const getJson = async (name, fallback) => {
 
 async function boot() {
   try {
-    const [vocab, handwriting, idData, questions, blueprints, lookalikes, lessons, chars, speaking] = await Promise.all([
+    const [vocab, handwriting, idData, questions, blueprints, lookalikes, lessons, chars, speaking, grammar] = await Promise.all([
       getJson("vocab.json"), getJson("handwriting.json"),
-      getJson("vocab_id.json", {}), getJson("questions.json", []), getJson("blueprints.json", {}), getJson("lookalikes.json", {}), getJson("lessons.json", []), getJson("chars.json", {}), getJson("speaking.json", {}),
+      getJson("vocab_id.json", {}), getJson("questions.json", []), getJson("blueprints.json", {}), getJson("lookalikes.json", {}), getJson("lessons.json", []), getJson("chars.json", {}), getJson("speaking.json", {}), getJson("grammar.json", []),
     ]);
     setLookalikes(lookalikes);
     Object.assign(app, { vocab, handwriting: new Set(handwriting.map((x) => x.char)), handwritingList: handwriting, idData, questions, blueprints, lessons, chars });
-    app.questionIndex = indexQuestions(questions, lessons);
+    app.questionIndex = indexQuestions(questions, lessons, grammar);
     app.speaking = speaking;
+    app.grammar = grammar;
     go("home");
   } catch (err) {
     app.render(h("p", { class: "notice" }, `Gagal memuat data: ${err.message}. Jalankan server dari akar repo: python3 -m http.server 8080, lalu buka /app/.`));

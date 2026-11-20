@@ -8,6 +8,7 @@ content/lessons/*.json            pelajaran bertema (kalimat kunci, kata kunci, 
 blueprints/hsk3.0/*.yaml          struktur ujian resmi (angka dari dokumen CTI)
 data/hsk3/vocab.json, handwriting.json   daftar kata/hanzi tulis resmi (input)
 blueprints/hsk3.0/speaking-level-3.yaml + content/speaking/level-3.json → scripts/build_speaking.py → data/hsk3/speaking.json (format speaking TIDAK resmi, verified: false)
+content/grammar/<id>.json → scripts/build_grammar.py → data/hsk3/grammar.json (pola tata bahasa + latihan grammar_choose / error_spot / order_sentence)
 data/hsk3/components.json         komponen hanzi tulis (scripts/build_components.py dari Make Me a Hanzi, LGPL; di-commit)
         │  scripts/build_id.py  build_questions.py  build_blueprints_json.py  build_lessons.py
         ▼
@@ -37,6 +38,7 @@ Logika murni (tanpa DOM, diuji di `tests/js/`):
 | `analytics.js` | tren, kelemahan, kata sulit, rekomendasi, set latihan kelemahan |
 | `essay.js` | pemeriksa tulisan bebas: `checkSentence` (galat vs peringatan, lihat jenis soal), `allowedChars` (hanzi kata silabus ≤ level); dipakai soal menulis kalimat sekarang, esai HSK 4+ nanti |
 | `speakexam.js` | simulasi speaking: kertas dari `speaking.json` (blueprint tidak resmi), langkah dan fase (dengar → persiapan → bicara), sisa waktu, kata silabus dalam transkrip (cocok terpanjang), statistik jawaban terbuka, rubrik 4 dimensi (1–3), ringkasan perkiraan |
+| `grammar.js` | tata bahasa: progres per pola dari log jawaban (jawaban terakhir tiap latihan `g-<pola>-<n>`; dikuasai = semua dijawab dan ≥80% benar), status kartu, urutan ajar, pola berikutnya |
 | `review.js` | pembahasan simulasi: simpan ringkas (id soal, jawaban, urutan pilihan/kepingan yang dilihat) satu per level, bangun ulang dari `questions.json`, filter salah/kosong/semua; soal yang sudah hilang dari bank dilewati dan dihitung |
 | `mistakes.js` | buku kesalahan: `applyAnswer` (dipanggil `Store.recordAnswer` untuk setiap jawaban; salah → masuk, jatuh tempo besok; benar dihitung sekali per hari dan tidak di hari salahnya; benar ke-1 → 3 hari lagi, ke-2 → keluar; kosong dan speaking diabaikan), maksimal 500 soal, indeks soal bank + pelajaran |
 | `plan.js` | target ujian: validasi `{level, examDate, minutes}`, hitung hari kalender lokal sampai ujian, teks kartu hitung mundur; rencana harian: kata baru/hari (sisa kata ÷ hari belajar, 14 hari cadangan, minggu terakhir tanpa kata baru, dibatasi menit belajar; dipakai `session.js` bila `settings.newPerDayAuto`), jadwal simulasi (tiap 10 hari, mingguan 3 minggu terakhir, tiap 3 hari minggu terakhir), aktivitas hari ini, dan daftar "Hari ini" |
@@ -48,6 +50,7 @@ Tampilan (`app/js/views/`), semuanya menerima satu objek `app` dari `main.js` (`
 | `study.js`, `quiz.js`, `browse.js`, `settings.js` | Hafalan, Kuis, Daftar, Pengaturan |
 | `practice.js`, `exam.js` | Latihan, Ujian |
 | `speaking.js` | simulasi speaking (dibuka dari tab Ujian): pewaktu persiapan, rekam otomatis dan berhenti sendiri (`startAttempt`, mode `continuous` untuk jawaban panjang), skor kalimat ulang lewat pengenal ucapan, hasil per tugas dengan rekaman, transkrip, dan contoh jawaban, rubrik nilai sendiri |
+| `grammar.js` (views) | tab Tata bahasa: daftar per level, halaman pola, latihan lewat Latihan (`startPracticeWith` dengan tombol kembali) |
 | `write.js` | Tulis: animasi urutan goresan, tebalkan hanzi samar (bebas atau diperiksa per goresan), tulis dari ingatan; memakai Hanzi Writer di `js/vendor/` |
 | `lessons.js` | Pelajaran: daftar, halaman pelajaran, stepper, langkah Listening/Reading/Writing/Speaking/Vocab |
 | `progress.js` | Kemajuan (analisis + ringkasan hafalan) |

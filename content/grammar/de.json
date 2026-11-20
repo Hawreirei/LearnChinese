@@ -1,0 +1,91 @@
+{
+ "id": "de",
+ "level": 1,
+ "seq": 6,
+ "title": "的: milik dan keterangan benda",
+ "pattern": "A + 的 + B (B milik / bersifat A)",
+ "explain": [
+  "的 menghubungkan pemilik atau keterangan dengan benda: 我的书 (bukuku), 中国的茶 (teh Tiongkok). Urutannya kebalikan bahasa Indonesia: keterangan di depan, bendanya di belakang.",
+  "Untuk keluarga dan hubungan dekat, 的 biasanya dihilangkan: 我妈妈, 我们学校."
+ ],
+ "examples": [
+  [
+   "这是我的手机。",
+   "Ini ponselku."
+  ],
+  [
+   "他是我妈妈的朋友。",
+   "Dia teman ibuku."
+  ],
+  [
+   "我喜欢中国的菜。",
+   "Aku suka masakan Tiongkok."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "这是书的我。",
+   "right": "这是我的书。",
+   "why": "Pemilik di depan: 我的书, bukan “buku aku” seperti urutan Indonesia."
+  }
+ ],
+ "contrast": [],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "这是我的杯子。",
+   "blank": "的",
+   "options": [
+    "的",
+    "是",
+    "很"
+   ],
+   "id": "Ini cangkirku."
+  },
+  {
+   "type": "choose",
+   "zh": "那是老师的电脑。",
+   "blank": "的",
+   "options": [
+    "的",
+    "了",
+    "吗"
+   ],
+   "id": "Itu komputer guru."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "这是我的书。",
+    "她是我妈妈。",
+    "我喜欢他的猫。"
+   ],
+   "wrong": "这是手机的我。",
+   "fix": "这是我的手机。",
+   "why": "Pemilik (我) di depan 的."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "那是我朋友的车。",
+    "我爸爸是医生。",
+    "这是谁的书？"
+   ],
+   "wrong": "这是书谁的？",
+   "fix": "这是谁的书？",
+   "why": "谁的 di depan benda."
+  },
+  {
+   "type": "order",
+   "zh": "这是我同学的电脑。",
+   "pieces": [
+    "这",
+    "是",
+    "我同学的",
+    "电脑",
+    "。"
+   ],
+   "id": "Ini komputer teman sekelasku."
+  }
+ ]
+}

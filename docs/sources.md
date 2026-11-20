@@ -26,6 +26,8 @@ Domain `chinesetest.cn` dan host PDF silabus (`hsk.cn-bj.ufileos.com`) tidak bis
 | 6 | 1.800 | 5.400 | 150 |
 | 7–9 | 5.600 | 11.000 | 500 |
 
+**Tata bahasa (`content/grammar/`)** ditulis sendiri: nama pola adalah fakta bahasa (是, 很 + kata sifat, 了…), sedangkan penjelasan, contoh, kesalahan umum, dan latihan adalah tulisan proyek ini; daftar 593 poin tata bahasa silabus beserta contohnya tidak disalin. Urutan level mengikuti urutan umum buku ajar dan dibatasi kosakata level itu.
+
 **Sengaja tidak disertakan** (bukan kebutuhan aplikasi, dan hak ciptanya milik CLEC/CTI): daftar hanzi baca, tata bahasa (593 poin), tugas, topik, dan nama diri dari silabus. Pemeriksa "hanzi dalam kalimat tidak boleh melebihi level" memakai hanzi dari kata-kata silabus sampai level itu, sehingga tidak butuh daftar hanzi baca. Siapa pun yang membutuhkannya dapat mengambilnya sendiri dari sumber resmi atau salinan terbukanya.
 
 ## Struktur ujian level 1–6 (dari dokumen CTI)

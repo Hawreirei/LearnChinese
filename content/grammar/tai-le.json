@@ -1,0 +1,99 @@
+{
+ "id": "tai-le",
+ "level": 1,
+ "seq": 22,
+ "title": "太…了: terlalu / sekali",
+ "pattern": "太 + kata sifat + 了",
+ "explain": [
+  "太 + kata sifat + 了 = terlalu (keluhan) atau sangat (kagum): 太贵了 (terlalu mahal), 太好了 (bagus sekali). 了 di akhir biasanya ikut.",
+  "Bentuk “tidak terlalu” adalah 不太 + kata sifat: 不太忙."
+ ],
+ "examples": [
+  [
+   "这件衣服太贵了。",
+   "Baju ini terlalu mahal."
+  ],
+  [
+   "太好了！",
+   "Bagus sekali!"
+  ],
+  [
+   "今天不太冷。",
+   "Hari ini tidak terlalu dingin."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "今天太不冷了。",
+   "right": "今天不太冷。",
+   "why": "“Tidak terlalu” adalah 不太."
+  },
+  {
+   "wrong": "这本书是太好看了。",
+   "right": "这本书太好看了。",
+   "why": "Tanpa 是 sebelum kata sifat."
+  }
+ ],
+ "contrast": [
+  "hen-adj"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "这个苹果太大了。",
+   "blank": "太",
+   "options": [
+    "太",
+    "是",
+    "吗"
+   ],
+   "id": "Apel ini terlalu besar."
+  },
+  {
+   "type": "choose",
+   "zh": "今天太热了。",
+   "blank": "了",
+   "options": [
+    "了",
+    "吗",
+    "的"
+   ],
+   "id": "Hari ini panas sekali."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "太好了！",
+    "这个手机太贵了。",
+    "我不太忙。"
+   ],
+   "wrong": "我太不忙了。",
+   "fix": "我不太忙。",
+   "why": "“Tidak terlalu” adalah 不太."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "今天不太冷。",
+    "他的家太大了。",
+    "这个菜太好吃了。"
+   ],
+   "wrong": "这本书是太好看了。",
+   "fix": "这本书太好看了。",
+   "why": "Tanpa 是 sebelum kata sifat."
+  },
+  {
+   "type": "order",
+   "zh": "这个饭店的菜太好吃了。",
+   "pieces": [
+    "这个饭店的",
+    "菜",
+    "太",
+    "好吃",
+    "了",
+    "。"
+   ],
+   "id": "Masakan restoran ini enak sekali."
+  }
+ ]
+}

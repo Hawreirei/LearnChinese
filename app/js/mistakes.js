@@ -88,8 +88,8 @@ export function mistakeCounts(book, index, now = Date.now()) {
   return { total: ids.length, due: ids.filter((id) => book[id].due <= now).length };
 }
 
-/** id → question for every question the book can hold: the practice bank and the questions inside lessons. */
-export function indexQuestions(questions, lessons = []) {
-  const all = [...questions, ...lessons.flatMap((l) => Object.values(l.steps ?? {}).flat())];
+/** id → question for every question the book can hold: the practice bank, lesson questions and grammar drills. */
+export function indexQuestions(questions, lessons = [], grammar = []) {
+  const all = [...questions, ...lessons.flatMap((l) => Object.values(l.steps ?? {}).flat()), ...grammar.flatMap((p) => p.drills ?? [])];
   return new Map(all.filter((q) => q?.id).map((q) => [q.id, q]));
 }

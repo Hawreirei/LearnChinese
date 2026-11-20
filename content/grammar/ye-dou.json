@@ -1,0 +1,97 @@
+{
+ "id": "ye-dou",
+ "level": 1,
+ "seq": 18,
+ "title": "也 dan 都: juga, semua",
+ "pattern": "Subjek + 也 / 都 + kata kerja",
+ "explain": [
+  "也 (juga) dan 都 (semua) adalah kata keterangan: selalu setelah subjek dan sebelum kata kerja. Tidak boleh di awal kalimat seperti “juga” dalam bahasa Indonesia.",
+  "Jika keduanya dipakai: 也都. 都 merangkum hal di depannya: 我们都是学生."
+ ],
+ "examples": [
+  [
+   "我也是学生。",
+   "Aku juga pelajar."
+  ],
+  [
+   "我们都喜欢喝茶。",
+   "Kami semua suka minum teh."
+  ],
+  [
+   "他们也都来了。",
+   "Mereka juga semua datang."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "也我是学生。",
+   "right": "我也是学生。",
+   "why": "也 setelah subjek."
+  },
+  {
+   "wrong": "我们喜欢都猫。",
+   "right": "我们都喜欢猫。",
+   "why": "都 setelah subjek, sebelum kata kerja."
+  }
+ ],
+ "contrast": [],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我也喜欢看电影。",
+   "blank": "也",
+   "options": [
+    "也",
+    "很",
+    "吗"
+   ],
+   "id": "Aku juga suka menonton film."
+  },
+  {
+   "type": "choose",
+   "zh": "我们都是中国人。",
+   "blank": "都",
+   "options": [
+    "都",
+    "很",
+    "吗"
+   ],
+   "id": "Kami semua orang Tiongkok."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他也是老师。",
+    "我们都很忙。",
+    "她们也都来了。"
+   ],
+   "wrong": "也他会说汉语。",
+   "fix": "他也会说汉语。",
+   "why": "也 setelah subjek."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我们都喜欢猫。",
+    "我也想去。",
+    "他们都在家。"
+   ],
+   "wrong": "我们喜欢都猫。",
+   "fix": "我们都喜欢猫。",
+   "why": "都 sebelum kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我们都在学校学习汉语。",
+   "pieces": [
+    "我们",
+    "都",
+    "在学校",
+    "学习",
+    "汉语",
+    "。"
+   ],
+   "id": "Kami semua belajar bahasa Mandarin di sekolah."
+  }
+ ]
+}

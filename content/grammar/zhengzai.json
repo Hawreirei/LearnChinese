@@ -1,0 +1,98 @@
+{
+ "id": "zhengzai",
+ "level": 1,
+ "seq": 20,
+ "title": "(正)在 + kata kerja: sedang",
+ "pattern": "Subjek + (正)在 + kata kerja (+ 呢)",
+ "explain": [
+  "(正)在 sebelum kata kerja menandai kegiatan yang sedang berlangsung: 我在看书 (aku sedang membaca). 呢 di akhir boleh ditambahkan: 他正在睡觉呢.",
+  "Kegiatan yang sedang berlangsung tidak memakai 了."
+ ],
+ "examples": [
+  [
+   "我在看电视。",
+   "Aku sedang menonton televisi."
+  ],
+  [
+   "妈妈正在做饭。",
+   "Ibu sedang memasak."
+  ],
+  [
+   "他们在打电话呢。",
+   "Mereka sedang menelepon."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我看书在。",
+   "right": "我在看书。",
+   "why": "在 di depan kata kerja."
+  },
+  {
+   "wrong": "我在吃饭了。",
+   "right": "我在吃饭呢。",
+   "why": "Kegiatan yang sedang berlangsung memakai 呢, bukan 了."
+  }
+ ],
+ "contrast": [
+  "zai-place"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我在看书呢。",
+   "blank": "在",
+   "options": [
+    "在",
+    "是",
+    "的"
+   ],
+   "id": "Aku sedang membaca buku."
+  },
+  {
+   "type": "choose",
+   "zh": "妈妈正在做饭。",
+   "blank": "正在",
+   "options": [
+    "正在",
+    "很",
+    "是"
+   ],
+   "id": "Ibu sedang memasak."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他在睡觉。",
+    "我们正在上课。",
+    "你在做什么？"
+   ],
+   "wrong": "她看电视在。",
+   "fix": "她在看电视。",
+   "why": "在 di depan kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "爸爸在开车呢。",
+    "我在学习汉语。",
+    "他们在吃饭。"
+   ],
+   "wrong": "我在吃饭了。",
+   "fix": "我在吃饭呢。",
+   "why": "Kegiatan yang sedang berlangsung tidak memakai 了."
+  },
+  {
+   "type": "order",
+   "zh": "我朋友正在打电话。",
+   "pieces": [
+    "我朋友",
+    "正在",
+    "打",
+    "电话",
+    "。"
+   ],
+   "id": "Temanku sedang menelepon."
+  }
+ ]
+}

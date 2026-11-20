@@ -1,0 +1,99 @@
+{
+ "id": "le",
+ "level": 1,
+ "seq": 15,
+ "title": "了: sudah terjadi, keadaan baru",
+ "pattern": "Kata kerja + 了 (+ objek) · …了 (keadaan baru)",
+ "explain": [
+  "了 setelah kata kerja menandai tindakan yang sudah selesai: 我买了一本书. Jika objeknya tanpa jumlah, 了 biasanya di akhir kalimat: 我吃饭了.",
+  "了 di akhir kalimat juga menandai perubahan atau keadaan baru: 下雨了 (sudah hujan), 我二十岁了.",
+  "了 bukan terjemahan “sudah” untuk semua kalimat: rencana di masa depan dan kalimat dengan 没 tidak memakai 了."
+ ],
+ "examples": [
+  [
+   "我买了三个苹果。",
+   "Aku membeli tiga apel."
+  ],
+  [
+   "下雨了。",
+   "Turun hujan."
+  ],
+  [
+   "他去医院了。",
+   "Dia pergi ke rumah sakit."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我没吃了饭。",
+   "right": "我没吃饭。",
+   "why": "Tidak ada 了 setelah 没."
+  },
+  {
+   "wrong": "我们明天看了电影。",
+   "right": "我们明天看电影。",
+   "why": "Rencana di masa depan tidak memakai 了."
+  }
+ ],
+ "contrast": [
+  "meiyou"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我买了一件衣服。",
+   "blank": "了",
+   "options": [
+    "了",
+    "的",
+    "吗"
+   ],
+   "id": "Aku membeli sepotong baju."
+  },
+  {
+   "type": "choose",
+   "zh": "下雨了，我们回家吧。",
+   "blank": "了",
+   "options": [
+    "了",
+    "吗",
+    "的"
+   ],
+   "id": "Sudah hujan, ayo kita pulang."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他去商店了。",
+    "我昨天没去学校。",
+    "我喝了两杯茶。"
+   ],
+   "wrong": "我昨天没看了电视。",
+   "fix": "我昨天没看电视。",
+   "why": "Tidak ada 了 setelah 没."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "现在九点了。",
+    "我买了一本书。",
+    "明天我去医院。"
+   ],
+   "wrong": "我们明天看了电影。",
+   "fix": "我们明天看电影。",
+   "why": "Rencana di masa depan tidak memakai 了."
+  },
+  {
+   "type": "order",
+   "zh": "他去医院看病了。",
+   "pieces": [
+    "他",
+    "去医院",
+    "看病",
+    "了",
+    "。"
+   ],
+   "id": "Dia pergi berobat ke rumah sakit."
+  }
+ ]
+}

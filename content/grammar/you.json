@@ -1,0 +1,100 @@
+{
+ "id": "you",
+ "level": 1,
+ "seq": 19,
+ "title": "有: punya, ada",
+ "pattern": "Orang + 有 + benda · Tempat + 有 + benda",
+ "explain": [
+  "有 = punya: 我有一个哥哥. Juga “ada” untuk tempat: 桌子上有一本书 (di atas meja ada sebuah buku); tempatnya di depan, tanpa 在.",
+  "Negatifnya selalu 没有."
+ ],
+ "examples": [
+  [
+   "我有两个妹妹。",
+   "Aku punya dua adik perempuan."
+  ],
+  [
+   "学校里有很多学生。",
+   "Di sekolah ada banyak murid."
+  ],
+  [
+   "我没有车。",
+   "Aku tidak punya mobil."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "在桌子上有一本书。",
+   "right": "桌子上有一本书。",
+   "why": "Kalimat “di … ada …” dimulai langsung dengan tempat, tanpa 在."
+  },
+  {
+   "wrong": "我不有时间。",
+   "right": "我没有时间。",
+   "why": "有 → 没有."
+  }
+ ],
+ "contrast": [
+  "zai-place",
+  "meiyou"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我有一个弟弟。",
+   "blank": "有",
+   "options": [
+    "有",
+    "在",
+    "很"
+   ],
+   "id": "Aku punya seorang adik laki-laki."
+  },
+  {
+   "type": "choose",
+   "zh": "桌子上有一个杯子。",
+   "blank": "有",
+   "options": [
+    "有",
+    "在",
+    "很"
+   ],
+   "id": "Di atas meja ada sebuah cangkir."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我家有一只狗。",
+    "商店里有很多人。",
+    "他没有钱。"
+   ],
+   "wrong": "在学校有很多学生。",
+   "fix": "学校有很多学生。",
+   "why": "Kalimat “… ada …” dimulai dengan tempat, tanpa 在."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你有手机吗？",
+    "椅子上有一本书。",
+    "我没有时间。"
+   ],
+   "wrong": "我不有电脑。",
+   "fix": "我没有电脑。",
+   "why": "有 → 没有."
+  },
+  {
+   "type": "order",
+   "zh": "我们学校有很多中国学生。",
+   "pieces": [
+    "我们学校",
+    "有",
+    "很多",
+    "中国",
+    "学生",
+    "。"
+   ],
+   "id": "Sekolah kami punya banyak murid Tiongkok."
+  }
+ ]
+}

@@ -230,6 +230,10 @@ export function questionBody(q, m) {
   if (PICTURE_LISTENING.has(q.type)) return [help, listeningCard(q, m), pictureGrid(q, m)];
   if (isListening(q)) return [help, listeningCard(q, m), textOptions(q, m)];
   if (q.type === "sentence_match_picture") return [help, textCard(q, true), pictureGrid(q, m)];
+  if (q.type === "grammar_choose") {
+    return [help, h("div", { class: "card" }, h("div", { class: "stem", lang: "zh-Hans" }, q.stem), h("div", { class: "hint" }, q.stem_id)), textOptions(q, m)];
+  }
+  if (q.type === "error_spot") return [help, textOptions(q, m)];
   if (q.type === "match_question_to_answer") {   // one question of a matching group; the six answers are shared (A-F)
     const show = q.level === 1 || !!m.pinyin.shown;
     return [help, h("div", { class: "card" }, h("div", { class: "stem", lang: "zh-Hans" }, q.stem), show ? h("div", { class: "pinyin" }, q.stem_pinyin) : null),
@@ -259,6 +263,13 @@ export function explanation(q) {
 
   if (PICTURE_LISTENING.has(q.type)) return h("div", { class: "example" }, pic, listeningText(q), h("div", { class: "tr" }, e.audio_id ?? e.text_id));
   if (q.type === "sentence_match_picture") return h("div", { class: "example" }, pic, zh(q.sentence), h("div", { class: "py" }, q.sentence_pinyin), h("div", { class: "tr" }, e.sentence_id));
+  if (q.type === "grammar_choose") {
+    return h("div", { class: "example" }, zh(e.zh), h("div", { class: "py" }, e.pinyin), h("div", { class: "tr" }, e.id), h("div", { class: "hint" }, `Pola: ${e.rule}`));
+  }
+  if (q.type === "error_spot") {
+    return h("div", { class: "example" }, zh(`✘ ${e.wrong}`), zh(`✔ ${e.fix}`, "margin-top:6px"), h("div", { class: "py" }, e.fix_pinyin),
+      h("div", { class: "tr" }, e.why), h("div", { class: "hint" }, `Pola: ${e.rule}`));
+  }
   if (q.type === "write_sentence_from_picture_and_word") {
     return h("div", { class: "example" }, h("div", { class: "hint" }, "Contoh jawaban (ada banyak kalimat lain yang juga benar):"),
       ...q.models.flatMap((x, i) => [zh(x.zh, i ? "margin-top:10px" : ""), h("div", { class: "py" }, x.pinyin), h("div", { class: "tr" }, x.id)]));

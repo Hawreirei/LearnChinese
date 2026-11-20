@@ -1,0 +1,94 @@
+{
+ "id": "zai-place",
+ "level": 1,
+ "seq": 7,
+ "title": "在 + tempat: berada di",
+ "pattern": "Subjek + 在 + tempat",
+ "explain": [
+  "在 sebagai kata kerja berarti “berada di”: 我在家 (aku di rumah). Tidak perlu 是.",
+  "Untuk menanyakan tempat: ……在哪儿？ Jawabannya: ……在 + tempat."
+ ],
+ "examples": [
+  [
+   "我在学校。",
+   "Aku di sekolah."
+  ],
+  [
+   "你的书在桌子上。",
+   "Bukumu di atas meja."
+  ],
+  [
+   "妈妈不在家。",
+   "Ibu tidak di rumah."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他是在医院。",
+   "right": "他在医院。",
+   "why": "“Berada di” cukup dengan 在."
+  }
+ ],
+ "contrast": [
+  "zai-verb",
+  "you"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我爸爸在医院。",
+   "blank": "在",
+   "options": [
+    "在",
+    "是",
+    "有"
+   ],
+   "id": "Ayahku di rumah sakit."
+  },
+  {
+   "type": "choose",
+   "zh": "你的手机在桌子上。",
+   "blank": "在",
+   "options": [
+    "在",
+    "有",
+    "很"
+   ],
+   "id": "Ponselmu di atas meja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我在家。",
+    "老师在学校。",
+    "他不在这儿。"
+   ],
+   "wrong": "我是在商店。",
+   "fix": "我在商店。",
+   "why": "在 tanpa 是."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你在哪儿？",
+    "书在椅子上。",
+    "我妈妈在家。"
+   ],
+   "wrong": "你在哪儿吗？",
+   "fix": "你在哪儿？",
+   "why": "Ada kata tanya 哪儿, jadi tanpa 吗."
+  },
+  {
+   "type": "order",
+   "zh": "我的猫在桌子下边。",
+   "pieces": [
+    "我的猫",
+    "在",
+    "桌子",
+    "下边",
+    "。"
+   ],
+   "id": "Kucingku di bawah meja."
+  }
+ ]
+}

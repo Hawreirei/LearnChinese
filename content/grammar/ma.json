@@ -1,0 +1,100 @@
+{
+ "id": "ma",
+ "level": 1,
+ "seq": 3,
+ "title": "吗: pertanyaan ya/tidak",
+ "pattern": "Kalimat pernyataan + 吗？",
+ "explain": [
+  "Tambahkan 吗 di akhir kalimat pernyataan untuk membuat pertanyaan ya/tidak. Urutan kata tidak berubah.",
+  "Jawabannya mengulang kata kerja atau kata sifatnya: 是 / 不是, 有 / 没有, 去 / 不去."
+ ],
+ "examples": [
+  [
+   "你是学生吗？",
+   "Apakah kamu pelajar?"
+  ],
+  [
+   "你有手机吗？",
+   "Apakah kamu punya ponsel?"
+  ],
+  [
+   "明天你去学校吗？",
+   "Besok kamu ke sekolah?"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "你是谁吗？",
+   "right": "你是谁？",
+   "why": "Kalimat yang sudah memakai kata tanya (谁, 什么, 哪儿…) tidak memakai 吗."
+  },
+  {
+   "wrong": "你吗是学生？",
+   "right": "你是学生吗？",
+   "why": "吗 selalu di akhir kalimat."
+  }
+ ],
+ "contrast": [
+  "ne",
+  "qword"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "你喜欢喝茶吗？",
+   "blank": "吗",
+   "options": [
+    "吗",
+    "的",
+    "很"
+   ],
+   "id": "Apakah kamu suka minum teh?"
+  },
+  {
+   "type": "choose",
+   "zh": "他是你哥哥吗？",
+   "blank": "吗",
+   "options": [
+    "吗",
+    "什么",
+    "很"
+   ],
+   "id": "Apakah dia kakakmu?"
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你是医生吗？",
+    "你叫什么名字？",
+    "他去商店吗？"
+   ],
+   "wrong": "你去哪儿吗？",
+   "fix": "你去哪儿？",
+   "why": "Sudah ada kata tanya 哪儿, jadi tanpa 吗."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你有哥哥吗？",
+    "这是你的书吗？",
+    "你想喝水吗？"
+   ],
+   "wrong": "你吗是学生？",
+   "fix": "你是学生吗？",
+   "why": "吗 selalu di akhir kalimat."
+  },
+  {
+   "type": "order",
+   "zh": "你会说汉语吗？",
+   "pieces": [
+    "你",
+    "会",
+    "说",
+    "汉语",
+    "吗",
+    "？"
+   ],
+   "id": "Apakah kamu bisa berbahasa Mandarin?"
+  }
+ ]
+}

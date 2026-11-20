@@ -88,6 +88,7 @@ def main():
         ("Yang mohon diperhatikan / 请特别注意", True),
         ("• 词汇: apakah arti Indonesia sesuai dengan makna kata dalam HSK (bukan makna kamus pertama)? Apakah kalimat contoh alami, sederhana, dan sesuai level? Apakah terjemahan Indonesianya wajar?", False),
         ("• 听力/阅读: apakah jawaban benar tepat satu? Adakah pilihan salah yang sebenarnya juga benar (soal ambigu)? Apakah dialog terdengar alami?", False),
+        ("• 语法: apakah penjelasan tepat, contohnya wajar, dan setiap latihan punya tepat satu jawaban benar (kalimat “benar” di soal pilih-yang-salah memang benar)?", False),
         ("• 写句子: apakah ketiga contoh jawaban wajar, sesuai gambar, dan memakai kata wajib dengan benar?", False),
         ("• 配对: dalam satu grup, apakah setiap jawaban hanya cocok dengan satu pertanyaan, dan jawaban pengecoh tidak cocok dengan pertanyaan mana pun?", False),
         ("• 图片: apakah gambar (emoji) sesuai dengan kalimat, dan tidak ada gambar lain yang juga cocok?", False),
@@ -190,6 +191,22 @@ def main():
                          "\n".join(m["zh"] for m in q["models"]), "\n".join(m["id"] for m in q["models"])])
     sheet(wb, "写句子 Menulis kalimat", ["ID", "Level", "图片 Gambar", "词语 Kata wajib", "范文 Contoh jawaban (3)", "翻译 Terjemahan"],
           rows, [7, 7, 24, 16, 44, 52], ["状态 Status", "建议 Usulan koreksi", "备注 Catatan"])
+
+    # 3d. grammar points: explanation, examples, pitfalls and every drill, one row per point
+    rows = []
+    for g in load("grammar.json"):
+        def drill(d):
+            if d["type"] == "grammar_choose":
+                return f'{d["stem"]} → {d["answer"]}  [{" / ".join(o["zh"] for o in d["options"])}]  ({d["stem_id"]})'
+            if d["type"] == "error_spot":
+                return f'✘ {d["answer"]} → ✔ {d["explain"]["fix"]}  (benar: {" / ".join(o["zh"] for o in d["options"] if o["zh"] != d["answer"])})'
+            return f'{d["answer"]}  ({d["stem"]})'
+        rows.append([g["id"], g["level"], f'{g["title"]}\n{g["pattern"]}', "\n".join(g["explain"]),
+                     "\n".join(f'{e["zh"]}  {e["id"]}' for e in g["examples"]),
+                     "\n".join(f'✘ {f["wrong"]} → ✔ {f["right"]}: {f["why"]}' for f in g["pitfalls"]),
+                     "\n".join(drill(d) for d in g["drills"])])
+    sheet(wb, "语法 Tata bahasa", ["ID", "Level", "规则 Pola", "说明 Penjelasan (Indonesia)", "例句 Contoh", "常见错误 Kesalahan umum", "练习 Latihan"],
+          rows, [12, 7, 30, 50, 40, 50, 60], ["状态 Status", "建议 Usulan koreksi", "备注 Catatan"])
 
     # 4. pictures: scene sentences, then picture dialogs
     rows = []
