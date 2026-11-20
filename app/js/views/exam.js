@@ -5,6 +5,7 @@ import { wordIdOfQuestion } from "../analytics.js";
 import { availability, examAvailable, buildExam, formatClock, gradeSection, summarizeExam, SKILL_LABEL, MAX_AUDIO_PLAYS } from "../exam.js";
 import { questionBody, explanation, answerLabel } from "./question.js";
 import { packReview, unpackReview, filterReview, reviewCounts, responseText } from "../review.js";
+import { allowedChars } from "../essay.js";
 
 let S = { phase: "intro", level: 1 };
 let timer = null;
@@ -177,6 +178,8 @@ function result(app) {
     h("table", {}, h("thead", {}, h("tr", {}, ...["Bagian", "Benar", "Dijawab", "%", "Waktu"].map((t) => h("th", {}, t)))),
       h("tbody", {}, ...sum.sections.map((s) => h("tr", {}, h("td", {}, SKILL_LABEL[s.skill]), h("td", {}, `${s.correct}/${s.total}`), h("td", {}, s.answered), h("td", {}, `${s.pct}%`), h("td", {}, formatClock(s.ms)))))),
     h("p", { class: "hint" }, `${S.exam.official_items} dari ${S.exam.total} soal memakai jenis soal resmi; sisanya pengganti terdekat. Bukan skor resmi HSK: sistem penilaian resmi belum diketahui.`),
+    graded.some((g) => g.rows.some((r) => r.q.type === "write_sentence_from_picture_and_word"))
+      ? h("p", { class: "hint" }, "Soal menulis kalimat dinilai dengan pemeriksaan otomatis sederhana (kata wajib dipakai, tanda baca akhir), bukan oleh penguji: lihat pembahasan untuk membandingkan dengan contoh jawaban.") : null,
     wrong.length ? null : h("p", {}, "Semua benar. 太好了！"),
     h("div", { class: "row" },
       btn(wrong.length ? `Lihat pembahasan (${wrong.length} salah atau kosong)` : "Lihat pembahasan", () => {
@@ -187,7 +190,12 @@ function result(app) {
 }
 
 /* ---------- review (issue #24) ---------- */
-const STATUS = (r) => (r.correct ? ["benar", "ok"] : r.answered ? ["salah", "bad"] : ["tidak dijawab", "bad"]);
+const allowedByLevel = new Map();
+const allowedFor = (app, level) => allowedByLevel.get(level) ?? allowedByLevel.set(level, allowedChars(app.vocab, level)).get(level);
+const FREE = new Set(["write_sentence_from_picture_and_word"]);   // marked by the local check only
+const STATUS = (r) => (FREE.has(r.q.type)
+  ? (r.correct ? ["lolos cek otomatis", "ok"] : r.answered ? ["tidak lolos cek otomatis", "bad"] : ["tidak dijawab", "bad"])
+  : r.correct ? ["benar", "ok"] : r.answered ? ["salah", "bad"] : ["tidak dijawab", "bad"]);
 
 /** One question, drawn by question.js with the answer revealed. Toggles redraw only this item (keeps the scroll). */
 function reviewItem(app, row) {
@@ -197,7 +205,7 @@ function reviewItem(app, row) {
     const { q } = row;
     const [label, cls] = STATUS(row);
     const m = {
-      kind: "practice", response: row.response, reveal: true, writeMode: app.store.settings.writeMode,
+      kind: "practice", response: row.response, reveal: true, writeMode: app.store.settings.writeMode, allowed: allowedFor(app, q.level),
       onAnswer: () => {}, onWrite: () => {},
       listening: { playsLeft: null, play: (rate) => speakSequence(listeningParts(q), rate), textShown, toggleText: () => { textShown = !textShown; draw(); } },
       pinyin: { shown: pinyinShown, toggle: () => { pinyinShown = !pinyinShown; draw(); } },
@@ -207,7 +215,7 @@ function reviewItem(app, row) {
         row.substitute ? h("span", { class: "badge", title: "Jenis soal resmi belum tersedia; diganti jenis terdekat" }, "pengganti") : null),
       ...questionBody(q, m),
       h("p", { class: "review-answer" }, h("span", {}, "Jawaban Anda: ", h("strong", { lang: "zh-Hans" }, responseText(q, row.response))),
-        h("span", {}, "Jawaban benar: ", h("strong", { lang: "zh-Hans" }, answerLabel(q)))),
+        h("span", {}, FREE.has(q.type) ? "Contoh: " : "Jawaban benar: ", h("strong", { lang: "zh-Hans" }, answerLabel(q)))),
       explanation(q),
       app.store.mistakes[q.id]
         ? h("p", { class: "hint" }, "✓ Ada di buku kesalahan (tab Latihan).")

@@ -9,6 +9,7 @@ Types (names follow blueprints/hsk3.0):
   audio_statement_question_mcq listening hear a short statement and a question about it (HSK 1 part 4)
   match_question_to_answer    reading   groups of 5 questions + 6 answers (one extra); each question is one item
   choose_missing_character_component writing  a handwriting character with one component hidden; pick it (3 options)
+  write_sentence_from_picture_and_word writing  picture + required word -> write one sentence (checked locally, model answers)
 
 Sources are the hand-written, level-linted sentences (content/id/level-*.psv -> vocab_id.json) and the
 hand-written Q&A pairs (content/id/qa-level-*.psv). Everything is deterministic (seeded by word id).
@@ -663,6 +664,56 @@ def make_components(vocab, ent, problems):
     return out
 
 
+# ----------------------------------------------------------------------------------------------
+# Write a sentence from a picture and a word (write_sentence_from_picture_and_word), HSK 3 writing part 2.
+# Free writing cannot be marked like a choice: the app checks it locally (essay.js) and shows model answers.
+# ----------------------------------------------------------------------------------------------
+END_PUNCT = "。！？"
+
+
+def make_sentence_tasks(vocab, allowed, problems):
+    from pypinyin import Style, lazy_pinyin
+    py = lambda t: bid.pinyin_line(t, Style, lazy_pinyin)
+    scenes = {sc["id"]: sc for sc in json.loads((ROOT / "content" / "pic" / "scenes.json").read_text("utf-8"))}
+    out, seen = [], set()
+    for path in sorted((ROOT / "content" / "writing").glob("level-*.json")):
+        data = json.loads(path.read_text("utf-8"))
+        level = data["level"]
+        for n, t in enumerate(data["tasks"], 1):
+            loc = f"{path.name} task {n} ({t.get('word')})"
+            sc, word = scenes.get(t["scene"]), t["word"]
+            if not sc:
+                problems.append(f"{loc}: unknown scene {t['scene']!r}")
+                continue
+            w = next((v for v in sorted(vocab.values(), key=lambda v: v["level"]) if v["word"] == word and v["level"] <= level), None)
+            if not w:
+                problems.append(f"{loc}: {word!r} is not a syllabus word up to HSK {level}")
+                continue
+            if (t["scene"], word) in seen:
+                problems.append(f"{loc}: duplicate task")
+            seen.add((t["scene"], word))
+            models = t["models"]
+            if len(models) != 3 or len({m[0] for m in models}) != 3:
+                problems.append(f"{loc}: need 3 different model answers")
+            for zh, tr in models:
+                if word not in zh:
+                    problems.append(f"{loc}: model answer without the word: {zh}")
+                if zh[-1] not in END_PUNCT:
+                    problems.append(f"{loc}: model answer must end with {END_PUNCT}: {zh}")
+                if not tr.strip():
+                    problems.append(f"{loc}: missing translation for {zh}")
+                bad = sorted({c for c in zh if HAN.match(c) and c not in allowed[level]})
+                if bad:
+                    problems.append(f"{loc}: chars above level {level}: {''.join(bad)} in {zh}")
+            ms = [{"zh": zh, "pinyin": py(zh), "id": tr} for zh, tr in models]
+            out.append({
+                "id": f"x{len(out) + 1}", "type": "write_sentence_from_picture_and_word", "skill": "writing", "level": level,
+                "picture": {"key": sc["id"], "emoji": sc["emoji"], "alt": sc["alt"]}, "word": word, "word_pinyin": w["pinyin"],
+                "dedupe": f"x:{sc['id']}:{word}", "answer": ms[0]["zh"], "models": ms,
+            })
+    return out
+
+
 def main():
     vocab, ent = load_all()
     problems = []
@@ -674,6 +725,7 @@ def main():
     items += make_match(allowed, problems)
     items += make_statements(allowed, problems)
     items += make_components(vocab, ent, problems)
+    items += make_sentence_tasks(vocab, allowed, problems)
     if problems:
         print("\n".join(problems))
         sys.exit(1)

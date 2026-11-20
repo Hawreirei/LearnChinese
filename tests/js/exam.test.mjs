@@ -95,8 +95,8 @@ test("a matching part takes whole groups, in one A-F order, never two groups mix
   }
 });
 
-test("HSK 1-3 papers: only the parts still waiting for content use substitutes", () => {
-  const waiting = new Set(["write_sentence_from_picture_and_word"]);
+test("HSK 1-3 papers: every part uses its official question type", () => {
+  const waiting = new Set();
   for (const level of [1, 2, 3]) {
     const ex = buildExam(Q, BP[level]);
     for (const q of ex.sections.flatMap((s) => s.items)) assert.equal(q.part.official, !waiting.has(q.part.type), `${level} ${q.part.id} ${q.part.type}`);

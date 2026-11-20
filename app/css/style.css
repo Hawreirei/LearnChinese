@@ -411,3 +411,20 @@ label.inline { display: inline-flex; align-items: center; gap: 6px; font-size: 1
 .compfig path { fill: currentColor; }
 .compfig path.part { fill: var(--accent); }
 .compfig .gap { fill: none; stroke: var(--accent); stroke-width: 14; stroke-dasharray: 34 24; }
+/* ---- write a sentence from a picture and a word ---- */
+.sentcard { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; }
+.sentcard .emoji.big { font-size: 72px; line-height: 1; }
+.wordchip { display: inline-flex; align-items: baseline; gap: 8px; margin-top: 8px; padding: 6px 16px; border-radius: 999px; background: var(--accent-soft); }
+.wordchip .zh { font-family: var(--font-zh); font-size: 28px; color: var(--heading); }
+.wordchip .pinyin { font-size: 15px; color: var(--muted); }
+.sentinput { display: block; box-sizing: border-box; width: 100%; margin: 12px 0 4px; padding: 12px 14px; font: inherit; font-family: var(--font-zh); font-size: 22px; line-height: 1.5;
+  color: var(--text); background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--r-md); resize: vertical; }
+.sentinput:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.sentinput:disabled { opacity: 1; background: var(--surface-2); }
+.checks { list-style: none; margin: 10px 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
+.checks li { padding: 8px 12px; border-radius: var(--r-sm); background: var(--surface-2); }
+.checks li.error { color: var(--accent); background: var(--accent-soft); }
+.checks li.warn { color: var(--warn); }
+.checks li.ok { color: var(--ok); }
+.selfmark { margin: 12px 0; padding: 12px 14px; border: 1px dashed var(--line-strong); border-radius: var(--r-md); }
+.selfmark p { margin: 0 0 4px; }

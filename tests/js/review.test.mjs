@@ -22,6 +22,7 @@ function finishedExam(level) {
     if (mode === 2) return undefined;
     if (q.type === "order_sentence") return mode === 0 ? [...q.tokens] : [...q.tokens].reverse();
     if (q.type === "write_hanzi_from_pinyin") return mode === 0 ? q.answer : (q.tiles.find((t) => t !== q.answer));
+    if (q.type === "write_sentence_from_picture_and_word") return mode === 0 ? q.models[0].zh : "我不知道。";
     return mode === 0 ? q.options.find((o) => optionKey(o) === q.answer) : q.options.find((o) => optionKey(o) !== q.answer);
   }), check));
   return { exam, graded };

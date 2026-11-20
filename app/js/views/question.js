@@ -15,6 +15,7 @@ import { h, btn, hasChineseVoice } from "../ui.js";
 import { TYPE_HELP } from "../practice.js";
 import { shuffledBank, checkOrder } from "../order.js";
 import { optionKey } from "../review.js";
+import { checkSentence } from "../essay.js";
 
 const BLANK = "（　）";
 const LETTERS = "ABCDEF";
@@ -193,6 +194,30 @@ function componentBlock(q, m) {
       ...q.options.map((o, k) => btn([h("span", { class: "zh", lang: "zh-Hans" }, o.zh)], () => m.onAnswer(o), choiceClass(o, st, "btn tile"), { disabled: st.disabled, "aria-label": `${LETTERS[k]}. ${o.zh}` })))];
 }
 
+/* ---------- write a sentence from a picture and a word ---------- */
+/** The local check as a list (✘ error, ⚠ warning). `allowed` (Set of hanzi up to the level) enables the level check. */
+export function sentenceChecks(q, response, allowed = null) {
+  const r = checkSentence(response, { word: q.word, allowed });
+  const items = r.checks.length ? r.checks : [{ level: "ok", msg: `Kata wajib dipakai, ${r.hanzi} hanzi, tanda baca akhir ada.` }];
+  return h("ul", { class: "checks", "aria-label": "Hasil pemeriksaan" },
+    ...items.map((c) => h("li", { class: c.level }, h("span", { "aria-hidden": "true" }, c.level === "error" ? "✘ " : c.level === "warn" ? "⚠ " : "✔ "), c.msg)));
+}
+
+function sentenceBlock(q, m) {
+  const card = h("div", { class: "card sentcard" },
+    h("span", { class: "emoji big", role: "img", "aria-label": q.picture.alt }, q.picture.emoji),
+    h("div", {}, h("div", { class: "hint" }, q.picture.alt),
+      h("div", { class: "wordchip" }, h("span", { class: "zh", lang: "zh-Hans" }, q.word), h("span", { class: "pinyin" }, q.word_pinyin))));
+  const input = h("textarea", { lang: "zh-Hans", rows: 2, class: "sentinput", "aria-label": "Kalimat Anda", autocomplete: "off", disabled: !!m.reveal, placeholder: `Tulis kalimat dengan ${q.word}…` });
+  input.value = m.response ?? "";
+  if (m.kind === "exam") input.addEventListener("input", () => m.onWrite(input.value));
+  else if (!m.reveal) input.addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey) && !e.isComposing) { e.preventDefault(); m.onAnswer(input.value); } });
+  const buttons = m.kind === "practice" && !m.reveal
+    ? h("div", { class: "row" }, btn("Periksa", () => m.onAnswer(input.value), "btn primary", { id: "check" }), btn("Tidak tahu", () => m.onAnswer(""), "btn", { id: "skip" }))
+    : null;
+  return [card, input, buttons, m.reveal ? sentenceChecks(q, m.response, m.allowed) : null];
+}
+
 /* ---------- the question body ---------- */
 /** Nodes for one question (instruction line included). */
 export function questionBody(q, m) {
@@ -201,6 +226,7 @@ export function questionBody(q, m) {
   if (q.type === "write_hanzi_from_pinyin") return [help, ...writeBlock(q, m)];
   if (q.type === "order_sentence") return [help, ...orderBlock(q, m)];
   if (q.type === "choose_missing_character_component") return [help, ...componentBlock(q, m)];
+  if (q.type === "write_sentence_from_picture_and_word") return [help, ...sentenceBlock(q, m)];
   if (PICTURE_LISTENING.has(q.type)) return [help, listeningCard(q, m), pictureGrid(q, m)];
   if (isListening(q)) return [help, listeningCard(q, m), textOptions(q, m)];
   if (q.type === "sentence_match_picture") return [help, textCard(q, true), pictureGrid(q, m)];
@@ -233,6 +259,10 @@ export function explanation(q) {
 
   if (PICTURE_LISTENING.has(q.type)) return h("div", { class: "example" }, pic, listeningText(q), h("div", { class: "tr" }, e.audio_id ?? e.text_id));
   if (q.type === "sentence_match_picture") return h("div", { class: "example" }, pic, zh(q.sentence), h("div", { class: "py" }, q.sentence_pinyin), h("div", { class: "tr" }, e.sentence_id));
+  if (q.type === "write_sentence_from_picture_and_word") {
+    return h("div", { class: "example" }, h("div", { class: "hint" }, "Contoh jawaban (ada banyak kalimat lain yang juga benar):"),
+      ...q.models.flatMap((x, i) => [zh(x.zh, i ? "margin-top:10px" : ""), h("div", { class: "py" }, x.pinyin), h("div", { class: "tr" }, x.id)]));
+  }
   if (q.type === "choose_missing_character_component") {
     return h("div", { class: "example" }, zh(`${e.char} = ${e.parts}`, "font-size:26px"), zh(e.word, "margin-top:8px"), h("div", { class: "py" }, e.word_pinyin), h("div", { class: "tr" }, e.arti));
   }

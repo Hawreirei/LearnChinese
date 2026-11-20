@@ -88,6 +88,7 @@ def main():
         ("Yang mohon diperhatikan / 请特别注意", True),
         ("• 词汇: apakah arti Indonesia sesuai dengan makna kata dalam HSK (bukan makna kamus pertama)? Apakah kalimat contoh alami, sederhana, dan sesuai level? Apakah terjemahan Indonesianya wajar?", False),
         ("• 听力/阅读: apakah jawaban benar tepat satu? Adakah pilihan salah yang sebenarnya juga benar (soal ambigu)? Apakah dialog terdengar alami?", False),
+        ("• 写句子: apakah ketiga contoh jawaban wajar, sesuai gambar, dan memakai kata wajib dengan benar?", False),
         ("• 配对: dalam satu grup, apakah setiap jawaban hanya cocok dengan satu pertanyaan, dan jawaban pengecoh tidak cocok dengan pertanyaan mana pun?", False),
         ("• 图片: apakah gambar (emoji) sesuai dengan kalimat, dan tidak ada gambar lain yang juga cocok?", False),
         ("• 填空: soal isi kata dibuat otomatis dari kalimat contoh; tandai jika ada pilihan salah yang juga bisa dipakai (ambigu) atau kalimat tidak wajar.", False),
@@ -180,6 +181,15 @@ def main():
         rows.append([gid, items[0]["level"], pairs, extra, tr])
     sheet(wb, "配对 Mencocokkan", ["Grup", "Level", "问题 → 答案 Pertanyaan → jawaban", "多余答案 Jawaban pengecoh (tidak cocok dengan pertanyaan mana pun)", "翻译 Terjemahan"],
           rows, [8, 7, 52, 30, 60], ["状态 Status", "建议 Usulan koreksi", "备注 Catatan"])
+
+    # 3c. write a sentence from a picture and a word: the three model answers per task
+    rows = []
+    for q in qs:
+        if q["type"] == "write_sentence_from_picture_and_word":
+            rows.append([q["id"], q["level"], f'{q["picture"]["emoji"]} {q["picture"]["alt"]}', f'{q["word"]} ({q["word_pinyin"]})',
+                         "\n".join(m["zh"] for m in q["models"]), "\n".join(m["id"] for m in q["models"])])
+    sheet(wb, "写句子 Menulis kalimat", ["ID", "Level", "图片 Gambar", "词语 Kata wajib", "范文 Contoh jawaban (3)", "翻译 Terjemahan"],
+          rows, [7, 7, 24, 16, 44, 52], ["状态 Status", "建议 Usulan koreksi", "备注 Catatan"])
 
     # 4. pictures: scene sentences, then picture dialogs
     rows = []

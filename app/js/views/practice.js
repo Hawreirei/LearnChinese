@@ -5,6 +5,7 @@ import { SKILLS, availableLevels, buildSet, check, summarize, withTiles } from "
 import { shuffle } from "../deck.js";
 import { dueIds, allIds, mistakeQuestions, mistakeCounts } from "../mistakes.js";
 import { dayKeyOf } from "../plan.js";
+import { allowedChars } from "../essay.js";
 import { questionBody, isListening, explanation, answerLabel } from "./question.js";
 
 const fresh = () => ({ phase: "setup", cfg: { skill: "mixed", count: 10 }, mistakes: false, set: [], i: 0, results: [], answered: null, textShown: false, pinyinShown: false, shownAt: 0, autoplayed: {} });
@@ -91,11 +92,34 @@ function mistakesPanel(app) {
 function finish(app, q, response) {
   if (state.answered) return;
   const res = check(q, response);
+  if (SELF_MARKED.has(q.type) && String(response ?? "").trim()) {   // free writing: the learner marks it after the models
+    state.answered = { ...res, response, pending: true };
+    return viewPractice(app);
+  }
+  record(app, q, response, res.correct);
   state.answered = { ...res, response };
-  state.results.push({ q, correct: res.correct, response });
-  app.store.recordAnswer(q.skill, res.correct, { k: "practice", l: q.level, ty: q.type, id: q.id, w: wordIdOfQuestion(q), ms: Date.now() - (state.shownAt || Date.now()), mb: state.mistakes });
   viewPractice(app);
 }
+
+function record(app, q, response, correct) {
+  state.results.push({ q, correct, response });
+  app.store.recordAnswer(q.skill, correct, { k: "practice", l: q.level, ty: q.type, id: q.id, w: wordIdOfQuestion(q), ms: Date.now() - (state.shownAt || Date.now()), mb: state.mistakes });
+}
+
+/** Self-marking of a free sentence: "ok" counts as right; "near" and "bad" as not yet right (into the buku kesalahan). */
+const SELF_MARKED = new Set(["write_sentence_from_picture_and_word"]);
+const RATINGS = { ok: "✔ Anda menilai: benar", near: "≈ Anda menilai: hampir benar (dicatat sebagai belum benar)", bad: "✘ Anda menilai: belum benar" };
+function settle(app, q, rating) {
+  const a = state.answered;
+  if (!a?.pending) return;
+  const correct = rating === "ok";
+  record(app, q, a.response, correct);
+  state.answered = { ...a, pending: false, correct, rating };
+  viewPractice(app);
+}
+
+const allowedByLevel = new Map();
+const allowedFor = (app, level) => allowedByLevel.get(level) ?? allowedByLevel.set(level, allowedChars(app.vocab, level)).get(level);
 
 function next(app) {
   stopSpeaking();
@@ -109,21 +133,25 @@ function question(app) {
   const a = state.answered;
   const play = (rate) => speakSequence(listeningParts(q), rate);
   const m = {
-    kind: "practice", response: a?.response, reveal: !!a, writeMode: app.store.settings.writeMode,
+    kind: "practice", response: a?.response, reveal: !!a, writeMode: app.store.settings.writeMode, allowed: allowedFor(app, q.level),
     onAnswer: (r) => finish(app, q, r),
     listening: { play, playsLeft: null, textShown: state.textShown || !!a, toggleText: () => { state.textShown = !state.textShown; viewPractice(app); } },
     pinyin: { shown: state.pinyinShown, toggle: () => { state.pinyinShown = !state.pinyinShown; viewPractice(app); } },
   };
   if (isListening(q) && !a && !state.autoplayed[q.id]) { state.autoplayed[q.id] = true; setTimeout(() => play(0.8), 150); }
   const last = state.i + 1 >= state.set.length;
+  const settled = a && !a.pending;
   app.render(...[
     h("p", { class: "hint" }, `Soal ${state.i + 1}/${state.set.length} · ${SKILLS[q.skill]} · ${LEVEL_LABEL[q.level]} · #${q.id}`),
     ...questionBody(q, m),
-    a ? h("p", { class: a.correct ? "ok" : "bad", role: "status" }, a.correct ? "✔ Benar" : `✘ Jawaban yang benar: ${answerLabel(q)}`) : null,
-    a && !a.correct ? h("p", { class: "hint" }, "Soal ini masuk buku kesalahan dan muncul lagi besok.") : null,
-    a?.correct && state.mistakes ? h("p", { class: "hint" }, mistakeNote(app, q.id)) : null,
+    a?.pending ? h("div", { class: "selfmark", role: "group", "aria-label": "Nilai sendiri" },
+      h("p", {}, "Bandingkan kalimat Anda dengan contoh di bawah, lalu nilai sendiri:"),
+      h("div", { class: "row left" }, btn("Benar 对", () => settle(app, q, "ok"), "btn primary", { id: "self-ok" }), btn("Hampir 差不多", () => settle(app, q, "near"), "btn", { id: "self-near" }), btn("Belum 不对", () => settle(app, q, "bad"), "btn", { id: "self-bad" }))) : null,
+    settled ? h("p", { class: a.correct ? "ok" : "bad", role: "status" }, a.rating ? RATINGS[a.rating] : a.correct ? "✔ Benar" : `✘ Jawaban yang benar: ${answerLabel(q)}`) : null,
+    settled && !a.correct ? h("p", { class: "hint" }, "Soal ini masuk buku kesalahan dan muncul lagi besok.") : null,
+    settled && a.correct && state.mistakes ? h("p", { class: "hint" }, mistakeNote(app, q.id)) : null,
     a ? explanation(q) : null,
-    a ? h("div", { class: "row" }, btn(last ? "Lihat hasil" : "Soal berikutnya", () => next(app), "btn primary", { id: "next" })) : null,
+    settled ? h("div", { class: "row" }, btn(last ? "Lihat hasil" : "Soal berikutnya", () => next(app), "btn primary", { id: "next" })) : null,
   ].filter(Boolean));
 }
 

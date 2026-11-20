@@ -92,6 +92,21 @@ class QuestionBankTests(unittest.TestCase):
                 alt = tuple(o if j == q["part"] else p["c"] for j, p in enumerate(e["p"]))
                 self.assertIn(spelled.get((e["d"][0], alt)), (None, q["char"]), (q["id"], o))   # no other real character
 
+    def test_sentence_tasks(self):
+        items = by("write_sentence_from_picture_and_word")
+        self.assertGreaterEqual(len(items), 40)
+        scenes = {s["id"] for s in json.loads((ROOT / "content/pic/scenes.json").read_text("utf-8"))}
+        for q in items:
+            self.assertEqual(q["level"], 3, q["id"])
+            self.assertIn(q["picture"]["key"], scenes, q["id"])
+            self.assertTrue(q["picture"]["emoji"] and q["word_pinyin"], q["id"])
+            self.assertEqual(len(q["models"]), 3, q["id"])
+            self.assertEqual(q["answer"], q["models"][0]["zh"], q["id"])
+            for m in q["models"]:
+                self.assertIn(q["word"], m["zh"], q["id"])
+                self.assertIn(m["zh"][-1], "。！？", q["id"])
+                self.assertTrue(m["pinyin"] and m["id"], q["id"])
+
     def test_question_tags(self):
         cases = {"你叫什么名字？": "apa", "你今年几岁了？": "jumlah", "现在几点了？": "kapan", "这个多少钱？": "harga",
                  "你家在哪儿？": "tempat", "谁会做饭？": "siapa", "今天天气怎么样？": "kondisi", "你怎么去学校？": "cara",

@@ -34,6 +34,7 @@ Logika murni (tanpa DOM, diuji di `tests/js/`):
 | `lesson.js` | pelajaran bertema: lima langkah, progres, nomor soal, id kata kunci, ringkasan per pelajaran, pelajaran berikutnya untuk Beranda |
 | `order.js` | soal susun kalimat: acak kepingan (tidak pernah langsung benar), periksa urutan (`alt` = urutan lain yang sah) |
 | `analytics.js` | tren, kelemahan, kata sulit, rekomendasi, set latihan kelemahan |
+| `essay.js` | pemeriksa tulisan bebas: `checkSentence` (galat vs peringatan, lihat jenis soal), `allowedChars` (hanzi kata silabus ≤ level); dipakai soal menulis kalimat sekarang, esai HSK 4+ nanti |
 | `review.js` | pembahasan simulasi: simpan ringkas (id soal, jawaban, urutan pilihan/kepingan yang dilihat) satu per level, bangun ulang dari `questions.json`, filter salah/kosong/semua; soal yang sudah hilang dari bank dilewati dan dihitung |
 | `mistakes.js` | buku kesalahan: `applyAnswer` (dipanggil `Store.recordAnswer` untuk setiap jawaban; salah → masuk, jatuh tempo besok; benar dihitung sekali per hari dan tidak di hari salahnya; benar ke-1 → 3 hari lagi, ke-2 → keluar; kosong dan speaking diabaikan), maksimal 500 soal, indeks soal bank + pelajaran |
 | `plan.js` | target ujian: validasi `{level, examDate, minutes}`, hitung hari kalender lokal sampai ujian, teks kartu hitung mundur; rencana harian: kata baru/hari (sisa kata ÷ hari belajar, 14 hari cadangan, minggu terakhir tanpa kata baru, dibatasi menit belajar; dipakai `session.js` bila `settings.newPerDayAuto`), jadwal simulasi (tiap 10 hari, mingguan 3 minggu terakhir, tiap 3 hari minggu terakhir), aktivitas hari ini, dan daftar "Hari ini" |
@@ -81,6 +82,7 @@ Nama sama dengan `part.type` di `blueprints/hsk3.0/*.yaml`. Dibangun oleh `scrip
 | Membaca | `passage_mcq` (paragraf 58–84 hanzi, HSK 3) | 28 | `content/id/reading-level-3.psv` |
 | Membaca | `match_question_to_answer` (grup 5 pertanyaan + 6 jawaban, satu pengecoh; tiap pertanyaan = 1 soal, satu urutan A–F per grup) | 150 (30 grup) | `content/id/match-level-1..3.psv`; pembangun menandai jenis pertanyaan (siapa/di mana/kapan/berapa/apa/ya-tidak/…) dan menolak grup yang dua pertanyaannya sejenis atau pengecohnya menjawab salah satu jenis itu; ujian mengambil grup utuh |
 | Menulis | `write_hanzi_from_pinyin` | 601 | kalimat contoh; hanya hanzi yang bacaannya unik di level itu |
+| Menulis | `write_sentence_from_picture_and_word` (HSK 3 W2: gambar + kata wajib → satu kalimat) | 44 | `content/writing/level-3.json` (adegan dari `scenes.json`, 3 jawaban model per tugas). Diperiksa lokal oleh `essay.js` (galat: kosong, kata wajib tidak ada, tanpa 。！？; peringatan: pendek/panjang, huruf Latin, tanda baca Latin, hanzi di atas level, hanzi yang sering tertukar). Latihan: pelajar menilai sendiri setelah melihat contoh (benar / hampir / belum); Ujian: lolos cek otomatis = benar (perkiraan, diberi tahu di layar) |
 | Menulis | `choose_missing_character_component` (HSK 2 W1; HSK 3 hanya Latihan) | 55 + 108 | `components.json` (Make Me a Hanzi, LGPL): hanzi tulis digambar dari data goresan tanpa goresan satu komponen (utamakan radikal; komponen dan sisanya ≥2 goresan; hanzi yang kedua bagiannya sama dilewati); 2 pengecoh dari tabel komponen mirip lalu komponen lain di posisi yang sama, ditolak bila membentuk hanzi lain di daftar hanzi tulis; petunjuk = kata berpinyin dengan hanzinya dikosongkan |
 | Menulis | `order_sentence` (susun kalimat; hanya Latihan, belum ada di blueprint resmi) | 828 | kalimat contoh dipecah per kata silabus (maximum matching) + tanda baca; dibuang bila ada kata yang bisa pindah tempat (waktu, 和, dst.), dua klausa penuh, atau deretan angka |
 | Mendengar | `audio_phrase_pick_picture` (HSK 1) | 45 | dibangkitkan: 9 benda × jumlah 1–5 |
@@ -91,7 +93,7 @@ Nama sama dengan `part.type` di `blueprints/hsk3.0/*.yaml`. Dibangun oleh `scrip
 
 **Soal bergambar** memakai emoji sebagai gambar (buatan sendiri, bebas lisensi; tampilan mengikuti font perangkat). 76 adegan dalam 21 kelompok; semua pilihan gambar berasal dari **kelompok berbeda**, sehingga paling banyak satu gambar yang cocok dengan teks. Foto asli: isi `src` pada opsi gambar (UI sudah mendukung `<img>`).
 
-Belum ada: `write_sentence_from_picture_and_word` (HSK 3 W2), soal level 4+, speaking. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
+Semua bagian ujian HSK 1–3 kini memakai jenis soal resmi. Belum ada: soal level 4+, speaking. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
 
 ## Aturan mutu yang dijaga otomatis
 
