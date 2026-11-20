@@ -7,6 +7,7 @@ content/*.psv, content/pic/*      sumber tulisan sendiri (diedit manusia)
 content/lessons/*.json            pelajaran bertema (kalimat kunci, kata kunci, soal per langkah)
 blueprints/hsk3.0/*.yaml          struktur ujian resmi (angka dari dokumen CTI)
 data/hsk3/vocab.json, handwriting.json   daftar kata/hanzi tulis resmi (input)
+blueprints/hsk3.0/speaking-level-3.yaml + content/speaking/level-3.json → scripts/build_speaking.py → data/hsk3/speaking.json (format speaking TIDAK resmi, verified: false)
 data/hsk3/components.json         komponen hanzi tulis (scripts/build_components.py dari Make Me a Hanzi, LGPL; di-commit)
         │  scripts/build_id.py  build_questions.py  build_blueprints_json.py  build_lessons.py
         ▼
@@ -35,6 +36,7 @@ Logika murni (tanpa DOM, diuji di `tests/js/`):
 | `order.js` | soal susun kalimat: acak kepingan (tidak pernah langsung benar), periksa urutan (`alt` = urutan lain yang sah) |
 | `analytics.js` | tren, kelemahan, kata sulit, rekomendasi, set latihan kelemahan |
 | `essay.js` | pemeriksa tulisan bebas: `checkSentence` (galat vs peringatan, lihat jenis soal), `allowedChars` (hanzi kata silabus ≤ level); dipakai soal menulis kalimat sekarang, esai HSK 4+ nanti |
+| `speakexam.js` | simulasi speaking: kertas dari `speaking.json` (blueprint tidak resmi), langkah dan fase (dengar → persiapan → bicara), sisa waktu, kata silabus dalam transkrip (cocok terpanjang), statistik jawaban terbuka, rubrik 4 dimensi (1–3), ringkasan perkiraan |
 | `review.js` | pembahasan simulasi: simpan ringkas (id soal, jawaban, urutan pilihan/kepingan yang dilihat) satu per level, bangun ulang dari `questions.json`, filter salah/kosong/semua; soal yang sudah hilang dari bank dilewati dan dihitung |
 | `mistakes.js` | buku kesalahan: `applyAnswer` (dipanggil `Store.recordAnswer` untuk setiap jawaban; salah → masuk, jatuh tempo besok; benar dihitung sekali per hari dan tidak di hari salahnya; benar ke-1 → 3 hari lagi, ke-2 → keluar; kosong dan speaking diabaikan), maksimal 500 soal, indeks soal bank + pelajaran |
 | `plan.js` | target ujian: validasi `{level, examDate, minutes}`, hitung hari kalender lokal sampai ujian, teks kartu hitung mundur; rencana harian: kata baru/hari (sisa kata ÷ hari belajar, 14 hari cadangan, minggu terakhir tanpa kata baru, dibatasi menit belajar; dipakai `session.js` bila `settings.newPerDayAuto`), jadwal simulasi (tiap 10 hari, mingguan 3 minggu terakhir, tiap 3 hari minggu terakhir), aktivitas hari ini, dan daftar "Hari ini" |
@@ -45,6 +47,7 @@ Tampilan (`app/js/views/`), semuanya menerima satu objek `app` dari `main.js` (`
 |---|---|
 | `study.js`, `quiz.js`, `browse.js`, `settings.js` | Hafalan, Kuis, Daftar, Pengaturan |
 | `practice.js`, `exam.js` | Latihan, Ujian |
+| `speaking.js` | simulasi speaking (dibuka dari tab Ujian): pewaktu persiapan, rekam otomatis dan berhenti sendiri (`startAttempt`, mode `continuous` untuk jawaban panjang), skor kalimat ulang lewat pengenal ucapan, hasil per tugas dengan rekaman, transkrip, dan contoh jawaban, rubrik nilai sendiri |
 | `write.js` | Tulis: animasi urutan goresan, tebalkan hanzi samar (bebas atau diperiksa per goresan), tulis dari ingatan; memakai Hanzi Writer di `js/vendor/` |
 | `lessons.js` | Pelajaran: daftar, halaman pelajaran, stepper, langkah Listening/Reading/Writing/Speaking/Vocab |
 | `progress.js` | Kemajuan (analisis + ringkasan hafalan) |
@@ -93,7 +96,9 @@ Nama sama dengan `part.type` di `blueprints/hsk3.0/*.yaml`. Dibangun oleh `scrip
 
 **Soal bergambar** memakai emoji sebagai gambar (buatan sendiri, bebas lisensi; tampilan mengikuti font perangkat). 76 adegan dalam 21 kelompok; semua pilihan gambar berasal dari **kelompok berbeda**, sehingga paling banyak satu gambar yang cocok dengan teks. Foto asli: isi `src` pada opsi gambar (UI sudah mendukung `<img>`).
 
-Semua bagian ujian HSK 1–3 kini memakai jenis soal resmi. Belum ada: soal level 4+, speaking. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
+Semua bagian ujian HSK 1–3 kini memakai jenis soal resmi. Belum ada: soal level 4+, speaking HSK 4–6.
+
+**Speaking HSK 3** (simulasi, format tidak resmi): S1 ulangi kalimat 8 × 15 dtk, S2 bicara tentang gambar 5 × (15 dtk persiapan + 30 dtk), S3 jawab pertanyaan 2 × (180 dtk + 90 dtk); bank: 40 kalimat, 20 gambar, 40 pertanyaan, semua dengan contoh jawaban. Kalimat ulang dinilai seperti langkah bicara pelajaran (hanzi terdengar; pengenal yang gagal karena galat teknis = tidak dinilai); jawaban terbuka mendapat transkrip, hanzi/menit, dan kata silabus yang dipakai, lalu dinilai sendiri dengan rubrik. Rekaman hanya di memori. Hasil ringkas di `store.data.speakingExams`. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
 
 ## Aturan mutu yang dijaga otomatis
 

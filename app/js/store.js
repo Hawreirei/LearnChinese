@@ -110,6 +110,17 @@ export class Store {
     this.save();
   }
 
+  /** Speaking simulations: [{ t, level, repeatPct, rubricPct, estimate, ratings }], newest last (max 50).
+   *  A record with the same `t` is replaced (the rubric is saved after the first record). Recordings are never stored. */
+  get speakingExams() { return this.data.speakingExams ?? []; }
+  recordSpeaking(rec) {
+    const list = (this.data.speakingExams ||= []);
+    const i = list.findIndex((x) => x.t === rec.t);
+    if (i >= 0) list[i] = rec; else list.push(rec);
+    if (list.length > 50) list.splice(0, list.length - 50);
+    this.save();
+  }
+
   /** Review of the last mock exam per level (review.js packReview); older ones are replaced, so at most 6 are kept. */
   examReview(level) { return this.data.examReviews?.[level] ?? null; }
   saveExamReview(rec) { (this.data.examReviews ||= {})[rec.level] = rec; this.save(); }

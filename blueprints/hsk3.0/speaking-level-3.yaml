@@ -1,0 +1,16 @@
+# Speaking paper, HSK 3 (HSK 3.0). NOT from an official CTI document: 《新版HSK（1-6级）考试结构与样题示例》 has no
+# speaking section. Third-party guides (2026) say levels 3-6 have a speaking paper registered together with the
+# written test, about 15 minutes for HSK 3, with listen-and-repeat, a picture task and open questions; they disagree
+# on the number of items. This shape is our estimate; replace it when CTI publishes speaking sample papers (issue #54).
+#   https://www.saymei.app/guides/hskk-speaking-test
+#   https://nihawa.com/learn/hsk-speaking-test
+#   https://www.echineselearning.com/blog/hskk-scoring-rubric-self-assessment
+exam: hsk-speaking
+syllabus: "3.0"
+level: 3
+verified: false
+total_time_min: 15
+parts:
+  - {id: S1, type: repeat_sentence, count: 8, prep_s: 0, speak_s: 15}      # hear a sentence, say it back
+  - {id: S2, type: describe_picture, count: 5, prep_s: 15, speak_s: 30}    # one or two sentences about a picture
+  - {id: S3, type: answer_question, count: 2, prep_s: 180, speak_s: 90}    # open answer, several sentences

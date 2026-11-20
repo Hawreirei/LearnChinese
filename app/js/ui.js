@@ -67,6 +67,16 @@ export function speakSequence(parts, rate = 0.85) {
     return true;
   } catch { return false; }
 }
+/** Speak, then call onDone once: when the voice ends, fails, or (no voice / lost event) after an estimated time.
+ *  Returns a cancel function that stops onDone from firing. */
+export function speakThen(text, onDone, rate = 0.85) {
+  let fired = false;
+  const fire = () => { if (!fired) { fired = true; clearTimeout(fallback); onDone(); } };
+  const fallback = setTimeout(fire, 2000 + [...text].length * 450 / rate);
+  if (!("speechSynthesis" in window)) { clearTimeout(fallback); setTimeout(fire, 400); }
+  else try { seqToken++; cancelThen(() => say(text, { rate, onend: fire, onerror: fire })); } catch { fire(); }
+  return () => { fired = true; clearTimeout(fallback); };
+}
 export function stopSpeaking() { seqToken++; clearTimeout(speakTimer); live.clear(); try { if ("speechSynthesis" in window) speechSynthesis.cancel(); } catch { /* ignore */ } }
 
 /** Audio script of a listening question: dialog turns (女 higher pitch, 男 lower) then the question. */

@@ -28,6 +28,7 @@ const app = {
   blueprints: {},           // blueprints.json (official exam structure per level)
   lessons: [],              // lessons.json (themed lessons with their own questions)
   questionIndex: new Map(), // id -> question, bank + lesson questions (buku kesalahan)
+  speaking: {},             // speaking.json: level -> { blueprint (unofficial), repeat, pictures, questions }
   render: (...nodes) => view.replaceChildren(...nodes.flat().filter((n) => n != null && n !== false)),   // replaceChildren(null) would print "null"
   go,
 };
@@ -72,13 +73,14 @@ const getJson = async (name, fallback) => {
 
 async function boot() {
   try {
-    const [vocab, handwriting, idData, questions, blueprints, lookalikes, lessons, chars] = await Promise.all([
+    const [vocab, handwriting, idData, questions, blueprints, lookalikes, lessons, chars, speaking] = await Promise.all([
       getJson("vocab.json"), getJson("handwriting.json"),
-      getJson("vocab_id.json", {}), getJson("questions.json", []), getJson("blueprints.json", {}), getJson("lookalikes.json", {}), getJson("lessons.json", []), getJson("chars.json", {}),
+      getJson("vocab_id.json", {}), getJson("questions.json", []), getJson("blueprints.json", {}), getJson("lookalikes.json", {}), getJson("lessons.json", []), getJson("chars.json", {}), getJson("speaking.json", {}),
     ]);
     setLookalikes(lookalikes);
     Object.assign(app, { vocab, handwriting: new Set(handwriting.map((x) => x.char)), handwritingList: handwriting, idData, questions, blueprints, lessons, chars });
     app.questionIndex = indexQuestions(questions, lessons);
+    app.speaking = speaking;
     go("home");
   } catch (err) {
     app.render(h("p", { class: "notice" }, `Gagal memuat data: ${err.message}. Jalankan server dari akar repo: python3 -m http.server 8080, lalu buka /app/.`));

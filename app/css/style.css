@@ -428,3 +428,13 @@ label.inline { display: inline-flex; align-items: center; gap: 6px; font-size: 1
 .checks li.ok { color: var(--ok); }
 .selfmark { margin: 12px 0; padding: 12px 14px; border: 1px dashed var(--line-strong); border-radius: var(--r-md); }
 .selfmark p { margin: 0 0 4px; }
+/* ---- speaking simulation ---- */
+.spphase { font-weight: 600; margin: 8px 0; }
+.spphase.speak { color: var(--accent); }
+.spphase.prep { color: var(--heading); }
+.spmodel { display: flex; align-items: flex-start; gap: 10px; margin: 8px 0; }
+.spmodel .zh { font-family: var(--font-zh); font-size: 20px; }
+.rubric { border: 1px solid var(--line); border-radius: var(--r-md); padding: 10px 14px; margin: 0 0 10px; }
+.rubric legend { font-weight: 600; padding: 0 4px; }
+.review-item audio { max-width: 100%; vertical-align: middle; }
+.spmodel button.btn.spplay { flex: none; width: 40px; height: 40px; padding: 0; text-align: center; }

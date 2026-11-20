@@ -6,14 +6,15 @@ import { availability, examAvailable, buildExam, formatClock, gradeSection, summ
 import { questionBody, explanation, answerLabel } from "./question.js";
 import { packReview, unpackReview, filterReview, reviewCounts, responseText } from "../review.js";
 import { allowedChars } from "../essay.js";
+import { speakingActive, speakingRunning, viewSpeaking, openSpeaking, leaveSpeaking } from "./speaking.js";
 
 let S = { phase: "intro", level: 1 };
 let timer = null;
 
-export const examRunning = () => S.phase === "running" || S.phase === "between";
+export const examRunning = () => S.phase === "running" || S.phase === "between" || speakingRunning();
 /** Preselect the level on the intro screen (the "Hari ini" mock exam task). No effect while an exam runs. */
 export function presetExamLevel(level) { if (S.phase === "intro" && level) S.level = level; }
-export function abortExam() { clearInterval(timer); timer = null; stopSpeaking(); S = { phase: "intro", level: S.level }; }
+export function abortExam() { clearInterval(timer); timer = null; stopSpeaking(); leaveSpeaking(); S = { phase: "intro", level: S.level }; }
 
 /** Open the saved review of the last mock exam of `level` (from Kemajuan). */
 export function openExamReview(app, level) {
@@ -26,6 +27,7 @@ export function openExamReview(app, level) {
 /** Leaving the tab: a review opened from Kemajuan closes; a review opened from a result goes back to the result. */
 export function leaveExam() {
   stopSpeaking();
+  leaveSpeaking();
   if (S.phase === "review") S = S.from === "result" ? { ...S, phase: "result" } : { phase: "intro", level: S.level };
 }
 function loadReview(app, level) {
@@ -33,6 +35,7 @@ function loadReview(app, level) {
 }
 
 export function viewExam(app) {
+  if (speakingActive()) return viewSpeaking(app);
   if (S.phase === "review") return reviewView(app);
   if (S.phase === "intro") return intro(app);
   if (S.phase === "between") return between(app);
@@ -62,11 +65,24 @@ function intro(app) {
           prev ? h("p", { class: "hint" }, `Percobaan terakhir HSK ${S.level}: ${prev.pct}% (${new Date(prev.t).toLocaleDateString("id-ID")}).`) : null,
           ok ? null : h("p", { class: "notice" }, `Soal untuk ${LEVEL_LABEL[S.level]} belum cukup banyak.`),
           h("div", { class: "row", style: "justify-content:flex-start" }, btn("Mulai ujian", () => start(app), "btn primary", { id: "exam-start", disabled: !ok }))),
+        speakingPanel(app),
         h("p", { class: "notice" }, `Waktu tidak bisa dijeda. Setiap bagian berakhir otomatis saat waktu habis dan tidak bisa dibuka lagi. Gunakan headphone bila ada soal mendengar. Audio bisa diputar maksimal ${MAX_AUDIO_PLAYS} kali per soal (aturan resmi tidak disebutkan di dokumen CTI).`)),
       h("div", { class: "panel" }, h("h2", {}, `Struktur ${LEVEL_LABEL[S.level]}`),
         h("div", { class: "tablewrap" }, h("table", {}, h("thead", {}, h("tr", {}, ...["Bagian", "Soal", "Waktu", "Tersedia", "Jenis soal resmi"].map((t) => h("th", {}, t)))),
           h("tbody", {}, ...bp.sections.map((s, i) => h("tr", {}, h("td", {}, SKILL_LABEL[s.skill]), h("td", {}, s.count), h("td", {}, `${s.time_min} mnt`), h("td", {}, `${avail[i].have}${avail[i].ok ? " ✔" : " ✘"}`), h("td", {}, `${avail[i].officialParts}/${avail[i].totalParts} bagian`)))))),
         h("p", { class: "hint" }, "Bagian yang jenis soalnya sudah kami punya (bergambar, teks, dialog, isi kata, tulis hanzi) memakai jenis resmi; sisanya memakai pengganti terdekat. Gambar dibuat dari emoji."))));
+}
+
+/** Speaking paper (unofficial format) for the levels that have speaking content. */
+function speakingPanel(app) {
+  const levels = Object.keys(app.speaking ?? {}).map(Number).sort();
+  if (!levels.length) return null;
+  const last = app.store.speakingExams.filter((x) => x.level === S.level).slice(-1)[0];
+  return h("div", { class: "panel" }, h("h2", {}, "Speaking 口语"),
+    h("p", { class: "hint" }, `Menurut panduan pihak ketiga, HSK 3–6 punya kertas speaking yang didaftarkan bersama ujian tulis. Simulasi tersedia untuk ${levels.map((l) => LEVEL_LABEL[l]).join(", ")} (format belum resmi).`),
+    last ? h("p", { class: "hint" }, `Speaking terakhir HSK ${S.level}: ${last.estimate == null ? "belum dinilai" : `${last.estimate}% (perkiraan)`} · ${new Date(last.t).toLocaleDateString("id-ID")}.`) : null,
+    h("div", { class: "row", style: "justify-content:flex-start" }, ...levels.map((l) =>
+      btn(`Simulasi speaking ${LEVEL_LABEL[l]}`, () => openSpeaking(app, l), l === S.level ? "btn primary" : "btn", { id: `sp-open-${l}` }))));
 }
 
 function start(app) {
