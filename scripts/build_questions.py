@@ -714,6 +714,35 @@ def make_sentence_tasks(vocab, allowed, problems):
     return out
 
 
+# ----------------------------------------------------------------------------------------------
+# Grammar tags (issue #31): sentence items get "g": [grammar point ids] when their full sentence shows a pattern
+# (the point's "detect" regex in content/grammar/<id>.json) at or below the item's level. Used by Kemajuan
+# ("pola terlemah") and to link explanations to the grammar page. Ids are not affected.
+# ----------------------------------------------------------------------------------------------
+TAGGED_TYPES = {"cloze_wordbank", "write_hanzi_from_pinyin", "order_sentence"}
+
+
+def grammar_patterns():
+    out = []
+    for path in sorted((ROOT / "content" / "grammar").glob("*.json")):
+        p = json.loads(path.read_text("utf-8"))
+        if p.get("detect"):
+            out.append((p["id"], p["level"], re.compile(p["detect"])))
+    return out
+
+
+def tag_grammar(items):
+    pats = grammar_patterns()
+    for it in items:
+        if it["type"] not in TAGGED_TYPES:
+            continue
+        zh = it.get("explain", {}).get("zh") or it.get("answer", "")
+        tags = [pid for pid, lvl, rx in pats if lvl <= it["level"] and rx.search(zh)]
+        if tags:
+            it["g"] = tags
+    return items
+
+
 def main():
     vocab, ent = load_all()
     problems = []
@@ -729,6 +758,7 @@ def main():
     if problems:
         print("\n".join(problems))
         sys.exit(1)
+    tag_grammar(items)
     path = ROOT / "data" / "hsk3" / "questions.json"
     with open(path, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, separators=(",", ":"))

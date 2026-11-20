@@ -1,6 +1,7 @@
 {
   "id": "kantor",
   "level": 3,
+  "grammar": ["ruguo", "yijing-le"],
   "seq": 4,
   "zh": "在办公室",
   "title": "Di kantor",

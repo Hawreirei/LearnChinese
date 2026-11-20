@@ -1,0 +1,95 @@
+{
+ "id": "bei",
+ "level": 3,
+ "seq": 2,
+ "detect": "被",
+ "title": "被: kalimat pasif",
+ "pattern": "Objek + 被 + (pelaku) + kata kerja + hasil",
+ "explain": [
+  "被 membentuk kalimat pasif, biasanya untuk kejadian yang tidak menyenangkan: 我的手机被人拿走了 (ponselku diambil orang).",
+  "Seperti 把, kata kerjanya perlu hasil atau 了: 被吃了, 被拿走了. Pelaku boleh disebut setelah 被 atau dihilangkan."
+ ],
+ "examples": [
+  [
+   "我的自行车被人骑走了。",
+   "Sepedaku dibawa pergi orang."
+  ],
+  [
+   "蛋糕被弟弟吃了。",
+   "Kuenya dimakan adik."
+  ],
+  [
+   "他被老师叫到办公室了。",
+   "Dia dipanggil guru ke kantor."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我的钱被拿。",
+   "right": "我的钱被拿走了。",
+   "why": "Kata kerja setelah 被 perlu hasil atau 了."
+  }
+ ],
+ "contrast": [
+  "ba"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我的蛋糕被弟弟吃了。",
+   "blank": "被",
+   "options": [
+    "被",
+    "把",
+    "给"
+   ],
+   "id": "Kueku dimakan adik."
+  },
+  {
+   "type": "choose",
+   "zh": "他的自行车被人骑走了。",
+   "blank": "走",
+   "options": [
+    "走",
+    "来",
+    "过"
+   ],
+   "id": "Sepedanya dibawa pergi orang."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我的手机被人拿走了。",
+    "西瓜被我们吃完了。",
+    "他被老师叫走了。"
+   ],
+   "wrong": "我的钱被拿。",
+   "fix": "我的钱被拿走了。",
+   "why": "Kata kerja perlu hasil atau 了."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "衣服被洗干净了。",
+    "我的伞被人拿走了。",
+    "他被大家笑了。"
+   ],
+   "wrong": "我的蛋糕被吃弟弟了。",
+   "fix": "我的蛋糕被弟弟吃了。",
+   "why": "Pelaku langsung setelah 被, sebelum kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我的自行车被朋友骑走了。",
+   "pieces": [
+    "我的自行车",
+    "被",
+    "朋友",
+    "骑走",
+    "了",
+    "。"
+   ],
+   "id": "Sepedaku dibawa pergi teman."
+  }
+ ]
+}

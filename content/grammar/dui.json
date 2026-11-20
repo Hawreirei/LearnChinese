@@ -1,0 +1,95 @@
+{
+ "id": "dui",
+ "level": 3,
+ "seq": 19,
+ "detect": "对.{1,6}(感兴趣|很好|很热情|很关心|来说|满意)",
+ "title": "对: terhadap, kepada",
+ "pattern": "A + 对 + B + kata sifat / 感兴趣",
+ "explain": [
+  "对 + orang/hal = terhadap: 他对我很好 (dia baik kepadaku), 我对中国文化很感兴趣.",
+  "Frasa 对 + B diletakkan sebelum kata sifat atau kata kerja."
+ ],
+ "examples": [
+  [
+   "他对我很好。",
+   "Dia baik kepadaku."
+  ],
+  [
+   "我对中国历史很感兴趣。",
+   "Aku tertarik pada sejarah Tiongkok."
+  ],
+  [
+   "锻炼对身体很好。",
+   "Berolahraga baik untuk tubuh."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我很感兴趣对中国文化。",
+   "right": "我对中国文化很感兴趣。",
+   "why": "对 + hal sebelum 感兴趣."
+  }
+ ],
+ "contrast": [
+  "gei"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "老师对学生很关心。",
+   "blank": "对",
+   "options": [
+    "对",
+    "给",
+    "跟"
+   ],
+   "id": "Guru sangat peduli pada murid."
+  },
+  {
+   "type": "choose",
+   "zh": "我对数学不感兴趣。",
+   "blank": "对",
+   "options": [
+    "对",
+    "在",
+    "从"
+   ],
+   "id": "Aku tidak tertarik pada matematika."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他对我很热情。",
+    "运动对身体很好。",
+    "我对这儿很满意。"
+   ],
+   "wrong": "我很感兴趣对音乐。",
+   "fix": "我对音乐很感兴趣。",
+   "why": "对 + hal sebelum 感兴趣."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "她对每个人都很好。",
+    "我对历史很感兴趣。",
+    "你对这个房间满意吗？"
+   ],
+   "wrong": "他很好对我。",
+   "fix": "他对我很好。",
+   "why": "对 + orang sebelum kata sifat."
+  },
+  {
+   "type": "order",
+   "zh": "我对中国文化很感兴趣。",
+   "pieces": [
+    "我",
+    "对",
+    "中国文化",
+    "很",
+    "感兴趣",
+    "。"
+   ],
+   "id": "Aku sangat tertarik pada budaya Tiongkok."
+  }
+ ]
+}

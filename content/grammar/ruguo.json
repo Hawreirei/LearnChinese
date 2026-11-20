@@ -1,0 +1,96 @@
+{
+ "id": "ruguo",
+ "level": 3,
+ "seq": 6,
+ "detect": "如果|的话",
+ "title": "如果…(就)…: jika … maka …",
+ "pattern": "如果 + syarat，(subjek) + 就 + akibat",
+ "explain": [
+  "如果 = jika. Akibatnya sering dibuka dengan 就: 如果下雨，我们就不去了.",
+  "… 的话 di akhir syarat boleh menggantikan atau menemani 如果: 明天下雨的话，我们就在家."
+ ],
+ "examples": [
+  [
+   "如果明天下雨，我们就不去了。",
+   "Jika besok hujan, kami tidak jadi pergi."
+  ],
+  [
+   "如果你有时间，就来我家吧。",
+   "Jika kamu ada waktu, datanglah ke rumahku."
+  ],
+  [
+   "太累的话，就休息一下。",
+   "Kalau terlalu capek, istirahatlah sebentar."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "如果下雨，就我们不去了。",
+   "right": "如果下雨，我们就不去了。",
+   "why": "就 setelah subjek, sebelum kata kerja."
+  }
+ ],
+ "contrast": [
+  "zhiyao"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "如果你不舒服，就去医院吧。",
+   "blank": "如果",
+   "options": [
+    "如果",
+    "虽然",
+    "因为"
+   ],
+   "id": "Jika kamu tidak enak badan, pergilah ke rumah sakit."
+  },
+  {
+   "type": "choose",
+   "zh": "如果明天天气好，我们就去爬山。",
+   "blank": "就",
+   "options": [
+    "就",
+    "才",
+    "还"
+   ],
+   "id": "Jika besok cuacanya bagus, kami akan mendaki gunung."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "如果你饿了，就先吃吧。",
+    "下雨的话，我们就在家。",
+    "如果有问题，就问老师。"
+   ],
+   "wrong": "如果你饿了，就你先吃吧。",
+   "fix": "如果你饿了，你就先吃吧。",
+   "why": "就 setelah subjek."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "如果你不去，我也不去。",
+    "如果太贵，就别买了。",
+    "如果有时间，我就去看你。"
+   ],
+   "wrong": "如果太贵，所以别买了。",
+   "fix": "如果太贵，就别买了。",
+   "why": "Pasangan 如果 adalah 就, bukan 所以."
+  },
+  {
+   "type": "order",
+   "zh": "如果你有问题，就给我打电话。",
+   "pieces": [
+    "如果",
+    "你有问题",
+    "，",
+    "就",
+    "给我",
+    "打电话",
+    "。"
+   ],
+   "id": "Jika kamu ada masalah, teleponlah aku."
+  }
+ ]
+}

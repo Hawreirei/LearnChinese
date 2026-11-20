@@ -1,0 +1,95 @@
+{
+ "id": "zui",
+ "level": 2,
+ "seq": 22,
+ "detect": "最(?!近|后|好)",
+ "title": "最: paling",
+ "pattern": "最 + kata sifat / kata kerja perasaan",
+ "explain": [
+  "最 = paling, sebelum kata sifat atau kata kerja perasaan: 最大, 最好, 最喜欢.",
+  "最 tidak dipakai bersama 很: 最好, bukan 最很好."
+ ],
+ "examples": [
+  [
+   "他是我最好的朋友。",
+   "Dia sahabat terbaikku."
+  ],
+  [
+   "我最喜欢吃饺子。",
+   "Aku paling suka makan jiaozi."
+  ],
+  [
+   "这是我们班最高的学生。",
+   "Ini murid paling tinggi di kelas kami."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我最很喜欢猫。",
+   "right": "我最喜欢猫。",
+   "why": "最 tidak dipakai bersama 很."
+  }
+ ],
+ "contrast": [
+  "bi"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我最喜欢红色。",
+   "blank": "最",
+   "options": [
+    "最",
+    "比",
+    "在"
+   ],
+   "id": "Aku paling suka warna merah."
+  },
+  {
+   "type": "choose",
+   "zh": "他是我们班跑得最快的。",
+   "blank": "最",
+   "options": [
+    "最",
+    "很",
+    "太"
+   ],
+   "id": "Dialah yang larinya paling cepat di kelas kami."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我最喜欢猫。",
+    "这是最好的饭店。",
+    "他最高。"
+   ],
+   "wrong": "我最很喜欢猫。",
+   "fix": "我最喜欢猫。",
+   "why": "最 tanpa 很."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你最喜欢什么颜色？",
+    "这个最便宜。",
+    "她是我最好的朋友。"
+   ],
+   "wrong": "她是我的朋友最好。",
+   "fix": "她是我最好的朋友。",
+   "why": "最 + kata sifat + 的 + benda."
+  },
+  {
+   "type": "order",
+   "zh": "这是我最喜欢的书。",
+   "pieces": [
+    "这",
+    "是",
+    "我",
+    "最喜欢的",
+    "书",
+    "。"
+   ],
+   "id": "Ini buku yang paling kusukai."
+  }
+ ]
+}

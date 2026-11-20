@@ -1,0 +1,96 @@
+{
+ "id": "rang",
+ "level": 2,
+ "seq": 25,
+ "detect": "让",
+ "title": "让: menyuruh, membiarkan",
+ "pattern": "A + 让 + B + kata kerja",
+ "explain": [
+  "让 = menyuruh atau membiarkan seseorang melakukan sesuatu: 妈妈让我早点儿睡觉, 老师让我们写汉字.",
+  "Negatif: 不让 (tidak mengizinkan): 妈妈不让我玩手机."
+ ],
+ "examples": [
+  [
+   "妈妈让我早点儿回家。",
+   "Ibu menyuruhku pulang lebih awal."
+  ],
+  [
+   "老师让我们写汉字。",
+   "Guru menyuruh kami menulis hanzi."
+  ],
+  [
+   "爸爸不让我看电视。",
+   "Ayah tidak membolehkanku menonton televisi."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "妈妈让回家我。",
+   "right": "妈妈让我回家。",
+   "why": "让 + orang + kata kerja."
+  }
+ ],
+ "contrast": [
+  "gei"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "医生让我多休息。",
+   "blank": "让",
+   "options": [
+    "让",
+    "给",
+    "跟"
+   ],
+   "id": "Dokter menyuruhku banyak istirahat."
+  },
+  {
+   "type": "choose",
+   "zh": "妈妈不让我玩手机。",
+   "blank": "不",
+   "options": [
+    "不",
+    "没",
+    "别"
+   ],
+   "id": "Ibu tidak membolehkanku bermain ponsel."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "老师让我们回家。",
+    "他让我等一会儿。",
+    "爸爸不让我出去。"
+   ],
+   "wrong": "妈妈让回家我。",
+   "fix": "妈妈让我回家。",
+   "why": "让 + orang + kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "医生让他吃药。",
+    "请让我想一想。",
+    "妈妈不让我喝咖啡。"
+   ],
+   "wrong": "她让我给打电话她。",
+   "fix": "她让我给她打电话。",
+   "why": "给 + orang sebelum kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "老师让我们每天写汉字。",
+   "pieces": [
+    "老师",
+    "让",
+    "我们",
+    "每天",
+    "写",
+    "汉字",
+    "。"
+   ],
+   "id": "Guru menyuruh kami menulis hanzi setiap hari."
+  }
+ ]
+}

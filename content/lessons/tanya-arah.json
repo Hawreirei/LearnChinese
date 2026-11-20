@@ -1,6 +1,7 @@
 {
   "id": "tanya-arah",
   "level": 2,
+  "grammar": ["li", "cong-dao", "direction"],
   "seq": 2,
   "zh": "问路",
   "title": "Bertanya arah",

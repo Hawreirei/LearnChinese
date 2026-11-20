@@ -1,6 +1,7 @@
 {
   "id": "belanja",
   "level": 2,
+  "grammar": ["ji-duoshao", "youdianr", "bi"],
   "seq": 1,
   "zh": "买东西",
   "title": "Belanja",

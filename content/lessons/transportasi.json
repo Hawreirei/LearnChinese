@@ -1,6 +1,7 @@
 {
   "id": "transportasi",
   "level": 2,
+  "grammar": ["haishi", "cong-dao"],
   "seq": 4,
   "zh": "坐车出行",
   "title": "Naik transportasi umum",

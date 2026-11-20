@@ -1,0 +1,96 @@
+{
+ "id": "weile",
+ "level": 3,
+ "seq": 20,
+ "detect": "为了",
+ "title": "为了: demi, supaya",
+ "pattern": "为了 + tujuan，+ tindakan",
+ "explain": [
+  "为了 + tujuan = demi / untuk (tujuan): 为了学好汉语，我每天练习.",
+  "Tujuan biasanya di depan, tindakan di belakang. Bedakan dengan 因为 (karena), yang memberi sebab."
+ ],
+ "examples": [
+  [
+   "为了学好汉语，他每天都练习。",
+   "Demi menguasai bahasa Mandarin, dia berlatih setiap hari."
+  ],
+  [
+   "为了身体健康，我每天锻炼。",
+   "Demi kesehatan, aku berolahraga setiap hari."
+  ],
+  [
+   "他为了工作搬家了。",
+   "Dia pindah rumah demi pekerjaan."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "因为学好汉语，我每天练习。",
+   "right": "为了学好汉语，我每天练习。",
+   "why": "Tujuan memakai 为了; 因为 untuk sebab."
+  }
+ ],
+ "contrast": [
+  "yinwei-suoyi"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "为了不迟到，我六点就起床了。",
+   "blank": "为了",
+   "options": [
+    "为了",
+    "因为",
+    "所以"
+   ],
+   "id": "Supaya tidak terlambat, aku sudah bangun pukul enam."
+  },
+  {
+   "type": "choose",
+   "zh": "因为下雨，我们没出去。",
+   "blank": "因为",
+   "options": [
+    "因为",
+    "为了",
+    "如果"
+   ],
+   "id": "Karena hujan, kami tidak keluar."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "为了健康，我不喝酒。",
+    "他为了考试每天复习。",
+    "为了见你，我来了。"
+   ],
+   "wrong": "因为健康，我每天跑步。",
+   "fix": "为了健康，我每天跑步。",
+   "why": "Tujuan memakai 为了."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "为了学好汉语，我来中国了。",
+    "因为生病，他没来上课。",
+    "为了孩子，她搬家了。"
+   ],
+   "wrong": "我每天练习为了学好汉语。",
+   "fix": "为了学好汉语，我每天练习。",
+   "why": "Tujuan biasanya di depan."
+  },
+  {
+   "type": "order",
+   "zh": "为了学好汉语，我每天都练习。",
+   "pieces": [
+    "为了",
+    "学好汉语",
+    "，",
+    "我",
+    "每天",
+    "都练习",
+    "。"
+   ],
+   "id": "Demi menguasai bahasa Mandarin, aku berlatih setiap hari."
+  }
+ ]
+}

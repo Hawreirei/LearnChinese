@@ -1,0 +1,94 @@
+{
+ "id": "haishi",
+ "level": 2,
+ "seq": 9,
+ "detect": "还是",
+ "title": "还是: atau (dalam pertanyaan)",
+ "pattern": "A 还是 B？",
+ "explain": [
+  "还是 = “atau” untuk pertanyaan pilihan: 你喝茶还是喝咖啡？ Jawabannya memilih salah satu.",
+  "Kalimat dengan 还是 sudah berupa pertanyaan, jadi tanpa 吗."
+ ],
+ "examples": [
+  [
+   "你喝茶还是喝咖啡？",
+   "Kamu minum teh atau kopi?"
+  ],
+  [
+   "你今天去还是明天去？",
+   "Kamu pergi hari ini atau besok?"
+  ],
+  [
+   "他是老师还是学生？",
+   "Dia guru atau pelajar?"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "你喝茶还是咖啡吗？",
+   "right": "你喝茶还是喝咖啡？",
+   "why": "Pertanyaan dengan 还是 tidak memakai 吗."
+  }
+ ],
+ "contrast": [
+  "ma"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "你想吃米饭还是面条儿？",
+   "blank": "还是",
+   "options": [
+    "还是",
+    "和",
+    "也"
+   ],
+   "id": "Kamu ingin makan nasi atau mi?"
+  },
+  {
+   "type": "choose",
+   "zh": "我们坐地铁去还是打车去？",
+   "blank": "还是",
+   "options": [
+    "还是",
+    "和",
+    "都"
+   ],
+   "id": "Kita naik kereta bawah tanah atau naik taksi?"
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你喜欢猫还是狗？",
+    "他是哥哥还是弟弟？",
+    "你今天来还是明天来？"
+   ],
+   "wrong": "你喝红茶还是绿茶吗？",
+   "fix": "你喝红茶还是绿茶？",
+   "why": "Tanpa 吗 dalam pertanyaan 还是."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你去还是我去？",
+    "这是你的还是他的？",
+    "我们走路去还是坐车去？"
+   ],
+   "wrong": "你想喝茶和咖啡？",
+   "fix": "你想喝茶还是咖啡？",
+   "why": "“Atau” dalam pertanyaan: 还是, bukan 和."
+  },
+  {
+   "type": "order",
+   "zh": "你想喝咖啡还是喝奶茶？",
+   "pieces": [
+    "你",
+    "想喝咖啡",
+    "还是",
+    "喝奶茶",
+    "？"
+   ],
+   "id": "Kamu ingin minum kopi atau teh susu?"
+  }
+ ]
+}

@@ -1,6 +1,7 @@
 {
   "id": "cuaca",
   "level": 1,
+  "grammar": ["hen-adj", "tai-le"],
   "seq": 6,
   "zh": "天气",
   "title": "Cuaca hari ini",

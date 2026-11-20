@@ -1,6 +1,7 @@
 {
   "id": "telepon",
   "level": 2,
+  "grammar": ["zai-again", "gei"],
   "seq": 3,
   "zh": "打电话",
   "title": "Menelepon dan janjian",

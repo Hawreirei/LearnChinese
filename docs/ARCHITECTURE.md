@@ -9,6 +9,7 @@ blueprints/hsk3.0/*.yaml          struktur ujian resmi (angka dari dokumen CTI)
 data/hsk3/vocab.json, handwriting.json   daftar kata/hanzi tulis resmi (input)
 blueprints/hsk3.0/speaking-level-3.yaml + content/speaking/level-3.json → scripts/build_speaking.py → data/hsk3/speaking.json (format speaking TIDAK resmi, verified: false)
 content/grammar/<id>.json → scripts/build_grammar.py → data/hsk3/grammar.json (pola tata bahasa + latihan grammar_choose / error_spot / order_sentence)
+  "detect" (regex) di tiap pola → build_questions.py memberi tag "g": [id pola] pada soal isi kata / tulis hanzi / susun kalimat yang memuat pola itu (level pola ≤ level soal)
 data/hsk3/components.json         komponen hanzi tulis (scripts/build_components.py dari Make Me a Hanzi, LGPL; di-commit)
         │  scripts/build_id.py  build_questions.py  build_blueprints_json.py  build_lessons.py
         ▼
@@ -38,7 +39,7 @@ Logika murni (tanpa DOM, diuji di `tests/js/`):
 | `analytics.js` | tren, kelemahan, kata sulit, rekomendasi, set latihan kelemahan |
 | `essay.js` | pemeriksa tulisan bebas: `checkSentence` (galat vs peringatan, lihat jenis soal), `allowedChars` (hanzi kata silabus ≤ level); dipakai soal menulis kalimat sekarang, esai HSK 4+ nanti |
 | `speakexam.js` | simulasi speaking: kertas dari `speaking.json` (blueprint tidak resmi), langkah dan fase (dengar → persiapan → bicara), sisa waktu, kata silabus dalam transkrip (cocok terpanjang), statistik jawaban terbuka, rubrik 4 dimensi (1–3), ringkasan perkiraan |
-| `grammar.js` | tata bahasa: progres per pola dari log jawaban (jawaban terakhir tiap latihan `g-<pola>-<n>`; dikuasai = semua dijawab dan ≥80% benar), status kartu, urutan ajar, pola berikutnya |
+| `grammar.js` | tata bahasa: progres per pola dari log jawaban (jawaban terakhir tiap latihan `g-<pola>-<n>`; dikuasai = semua dijawab dan ≥80% benar), status kartu, urutan ajar, pola berikutnya, `weakestPoints` (akurasi per pola dari soal bertag `g` dan latihan pola, minimal 3 jawaban) |
 | `review.js` | pembahasan simulasi: simpan ringkas (id soal, jawaban, urutan pilihan/kepingan yang dilihat) satu per level, bangun ulang dari `questions.json`, filter salah/kosong/semua; soal yang sudah hilang dari bank dilewati dan dihitung |
 | `mistakes.js` | buku kesalahan: `applyAnswer` (dipanggil `Store.recordAnswer` untuk setiap jawaban; salah → masuk, jatuh tempo besok; benar dihitung sekali per hari dan tidak di hari salahnya; benar ke-1 → 3 hari lagi, ke-2 → keluar; kosong dan speaking diabaikan), maksimal 500 soal, indeks soal bank + pelajaran |
 | `plan.js` | target ujian: validasi `{level, examDate, minutes}`, hitung hari kalender lokal sampai ujian, teks kartu hitung mundur; rencana harian: kata baru/hari (sisa kata ÷ hari belajar, 14 hari cadangan, minggu terakhir tanpa kata baru, dibatasi menit belajar; dipakai `session.js` bila `settings.newPerDayAuto`), jadwal simulasi (tiap 10 hari, mingguan 3 minggu terakhir, tiap 3 hari minggu terakhir), aktivitas hari ini, dan daftar "Hari ini" |

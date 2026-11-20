@@ -1,0 +1,102 @@
+{
+ "id": "yijing-le",
+ "level": 3,
+ "seq": 14,
+ "detect": "已经",
+ "title": "已经…了: sudah; 还没: belum",
+ "pattern": "已经 + kata kerja / kata sifat + 了",
+ "explain": [
+  "已经 … 了 = sudah: 我已经吃饭了, 他已经二十岁了. 了 di akhir hampir selalu ikut.",
+  "“Belum” = 还没 … (呢): 我还没吃饭呢. Jangan pakai 不 untuk “belum”."
+ ],
+ "examples": [
+  [
+   "我已经吃饭了。",
+   "Aku sudah makan."
+  ],
+  [
+   "电影已经开始了。",
+   "Filmnya sudah mulai."
+  ],
+  [
+   "他已经工作三年了。",
+   "Dia sudah bekerja tiga tahun."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我已经吃饭。",
+   "right": "我已经吃饭了。",
+   "why": "已经 … 了: 了 jangan dilupakan."
+  },
+  {
+   "wrong": "我不吃饭呢。",
+   "right": "我还没吃饭呢。",
+   "why": "“Belum” = 还没."
+  }
+ ],
+ "contrast": [
+  "le",
+  "meiyou"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "火车已经开了。",
+   "blank": "已经",
+   "options": [
+    "已经",
+    "马上",
+    "正在"
+   ],
+   "id": "Keretanya sudah berangkat."
+  },
+  {
+   "type": "choose",
+   "zh": "我还没做完呢。",
+   "blank": "没",
+   "options": [
+    "没",
+    "不",
+    "别"
+   ],
+   "id": "Aku belum selesai."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他已经回家了。",
+    "我已经习惯了。",
+    "会议已经结束了。"
+   ],
+   "wrong": "我已经看完这本书。",
+   "fix": "我已经看完这本书了。",
+   "why": "Akhiri dengan 了."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我还没去过。",
+    "她已经三十岁了。",
+    "作业已经写完了。"
+   ],
+   "wrong": "我不去过那儿呢。",
+   "fix": "我还没去过那儿呢。",
+   "why": "“Belum” = 还没."
+  },
+  {
+   "type": "order",
+   "zh": "我已经在这儿住了两年了。",
+   "pieces": [
+    "我",
+    "已经",
+    "在这儿",
+    "住了",
+    "两年",
+    "了",
+    "。"
+   ],
+   "id": "Aku sudah tinggal di sini dua tahun."
+  }
+ ]
+}

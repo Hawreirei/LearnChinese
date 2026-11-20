@@ -43,3 +43,23 @@ export function nextPoint(points, progress, levels = []) {
   const lv = new Set(levels);
   return groupPoints(points).flatMap((g) => g.points).find((p) => (!lv.size || lv.has(p.level)) && !progress[p.id]?.mastered) ?? null;
 }
+
+/** Accuracy per grammar point over the answer log: practice/exam items tagged "g" (questions.json) and the point's
+ *  own drills. `index` = Map id -> question (bank, lessons, grammar drills). Weakest first, with >= minN answers. */
+export function weakestPoints(events, index, points, minN = 3) {
+  const known = new Map(points.map((p) => [p.id, p]));
+  const acc = new Map();
+  for (const e of events) {
+    if (e.un || !e.id) continue;
+    const ids = index.get(e.id)?.g ?? (pointOfQuestion(e.id) ? [pointOfQuestion(e.id)] : []);
+    for (const g of ids) {
+      if (!known.has(g)) continue;
+      const a = acc.get(g) ?? { n: 0, ok: 0 };
+      a.n++; if (e.ok) a.ok++;
+      acc.set(g, a);
+    }
+  }
+  return [...acc].filter(([, a]) => a.n >= minN)
+    .map(([id, a]) => ({ id, title: known.get(id).title, level: known.get(id).level, n: a.n, ok: a.ok, pct: Math.round((100 * a.ok) / a.n) }))
+    .sort((x, y) => x.pct - y.pct || y.n - x.n);
+}

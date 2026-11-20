@@ -1,0 +1,100 @@
+{
+ "id": "result",
+ "level": 2,
+ "seq": 19,
+ "detect": "(看|做|写|吃|听|找|学|说|买|洗|准备)(完|好|到|懂|错|见)",
+ "title": "Pelengkap hasil: 完, 好, 到, 懂, 错",
+ "pattern": "Kata kerja + 完 / 好 / 到 / 懂 / 错",
+ "explain": [
+  "Kata kerja + hasil menunjukkan apakah kegiatannya berhasil: 看完 (selesai membaca), 找到 (berhasil menemukan), 听懂 (dengar dan paham), 写错 (salah tulis).",
+  "Negatifnya memakai 没: 我没听懂, 我还没做完."
+ ],
+ "examples": [
+  [
+   "我看完这本书了。",
+   "Aku sudah selesai membaca buku ini."
+  ],
+  [
+   "你听懂了吗？",
+   "Kamu paham yang kamu dengar?"
+  ],
+  [
+   "我找到我的手机了。",
+   "Aku sudah menemukan ponselku."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我不听懂。",
+   "right": "我没听懂。",
+   "why": "Hasil yang tidak tercapai diingkari dengan 没."
+  },
+  {
+   "wrong": "我找我的手机到了。",
+   "right": "我找到我的手机了。",
+   "why": "Hasil langsung di belakang kata kerja, sebelum objek."
+  }
+ ],
+ "contrast": [
+  "de-degree"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我已经写完了。",
+   "blank": "完",
+   "options": [
+    "完",
+    "过",
+    "着"
+   ],
+   "id": "Aku sudah selesai menulis."
+  },
+  {
+   "type": "choose",
+   "zh": "老师说的话，你听懂了吗？",
+   "blank": "懂",
+   "options": [
+    "懂",
+    "过",
+    "着"
+   ],
+   "id": "Apakah kamu paham kata-kata guru?"
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我找到他了。",
+    "我看完了。",
+    "你写错了。"
+   ],
+   "wrong": "我不听懂。",
+   "fix": "我没听懂。",
+   "why": "Negatif hasil: 没."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我准备好了。",
+    "他吃完饭了。",
+    "我听懂了。"
+   ],
+   "wrong": "我找我的书到了。",
+   "fix": "我找到我的书了。",
+   "why": "Hasil langsung di belakang kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我已经看完这本书了。",
+   "pieces": [
+    "我",
+    "已经",
+    "看完",
+    "这本书",
+    "了",
+    "。"
+   ],
+   "id": "Aku sudah selesai membaca buku ini."
+  }
+ ]
+}

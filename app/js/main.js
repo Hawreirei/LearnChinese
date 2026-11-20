@@ -13,7 +13,8 @@ import { viewQuiz } from "./views/quiz.js";
 import { viewBrowse } from "./views/browse.js";
 import { viewProgress } from "./views/progress.js";
 import { viewSettings } from "./views/settings.js";
-import { viewGrammar } from "./views/grammar.js";
+import { viewGrammar, openGrammar } from "./views/grammar.js";
+import { setGrammarLinker } from "./views/question.js";
 
 const view = document.getElementById("view");
 
@@ -84,6 +85,12 @@ async function boot() {
     app.questionIndex = indexQuestions(questions, lessons, grammar);
     app.speaking = speaking;
     app.grammar = grammar;
+    const gById = new Map(grammar.map((g) => [g.id, g]));
+    setGrammarLinker((ids) => {
+      const pts = ids.map((id) => gById.get(id)).filter(Boolean);
+      return pts.length ? h("div", { class: "glinks" }, h("span", { class: "hint" }, "Pola: "), ...pts.map((g) =>
+        h("button", { type: "button", class: "btn mini-text", onclick: () => openGrammar(app, g.id) }, g.title))) : null;
+    });
     go("home");
   } catch (err) {
     app.render(h("p", { class: "notice" }, `Gagal memuat data: ${err.message}. Jalankan server dari akar repo: python3 -m http.server 8080, lalu buka /app/.`));

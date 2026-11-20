@@ -454,3 +454,12 @@ label.inline { display: inline-flex; align-items: center; gap: 6px; font-size: 1
 .gpit { padding: 10px 14px; margin: 0 0 8px; border-radius: var(--r-md); background: var(--surface-2); }
 .gpit .bad, .gpit .ok { font-family: var(--font-zh); font-size: 19px; }
 .gram-card.new .badge { background: var(--surface-2); color: var(--muted); }
+.gram-links { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.gram-link { display: grid; gap: 2px; text-align: left; padding: 10px 14px; font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--brand); border-radius: var(--r-md); cursor: pointer; }
+.gram-link:hover { border-color: var(--brand); }
+.gram-link strong { color: var(--heading); }
+.glinks { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
+.weakg { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.weakg li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.weakg li > div { min-width: 0; }
+.weakg .btn { flex: none; }

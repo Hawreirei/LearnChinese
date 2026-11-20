@@ -1,0 +1,95 @@
+{
+ "id": "yi-jiu",
+ "level": 3,
+ "seq": 4,
+ "detect": "一.{1,5}就",
+ "title": "一…就…: begitu … langsung …",
+ "pattern": "一 + kata kerja A，就 + kata kerja B",
+ "explain": [
+  "一 A 就 B = begitu A terjadi, B langsung terjadi: 我一到家就给你打电话.",
+  "一 dan 就 masing-masing diletakkan setelah subjeknya dan sebelum kata kerja."
+ ],
+ "examples": [
+  [
+   "我一到家就给你打电话。",
+   "Begitu sampai di rumah, aku langsung meneleponmu."
+  ],
+  [
+   "他一下课就去图书馆。",
+   "Begitu kelas selesai, dia langsung ke perpustakaan."
+  ],
+  [
+   "我一看就明白了。",
+   "Sekali lihat aku langsung paham."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "一我到家就打电话。",
+   "right": "我一到家就打电话。",
+   "why": "一 setelah subjek."
+  }
+ ],
+ "contrast": [
+  "jiu"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我一下班就回家。",
+   "blank": "就",
+   "options": [
+    "就",
+    "才",
+    "也"
+   ],
+   "id": "Begitu selesai kerja, aku langsung pulang."
+  },
+  {
+   "type": "choose",
+   "zh": "他一回来，我就告诉你。",
+   "blank": "一",
+   "options": [
+    "一",
+    "就",
+    "又"
+   ],
+   "id": "Begitu dia kembali, aku langsung memberitahumu."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我一到就给你打电话。",
+    "她一看见我就笑了。",
+    "我们一下课就去吃饭。"
+   ],
+   "wrong": "一我到家就睡觉了。",
+   "fix": "我一到家就睡觉了。",
+   "why": "一 setelah subjek."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他一听就懂了。",
+    "我一有时间就去看你。",
+    "天一黑我们就回家。"
+   ],
+   "wrong": "我一到家，就我给你打电话。",
+   "fix": "我一到家，就给你打电话。",
+   "why": "就 langsung sebelum kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我一到机场就给你打电话。",
+   "pieces": [
+    "我",
+    "一到机场",
+    "就",
+    "给你",
+    "打电话",
+    "。"
+   ],
+   "id": "Begitu sampai di bandara, aku langsung meneleponmu."
+  }
+ ]
+}

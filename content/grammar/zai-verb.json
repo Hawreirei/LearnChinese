@@ -91,5 +91,6 @@
    ],
    "id": "Kami belajar bahasa Mandarin di sekolah."
   }
- ]
+ ],
+ "detect": "在(家|学校|医院|商店|饭店|公司|中国)里?(看|学|工作|吃|买|休息|住|上|做|玩|等|睡)"
 }

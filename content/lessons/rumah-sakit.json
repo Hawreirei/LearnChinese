@@ -1,6 +1,7 @@
 {
   "id": "rumah-sakit",
   "level": 3,
+  "grammar": ["yinggai", "zuihao"],
   "seq": 2,
   "zh": "看病",
   "title": "Di rumah sakit",

@@ -1,0 +1,99 @@
+{
+ "id": "de-shihou",
+ "level": 3,
+ "seq": 30,
+ "detect": "的时候",
+ "title": "…的时候: saat, ketika",
+ "pattern": "Kejadian + 的时候，kalimat utama",
+ "explain": [
+  "… 的时候 = saat / ketika …, diletakkan di depan kalimat utama: 我小的时候, 吃饭的时候.",
+  "Urutannya kebalikan bahasa Indonesia (“ketika makan” → 吃饭的时候)."
+ ],
+ "examples": [
+  [
+   "吃饭的时候别看手机。",
+   "Saat makan jangan melihat ponsel."
+  ],
+  [
+   "我小的时候住在南方。",
+   "Waktu kecil aku tinggal di selatan."
+  ],
+  [
+   "你有时间的时候给我打电话。",
+   "Saat kamu punya waktu, teleponlah aku."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "的时候吃饭，别说话。",
+   "right": "吃饭的时候，别说话。",
+   "why": "Kejadian dulu, lalu 的时候."
+  }
+ ],
+ "contrast": [
+  "time-order"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "上课的时候不能玩手机。",
+   "blank": "的时候",
+   "options": [
+    "的时候",
+    "时间",
+    "小时"
+   ],
+   "id": "Saat pelajaran tidak boleh bermain ponsel."
+  },
+  {
+   "type": "choose",
+   "zh": "我到家的时候，妈妈正在做饭。",
+   "blank": "的",
+   "options": [
+    "的",
+    "得",
+    "地"
+   ],
+   "id": "Saat aku sampai di rumah, ibu sedang memasak."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我小的时候很喜欢画画。",
+    "睡觉的时候别看手机。",
+    "下雨的时候，我们在家。"
+   ],
+   "wrong": "的时候我小，住在南方。",
+   "fix": "我小的时候，住在南方。",
+   "why": "Kejadian dulu, lalu 的时候."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "考试的时候要认真。",
+    "你累的时候就休息。",
+    "我去的时候他不在。"
+   ],
+   "wrong": "时候吃饭别说话。",
+   "fix": "吃饭的时候别说话。",
+   "why": "Jangan lupa 的."
+  },
+  {
+   "type": "order",
+   "zh": "我上大学的时候学过汉语。",
+   "pieces": [
+    "我",
+    "上大学",
+    "的时候",
+    "学过",
+    "汉语",
+    "。"
+   ],
+   "id": "Saat kuliah aku pernah belajar bahasa Mandarin."
+  }
+ ],
+ "readings": {
+  "得": "de",
+  "地": "de"
+ }
+}

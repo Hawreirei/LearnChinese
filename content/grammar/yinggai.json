@@ -1,0 +1,100 @@
+{
+ "id": "yinggai",
+ "level": 3,
+ "seq": 24,
+ "detect": "应该|必须|不用",
+ "title": "应该 / 必须 / 不用: seharusnya, harus, tidak perlu",
+ "pattern": "应该 / 必须 / 不用 + kata kerja",
+ "explain": [
+  "应该 = seharusnya, sebaiknya: 你应该多休息. 必须 = harus (wajib, lebih kuat): 我们必须八点以前到.",
+  "“Tidak perlu” = 不用 + kata kerja (bukan 不必须)."
+ ],
+ "examples": [
+  [
+   "你应该多喝水。",
+   "Kamu seharusnya banyak minum air."
+  ],
+  [
+   "我们必须八点以前到。",
+   "Kita harus sampai sebelum pukul delapan."
+  ],
+  [
+   "明天不用上班。",
+   "Besok tidak perlu bekerja."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "你不必须来。",
+   "right": "你不用来。",
+   "why": "“Tidak perlu” = 不用."
+  },
+  {
+   "wrong": "你应该很休息。",
+   "right": "你应该多休息。",
+   "why": "应该 + kata kerja."
+  }
+ ],
+ "contrast": [
+  "hui-neng"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "你感冒了，应该多休息。",
+   "blank": "应该",
+   "options": [
+    "应该",
+    "可能",
+    "好像"
+   ],
+   "id": "Kamu masuk angin, seharusnya banyak istirahat."
+  },
+  {
+   "type": "choose",
+   "zh": "明天是星期天，不用上班。",
+   "blank": "不用",
+   "options": [
+    "不用",
+    "没",
+    "别是"
+   ],
+   "id": "Besok hari Minggu, tidak perlu bekerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你应该早点儿睡觉。",
+    "考试必须用铅笔。",
+    "你不用担心。"
+   ],
+   "wrong": "你不必须来。",
+   "fix": "你不用来。",
+   "why": "“Tidak perlu” = 不用."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我们应该帮助别人。",
+    "你必须马上去医院。",
+    "这件事你不应该做。"
+   ],
+   "wrong": "你应该很休息。",
+   "fix": "你应该多休息。",
+   "why": "应该 + kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "你应该每天复习课文。",
+   "pieces": [
+    "你",
+    "应该",
+    "每天",
+    "复习",
+    "课文",
+    "。"
+   ],
+   "id": "Kamu seharusnya mengulang teks pelajaran setiap hari."
+  }
+ ]
+}

@@ -26,7 +26,7 @@ class ReviewSheetTests(unittest.TestCase):
         self.assertEqual(counts["听力 Mendengar"], 204)          # 68 Q&A + 64 dialogs + 12 passages + 60 statements
         self.assertEqual(counts["配对 Mencocokkan"], 30)          # 10 matching groups per level, HSK 1-3
         self.assertEqual(counts["写句子 Menulis kalimat"], 44)    # HSK 3 writing part 2 tasks
-        self.assertEqual(counts["语法 Tata bahasa"], 24)          # HSK 1 grammar points
+        self.assertEqual(counts["语法 Tata bahasa"], 79)          # grammar points HSK 1-3 (24 + 25 + 30)
         self.assertEqual(counts["阅读 Membaca"], 58)             # 30 short texts + 28 paragraph questions
         self.assertGreater(counts["填空 Isi kata"], 1500)
         import json

@@ -1,0 +1,94 @@
+{
+ "id": "yao-le",
+ "level": 2,
+ "seq": 10,
+ "detect": "(快要|就要|要).{0,6}了",
+ "title": "(快)要 … 了: akan segera",
+ "pattern": "(快)要 + kata kerja + 了",
+ "explain": [
+  "(快)要 … 了 = sesuatu akan segera terjadi: 要下雨了 (sebentar lagi hujan), 快要考试了.",
+  "了 di akhir wajib dalam pola ini; ia menandai keadaan yang baru akan datang."
+ ],
+ "examples": [
+  [
+   "要下雨了。",
+   "Sebentar lagi hujan."
+  ],
+  [
+   "快要考试了，我要准备一下。",
+   "Ujian sudah dekat, aku harus bersiap."
+  ],
+  [
+   "火车要开了，我们快走吧。",
+   "Kereta akan berangkat, ayo cepat pergi."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "快要下雨。",
+   "right": "快要下雨了。",
+   "why": "了 di akhir tidak boleh hilang."
+  }
+ ],
+ "contrast": [
+  "le"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "快要上课了，我们进教室吧。",
+   "blank": "了",
+   "options": [
+    "了",
+    "吗",
+    "的"
+   ],
+   "id": "Kelas akan segera mulai, ayo masuk kelas."
+  },
+  {
+   "type": "choose",
+   "zh": "要下雨了，别出去了。",
+   "blank": "要",
+   "options": [
+    "要",
+    "在",
+    "过"
+   ],
+   "id": "Sebentar lagi hujan, jangan keluar."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "快要考试了。",
+    "火车要开了。",
+    "我们快要到了。"
+   ],
+   "wrong": "我们快要到。",
+   "fix": "我们快要到了。",
+   "why": "了 di akhir wajib."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "要下雨了。",
+    "电影快要开始了。",
+    "他快要回来了。"
+   ],
+   "wrong": "快了要下雨。",
+   "fix": "快要下雨了。",
+   "why": "快要 + kata kerja + 了."
+  },
+  {
+   "type": "order",
+   "zh": "电影快要开始了。",
+   "pieces": [
+    "电影",
+    "快要",
+    "开始",
+    "了",
+    "。"
+   ],
+   "id": "Filmnya akan segera mulai."
+  }
+ ]
+}

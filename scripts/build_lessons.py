@@ -263,7 +263,7 @@ def build(lesson, vocab, ent, allowed, problems):
 
     return {"id": lid, "level": level, "zh": lesson["zh"], "title": lesson["title"], "summary": lesson["summary"],
             "keySentences": sentences, "keyWords": key_words, "steps": steps, "speaking": speaking,
-            **({"readings": readings} if readings else {})}
+            **({"readings": readings} if readings else {}), **({"grammar": lesson["grammar"]} if lesson.get("grammar") else {})}
 
 
 def build_all():
@@ -279,6 +279,13 @@ def build_all():
         seen.add(lesson["id"])
         out.append((lesson.get("seq", 100), build(lesson, vocab, ent, allowed, problems)))
     out = [l for _, l in sorted(out, key=lambda x: (x[1]["level"], x[0], x[1]["id"]))]      # easiest level first; "seq" is the teaching order inside a level
+    grammar = {json.loads(p.read_text("utf-8"))["id"]: json.loads(p.read_text("utf-8"))["level"] for p in (ROOT / "content" / "grammar").glob("*.json")}
+    for l in out:                                    # "grammar": points taught in the lesson; must exist and not be above its level
+        for g in l.get("grammar", []):
+            if g not in grammar:
+                problems.append(f"{l['id']}: grammar point {g!r} does not exist")
+            elif grammar[g] > l["level"]:
+                problems.append(f"{l['id']}: grammar point {g!r} is HSK {grammar[g]}, above the lesson")
     return out, problems
 
 

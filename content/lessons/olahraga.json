@@ -1,6 +1,7 @@
 {
   "id": "olahraga",
   "level": 2,
+  "grammar": ["de-degree", "zui"],
   "seq": 5,
   "zh": "运动和爱好",
   "title": "Olahraga dan hobi",

@@ -1,0 +1,103 @@
+{
+ "id": "potential",
+ "level": 3,
+ "seq": 11,
+ "detect": "(看|听|做|写|吃|找|买|学|说|拿|搬)(得|不)(懂|完|到|见|了|动|清楚)",
+ "title": "Pelengkap kemungkinan: 看得懂 / 听不懂",
+ "pattern": "Kata kerja + 得 / 不 + hasil",
+ "explain": [
+  "Kata kerja + 得 + hasil = bisa mencapai hasil itu; kata kerja + 不 + hasil = tidak bisa: 看得懂 (bisa paham saat membaca), 听不懂 (tidak paham saat mendengar), 吃不完 (tidak bisa menghabiskan).",
+  "Pertanyaan: 你听得懂吗？"
+ ],
+ "examples": [
+  [
+   "这本书我看得懂。",
+   "Buku ini bisa kupahami."
+  ],
+  [
+   "他说得太快，我听不懂。",
+   "Dia bicara terlalu cepat, aku tidak paham."
+  ],
+  [
+   "菜太多了，我们吃不完。",
+   "Makanannya terlalu banyak, kami tidak bisa menghabiskannya."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我不能听懂。",
+   "right": "我听不懂。",
+   "why": "“Tidak bisa paham (saat mendengar)” = 听不懂."
+  },
+  {
+   "wrong": "我听懂不。",
+   "right": "我听不懂。",
+   "why": "不 di antara kata kerja dan hasil."
+  }
+ ],
+ "contrast": [
+  "result"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "老师说的话我都听得懂。",
+   "blank": "得",
+   "options": [
+    "得",
+    "不",
+    "了"
+   ],
+   "id": "Aku bisa memahami semua kata-kata guru."
+  },
+  {
+   "type": "choose",
+   "zh": "字太小了，我看不清楚。",
+   "blank": "不",
+   "options": [
+    "不",
+    "得",
+    "没"
+   ],
+   "id": "Hurufnya terlalu kecil, aku tidak bisa melihat dengan jelas."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我看得懂中文报纸。",
+    "这么多作业，今天做不完。",
+    "你听得懂吗？"
+   ],
+   "wrong": "我不能看懂这本书。",
+   "fix": "我看不懂这本书。",
+   "why": "Pakai pelengkap kemungkinan: 看不懂."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我找不到我的护照了。",
+    "这个箱子太重了，我拿不动。",
+    "他说的话我听不懂。"
+   ],
+   "wrong": "我找到不我的护照。",
+   "fix": "我找不到我的护照。",
+   "why": "不 di antara kata kerja dan hasil."
+  },
+  {
+   "type": "order",
+   "zh": "他说得太快，我听不懂。",
+   "pieces": [
+    "他",
+    "说得太快",
+    "，",
+    "我",
+    "听不懂",
+    "。"
+   ],
+   "id": "Dia bicara terlalu cepat, aku tidak paham."
+  }
+ ],
+ "readings": {
+  "得": "de"
+ }
+}

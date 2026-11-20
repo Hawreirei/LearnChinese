@@ -1,6 +1,7 @@
 {
   "id": "sapaan",
   "level": 1,
+  "grammar": ["ma", "ne", "shi"],
   "seq": 1,
   "zh": "问候",
   "title": "Sapaan dan sopan santun",

@@ -1,0 +1,96 @@
+{
+ "id": "gei",
+ "level": 2,
+ "seq": 15,
+ "detect": "给.{1,4}(打|买|写|做|介绍|送|看|拿|带)",
+ "title": "给: untuk / kepada seseorang",
+ "pattern": "给 + orang + kata kerja",
+ "explain": [
+  "给 + orang + kata kerja = melakukan sesuatu untuk/kepada seseorang: 我给妈妈打电话, 他给我买了一本书.",
+  "Frasa 给 + orang diletakkan sebelum kata kerja, tidak di akhir seperti bahasa Indonesia (“menelepon ibu”)."
+ ],
+ "examples": [
+  [
+   "我给妈妈打电话。",
+   "Aku menelepon ibu."
+  ],
+  [
+   "他给我买了一本书。",
+   "Dia membelikanku sebuah buku."
+  ],
+  [
+   "我给你介绍一下。",
+   "Aku perkenalkan kepadamu."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我打电话给妈妈。",
+   "right": "我给妈妈打电话。",
+   "why": "给 + orang sebelum kata kerja (bentuk umum)."
+  }
+ ],
+ "contrast": [],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "晚上我给你打电话。",
+   "blank": "给",
+   "options": [
+    "给",
+    "跟",
+    "从"
+   ],
+   "id": "Nanti malam aku meneleponmu."
+  },
+  {
+   "type": "choose",
+   "zh": "妈妈给我做了饺子。",
+   "blank": "给",
+   "options": [
+    "给",
+    "在",
+    "比"
+   ],
+   "id": "Ibu membuatkan jiaozi untukku."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我给朋友买了一本书。",
+    "他给我打电话了。",
+    "我给你介绍一下。"
+   ],
+   "wrong": "我做饭给你。",
+   "fix": "我给你做饭。",
+   "why": "给 + orang sebelum kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "请给我一杯水。",
+    "他给妈妈打电话了。",
+    "我给你们介绍一下。"
+   ],
+   "wrong": "我买了一本书给他。",
+   "fix": "我给他买了一本书。",
+   "why": "给 + orang sebelum kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我每天给我妈妈打电话。",
+   "pieces": [
+    "我",
+    "每天",
+    "给我妈妈",
+    "打",
+    "电话",
+    "。"
+   ],
+   "id": "Setiap hari aku menelepon ibuku.",
+   "alt": [
+    "每天我给我妈妈打电话。"
+   ]
+  }
+ ]
+}

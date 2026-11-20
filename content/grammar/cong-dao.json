@@ -1,0 +1,96 @@
+{
+ "id": "cong-dao",
+ "level": 2,
+ "seq": 13,
+ "detect": "从.{1,8}到",
+ "title": "从…到…: dari … sampai …",
+ "pattern": "从 + A + 到 + B",
+ "explain": [
+  "从 … 到 … menandai titik awal dan akhir, untuk tempat atau waktu: 从家到学校, 从八点到十二点.",
+  "Seluruh frasa diletakkan sebelum kata kerja: 我从八点到十二点上课."
+ ],
+ "examples": [
+  [
+   "从我家到学校很近。",
+   "Dari rumahku ke sekolah dekat."
+  ],
+  [
+   "我从八点到十二点上课。",
+   "Aku belajar dari pukul delapan sampai dua belas."
+  ],
+  [
+   "从这儿到机场要一个小时。",
+   "Dari sini ke bandara butuh satu jam."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我上课从八点到十二点。",
+   "right": "我从八点到十二点上课。",
+   "why": "Frasa waktu 从…到… sebelum kata kerja."
+  }
+ ],
+ "contrast": [
+  "li"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "从这儿到机场远吗？",
+   "blank": "从",
+   "options": [
+    "从",
+    "离",
+    "在"
+   ],
+   "id": "Apakah dari sini ke bandara jauh?"
+  },
+  {
+   "type": "choose",
+   "zh": "我从九点到五点工作。",
+   "blank": "到",
+   "options": [
+    "到",
+    "在",
+    "往"
+   ],
+   "id": "Aku bekerja dari pukul sembilan sampai lima."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "从我家到公司很近。",
+    "他从早上到晚上都很忙。",
+    "从这儿到那儿要十分钟。"
+   ],
+   "wrong": "我工作从九点到五点。",
+   "fix": "我从九点到五点工作。",
+   "why": "从…到… sebelum kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "从学校到商店不远。",
+    "我们从星期一到星期五上课。",
+    "从家到医院要半个小时。"
+   ],
+   "wrong": "从家医院要半个小时。",
+   "fix": "从家到医院要半个小时。",
+   "why": "Jangan lupa 到 sebelum titik akhir."
+  },
+  {
+   "type": "order",
+   "zh": "从我家到学校要二十分钟。",
+   "pieces": [
+    "从",
+    "我家",
+    "到",
+    "学校",
+    "要",
+    "二十分钟",
+    "。"
+   ],
+   "id": "Dari rumahku ke sekolah butuh dua puluh menit."
+  }
+ ]
+}

@@ -1,0 +1,96 @@
+{
+ "id": "zai-again",
+ "level": 2,
+ "seq": 11,
+ "detect": "再(?!见)",
+ "title": "再: lagi (nanti), lalu",
+ "pattern": "再 + kata kerja",
+ "explain": [
+  "再 = lagi untuk hal yang BELUM terjadi (rencana, permintaan): 请再说一次, 明天再来.",
+  "再 juga berarti “baru kemudian”: 吃了饭再去 (makan dulu, baru pergi). Untuk “lagi” yang sudah terjadi dipakai 又 (HSK 3)."
+ ],
+ "examples": [
+  [
+   "请你再说一次。",
+   "Tolong ulangi sekali lagi."
+  ],
+  [
+   "我们明天再来吧。",
+   "Kita datang lagi besok saja."
+  ],
+  [
+   "吃了饭再去学校。",
+   "Makan dulu, baru pergi ke sekolah."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我在说一次。",
+   "right": "我再说一次。",
+   "why": "“Lagi” ditulis 再, bukan 在."
+  }
+ ],
+ "contrast": [
+  "zai-place"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "请你再写一次。",
+   "blank": "再",
+   "options": [
+    "再",
+    "在",
+    "还"
+   ],
+   "id": "Tolong tulis sekali lagi."
+  },
+  {
+   "type": "choose",
+   "zh": "太晚了，我们明天再看吧。",
+   "blank": "再",
+   "options": [
+    "再",
+    "在",
+    "就"
+   ],
+   "id": "Sudah terlalu malam, kita lihat lagi besok saja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "请再说一次。",
+    "我们下午再去吧。",
+    "你明天再来。"
+   ],
+   "wrong": "请在说一次。",
+   "fix": "请再说一次。",
+   "why": "“Lagi” = 再, bukan 在."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "吃了饭再走。",
+    "我想再看一下。",
+    "明天再见。"
+   ],
+   "wrong": "我想看再一下。",
+   "fix": "我想再看一下。",
+   "why": "再 sebelum kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "你可以再说一次吗？",
+   "pieces": [
+    "你",
+    "可以",
+    "再",
+    "说",
+    "一次",
+    "吗",
+    "？"
+   ],
+   "id": "Bisakah kamu mengulang sekali lagi?"
+  }
+ ]
+}

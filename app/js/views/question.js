@@ -254,8 +254,20 @@ export function answerLabel(q) {
   return o ? `${o.emoji} ${o.alt}` : q.answer;
 }
 
-/** The explanation shown after answering and in result reviews. */
+/** Grammar links under explanations: main.js sets a function ids -> node (or null). Kept out of this module so it
+ *  does not depend on the grammar view. */
+let grammarLinker = () => null;
+export function setGrammarLinker(fn) { grammarLinker = fn; }
+
+/** The explanation shown after answering and in result reviews, with links to the grammar points it uses. */
 export function explanation(q) {
+  const base = explanationBody(q);
+  const links = q.g?.length && q.type !== "grammar_choose" && q.type !== "error_spot" ? grammarLinker(q.g) : null;   // drills already name their rule
+  if (links) base.append(links);
+  return base;
+}
+
+function explanationBody(q) {
   const e = q.explain;
   const zh = (t, style) => h("div", { class: "zh", lang: "zh-Hans", style }, t);
   const pictureAnswer = q.options?.[0]?.emoji ? q.options.find((o) => o.key === q.answer) : null;

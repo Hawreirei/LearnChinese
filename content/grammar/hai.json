@@ -1,0 +1,95 @@
+{
+ "id": "hai",
+ "level": 2,
+ "seq": 12,
+ "detect": "还(?!是|你|我|他|她|给)",
+ "title": "还: masih, juga, lagi",
+ "pattern": "还 + kata kerja / kata sifat",
+ "explain": [
+  "还 = masih: 他还在睡觉, 我还没吃饭 (aku belum makan).",
+  "还 = juga, selain itu: 我会说汉语，还会写汉字. Dalam pertanyaan: 你还要什么？ (masih mau apa lagi?)"
+ ],
+ "examples": [
+  [
+   "他还在睡觉。",
+   "Dia masih tidur."
+  ],
+  [
+   "我还没吃饭。",
+   "Aku belum makan."
+  ],
+  [
+   "她会唱歌，还会跳舞。",
+   "Dia bisa bernyanyi, juga bisa menari."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "还他在睡觉。",
+   "right": "他还在睡觉。",
+   "why": "还 setelah subjek, sebelum kata kerja."
+  }
+ ],
+ "contrast": [
+  "zai-again",
+  "ye-dou"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "已经十点了，他还在睡觉。",
+   "blank": "还",
+   "options": [
+    "还",
+    "再",
+    "就"
+   ],
+   "id": "Sudah pukul sepuluh, dia masih tidur."
+  },
+  {
+   "type": "choose",
+   "zh": "我还没做完。",
+   "blank": "还",
+   "options": [
+    "还",
+    "再",
+    "就"
+   ],
+   "id": "Aku belum selesai."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我还没吃饭。",
+    "你还要什么？",
+    "她会说汉语，还会写汉字。"
+   ],
+   "wrong": "还我没去过。",
+   "fix": "我还没去过。",
+   "why": "还 setelah subjek."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他还在学校。",
+    "我们还有时间。",
+    "你还想喝茶吗？"
+   ],
+   "wrong": "他在还学校。",
+   "fix": "他还在学校。",
+   "why": "还 sebelum kata kerja (在)."
+  },
+  {
+   "type": "order",
+   "zh": "我妹妹还在学校学习。",
+   "pieces": [
+    "我妹妹",
+    "还",
+    "在学校",
+    "学习",
+    "。"
+   ],
+   "id": "Adik perempuanku masih belajar di sekolah."
+  }
+ ]
+}

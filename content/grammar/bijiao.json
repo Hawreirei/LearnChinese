@@ -1,0 +1,100 @@
+{
+ "id": "bijiao",
+ "level": 3,
+ "seq": 22,
+ "detect": "比较",
+ "title": "比较: cukup, relatif",
+ "pattern": "比较 + kata sifat",
+ "explain": [
+  "比较 + kata sifat = cukup / relatif …: 今天比较冷, 这个比较便宜. Lebih lembut daripada 很.",
+  "比较 bukan pembanding A dan B; untuk itu pakai 比."
+ ],
+ "examples": [
+  [
+   "今天比较冷。",
+   "Hari ini cukup dingin."
+  ],
+  [
+   "这个办法比较简单。",
+   "Cara ini relatif sederhana."
+  ],
+  [
+   "我比较喜欢喝茶。",
+   "Aku lebih condong suka minum teh."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "今天比较很冷。",
+   "right": "今天比较冷。",
+   "why": "比较 tanpa 很."
+  },
+  {
+   "wrong": "我比较他高。",
+   "right": "我比他高。",
+   "why": "Membandingkan A dan B: 比."
+  }
+ ],
+ "contrast": [
+  "bi"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "这家宾馆比较便宜。",
+   "blank": "比较",
+   "options": [
+    "比较",
+    "比",
+    "最多"
+   ],
+   "id": "Hotel ini relatif murah."
+  },
+  {
+   "type": "choose",
+   "zh": "我比他高一点儿。",
+   "blank": "比",
+   "options": [
+    "比",
+    "比较",
+    "更"
+   ],
+   "id": "Aku sedikit lebih tinggi daripada dia."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "这个问题比较难。",
+    "我比较喜欢夏天。",
+    "这儿比较安静。"
+   ],
+   "wrong": "这个问题比较很难。",
+   "fix": "这个问题比较难。",
+   "why": "比较 tanpa 很."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他比我忙。",
+    "这个比较贵。",
+    "我们班比较大。"
+   ],
+   "wrong": "我比较他忙。",
+   "fix": "我比他忙。",
+   "why": "Membandingkan A dan B: 比."
+  },
+  {
+   "type": "order",
+   "zh": "我觉得这个问题比较简单。",
+   "pieces": [
+    "我",
+    "觉得",
+    "这个问题",
+    "比较",
+    "简单",
+    "。"
+   ],
+   "id": "Menurutku soal ini relatif mudah."
+  }
+ ]
+}

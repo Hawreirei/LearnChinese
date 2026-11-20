@@ -1,0 +1,96 @@
+{
+ "id": "zuihao",
+ "level": 3,
+ "seq": 25,
+ "detect": "最好",
+ "title": "最好: sebaiknya",
+ "pattern": "最好 + kata kerja (saran)",
+ "explain": [
+  "最好 + kata kerja = sebaiknya (saran): 你最好早点儿去. Negatifnya 最好别 / 最好不要.",
+  "最好 juga berarti “paling baik” sebelum benda: 他是我最好的朋友."
+ ],
+ "examples": [
+  [
+   "你最好早点儿出发。",
+   "Sebaiknya kamu berangkat lebih awal."
+  ],
+  [
+   "下雨了，你最好带伞。",
+   "Hujan, sebaiknya kamu bawa payung."
+  ],
+  [
+   "晚上最好别喝咖啡。",
+   "Malam hari sebaiknya jangan minum kopi."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "你最好不去要。",
+   "right": "你最好不要去。",
+   "why": "最好 + 不要/别 + kata kerja."
+  }
+ ],
+ "contrast": [
+  "yinggai"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "你最好先问一下老师。",
+   "blank": "最好",
+   "options": [
+    "最好",
+    "最近",
+    "最后"
+   ],
+   "id": "Sebaiknya kamu tanya guru dulu."
+  },
+  {
+   "type": "choose",
+   "zh": "太晚了，你最好别出去了。",
+   "blank": "别",
+   "options": [
+    "别",
+    "没",
+    "不是"
+   ],
+   "id": "Sudah larut, sebaiknya jangan keluar."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你最好早点儿睡。",
+    "最好别吃太多。",
+    "我们最好坐地铁去。"
+   ],
+   "wrong": "你最好不去要。",
+   "fix": "你最好不要去。",
+   "why": "最好 + 不要 + kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你最好带上护照。",
+    "最好现在就走。",
+    "他是我最好的朋友。"
+   ],
+   "wrong": "你最好很早来。",
+   "fix": "你最好早点儿来。",
+   "why": "Saran: 最好 + kata kerja; “lebih awal” = 早点儿."
+  },
+  {
+   "type": "order",
+   "zh": "下雨了，你最好带上伞。",
+   "pieces": [
+    "下雨了",
+    "，",
+    "你",
+    "最好",
+    "带上",
+    "伞",
+    "。"
+   ],
+   "id": "Hujan, sebaiknya kamu membawa payung."
+  }
+ ]
+}

@@ -94,5 +94,6 @@
    ],
    "id": "Temanku sedang menelepon."
   }
- ]
+ ],
+ "detect": "正在|在.{1,4}呢"
 }

@@ -1,6 +1,7 @@
 {
   "id": "hotel",
   "level": 3,
+  "grammar": ["ba", "v-zai"],
   "seq": 3,
   "zh": "住酒店",
   "title": "Menginap di hotel",

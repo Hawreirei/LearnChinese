@@ -1,0 +1,96 @@
+{
+ "id": "shi-de",
+ "level": 2,
+ "seq": 23,
+ "detect": "是.{1,10}的[。？！]",
+ "title": "是…的: menekankan kapan, di mana, bagaimana",
+ "pattern": "是 + waktu / tempat / cara + kata kerja + 的",
+ "explain": [
+  "Untuk kejadian yang SUDAH terjadi, 是 … 的 menekankan kapan, di mana, atau bagaimana: 我是昨天来的 (aku datangnya kemarin), 你是怎么来的？",
+  "是 boleh dihilangkan dalam kalimat positif, tetapi 的 tetap ada; negatifnya 不是 … 的."
+ ],
+ "examples": [
+  [
+   "我是去年来中国的。",
+   "Aku datang ke Tiongkok tahun lalu."
+  ],
+  [
+   "你是怎么来的？",
+   "Kamu datang naik apa?"
+  ],
+  [
+   "我们是在学校认识的。",
+   "Kami berkenalan di sekolah."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我是坐飞机来了。",
+   "right": "我是坐飞机来的。",
+   "why": "Pola ini ditutup dengan 的, bukan 了."
+  }
+ ],
+ "contrast": [
+  "le"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "你是什么时候来的？",
+   "blank": "的",
+   "options": [
+    "的",
+    "吗",
+    "过"
+   ],
+   "id": "Kapan kamu datang?"
+  },
+  {
+   "type": "choose",
+   "zh": "我是坐地铁来的。",
+   "blank": "是",
+   "options": [
+    "是",
+    "在",
+    "有"
+   ],
+   "id": "Aku datang naik kereta bawah tanah."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我是昨天到的。",
+    "你是在哪儿买的？",
+    "他是坐火车来的。"
+   ],
+   "wrong": "我是坐飞机来了。",
+   "fix": "我是坐飞机来的。",
+   "why": "Ditutup dengan 的."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我们是在中国认识的。",
+    "这是在网上买的。",
+    "我不是一个人来的。"
+   ],
+   "wrong": "我是来昨天的。",
+   "fix": "我是昨天来的。",
+   "why": "是 + waktu + kata kerja + 的."
+  },
+  {
+   "type": "order",
+   "zh": "我是去年九月来中国的。",
+   "pieces": [
+    "我",
+    "是",
+    "去年九月",
+    "来",
+    "中国",
+    "的",
+    "。"
+   ],
+   "id": "Aku datang ke Tiongkok bulan September tahun lalu."
+  }
+ ]
+}

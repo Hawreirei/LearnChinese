@@ -1,0 +1,95 @@
+{
+ "id": "li",
+ "level": 2,
+ "seq": 14,
+ "detect": "离(?!开)",
+ "title": "离: jarak dari",
+ "pattern": "A + 离 + B + 远 / 近",
+ "explain": [
+  "离 menyatakan jarak antara dua tempat (atau waktu): 我家离学校很近 (rumahku dekat dari sekolah).",
+  "Bandingkan dengan 从 … 到 …, yang menyatakan perjalanan dari titik awal ke titik akhir."
+ ],
+ "examples": [
+  [
+   "我家离学校很近。",
+   "Rumahku dekat dari sekolah."
+  ],
+  [
+   "机场离这儿远吗？",
+   "Apakah bandara jauh dari sini?"
+  ],
+  [
+   "离考试还有一个星期。",
+   "Ujian tinggal satu minggu lagi."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我家从学校很近。",
+   "right": "我家离学校很近。",
+   "why": "Jarak memakai 离, bukan 从."
+  }
+ ],
+ "contrast": [
+  "cong-dao"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我家离公司不远。",
+   "blank": "离",
+   "options": [
+    "离",
+    "从",
+    "在"
+   ],
+   "id": "Rumahku tidak jauh dari kantor."
+  },
+  {
+   "type": "choose",
+   "zh": "酒店离机场很近。",
+   "blank": "离",
+   "options": [
+    "离",
+    "到",
+    "往"
+   ],
+   "id": "Hotelnya dekat dari bandara."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我家离这儿很近。",
+    "学校离地铁站不远。",
+    "你家离公司远吗？"
+   ],
+   "wrong": "商店从我家很近。",
+   "fix": "商店离我家很近。",
+   "why": "Jarak memakai 离."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "这儿离机场很远。",
+    "医院离我家很近。",
+    "离考试还有三天。"
+   ],
+   "wrong": "我家很近离学校。",
+   "fix": "我家离学校很近。",
+   "why": "A 离 B + 远/近."
+  },
+  {
+   "type": "order",
+   "zh": "我们学校离地铁站很近。",
+   "pieces": [
+    "我们学校",
+    "离",
+    "地铁站",
+    "很",
+    "近",
+    "。"
+   ],
+   "id": "Sekolah kami dekat dari stasiun kereta bawah tanah."
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "id": "chule",
+ "level": 3,
+ "seq": 8,
+ "detect": "除了",
+ "title": "除了…以外: kecuali / selain …",
+ "pattern": "除了 A (以外)，… 都 / 还 / 也 …",
+ "explain": [
+  "除了 A 以外，… 都 … = kecuali A, semua …: 除了他以外，我们都去了.",
+  "除了 A 以外，… 还 / 也 … = selain A, juga …: 除了游泳，我还喜欢跑步."
+ ],
+ "examples": [
+  [
+   "除了他以外，我们都去了。",
+   "Kecuali dia, kami semua pergi."
+  ],
+  [
+   "除了游泳，我还喜欢跑步。",
+   "Selain berenang, aku juga suka lari."
+  ],
+  [
+   "除了星期天，我每天都上班。",
+   "Kecuali hari Minggu, aku bekerja setiap hari."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "以外除了他，我们都去了。",
+   "right": "除了他以外，我们都去了。",
+   "why": "除了 di depan, 以外 di belakang yang dikecualikan."
+  }
+ ],
+ "contrast": [],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "除了我以外，大家都去了。",
+   "blank": "都",
+   "options": [
+    "都",
+    "还",
+    "就"
+   ],
+   "id": "Kecuali aku, semua orang pergi."
+  },
+  {
+   "type": "choose",
+   "zh": "除了中国菜，我还喜欢吃日本菜。",
+   "blank": "还",
+   "options": [
+    "还",
+    "都",
+    "才"
+   ],
+   "id": "Selain masakan Tiongkok, aku juga suka masakan Jepang."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "除了他以外，我们都是学生。",
+    "除了跑步，我还喜欢游泳。",
+    "除了星期天，他每天都工作。"
+   ],
+   "wrong": "以外除了他，我们都来了。",
+   "fix": "除了他以外，我们都来了。",
+   "why": "除了 di depan, 以外 di belakang."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "除了咖啡，我还喝茶。",
+    "除了我，大家都知道。",
+    "除了数学，我的成绩都很好。"
+   ],
+   "wrong": "我除了以外他都认识。",
+   "fix": "除了他以外，我都认识。",
+   "why": "除了 + yang dikecualikan + 以外."
+  },
+  {
+   "type": "order",
+   "zh": "除了星期天，我每天都去上班。",
+   "pieces": [
+    "除了星期天",
+    "，",
+    "我",
+    "每天",
+    "都",
+    "去上班",
+    "。"
+   ],
+   "id": "Kecuali hari Minggu, aku bekerja setiap hari."
+  }
+ ]
+}

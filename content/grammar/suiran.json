@@ -1,0 +1,95 @@
+{
+ "id": "suiran",
+ "level": 2,
+ "seq": 8,
+ "detect": "虽然|但是",
+ "title": "虽然…但是…: meskipun … tetapi …",
+ "pattern": "虽然 + A，但是 + B",
+ "explain": [
+  "虽然 … 但是 … = meskipun … tetapi …. Dalam bahasa Mandarin keduanya biasa dipakai bersamaan (bahasa Indonesia biasanya hanya salah satu).",
+  "虽然 boleh di depan atau setelah subjek: 虽然他很忙 / 他虽然很忙."
+ ],
+ "examples": [
+  [
+   "虽然很贵，但是很好看。",
+   "Meskipun mahal, tetapi bagus."
+  ],
+  [
+   "他虽然很忙，但是每天都运动。",
+   "Meskipun sibuk, dia berolahraga setiap hari."
+  ],
+  [
+   "虽然下雨了，但是我们还是去了。",
+   "Meskipun hujan, kami tetap pergi."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "虽然很贵，所以我买了。",
+   "right": "虽然很贵，但是我买了。",
+   "why": "Pasangan 虽然 adalah 但是, bukan 所以."
+  }
+ ],
+ "contrast": [
+  "yinwei-suoyi"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "虽然很累，但是我很高兴。",
+   "blank": "但是",
+   "options": [
+    "但是",
+    "所以",
+    "还是"
+   ],
+   "id": "Meskipun capek, aku senang."
+  },
+  {
+   "type": "choose",
+   "zh": "虽然天气不好，但是他来了。",
+   "blank": "虽然",
+   "options": [
+    "虽然",
+    "因为",
+    "所以"
+   ],
+   "id": "Meskipun cuacanya tidak bagus, dia datang."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "虽然很远，但是我想去。",
+    "他虽然很小，但是会做饭。",
+    "虽然下雨了，但是不冷。"
+   ],
+   "wrong": "虽然很贵，所以我没买。",
+   "fix": "虽然很贵，但是我买了。",
+   "why": "Pasangan 虽然 adalah 但是."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "虽然我很忙，但是我会去。",
+    "这个菜虽然便宜，但是很好吃。",
+    "虽然他不高，但是跑得很快。"
+   ],
+   "wrong": "但是很远，虽然我想去。",
+   "fix": "虽然很远，但是我想去。",
+   "why": "虽然 di bagian pertama, 但是 di bagian kedua."
+  },
+  {
+   "type": "order",
+   "zh": "虽然这件衣服很贵，但是很漂亮。",
+   "pieces": [
+    "虽然",
+    "这件衣服很贵",
+    "，",
+    "但是",
+    "很漂亮",
+    "。"
+   ],
+   "id": "Meskipun baju ini mahal, tetapi sangat cantik."
+  }
+ ]
+}

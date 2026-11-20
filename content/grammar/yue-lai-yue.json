@@ -1,0 +1,94 @@
+{
+ "id": "yue-lai-yue",
+ "level": 3,
+ "seq": 3,
+ "detect": "越来越|越.{1,4}越",
+ "title": "越来越: makin lama makin",
+ "pattern": "越来越 + kata sifat · 越 A 越 B",
+ "explain": [
+  "越来越 + kata sifat = makin lama makin …: 天气越来越冷. Tanpa 很: 越来越好, bukan 越来越很好.",
+  "越 A 越 B = makin A makin B: 越学越有意思."
+ ],
+ "examples": [
+  [
+   "天气越来越冷了。",
+   "Cuaca makin dingin."
+  ],
+  [
+   "他的汉语越来越好。",
+   "Bahasa Mandarinnya makin bagus."
+  ],
+  [
+   "汉语越学越有意思。",
+   "Bahasa Mandarin makin dipelajari makin menarik."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "天气越来越很冷。",
+   "right": "天气越来越冷。",
+   "why": "越来越 tanpa 很."
+  }
+ ],
+ "contrast": [
+  "geng"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我的成绩越来越好。",
+   "blank": "越来越",
+   "options": [
+    "越来越",
+    "一边",
+    "一样"
+   ],
+   "id": "Nilaiku makin bagus."
+  },
+  {
+   "type": "choose",
+   "zh": "雨越下越大。",
+   "blank": "越",
+   "options": [
+    "越",
+    "也",
+    "又"
+   ],
+   "id": "Hujan makin lama makin deras."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "天气越来越热。",
+    "他越来越高了。",
+    "这个城市越来越漂亮。"
+   ],
+   "wrong": "他越来越很忙。",
+   "fix": "他越来越忙。",
+   "why": "越来越 tanpa 很."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "汉语越学越有意思。",
+    "雨越下越大。",
+    "我越来越喜欢这儿了。"
+   ],
+   "wrong": "越来越我喜欢他。",
+   "fix": "我越来越喜欢他。",
+   "why": "越来越 setelah subjek."
+  },
+  {
+   "type": "order",
+   "zh": "我的汉语越来越好了。",
+   "pieces": [
+    "我的汉语",
+    "越来越",
+    "好",
+    "了",
+    "。"
+   ],
+   "id": "Bahasa Mandarinku makin bagus."
+  }
+ ]
+}

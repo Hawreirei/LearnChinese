@@ -1,0 +1,96 @@
+{
+ "id": "geng",
+ "level": 3,
+ "seq": 18,
+ "detect": "更",
+ "title": "更: lebih (lagi)",
+ "pattern": "更 + kata sifat / kata kerja perasaan",
+ "explain": [
+  "更 = lebih, untuk membandingkan dua hal yang sama-sama punya sifat itu: 他很高，他哥哥更高.",
+  "Dalam kalimat 比 boleh dipakai 更 atau 还, bukan 很: 今天比昨天更冷."
+ ],
+ "examples": [
+  [
+   "他很高，他哥哥更高。",
+   "Dia tinggi, kakaknya lebih tinggi lagi."
+  ],
+  [
+   "今天比昨天更冷。",
+   "Hari ini lebih dingin daripada kemarin."
+  ],
+  [
+   "我更喜欢秋天。",
+   "Aku lebih suka musim gugur."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "今天比昨天很冷。",
+   "right": "今天比昨天更冷。",
+   "why": "Dalam kalimat 比, pakai 更 (atau tanpa keterangan), bukan 很."
+  }
+ ],
+ "contrast": [
+  "bi",
+  "yue-lai-yue"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "这个办法更简单。",
+   "blank": "更",
+   "options": [
+    "更",
+    "很多",
+    "最多"
+   ],
+   "id": "Cara ini lebih sederhana."
+  },
+  {
+   "type": "choose",
+   "zh": "我喜欢夏天，但是更喜欢冬天。",
+   "blank": "更",
+   "options": [
+    "更",
+    "比",
+    "还是"
+   ],
+   "id": "Aku suka musim panas, tapi lebih suka musim dingin."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "这个比那个更好。",
+    "我更想去南方。",
+    "他的汉语更好了。"
+   ],
+   "wrong": "今天比昨天很热。",
+   "fix": "今天比昨天更热。",
+   "why": "Dalam kalimat 比 tidak memakai 很."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我更喜欢喝茶。",
+    "他比我更忙。",
+    "这里更安静。"
+   ],
+   "wrong": "我喜欢更喝茶。",
+   "fix": "我更喜欢喝茶。",
+   "why": "更 sebelum kata kerja perasaan."
+  },
+  {
+   "type": "order",
+   "zh": "我觉得这个办法更好。",
+   "pieces": [
+    "我",
+    "觉得",
+    "这个办法",
+    "更",
+    "好",
+    "。"
+   ],
+   "id": "Menurutku cara ini lebih baik."
+  }
+ ]
+}

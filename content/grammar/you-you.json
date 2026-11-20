@@ -1,0 +1,100 @@
+{
+ "id": "you-you",
+ "level": 3,
+ "seq": 9,
+ "detect": "又.{1,4}又",
+ "title": "又…又…: sekaligus; 又: lagi (sudah terjadi)",
+ "pattern": "又 + kata sifat + 又 + kata sifat",
+ "explain": [
+  "又 A 又 B = sekaligus A dan B (dua sifat yang sejalan): 又便宜又好吃.",
+  "又 juga berarti “lagi” untuk hal yang sudah terjadi: 他又迟到了. Untuk hal yang belum terjadi pakai 再."
+ ],
+ "examples": [
+  [
+   "这个苹果又大又甜。",
+   "Apel ini besar dan manis."
+  ],
+  [
+   "她又聪明又努力。",
+   "Dia pintar sekaligus rajin."
+  ],
+  [
+   "他今天又迟到了。",
+   "Hari ini dia terlambat lagi."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "这个菜又很便宜又很好吃。",
+   "right": "这个菜又便宜又好吃。",
+   "why": "Biasanya tanpa 很."
+  },
+  {
+   "wrong": "明天我又来。",
+   "right": "明天我再来。",
+   "why": "“Lagi” di masa depan: 再."
+  }
+ ],
+ "contrast": [
+  "zai-again"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "这件衣服又便宜又好看。",
+   "blank": "又",
+   "options": [
+    "又",
+    "也",
+    "都"
+   ],
+   "id": "Baju ini murah dan bagus."
+  },
+  {
+   "type": "choose",
+   "zh": "他昨天迟到了，今天又迟到了。",
+   "blank": "又",
+   "options": [
+    "又",
+    "再",
+    "还"
+   ],
+   "id": "Kemarin dia terlambat, hari ini terlambat lagi."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "这里又安静又干净。",
+    "她又高又漂亮。",
+    "他又来了。"
+   ],
+   "wrong": "这个西瓜又很大又很甜。",
+   "fix": "这个西瓜又大又甜。",
+   "why": "又 … 又 … biasanya tanpa 很."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我又忘了带伞。",
+    "这个房间又大又亮。",
+    "他又生病了。"
+   ],
+   "wrong": "我们明天又去吧。",
+   "fix": "我们明天再去吧。",
+   "why": "Rencana di masa depan: 再."
+  },
+  {
+   "type": "order",
+   "zh": "这家饭馆的菜又便宜又好吃。",
+   "pieces": [
+    "这家饭馆的菜",
+    "又",
+    "便宜",
+    "又",
+    "好吃",
+    "。"
+   ],
+   "id": "Masakan rumah makan ini murah dan enak."
+  }
+ ]
+}

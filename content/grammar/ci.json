@@ -1,0 +1,95 @@
+{
+ "id": "ci",
+ "level": 2,
+ "seq": 21,
+ "detect": "(一|两|三|四|五|六|七|八|九|十|几)次",
+ "title": "次: berapa kali",
+ "pattern": "Kata kerja + (了/过) + jumlah + 次 (+ objek)",
+ "explain": [
+  "Frekuensi (… kali) diletakkan setelah kata kerja: 我去过两次, 一个星期运动三次.",
+  "Dengan objek benda: 我去过两次中国 atau 我去过中国两次."
+ ],
+ "examples": [
+  [
+   "我去过两次中国。",
+   "Aku pernah ke Tiongkok dua kali."
+  ],
+  [
+   "我一个星期游泳三次。",
+   "Seminggu aku berenang tiga kali."
+  ],
+  [
+   "这个电影我看了三次。",
+   "Film ini sudah kutonton tiga kali."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我两次去过中国。",
+   "right": "我去过两次中国。",
+   "why": "Frekuensi di belakang kata kerja."
+  }
+ ],
+ "contrast": [
+  "duration"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我去过两次那个饭店。",
+   "blank": "次",
+   "options": [
+    "次",
+    "个",
+    "本"
+   ],
+   "id": "Aku pernah dua kali ke restoran itu."
+  },
+  {
+   "type": "choose",
+   "zh": "你一个星期运动几次？",
+   "blank": "几",
+   "options": [
+    "几",
+    "多",
+    "什么"
+   ],
+   "id": "Seminggu kamu berolahraga berapa kali?"
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我看过三次。",
+    "他来过两次。",
+    "我一个月去一次商店。"
+   ],
+   "wrong": "我三次看了这个电影。",
+   "fix": "这个电影我看了三次。",
+   "why": "Frekuensi di belakang kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我们见过一次。",
+    "请再说一次。",
+    "我每天吃三次药。"
+   ],
+   "wrong": "我们一次见过。",
+   "fix": "我们见过一次。",
+   "why": "Frekuensi di belakang kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我一个星期去两次商店。",
+   "pieces": [
+    "我",
+    "一个星期",
+    "去",
+    "两次",
+    "商店",
+    "。"
+   ],
+   "id": "Seminggu aku pergi ke toko dua kali."
+  }
+ ]
+}

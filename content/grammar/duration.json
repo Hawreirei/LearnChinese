@@ -1,0 +1,94 @@
+{
+ "id": "duration",
+ "level": 2,
+ "seq": 20,
+ "detect": "(等|住|学|睡|走|玩|工作|休息|跑|看|聊)了?(一|两|三|四|五|六|七|八|九|十|半|几)(个)?(小时|天|年|月|分钟|星期)",
+ "title": "Lama waktu: 学了两年",
+ "pattern": "Kata kerja + (了) + lama waktu (+ objek)",
+ "explain": [
+  "Lama kegiatan diletakkan SETELAH kata kerja: 我学了两年 (aku belajar selama dua tahun), 他睡了八个小时.",
+  "Dengan objek: 我学了两年汉语. Bandingkan: waktu kejadian (kapan) di depan kata kerja, lama waktu (berapa lama) di belakang."
+ ],
+ "examples": [
+  [
+   "我学了两年汉语。",
+   "Aku belajar bahasa Mandarin selama dua tahun."
+  ],
+  [
+   "他每天睡八个小时。",
+   "Setiap hari dia tidur delapan jam."
+  ],
+  [
+   "我等了你半个小时。",
+   "Aku menunggumu setengah jam."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我两年学了汉语。",
+   "right": "我学了两年汉语。",
+   "why": "Lama waktu di belakang kata kerja."
+  }
+ ],
+ "contrast": [
+  "time-order"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我在中国住了三年。",
+   "blank": "三年",
+   "options": [
+    "三年",
+    "三个",
+    "第三"
+   ],
+   "id": "Aku tinggal di Tiongkok selama tiga tahun."
+  },
+  {
+   "type": "choose",
+   "zh": "他每天跑步一个小时。",
+   "blank": "一个小时",
+   "options": [
+    "一个小时",
+    "一点",
+    "第一"
+   ],
+   "id": "Setiap hari dia lari satu jam."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我等了你十分钟。",
+    "他学了三年汉语。",
+    "我们玩了一天。"
+   ],
+   "wrong": "我两个小时睡了。",
+   "fix": "我睡了两个小时。",
+   "why": "Lama waktu di belakang kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我每天上网两个小时。",
+    "他在那儿住了一年。",
+    "我们走了半个小时。"
+   ],
+   "wrong": "我半个小时等了你。",
+   "fix": "我等了你半个小时。",
+   "why": "Lama waktu di belakang kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我学了两年汉语。",
+   "pieces": [
+    "我",
+    "学了",
+    "两年",
+    "汉语",
+    "。"
+   ],
+   "id": "Aku belajar bahasa Mandarin selama dua tahun."
+  }
+ ]
+}

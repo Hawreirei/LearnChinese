@@ -1,6 +1,7 @@
 {
   "id": "restoran",
   "level": 3,
+  "grammar": ["huozhe", "bijiao"],
   "seq": 1,
   "zh": "在餐厅",
   "title": "Di restoran",

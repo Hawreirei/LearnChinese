@@ -1,6 +1,7 @@
 {
   "id": "keluarga",
   "level": 1,
+  "grammar": ["you", "measure", "de"],
   "seq": 4,
   "zh": "我的家人",
   "title": "Keluarga saya",

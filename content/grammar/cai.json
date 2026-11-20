@@ -1,0 +1,100 @@
+{
+ "id": "cai",
+ "level": 3,
+ "seq": 12,
+ "detect": "才",
+ "title": "才: baru (lebih lambat dari dugaan)",
+ "pattern": "Waktu + 才 + kata kerja",
+ "explain": [
+  "才 = baru, untuk sesuatu yang terjadi lebih lambat atau lebih sulit dari dugaan: 他十点才起床 (dia baru bangun pukul sepuluh). Kalimatnya tidak diakhiri 了.",
+  "Kebalikannya 就 (sudah, lebih cepat): 他六点就起床了."
+ ],
+ "examples": [
+  [
+   "他十点才起床。",
+   "Dia baru bangun pukul sepuluh."
+  ],
+  [
+   "我等了一个小时，他才来。",
+   "Aku menunggu satu jam, baru dia datang."
+  ],
+  [
+   "这个问题我想了很久才明白。",
+   "Aku baru paham soal ini setelah lama berpikir."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他十点才起床了。",
+   "right": "他十点才起床。",
+   "why": "Kalimat dengan 才 tidak diakhiri 了."
+  },
+  {
+   "wrong": "他才十点起床。",
+   "right": "他十点才起床。",
+   "why": "才 setelah waktu, sebelum kata kerja."
+  }
+ ],
+ "contrast": [
+  "jiu"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "会议九点开始，他九点半才来。",
+   "blank": "才",
+   "options": [
+    "才",
+    "就",
+    "还"
+   ],
+   "id": "Rapat mulai pukul sembilan, dia baru datang pukul setengah sepuluh."
+  },
+  {
+   "type": "choose",
+   "zh": "我早上六点就起床了。",
+   "blank": "就",
+   "options": [
+    "就",
+    "才",
+    "再"
+   ],
+   "id": "Aku sudah bangun pukul enam pagi."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他晚上十二点才睡觉。",
+    "我看了三遍才看懂。",
+    "你怎么现在才来？"
+   ],
+   "wrong": "他十点才起床了。",
+   "fix": "他十点才起床。",
+   "why": "Tanpa 了 dengan 才."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我七点就到了。",
+    "他八点才到。",
+    "我们等了很久他才来。"
+   ],
+   "wrong": "他才八点到。",
+   "fix": "他八点才到。",
+   "why": "才 setelah waktu."
+  },
+  {
+   "type": "order",
+   "zh": "他昨天晚上十二点才回家。",
+   "pieces": [
+    "他",
+    "昨天晚上",
+    "十二点",
+    "才",
+    "回家",
+    "。"
+   ],
+   "id": "Tadi malam dia baru pulang pukul dua belas."
+  }
+ ]
+}

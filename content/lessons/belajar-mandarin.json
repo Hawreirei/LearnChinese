@@ -1,6 +1,7 @@
 {
   "id": "belajar-mandarin",
   "level": 3,
+  "grammar": ["yue-lai-yue", "potential"],
   "seq": 6,
   "zh": "学汉语",
   "title": "Belajar bahasa Mandarin",

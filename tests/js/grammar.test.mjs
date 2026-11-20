@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { pointOfQuestion, grammarProgress, statusOf, groupPoints, nextPoint } from "../../app/js/grammar.js";
+import { pointOfQuestion, grammarProgress, statusOf, groupPoints, nextPoint, weakestPoints } from "../../app/js/grammar.js";
 import { check } from "../../app/js/practice.js";
 import { indexQuestions } from "../../app/js/mistakes.js";
 import { optionKey } from "../../app/js/review.js";
@@ -67,4 +67,26 @@ test("grammar drills can be held by the buku kesalahan", () => {
   const index = indexQuestions([], [], G);
   assert.ok(index.get("g-shi-1"));
   assert.equal(index.size, G.reduce((a, p) => a + p.drills.length, 0));
+});
+
+test("weakest points: tagged bank items and the point's own drills, >= 3 answers, weakest first", () => {
+  const pts = [{ id: "bi", title: "比", level: 2, drills: [] }, { id: "ba", title: "把", level: 3, drills: [] }];
+  const index = new Map([["c1", { g: ["bi"] }], ["c2", { g: ["bi", "ba"] }], ["c3", {}]]);
+  const ev = [
+    { id: "c1", ok: 1 }, { id: "c1", ok: 0 }, { id: "c2", ok: 0 }, { id: "c3", ok: 0 },
+    { id: "g-ba-1", ok: 1 }, { id: "g-ba-2", ok: 1 }, { id: "c2", ok: 0, un: 1 },
+  ];
+  assert.deepEqual(weakestPoints(ev, index, pts), [
+    { id: "bi", title: "比", level: 2, n: 3, ok: 1, pct: 33 },
+    { id: "ba", title: "把", level: 3, n: 3, ok: 2, pct: 67 },
+  ]);
+  assert.deepEqual(weakestPoints(ev, index, pts, 4), []);
+});
+
+test("HSK 2 and 3 points exist and every lesson link points to an existing point at or below its level", () => {
+  const L = JSON.parse(readFileSync(new URL("../../data/hsk3/lessons.json", import.meta.url), "utf-8"));
+  const byId = new Map(G.map((p) => [p.id, p]));
+  assert.ok(G.filter((p) => p.level === 2).length >= 25 && G.filter((p) => p.level === 3).length >= 30);
+  for (const l of L) for (const g of l.grammar ?? []) assert.ok(byId.get(g)?.level <= l.level, `${l.id} ${g}`);
+  assert.ok(L.filter((l) => l.level <= 3).every((l) => l.grammar?.length), "every HSK 1-3 lesson names its grammar");
 });

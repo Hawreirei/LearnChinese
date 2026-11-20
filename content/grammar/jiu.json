@@ -1,0 +1,95 @@
+{
+ "id": "jiu",
+ "level": 2,
+ "seq": 6,
+ "detect": "就",
+ "title": "就: langsung, sudah (lebih cepat dari dugaan)",
+ "pattern": "Waktu / syarat + 就 + kata kerja",
+ "explain": [
+  "就 sebelum kata kerja menekankan bahwa sesuatu terjadi cepat, awal, atau mudah: 我七点就起床了 (jam tujuh sudah bangun), 走路五分钟就到了.",
+  "就 juga berarti “justru, tepat”: 他就是我哥哥, 洗手间就在那儿."
+ ],
+ "examples": [
+  [
+   "我早上六点就起床了。",
+   "Aku sudah bangun pukul enam pagi."
+  ],
+  [
+   "走路十分钟就到了。",
+   "Jalan kaki sepuluh menit sudah sampai."
+  ],
+  [
+   "他就是我们的老师。",
+   "Dialah guru kami."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "就我七点起床了。",
+   "right": "我七点就起床了。",
+   "why": "就 setelah subjek dan waktu, tepat sebelum kata kerja."
+  }
+ ],
+ "contrast": [
+  "cai"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我五分钟就到。",
+   "blank": "就",
+   "options": [
+    "就",
+    "还",
+    "再"
+   ],
+   "id": "Aku sampai dalam lima menit."
+  },
+  {
+   "type": "choose",
+   "zh": "洗手间就在门口旁边。",
+   "blank": "就",
+   "options": [
+    "就",
+    "也",
+    "都"
+   ],
+   "id": "Toiletnya tepat di sebelah pintu masuk."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他六点就来了。",
+    "我家很近，走路就能到。",
+    "这就是我的房间。"
+   ],
+   "wrong": "就他六点来了。",
+   "fix": "他六点就来了。",
+   "why": "就 sebelum kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "走路五分钟就到了。",
+    "我一会儿就回来。",
+    "他就是我哥哥。"
+   ],
+   "wrong": "我回来就一会儿。",
+   "fix": "我一会儿就回来。",
+   "why": "Waktu dulu, lalu 就 + kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我们八点就开始上课。",
+   "pieces": [
+    "我们",
+    "八点",
+    "就",
+    "开始",
+    "上课",
+    "。"
+   ],
+   "id": "Kami sudah mulai pelajaran pukul delapan."
+  }
+ ]
+}
