@@ -7,6 +7,10 @@ content/*.psv, content/pic/*      sumber tulisan sendiri (diedit manusia)
 content/lessons/*.json            pelajaran bertema (kalimat kunci, kata kunci, soal per langkah)
 blueprints/hsk3.0/*.yaml          struktur ujian resmi (angka dari dokumen CTI)
 data/hsk3/vocab.json, handwriting.json   daftar kata/hanzi tulis resmi (input)
+blueprints/hsk3.0/speaking-level-3.yaml + content/speaking/level-3.json → scripts/build_speaking.py → data/hsk3/speaking.json (format speaking TIDAK resmi, verified: false)
+content/grammar/<id>.json → scripts/build_grammar.py → data/hsk3/grammar.json (pola tata bahasa + latihan grammar_choose / error_spot / order_sentence)
+  "detect" (regex) di tiap pola → build_questions.py memberi tag "g": [id pola] pada soal isi kata / tulis hanzi / susun kalimat yang memuat pola itu (level pola ≤ level soal)
+data/hsk3/components.json         komponen hanzi tulis (scripts/build_components.py dari Make Me a Hanzi, LGPL; di-commit)
         │  scripts/build_id.py  build_questions.py  build_blueprints_json.py  build_lessons.py
         ▼
 data/hsk3/vocab_id.json  questions.json  blueprints.json  lessons.json   (hasil build, di-commit)
@@ -33,6 +37,12 @@ Logika murni (tanpa DOM, diuji di `tests/js/`):
 | `lesson.js` | pelajaran bertema: lima langkah, progres, nomor soal, id kata kunci, ringkasan per pelajaran, pelajaran berikutnya untuk Beranda |
 | `order.js` | soal susun kalimat: acak kepingan (tidak pernah langsung benar), periksa urutan (`alt` = urutan lain yang sah) |
 | `analytics.js` | tren, kelemahan, kata sulit, rekomendasi, set latihan kelemahan |
+| `essay.js` | pemeriksa tulisan bebas: `checkSentence` (galat vs peringatan, lihat jenis soal), `allowedChars` (hanzi kata silabus ≤ level); dipakai soal menulis kalimat sekarang, esai HSK 4+ nanti |
+| `speakexam.js` | simulasi speaking: kertas dari `speaking.json` (blueprint tidak resmi), langkah dan fase (dengar → persiapan → bicara), sisa waktu, kata silabus dalam transkrip (cocok terpanjang), statistik jawaban terbuka, rubrik 4 dimensi (1–3), ringkasan perkiraan |
+| `grammar.js` | tata bahasa: progres per pola dari log jawaban (jawaban terakhir tiap latihan `g-<pola>-<n>`; dikuasai = semua dijawab dan ≥80% benar), status kartu, urutan ajar, pola berikutnya, `weakestPoints` (akurasi per pola dari soal bertag `g` dan latihan pola, minimal 3 jawaban) |
+| `review.js` | pembahasan simulasi: simpan ringkas (id soal, jawaban, urutan pilihan/kepingan yang dilihat) satu per level, bangun ulang dari `questions.json`, filter salah/kosong/semua; soal yang sudah hilang dari bank dilewati dan dihitung |
+| `mistakes.js` | buku kesalahan: `applyAnswer` (dipanggil `Store.recordAnswer` untuk setiap jawaban; salah → masuk, jatuh tempo besok; benar dihitung sekali per hari dan tidak di hari salahnya; benar ke-1 → 3 hari lagi, ke-2 → keluar; kosong dan speaking diabaikan), maksimal 500 soal, indeks soal bank + pelajaran |
+| `plan.js` | target ujian: validasi `{level, examDate, minutes}`, hitung hari kalender lokal sampai ujian, teks kartu hitung mundur; rencana harian: kata baru/hari (sisa kata ÷ hari belajar, 14 hari cadangan, minggu terakhir tanpa kata baru, dibatasi menit belajar; dipakai `session.js` bila `settings.newPerDayAuto`), jadwal simulasi (tiap 10 hari, mingguan 3 minggu terakhir, tiap 3 hari minggu terakhir), aktivitas hari ini, dan daftar "Hari ini" |
 
 Tampilan (`app/js/views/`), semuanya menerima satu objek `app` dari `main.js` (`store`, `vocab`, `idData`, `questions`, `blueprints`, `render`, `go`):
 
@@ -40,6 +50,8 @@ Tampilan (`app/js/views/`), semuanya menerima satu objek `app` dari `main.js` (`
 |---|---|
 | `study.js`, `quiz.js`, `browse.js`, `settings.js` | Hafalan, Kuis, Daftar, Pengaturan |
 | `practice.js`, `exam.js` | Latihan, Ujian |
+| `speaking.js` | simulasi speaking (dibuka dari tab Ujian): pewaktu persiapan, rekam otomatis dan berhenti sendiri (`startAttempt`, mode `continuous` untuk jawaban panjang), skor kalimat ulang lewat pengenal ucapan, hasil per tugas dengan rekaman, transkrip, dan contoh jawaban, rubrik nilai sendiri |
+| `grammar.js` (views) | tab Tata bahasa: daftar per level, halaman pola, latihan lewat Latihan (`startPracticeWith` dengan tombol kembali) |
 | `write.js` | Tulis: animasi urutan goresan, tebalkan hanzi samar (bebas atau diperiksa per goresan), tulis dari ingatan; memakai Hanzi Writer di `js/vendor/` |
 | `lessons.js` | Pelajaran: daftar, halaman pelajaran, stepper, langkah Listening/Reading/Writing/Speaking/Vocab |
 | `progress.js` | Kemajuan (analisis + ringkasan hafalan) |
@@ -52,12 +64,15 @@ Tampilan (`app/js/views/`), semuanya menerima satu objek `app` dari `main.js` (`
 ```json
 { "version": 1,
   "cards":   { "<id kata>": { "state", "step", "ease", "interval", "due", "reps", "lapses" } },
-  "settings": { "levels": [1], "newPerDay": 10, "speak": true },
+  "settings": { "levels": [1], "newPerDay": 10, "newPerDayAuto": true, "speak": true },
+  "plan":    { "level": 3, "examDate": "2026-12-13", "minutes": 30 },
   "daily":   { "date": "YYYY-MM-DD", "introduced": 0 },
   "log":     { "YYYY-MM-DD": <jumlah ulasan hafalan> },
   "practice": { "reading": {"n": 0, "ok": 0}, "...": "penghitung ringkas per keterampilan" },
-  "events":  [ { "t", "k": "practice|exam", "s": skill, "l": level, "ty": tipe, "id": "c190", "w": id kata, "ok": 0|1, "ms", "un"? } ],
-  "exams":   [ { "t", "level", "pct", "correct", "total", "assisted", "duration_ms", "sections": [...] } ] }
+  "events":  [ { "t", "k": "practice|exam", "s": skill, "l": level, "ty": tipe, "id": "c190", "w": id kata, "ok": 0|1, "ms", "un"?, "mb"? } ],
+  "exams":   [ { "t", "level", "pct", "correct", "total", "assisted", "duration_ms", "sections": [...] } ],
+  "mistakes": { "<id soal>": { "added", "due", "streak", "src": "practice|lesson|exam|manual", "day": "YYYY-MM-DD" } },
+  "examReviews": { "<level>": { "v": 1, "t", "level", "sections": [ { "skill", "items": [ { "id", "r", "a", "ok", "o"?, "tiles"?, "choices"?, "bank"?, "sub"? } ] } ] } } }
 ```
 
 Penamaan di `Store`: `recordAnswer` (jawaban soal), `recordExam`, `recordReview` (ulasan kartu), `markIntroduced`.
@@ -72,16 +87,22 @@ Nama sama dengan `part.type` di `blueprints/hsk3.0/*.yaml`. Dibangun oleh `scrip
 | Membaca | `sentence_match_picture` (6 gambar) | 53 | `content/pic/scenes.json` |
 | Membaca | `short_text_mcq` (HSK 1–2) | 30 | `content/id/reading-level-1/2.psv` |
 | Membaca | `passage_mcq` (paragraf 58–84 hanzi, HSK 3) | 28 | `content/id/reading-level-3.psv` |
+| Membaca | `match_question_to_answer` (grup 5 pertanyaan + 6 jawaban, satu pengecoh; tiap pertanyaan = 1 soal, satu urutan A–F per grup) | 150 (30 grup) | `content/id/match-level-1..3.psv`; pembangun menandai jenis pertanyaan (siapa/di mana/kapan/berapa/apa/ya-tidak/…) dan menolak grup yang dua pertanyaannya sejenis atau pengecohnya menjawab salah satu jenis itu; ujian mengambil grup utuh |
 | Menulis | `write_hanzi_from_pinyin` | 601 | kalimat contoh; hanya hanzi yang bacaannya unik di level itu |
+| Menulis | `write_sentence_from_picture_and_word` (HSK 3 W2: gambar + kata wajib → satu kalimat) | 44 | `content/writing/level-3.json` (adegan dari `scenes.json`, 3 jawaban model per tugas). Diperiksa lokal oleh `essay.js` (galat: kosong, kata wajib tidak ada, tanpa 。！？; peringatan: pendek/panjang, huruf Latin, tanda baca Latin, hanzi di atas level, hanzi yang sering tertukar). Latihan: pelajar menilai sendiri setelah melihat contoh (benar / hampir / belum); Ujian: lolos cek otomatis = benar (perkiraan, diberi tahu di layar) |
+| Menulis | `choose_missing_character_component` (HSK 2 W1; HSK 3 hanya Latihan) | 55 + 108 | `components.json` (Make Me a Hanzi, LGPL): hanzi tulis digambar dari data goresan tanpa goresan satu komponen (utamakan radikal; komponen dan sisanya ≥2 goresan; hanzi yang kedua bagiannya sama dilewati); 2 pengecoh dari tabel komponen mirip lalu komponen lain di posisi yang sama, ditolak bila membentuk hanzi lain di daftar hanzi tulis; petunjuk = kata berpinyin dengan hanzinya dikosongkan |
 | Menulis | `order_sentence` (susun kalimat; hanya Latihan, belum ada di blueprint resmi) | 828 | kalimat contoh dipecah per kata silabus (maximum matching) + tanda baca; dibuang bila ada kata yang bisa pindah tempat (waktu, 和, dst.), dua klausa penuh, atau deretan angka |
 | Mendengar | `audio_phrase_pick_picture` (HSK 1) | 45 | dibangkitkan: 9 benda × jumlah 1–5 |
 | Mendengar | `audio_sentence_pick_picture` (HSK 2) | 53 | `scenes.json` |
 | Mendengar | `audio_dialog_match_picture` | 42 | `content/pic/dialogs.psv` |
-| Mendengar | `audio_question_pick_answer` / `audio_dialog_question_mcq` / `audio_passage_question_mcq` | 68 / 24 / 12 | `content/id/qa-level-*.psv`, `dialog-level-3.psv` |
+| Mendengar | `audio_question_pick_answer` / `audio_dialog_question_mcq` / `audio_passage_question_mcq` | 68 / 64 / 12 | `content/id/qa-level-*.psv`, `dialog-level-2.psv` (HSK 2), `dialog-level-3.psv` |
+| Mendengar | `audio_statement_question_mcq` (HSK 1 bagian 4: pernyataan + pertanyaan, 3 pilihan) | 60 | `content/id/statement-level-1.psv` |
 
 **Soal bergambar** memakai emoji sebagai gambar (buatan sendiri, bebas lisensi; tampilan mengikuti font perangkat). 76 adegan dalam 21 kelompok; semua pilihan gambar berasal dari **kelompok berbeda**, sehingga paling banyak satu gambar yang cocok dengan teks. Foto asli: isi `src` pada opsi gambar (UI sudah mendukung `<img>`).
 
-Belum ada: `match_question_to_answer`, `audio_statement_question_mcq`, `choose_missing_character_component`, `write_sentence_from_picture_and_word`, soal level 4+, speaking. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
+Semua bagian ujian HSK 1–3 kini memakai jenis soal resmi. Belum ada: soal level 4+, speaking HSK 4–6.
+
+**Speaking HSK 3** (simulasi, format tidak resmi): S1 ulangi kalimat 8 × 15 dtk, S2 bicara tentang gambar 5 × (15 dtk persiapan + 30 dtk), S3 jawab pertanyaan 2 × (180 dtk + 90 dtk); bank: 40 kalimat, 20 gambar, 40 pertanyaan, semua dengan contoh jawaban. Kalimat ulang dinilai seperti langkah bicara pelajaran (hanzi terdengar; pengenal yang gagal karena galat teknis = tidak dinilai); jawaban terbuka mendapat transkrip, hanzi/menit, dan kata silabus yang dipakai, lalu dinilai sendiri dengan rubrik. Rekaman hanya di memori. Hasil ringkas di `store.data.speakingExams`. Bagian ujian dengan jenis seperti itu diisi pengganti terdekat dan ditandai (`part.official = false`).
 
 ## Aturan mutu yang dijaga otomatis
 

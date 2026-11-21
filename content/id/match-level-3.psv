@@ -1,0 +1,62 @@
+# Mencocokkan pertanyaan dengan jawaban (match_question_to_answer), HSK 3. Format: lihat match-level-1.psv.
+# level|grup|pertanyaan|jawaban|terjemahan pertanyaan|terjemahan jawaban
+3|a|你打算什么时候搬家？|下个月，我已经找到新房子了。|Kapan kamu berencana pindah rumah?|Bulan depan, aku sudah menemukan rumah baru.
+3|a|你们经理是一个什么样的人？|他很热情，对大家也很关心。|Manajer kalian orangnya seperti apa?|Dia ramah, juga sangat peduli pada semua orang.
+3|a|你为什么请假？|我感冒了，还有点儿发烧。|Mengapa kamu minta izin?|Aku masuk angin, juga agak demam.
+3|a|附近有银行吗？|有，过了路口就是。|Apakah ada bank di dekat sini?|Ada, setelah perempatan langsung kelihatan.
+3|a|这次比赛谁得了第一？|是我们班的一个女生。|Siapa juara satu pertandingan kali ini?|Seorang siswi dari kelas kami.
+3|a|*你的行李有多重？|大概二十公斤。|-|Kira-kira dua puluh kilogram.
+3|b|你周末一般做什么？|我一般去公园锻炼身体。|Akhir pekan biasanya kamu melakukan apa?|Biasanya aku berolahraga di taman.
+3|b|你在这儿住了多长时间了？|快三年了。|Sudah berapa lama kamu tinggal di sini?|Hampir tiga tahun.
+3|b|图书馆在哪儿？|就在体育馆的东边。|Perpustakaan di mana?|Tepat di sebelah timur gedung olahraga.
+3|b|你觉得这个办法怎么样？|我觉得很好，就这么办吧。|Menurutmu cara ini bagaimana?|Menurutku bagus, kita lakukan saja begitu.
+3|b|你会骑自行车吗？|会，我小时候就学会了。|Apakah kamu bisa naik sepeda?|Bisa, aku sudah belajar sejak kecil.
+3|b|*你为什么这么高兴？|因为我考试得了一百分。|-|Karena ujianku dapat nilai seratus.
+3|c|你想吃米饭还是面条？|我想吃面条。|Kamu ingin makan nasi atau mi?|Aku ingin makan mi.
+3|c|你的护照放在哪儿了？|我放在行李箱里了。|Paspormu kamu taruh di mana?|Kutaruh di dalam koper.
+3|c|他们是什么时候结婚的？|前年夏天结婚的。|Kapan mereka menikah?|Mereka menikah musim panas dua tahun lalu.
+3|c|你一共买了几斤苹果？|买了三斤。|Kamu membeli berapa jin apel semuanya?|Tiga jin.
+3|c|谁能帮我照张相？|我来吧，你们站好。|Siapa yang bisa membantu memotretku?|Biar aku saja, kalian berdiri yang rapi.
+3|c|*你怎么去机场？|我打算坐地铁去。|-|Aku berencana naik kereta bawah tanah.
+3|d|你为什么不喝啤酒？|我要开车，不能喝酒。|Mengapa kamu tidak minum bir?|Aku harus menyetir, tidak boleh minum alkohol.
+3|d|你最近身体怎么样？|挺好的，我每天都坚持锻炼。|Bagaimana kesehatanmu akhir-akhir ini?|Cukup baik, aku rutin berolahraga setiap hari.
+3|d|你的房间在几层？|在十二层，电梯旁边那间。|Kamarmu di lantai berapa?|Di lantai dua belas, kamar di sebelah lift.
+3|d|我们怎么去动物园？|坐公交车去最方便。|Bagaimana kita pergi ke kebun binatang?|Paling praktis naik bus.
+3|d|你认识那位老人吗？|认识，他是我的邻居。|Apakah kamu kenal bapak tua itu?|Kenal, dia tetanggaku.
+3|d|*你在哪儿学的游泳？|在学校的体育馆学的。|-|Belajar di gedung olahraga sekolah.
+3|e|你需要什么？|我需要一本汉语词典。|Kamu butuh apa?|Aku butuh sebuah kamus bahasa Mandarin.
+3|e|你什么时候放假？|下个星期五开始放假。|Kapan kamu libur?|Mulai libur Jumat depan.
+3|e|坐在你旁边的人是谁？|是我们公司的新同事。|Orang yang duduk di sebelahmu siapa?|Rekan kerja baru di kantor kami.
+3|e|你能不能帮我一下？|当然可以，你说吧。|Bisakah kamu membantuku sebentar?|Tentu bisa, katakan saja.
+3|e|这个西瓜怎么卖？|五块钱一斤。|Semangka ini dijual berapa?|Lima yuan per jin.
+3|e|*你为什么迟到了？|路上车太多了。|-|Di jalan terlalu banyak mobil.
+3|f|你习惯这儿的生活了吗？|已经习惯了，这儿的人都很热情。|Apakah kamu sudah terbiasa dengan kehidupan di sini?|Sudah terbiasa, orang-orang di sini sangat ramah.
+3|f|你对什么感兴趣？|我对中国历史很感兴趣。|Kamu tertarik pada apa?|Aku sangat tertarik pada sejarah Tiongkok.
+3|f|这个地方怎么这么安静？|因为大家都去参加晚会了。|Kenapa tempat ini sepi sekali?|Karena semua orang pergi ke pesta malam.
+3|f|你还要等多久？|大概还要十分钟。|Kamu masih harus menunggu berapa lama lagi?|Kira-kira sepuluh menit lagi.
+3|f|你们公司有多少人？|一百多个人。|Perusahaan kalian ada berapa orang?|Lebih dari seratus orang.
+3|f|*你跟谁一起去旅游？|跟我爱人和孩子一起去。|-|Bersama istri dan anakku.
+3|g|你昨天为什么没参加会议？|我的孩子发烧了，我得照顾他。|Mengapa kemarin kamu tidak ikut rapat?|Anakku demam, aku harus merawatnya.
+3|g|新来的经理叫什么名字？|他姓张，叫张明。|Siapa nama manajer yang baru datang?|Marganya Zhang, namanya Zhang Ming.
+3|g|你的笔记本电脑多少钱？|五千多块。|Laptopmu berapa harganya?|Lebih dari lima ribu yuan.
+3|g|你们公司离地铁站远吗？|不远，走路五分钟就到了。|Apakah kantor kalian jauh dari stasiun kereta bawah tanah?|Tidak jauh, lima menit jalan kaki sudah sampai.
+3|g|这次假期你打算去哪儿？|我打算去南方看看大海。|Liburan kali ini kamu berencana ke mana?|Aku berencana ke selatan untuk melihat laut.
+3|g|*考试什么时候结束？|上午十一点半结束。|-|Selesai pukul setengah dua belas siang.
+3|h|你哪天有时间？|星期六下午我有时间。|Hari apa kamu punya waktu?|Sabtu sore aku punya waktu.
+3|h|你的成绩怎么样？|比上学期提高了很多。|Bagaimana nilaimu?|Naik banyak dibanding semester lalu.
+3|h|你为什么选择这家银行？|因为它离我家最近。|Mengapa kamu memilih bank ini?|Karena paling dekat dengan rumahku.
+3|h|谁是你们的校长？|那位头发白白的老人就是。|Siapa kepala sekolah kalian?|Bapak tua yang rambutnya putih itu.
+3|h|你喜欢哪个季节？|我最喜欢秋天，不冷也不热。|Kamu suka musim yang mana?|Aku paling suka musim gugur, tidak dingin dan tidak panas.
+3|h|*你会做蛋糕吗？|会一点儿，可是做得不太好。|-|Bisa sedikit, tapi hasilnya kurang bagus.
+3|i|你的作业写完了吗？|还没有，还差两页。|Apakah PR-mu sudah selesai?|Belum, masih kurang dua halaman.
+3|i|我们怎么解决这个问题？|我们可以请经理帮忙。|Bagaimana kita menyelesaikan masalah ini?|Kita bisa minta bantuan manajer.
+3|i|这个箱子有多重？|大概二十五公斤。|Koper ini seberat apa?|Kira-kira dua puluh lima kilogram.
+3|i|你在找什么？|我在找我的银行卡。|Kamu sedang mencari apa?|Aku sedang mencari kartu bankku.
+3|i|你在哪儿遇到他的？|在超市门口遇到的。|Di mana kamu bertemu dia?|Bertemu di depan pintu supermarket.
+3|i|*你什么时候去北方？|明年冬天去。|-|Musim dingin tahun depan.
+3|j|你为什么这么着急？|我的火车马上就要开了。|Mengapa kamu terburu-buru sekali?|Keretaku sebentar lagi berangkat.
+3|j|你们班一共有多少个学生？|一共四十个，男生和女生一样多。|Kelasmu ada berapa murid semuanya?|Empat puluh orang, laki-laki dan perempuan sama banyak.
+3|j|你要喝什么饮料？|给我一瓶矿泉水吧。|Kamu mau minum apa?|Tolong beri aku sebotol air mineral.
+3|j|你的照片是在哪儿拍的？|在家附近的公园拍的。|Fotomu diambil di mana?|Di taman dekat rumah.
+3|j|你今天晚上能来参加晚会吗？|能，我一下班就来。|Bisakah kamu datang ke pesta malam ini?|Bisa, begitu pulang kerja aku datang.
+3|j|*你的新邻居怎么样？|他们很热情，也很爱干净。|-|Mereka ramah, juga suka kebersihan.

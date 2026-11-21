@@ -21,10 +21,19 @@ function fallbackPool(questions, skill, level) {
   return questions.filter((q) => q.skill === skill && q.level === level && SUBSTITUTE[skill].includes(q.type));
 }
 
+/** Shuffle, but keep the items of a matching group (`q.group`: five questions sharing six answers) together,
+ *  so a part of five takes one whole group, as on the official paper. */
+function shuffleKeepingGroups(list, rand) {
+  if (!list.some((q) => q.group)) return shuffle(list, rand);
+  const groups = new Map();
+  for (const q of list) { const k = q.group ?? q.id; (groups.get(k) ?? groups.set(k, []).get(k)).push(q); }
+  return shuffle([...groups.values()], rand).flatMap((g) => shuffle(g, rand));
+}
+
 /** Exact-type pool for a part: this level and below (a HSK 3 paper also uses HSK 1-2 material), own level first. */
 function exactPool(questions, type, level, rand) {
-  const own = shuffle(questions.filter((q) => q.type === type && q.level === level), rand);
-  const lower = shuffle(questions.filter((q) => q.type === type && q.level < level), rand);
+  const own = shuffleKeepingGroups(questions.filter((q) => q.type === type && q.level === level), rand);
+  const lower = shuffleKeepingGroups(questions.filter((q) => q.type === type && q.level < level), rand);
   return [...own, ...lower];
 }
 
@@ -56,7 +65,8 @@ export function buildExam(questions, blueprint, rand = Math.random) {
     const put = (q, part, official) => {
       if (used.has(q.id) || keys.has(questionKey(q))) return false;
       used.add(q.id); keys.add(questionKey(q));
-      picked.push({ ...withTiles(q.options ? { ...q, options: shuffle(q.options, rand) } : q, questions, rand), part: { id: part.id, type: part.type, official } });
+      const opts = q.options && !q.group ? { ...q, options: shuffle(q.options, rand) } : q;   // a group keeps one A-F order
+      picked.push({ ...withTiles(opts, questions, rand), part: { id: part.id, type: part.type, official } });
       return true;
     };
     for (const part of s.parts) {

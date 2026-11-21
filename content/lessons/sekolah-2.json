@@ -1,6 +1,7 @@
 {
   "id": "sekolah-2",
   "level": 2,
+  "grammar": ["guo", "result"],
   "seq": 6,
   "zh": "学校生活",
   "title": "Kehidupan sekolah",

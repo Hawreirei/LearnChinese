@@ -1,0 +1,98 @@
+{
+ "id": "qword",
+ "level": 1,
+ "seq": 10,
+ "title": "Kata tanya di posisi jawaban (什么, 谁, 哪儿)",
+ "pattern": "你喜欢什么？ → 我喜欢茶。",
+ "explain": [
+  "Kata tanya diletakkan di tempat yang sama dengan jawabannya; urutan kata tidak dibalik. 你去哪儿？ → 我去商店。",
+  "Pertanyaan yang memakai kata tanya tidak memakai 吗."
+ ],
+ "examples": [
+  [
+   "你叫什么名字？",
+   "Siapa namamu?"
+  ],
+  [
+   "他是谁？",
+   "Dia siapa?"
+  ],
+  [
+   "你住在哪儿？",
+   "Kamu tinggal di mana?"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "什么你喜欢？",
+   "right": "你喜欢什么？",
+   "why": "Kata tanya tidak dipindah ke depan seperti “Apa yang kamu suka?”."
+  },
+  {
+   "wrong": "哪儿你去？",
+   "right": "你去哪儿？",
+   "why": "Kata tanya tetap di posisi jawabannya."
+  }
+ ],
+ "contrast": [
+  "ma"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "你想吃什么？",
+   "blank": "什么",
+   "options": [
+    "什么",
+    "谁",
+    "哪儿"
+   ],
+   "id": "Kamu ingin makan apa?"
+  },
+  {
+   "type": "choose",
+   "zh": "那个人是谁？",
+   "blank": "谁",
+   "options": [
+    "谁",
+    "哪儿",
+    "几"
+   ],
+   "id": "Orang itu siapa?"
+  },
+  {
+   "type": "choose",
+   "zh": "你家在哪儿？",
+   "blank": "哪儿",
+   "options": [
+    "哪儿",
+    "什么",
+    "谁"
+   ],
+   "id": "Rumahmu di mana?"
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你去哪儿？",
+    "他是谁？",
+    "你喜欢什么？"
+   ],
+   "wrong": "什么你想喝？",
+   "fix": "你想喝什么？",
+   "why": "Kata tanya di posisi jawaban, tidak dipindah ke depan."
+  },
+  {
+   "type": "order",
+   "zh": "你在哪儿工作？",
+   "pieces": [
+    "你",
+    "在",
+    "哪儿",
+    "工作",
+    "？"
+   ],
+   "id": "Kamu bekerja di mana?"
+  }
+ ]
+}

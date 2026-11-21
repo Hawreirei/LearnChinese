@@ -1,0 +1,94 @@
+{
+ "id": "gang",
+ "level": 3,
+ "seq": 13,
+ "detect": "刚",
+ "title": "刚 / 刚才: baru saja, tadi",
+ "pattern": "刚 + kata kerja · 刚才 + (subjek) + kata kerja",
+ "explain": [
+  "刚 (sebelum kata kerja) = baru saja: 我刚到. Kalimat sederhana dengan 刚 tidak diakhiri 了.",
+  "刚才 (kata waktu) = tadi, beberapa saat lalu; boleh di awal kalimat dan memakai 了: 刚才他给你打电话了."
+ ],
+ "examples": [
+  [
+   "我刚到家。",
+   "Aku baru saja sampai di rumah."
+  ],
+  [
+   "刚才他给你打电话了。",
+   "Tadi dia meneleponmu."
+  ],
+  [
+   "他刚从图书馆回来。",
+   "Dia baru saja kembali dari perpustakaan."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "刚我到家。",
+   "right": "我刚到家。",
+   "why": "刚 setelah subjek; di awal kalimat pakai 刚才."
+  }
+ ],
+ "contrast": [
+  "yijing-le"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "刚才有人找你。",
+   "blank": "刚才",
+   "options": [
+    "刚才",
+    "刚",
+    "才"
+   ],
+   "id": "Tadi ada orang mencarimu."
+  },
+  {
+   "type": "choose",
+   "zh": "我刚下课，还没吃饭。",
+   "blank": "刚",
+   "options": [
+    "刚",
+    "刚才",
+    "以前"
+   ],
+   "id": "Aku baru saja selesai kelas, belum makan."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我刚到。",
+    "刚才你去哪儿了？",
+    "他刚走。"
+   ],
+   "wrong": "刚我吃完饭。",
+   "fix": "我刚吃完饭。",
+   "why": "刚 setelah subjek."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "刚才的电话是谁打的？",
+    "她刚从中国回来。",
+    "我刚刚看见他了。"
+   ],
+   "wrong": "刚他走了。",
+   "fix": "他刚走。",
+   "why": "刚 setelah subjek, tanpa 了 di akhir."
+  },
+  {
+   "type": "order",
+   "zh": "我刚从图书馆回来。",
+   "pieces": [
+    "我",
+    "刚",
+    "从图书馆",
+    "回来",
+    "。"
+   ],
+   "id": "Aku baru saja kembali dari perpustakaan."
+  }
+ ]
+}

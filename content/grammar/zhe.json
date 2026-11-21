@@ -1,0 +1,94 @@
+{
+ "id": "zhe",
+ "level": 2,
+ "seq": 4,
+ "detect": "着(?!急)",
+ "title": "着: keadaan yang bertahan",
+ "pattern": "Kata kerja + 着",
+ "explain": [
+  "Kata kerja + 着 menggambarkan keadaan yang sedang bertahan: 门开着 (pintunya terbuka), 她穿着红色的衣服.",
+  "Juga untuk cara melakukan sesuatu: 他笑着说 (dia berkata sambil tersenyum)."
+ ],
+ "examples": [
+  [
+   "门开着。",
+   "Pintunya terbuka."
+  ],
+  [
+   "她穿着一件红色的衣服。",
+   "Dia memakai baju merah."
+  ],
+  [
+   "我们站着等车。",
+   "Kami menunggu kendaraan sambil berdiri."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他拿书着。",
+   "right": "他拿着书。",
+   "why": "着 langsung di belakang kata kerja, sebelum objek."
+  }
+ ],
+ "contrast": [
+  "zhengzai"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "教室的门开着。",
+   "blank": "着",
+   "options": [
+    "着",
+    "过",
+    "得"
+   ],
+   "id": "Pintu kelas terbuka."
+  },
+  {
+   "type": "choose",
+   "zh": "他穿着黑色的衣服。",
+   "blank": "着",
+   "options": [
+    "着",
+    "过",
+    "得"
+   ],
+   "id": "Dia memakai baju hitam."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "电视开着。",
+    "她笑着说再见。",
+    "他手里拿着一本书。"
+   ],
+   "wrong": "他拿书着。",
+   "fix": "他拿着书。",
+   "why": "着 langsung di belakang kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "门开着呢。",
+    "我们站着等车。",
+    "她穿着白色的衣服。"
+   ],
+   "wrong": "他着笑说。",
+   "fix": "他笑着说。",
+   "why": "Kata kerja + 着, bukan 着 + kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我们站着等公交车。",
+   "pieces": [
+    "我们",
+    "站着",
+    "等",
+    "公交车",
+    "。"
+   ],
+   "id": "Kami menunggu bus sambil berdiri."
+  }
+ ]
+}

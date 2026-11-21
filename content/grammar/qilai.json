@@ -1,0 +1,94 @@
+{
+ "id": "qilai",
+ "level": 3,
+ "seq": 23,
+ "detect": "起来",
+ "title": "起来: kelihatannya, mulai, teringat",
+ "pattern": "看 / 听 + 起来 · kata kerja + 起来",
+ "explain": [
+  "看起来 / 听起来 = kelihatannya / kedengarannya: 这个菜看起来很好吃.",
+  "Kata kerja + 起来 juga berarti mulai (笑起来) atau teringat (想起来)."
+ ],
+ "examples": [
+  [
+   "这个菜看起来很好吃。",
+   "Masakan ini kelihatannya enak."
+  ],
+  [
+   "你的办法听起来不错。",
+   "Caramu kedengarannya bagus."
+  ],
+  [
+   "我想起来了！",
+   "Aku ingat sekarang!"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "这个菜起来看很好吃。",
+   "right": "这个菜看起来很好吃。",
+   "why": "看 + 起来."
+  }
+ ],
+ "contrast": [
+  "haoxiang"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "她看起来很年轻。",
+   "blank": "起来",
+   "options": [
+    "起来",
+    "上来",
+    "出来"
+   ],
+   "id": "Dia kelihatannya masih muda."
+  },
+  {
+   "type": "choose",
+   "zh": "你说的办法听起来很好。",
+   "blank": "听",
+   "options": [
+    "听",
+    "写",
+    "走"
+   ],
+   "id": "Cara yang kamu katakan kedengarannya bagus."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他看起来很累。",
+    "听起来不错。",
+    "我想起来了。"
+   ],
+   "wrong": "这件衣服起来看很漂亮。",
+   "fix": "这件衣服看起来很漂亮。",
+   "why": "看 + 起来."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "大家都笑起来了。",
+    "这个蛋糕看起来很甜。",
+    "你的声音听起来很好。"
+   ],
+   "wrong": "他看起来是很高兴。",
+   "fix": "他看起来很高兴。",
+   "why": "Tanpa 是."
+  },
+  {
+   "type": "order",
+   "zh": "这个西瓜看起来很甜。",
+   "pieces": [
+    "这个西瓜",
+    "看起来",
+    "很",
+    "甜",
+    "。"
+   ],
+   "id": "Semangka ini kelihatannya manis."
+  }
+ ]
+}

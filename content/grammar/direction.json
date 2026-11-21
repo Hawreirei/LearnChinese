@@ -1,0 +1,93 @@
+{
+ "id": "direction",
+ "level": 2,
+ "seq": 18,
+ "detect": "(回|进|出|上|下)(来|去)|过来",
+ "title": "来 / 去 arah: 回来, 进去, 上来",
+ "pattern": "Kata kerja + 来 (ke arah pembicara) / 去 (menjauh)",
+ "explain": [
+  "来 = ke arah pembicara, 去 = menjauhi pembicara: 进来 (masuk ke sini), 进去 (masuk ke sana), 回来, 回去.",
+  "Tempat diletakkan di antara kata kerja dan 来/去: 回家来, 进教室去."
+ ],
+ "examples": [
+  [
+   "请进来。",
+   "Silakan masuk."
+  ],
+  [
+   "他回家去了。",
+   "Dia pulang ke rumah."
+  ],
+  [
+   "你什么时候回来？",
+   "Kapan kamu kembali?"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他回来家了。",
+   "right": "他回家来了。",
+   "why": "Tempat di antara kata kerja dan 来/去."
+  }
+ ],
+ "contrast": [],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "外面很冷，快进来吧。",
+   "blank": "来",
+   "options": [
+    "来",
+    "去",
+    "过"
+   ],
+   "id": "Di luar dingin, cepat masuk ke sini."
+  },
+  {
+   "type": "choose",
+   "zh": "我明天回来。",
+   "blank": "来",
+   "options": [
+    "来",
+    "去",
+    "过"
+   ],
+   "id": "Besok aku kembali ke sini."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "请进来。",
+    "他出去了。",
+    "你什么时候回来？"
+   ],
+   "wrong": "他回来家了。",
+   "fix": "他回家来了。",
+   "why": "Tempat di antara kata kerja dan 来/去."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我们上去吧。",
+    "她下来了。",
+    "你过来一下。"
+   ],
+   "wrong": "你来过一下。",
+   "fix": "你过来一下。",
+   "why": "Arah ke sini: 过 + 来."
+  },
+  {
+   "type": "order",
+   "zh": "他已经回家去了。",
+   "pieces": [
+    "他",
+    "已经",
+    "回家",
+    "去",
+    "了",
+    "。"
+   ],
+   "id": "Dia sudah pulang ke rumah."
+  }
+ ]
+}

@@ -1,0 +1,96 @@
+{
+ "id": "ranhou",
+ "level": 3,
+ "seq": 26,
+ "detect": "然后",
+ "title": "先…然后…: dulu … lalu …",
+ "pattern": "先 + A，然后 + B",
+ "explain": [
+  "先 A，然后 B = A dulu, lalu B: 我们先吃饭，然后去看电影.",
+  "先 diletakkan setelah subjek; 然后 di awal bagian kedua (boleh ditambah 再: 然后再去)."
+ ],
+ "examples": [
+  [
+   "我们先吃饭，然后去看电影。",
+   "Kita makan dulu, lalu menonton film."
+  ],
+  [
+   "你先洗手，然后吃饭。",
+   "Cuci tangan dulu, lalu makan."
+  ],
+  [
+   "他先去了银行，然后去了超市。",
+   "Dia ke bank dulu, lalu ke supermarket."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "然后我们吃饭，先去看电影。",
+   "right": "我们先吃饭，然后去看电影。",
+   "why": "先 di bagian pertama, 然后 di bagian kedua."
+  }
+ ],
+ "contrast": [
+  "yi-jiu"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我先做作业，然后看电视。",
+   "blank": "然后",
+   "options": [
+    "然后",
+    "以前",
+    "一边"
+   ],
+   "id": "Aku mengerjakan PR dulu, lalu menonton televisi."
+  },
+  {
+   "type": "choose",
+   "zh": "你先休息一下，然后再说。",
+   "blank": "先",
+   "options": [
+    "先",
+    "后",
+    "才"
+   ],
+   "id": "Istirahatlah dulu, lalu kita bicarakan lagi."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "先洗手，然后吃饭。",
+    "我先回家，然后去找你。",
+    "他先打电话，然后出门了。"
+   ],
+   "wrong": "然后我们吃饭，先去看电影。",
+   "fix": "我们先吃饭，然后去看电影。",
+   "why": "先 di bagian pertama."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你先说，然后我说。",
+    "我们先坐地铁，然后打车。",
+    "先看书，然后写作业。"
+   ],
+   "wrong": "我先去银行，先去超市。",
+   "fix": "我先去银行，然后去超市。",
+   "why": "Bagian kedua memakai 然后."
+  },
+  {
+   "type": "order",
+   "zh": "我们先去超市，然后回家。",
+   "pieces": [
+    "我们",
+    "先",
+    "去超市",
+    "，",
+    "然后",
+    "回家",
+    "。"
+   ],
+   "id": "Kita ke supermarket dulu, lalu pulang."
+  }
+ ]
+}

@@ -1,10 +1,14 @@
 import { h, btn, speakSequence, stopSpeaking, listeningParts } from "../ui.js";
 import { wordIdOfQuestion } from "../analytics.js";
 import { LEVEL_LABEL } from "../deck.js";
-import { SKILLS, availableLevels, buildSet, check, summarize } from "../practice.js";
+import { SKILLS, availableLevels, buildSet, check, summarize, withTiles } from "../practice.js";
+import { shuffle } from "../deck.js";
+import { dueIds, allIds, mistakeQuestions, mistakeCounts } from "../mistakes.js";
+import { dayKeyOf } from "../plan.js";
+import { allowedChars } from "../essay.js";
 import { questionBody, isListening, explanation, answerLabel } from "./question.js";
 
-const fresh = () => ({ phase: "setup", cfg: { skill: "mixed", count: 10 }, set: [], i: 0, results: [], answered: null, textShown: false, pinyinShown: false, shownAt: 0, autoplayed: {} });
+const fresh = () => ({ phase: "setup", cfg: { skill: "mixed", count: 10 }, mistakes: false, back: null, set: [], i: 0, results: [], answered: null, textShown: false, pinyinShown: false, shownAt: 0, autoplayed: {} });
 let state = fresh();
 
 export function viewPractice(app) {
@@ -14,12 +18,20 @@ export function viewPractice(app) {
   return question(app);
 }
 
-function begin(app, set) {
-  state = { ...state, phase: "run", set, i: 0, results: [], answered: null, textShown: false, pinyinShown: false, shownAt: Date.now(), autoplayed: {} };
+function begin(app, set, mistakes = false, back = null) {
+  state = { ...state, phase: "run", set, mistakes, back, i: 0, results: [], answered: null, textShown: false, pinyinShown: false, shownAt: Date.now(), autoplayed: {} };
   viewPractice(app);
 }
-/** Start a run with a ready-made set (the weakness analysis). */
-export const startPracticeWith = (app, set) => begin(app, set);
+/** Start a run with a ready-made set (weakness analysis, a grammar point…). `back` = { label, go } adds a button on the
+ *  result screen that returns to where the set came from. */
+export const startPracticeWith = (app, set, back = null) => begin(app, set, false, back);
+/** Start a session from the buku kesalahan: the due questions, or all of them (`all`). At most 20 per session. */
+export function startMistakes(app, all = false) {
+  const book = app.store.mistakes;
+  const qs = mistakeQuestions(all ? allIds(book) : dueIds(book), app.questionIndex, 20);
+  const set = qs.map((q) => withTiles(q.options ? { ...q, options: shuffle(q.options) } : q, app.questions));
+  if (set.length) begin(app, set, true);
+}
 /** Open the setup screen with a skill preselected (the weakness recommendations). */
 export function presetPractice(app, skill) {
   state = { ...fresh(), cfg: { ...state.cfg, skill } };
@@ -51,19 +63,64 @@ function setup(app) {
         h("div", { style: "margin-top:18px" }, msg),
         h("div", { class: "row", style: "justify-content:flex-start" }, start)),
       h("div", { style: "display:grid;gap:18px" },
+        mistakesPanel(app),
         h("p", { class: "notice" }, "Belum direview guru. Jika menemukan soal yang janggal atau jawaban yang ambigu, catat nomornya (mis. c12) untuk dikoreksi."),
         h("div", { class: "panel" }, h("h2", {}, "Yang tersedia"),
           h("ul", { class: "kv" }, ...Object.entries(SKILLS).map(([k, label]) => h("li", {}, h("span", {}, label), h("span", { class: "muted" }, `${questions.filter((q) => q.skill === k).length} soal`))))))));
 }
 
+/** After a right answer in a buku kesalahan session: is it out of the book, or coming back? */
+function mistakeNote(app, id) {
+  const e = app.store.mistakes[id];
+  if (!e) return "Benar dua kali di hari berbeda: keluar dari buku kesalahan.";
+  return e.streak > 0 && e.day === dayKeyOf(Date.now())
+    ? "Muncul lagi 3 hari lagi; benar sekali lagi (di hari lain) untuk mengeluarkannya."
+    : "Jawaban benar dihitung sekali per hari dan tidak di hari soal itu salah; ulangi besok.";
+}
+
+function mistakesPanel(app) {
+  const c = mistakeCounts(app.store.mistakes, app.questionIndex);
+  return h("div", { class: "panel" }, h("h2", {}, "Buku kesalahan 错题本"),
+    c.total
+      ? h("p", { class: "hint" }, `${c.total} soal tersimpan, ${c.due} jatuh tempo hari ini. Soal yang salah (di Latihan, Pelajaran, dan Ujian) masuk otomatis, muncul lagi besok, lalu 3 hari kemudian, dan keluar setelah dijawab benar dua kali di hari berbeda.`)
+      : h("p", { class: "hint" }, "Masih kosong. Soal yang Anda jawab salah di Latihan, Pelajaran, dan Ujian akan masuk ke sini dan diulang sampai dijawab benar dua kali di hari berbeda."),
+    c.total ? h("div", { class: "row left" },
+      btn(`Ulangi yang jatuh tempo (${c.due})`, () => startMistakes(app), "btn primary", { disabled: !c.due, id: "mistakes-due" }),
+      c.total > c.due ? btn(`Latih semua (${c.total})`, () => startMistakes(app, true), "btn", { id: "mistakes-all" }) : null,
+      btn("Kosongkan", () => { if (confirm(`Hapus ${c.total} soal dari buku kesalahan?`)) { app.store.clearMistakes(); viewPractice(app); } }, "btn")) : null);
+}
+
 function finish(app, q, response) {
   if (state.answered) return;
   const res = check(q, response);
+  if (SELF_MARKED.has(q.type) && String(response ?? "").trim()) {   // free writing: the learner marks it after the models
+    state.answered = { ...res, response, pending: true };
+    return viewPractice(app);
+  }
+  record(app, q, response, res.correct);
   state.answered = { ...res, response };
-  state.results.push({ q, correct: res.correct, response });
-  app.store.recordAnswer(q.skill, res.correct, { k: "practice", l: q.level, ty: q.type, id: q.id, w: wordIdOfQuestion(q), ms: Date.now() - (state.shownAt || Date.now()) });
   viewPractice(app);
 }
+
+function record(app, q, response, correct) {
+  state.results.push({ q, correct, response });
+  app.store.recordAnswer(q.skill, correct, { k: "practice", l: q.level, ty: q.type, id: q.id, w: wordIdOfQuestion(q), ms: Date.now() - (state.shownAt || Date.now()), mb: state.mistakes });
+}
+
+/** Self-marking of a free sentence: "ok" counts as right; "near" and "bad" as not yet right (into the buku kesalahan). */
+const SELF_MARKED = new Set(["write_sentence_from_picture_and_word"]);
+const RATINGS = { ok: "✔ Anda menilai: benar", near: "≈ Anda menilai: hampir benar (dicatat sebagai belum benar)", bad: "✘ Anda menilai: belum benar" };
+function settle(app, q, rating) {
+  const a = state.answered;
+  if (!a?.pending) return;
+  const correct = rating === "ok";
+  record(app, q, a.response, correct);
+  state.answered = { ...a, pending: false, correct, rating };
+  viewPractice(app);
+}
+
+const allowedByLevel = new Map();
+const allowedFor = (app, level) => allowedByLevel.get(level) ?? allowedByLevel.set(level, allowedChars(app.vocab, level)).get(level);
 
 function next(app) {
   stopSpeaking();
@@ -77,19 +134,25 @@ function question(app) {
   const a = state.answered;
   const play = (rate) => speakSequence(listeningParts(q), rate);
   const m = {
-    kind: "practice", response: a?.response, reveal: !!a, writeMode: app.store.settings.writeMode,
+    kind: "practice", response: a?.response, reveal: !!a, writeMode: app.store.settings.writeMode, allowed: allowedFor(app, q.level),
     onAnswer: (r) => finish(app, q, r),
     listening: { play, playsLeft: null, textShown: state.textShown || !!a, toggleText: () => { state.textShown = !state.textShown; viewPractice(app); } },
     pinyin: { shown: state.pinyinShown, toggle: () => { state.pinyinShown = !state.pinyinShown; viewPractice(app); } },
   };
   if (isListening(q) && !a && !state.autoplayed[q.id]) { state.autoplayed[q.id] = true; setTimeout(() => play(0.8), 150); }
   const last = state.i + 1 >= state.set.length;
+  const settled = a && !a.pending;
   app.render(...[
     h("p", { class: "hint" }, `Soal ${state.i + 1}/${state.set.length} · ${SKILLS[q.skill]} · ${LEVEL_LABEL[q.level]} · #${q.id}`),
     ...questionBody(q, m),
-    a ? h("p", { class: a.correct ? "ok" : "bad", role: "status" }, a.correct ? "✔ Benar" : `✘ Jawaban yang benar: ${answerLabel(q)}`) : null,
+    a?.pending ? h("div", { class: "selfmark", role: "group", "aria-label": "Nilai sendiri" },
+      h("p", {}, "Bandingkan kalimat Anda dengan contoh di bawah, lalu nilai sendiri:"),
+      h("div", { class: "row left" }, btn("Benar 对", () => settle(app, q, "ok"), "btn primary", { id: "self-ok" }), btn("Hampir 差不多", () => settle(app, q, "near"), "btn", { id: "self-near" }), btn("Belum 不对", () => settle(app, q, "bad"), "btn", { id: "self-bad" }))) : null,
+    settled ? h("p", { class: a.correct ? "ok" : "bad", role: "status" }, a.rating ? RATINGS[a.rating] : a.correct ? "✔ Benar" : q.type === "error_spot" ? `✘ Kalimat yang salah adalah: ${q.answer}` : `✘ Jawaban yang benar: ${answerLabel(q)}`) : null,
+    settled && !a.correct ? h("p", { class: "hint" }, "Soal ini masuk buku kesalahan dan muncul lagi besok.") : null,
+    settled && a.correct && state.mistakes ? h("p", { class: "hint" }, mistakeNote(app, q.id)) : null,
     a ? explanation(q) : null,
-    a ? h("div", { class: "row" }, btn(last ? "Lihat hasil" : "Soal berikutnya", () => next(app), "btn primary", { id: "next" })) : null,
+    settled ? h("div", { class: "row" }, btn(last ? "Lihat hasil" : "Soal berikutnya", () => next(app), "btn primary", { id: "next" })) : null,
   ].filter(Boolean));
 }
 
@@ -99,9 +162,15 @@ function done(app) {
   app.render(
     h("h2", {}, "Hasil latihan"),
     h("div", { class: "card" }, h("div", { class: "hanzi" }, `${s.correct}/${s.total}`), h("div", { class: "gloss" }, `${s.pct}%`)),
+    state.mistakes ? (() => {
+      const c = mistakeCounts(app.store.mistakes, app.questionIndex);
+      return h("p", { class: "notice" }, c.total ? `Buku kesalahan: ${c.total} soal tersisa, ${c.due} masih jatuh tempo hari ini.` : "Buku kesalahan kosong. 太棒了！");
+    })() : null,
     h("table", {}, h("thead", {}, h("tr", {}, ...["Keterampilan", "Benar", "Total"].map((t) => h("th", {}, t)))),
       h("tbody", {}, ...Object.entries(s.by).map(([k, v]) => h("tr", {}, h("td", {}, SKILLS[k]), h("td", {}, v.correct), h("td", {}, v.total))))),
     wrong.length ? h("h2", {}, "Perlu diulang") : h("p", {}, "Semua benar. 太好了！"),
     ...wrong.map((r) => h("div", { class: "example" }, h("div", { class: "hint" }, `#${r.q.id} · ${SKILLS[r.q.skill]}`), explanation(r.q), h("div", { class: "hint" }, `Jawaban yang benar: ${answerLabel(r.q)}`))),
-    h("div", { class: "row" }, btn("Latihan lagi", () => { state = { ...fresh(), cfg: state.cfg }; viewPractice(app); }, "btn primary", { id: "again" })));
+    h("div", { class: "row" },
+      state.back ? btn(state.back.label, () => { const go = state.back.go; state = { ...fresh(), cfg: state.cfg }; go(); }, "btn primary", { id: "back" }) : null,
+      btn("Latihan lagi", () => { state = { ...fresh(), cfg: state.cfg }; viewPractice(app); }, state.back ? "btn" : "btn primary", { id: "again" })));
 }

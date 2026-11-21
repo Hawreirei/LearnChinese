@@ -1,0 +1,99 @@
+{
+ "id": "guo",
+ "level": 2,
+ "seq": 3,
+ "detect": "(去|吃|看|学|听|见|来|做|用|坐|说|玩)过",
+ "title": "过: pernah",
+ "pattern": "Kata kerja + 过 (+ objek)",
+ "explain": [
+  "Kata kerja + 过 = pernah mengalami: 我去过中国. Negatifnya 没(有) + kata kerja + 过: 我没去过.",
+  "Untuk bertanya: 你吃过饺子吗？"
+ ],
+ "examples": [
+  [
+   "我去过中国。",
+   "Aku pernah ke Tiongkok."
+  ],
+  [
+   "你吃过饺子吗？",
+   "Apakah kamu pernah makan jiaozi?"
+  ],
+  [
+   "我没看过这个电影。",
+   "Aku belum pernah menonton film ini."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我过去中国。",
+   "right": "我去过中国。",
+   "why": "过 di belakang kata kerja."
+  },
+  {
+   "wrong": "我不去过中国。",
+   "right": "我没去过中国。",
+   "why": "Negatifnya 没 … 过."
+  }
+ ],
+ "contrast": [
+  "le"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我学过一点儿汉语。",
+   "blank": "过",
+   "options": [
+    "过",
+    "着",
+    "在"
+   ],
+   "id": "Aku pernah belajar sedikit bahasa Mandarin."
+  },
+  {
+   "type": "choose",
+   "zh": "他没去过中国。",
+   "blank": "没",
+   "options": [
+    "没",
+    "不",
+    "别"
+   ],
+   "id": "Dia belum pernah ke Tiongkok."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你见过他吗？",
+    "我吃过这个菜。",
+    "他看过这本书。"
+   ],
+   "wrong": "我不吃过饺子。",
+   "fix": "我没吃过饺子。",
+   "why": "Negatif pengalaman: 没 + kata kerja + 过."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我没去过那个饭店。",
+    "你学过汉语吗？",
+    "我们见过。"
+   ],
+   "wrong": "我过看那个电影。",
+   "fix": "我看过那个电影。",
+   "why": "过 di belakang kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "你来过这儿吗？",
+   "pieces": [
+    "你",
+    "来过",
+    "这儿",
+    "吗",
+    "？"
+   ],
+   "id": "Apakah kamu pernah datang ke sini?"
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "id": "bie",
+ "level": 2,
+ "seq": 17,
+ "detect": "(?<!特|区)别(?!人|的)",
+ "title": "别: jangan",
+ "pattern": "别 + kata kerja (+ 了)",
+ "explain": [
+  "别 + kata kerja = jangan: 别走 (jangan pergi). 别 … 了 = sudahlah, jangan lagi: 别说了.",
+  "Lebih formal: 不要 + kata kerja."
+ ],
+ "examples": [
+  [
+   "别忘了明天的考试。",
+   "Jangan lupa ujian besok."
+  ],
+  [
+   "别玩手机了。",
+   "Jangan bermain ponsel lagi."
+  ],
+  [
+   "上课的时候别说话。",
+   "Jangan berbicara saat pelajaran."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "你别是忙。",
+   "right": "你别忙了。",
+   "why": "别 diikuti kata kerja, tanpa 是."
+  }
+ ],
+ "contrast": [
+  "xiang-yao"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "别忘了给我打电话。",
+   "blank": "别",
+   "options": [
+    "别",
+    "没",
+    "不是"
+   ],
+   "id": "Jangan lupa meneleponku."
+  },
+  {
+   "type": "choose",
+   "zh": "太晚了，别看电视了。",
+   "blank": "别",
+   "options": [
+    "别",
+    "没",
+    "还"
+   ],
+   "id": "Sudah larut, jangan menonton televisi lagi."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "别说话。",
+    "别忘了。",
+    "你别走。"
+   ],
+   "wrong": "你别是忙了。",
+   "fix": "你别忙了。",
+   "why": "别 diikuti kata kerja atau kata sifat, tanpa 是."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "别说了。",
+    "别看手机了。",
+    "上课别睡觉。"
+   ],
+   "wrong": "你说别了。",
+   "fix": "你别说了。",
+   "why": "别 sebelum kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "上课的时候别玩手机。",
+   "pieces": [
+    "上课的时候",
+    "别",
+    "玩",
+    "手机",
+    "。"
+   ],
+   "id": "Saat pelajaran jangan bermain ponsel."
+  }
+ ]
+}

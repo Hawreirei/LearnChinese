@@ -1,0 +1,96 @@
+{
+ "id": "huozhe",
+ "level": 3,
+ "seq": 21,
+ "detect": "或者",
+ "title": "或者 dan 还是: atau",
+ "pattern": "Pernyataan: A 或者 B · Pertanyaan: A 还是 B？",
+ "explain": [
+  "或者 = atau, dalam kalimat pernyataan: 我们坐地铁或者打车去都可以.",
+  "还是 = atau, dalam pertanyaan pilihan: 你坐地铁还是打车？"
+ ],
+ "examples": [
+  [
+   "我周末看书或者看电影。",
+   "Akhir pekan aku membaca atau menonton film."
+  ],
+  [
+   "你可以坐地铁或者坐公交车。",
+   "Kamu bisa naik kereta bawah tanah atau bus."
+  ],
+  [
+   "你喝茶还是喝咖啡？",
+   "Kamu minum teh atau kopi?"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "你喝茶或者喝咖啡？",
+   "right": "你喝茶还是喝咖啡？",
+   "why": "Pertanyaan pilihan memakai 还是."
+  }
+ ],
+ "contrast": [
+  "haishi"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "明天或者后天我给你打电话。",
+   "blank": "或者",
+   "options": [
+    "或者",
+    "还是",
+    "和"
+   ],
+   "id": "Besok atau lusa aku meneleponmu."
+  },
+  {
+   "type": "choose",
+   "zh": "你今天去还是明天去？",
+   "blank": "还是",
+   "options": [
+    "还是",
+    "或者",
+    "和"
+   ],
+   "id": "Kamu pergi hari ini atau besok?"
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我们打车或者坐地铁都行。",
+    "你要米饭还是面条？",
+    "周末我在家休息或者去公园。"
+   ],
+   "wrong": "你要喝茶或者咖啡？",
+   "fix": "你要喝茶还是咖啡？",
+   "why": "Pertanyaan pilihan: 还是."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你可以发邮件或者打电话。",
+    "他是老师还是学生？",
+    "我们下午或者晚上去。"
+   ],
+   "wrong": "我想明天还是后天去。",
+   "fix": "我想明天或者后天去。",
+   "why": "Pernyataan: 或者."
+  },
+  {
+   "type": "order",
+   "zh": "你可以坐地铁或者坐公交车去。",
+   "pieces": [
+    "你",
+    "可以",
+    "坐地铁",
+    "或者",
+    "坐公交车",
+    "去",
+    "。"
+   ],
+   "id": "Kamu bisa pergi naik kereta bawah tanah atau naik bus."
+  }
+ ]
+}

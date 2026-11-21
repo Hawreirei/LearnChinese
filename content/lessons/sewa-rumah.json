@@ -1,6 +1,7 @@
 {
   "id": "sewa-rumah",
   "level": 3,
+  "grammar": ["chule", "yiyang"],
   "seq": 5,
   "zh": "租房子",
   "title": "Mencari rumah sewaan",

@@ -1,0 +1,102 @@
+{
+ "id": "youdianr",
+ "level": 2,
+ "seq": 24,
+ "detect": "有点儿|一点儿",
+ "title": "有点儿 dan 一点儿: agak, sedikit",
+ "pattern": "有点儿 + kata sifat · kata sifat + 一点儿",
+ "explain": [
+  "有点儿 + kata sifat = agak (biasanya keluhan): 今天有点儿冷, 这个有点儿贵.",
+  "Kata sifat + 一点儿 = sedikit lebih (membandingkan atau meminta): 便宜一点儿吧. 一点儿 + benda = sedikit …: 喝一点儿水."
+ ],
+ "examples": [
+  [
+   "这件衣服有点儿贵。",
+   "Baju ini agak mahal."
+  ],
+  [
+   "能便宜一点儿吗？",
+   "Bisa sedikit lebih murah?"
+  ],
+  [
+   "我会说一点儿汉语。",
+   "Aku bisa sedikit bahasa Mandarin."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "这个一点儿贵。",
+   "right": "这个有点儿贵。",
+   "why": "“Agak” sebelum kata sifat: 有点儿."
+  },
+  {
+   "wrong": "请说有点儿慢。",
+   "right": "请说慢一点儿。",
+   "why": "Permintaan “sedikit lebih …”: kata sifat + 一点儿."
+  }
+ ],
+ "contrast": [
+  "hen-adj"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "今天有点儿冷。",
+   "blank": "有点儿",
+   "options": [
+    "有点儿",
+    "一点儿",
+    "一下"
+   ],
+   "id": "Hari ini agak dingin."
+  },
+  {
+   "type": "choose",
+   "zh": "请你说慢一点儿。",
+   "blank": "一点儿",
+   "options": [
+    "一点儿",
+    "有点儿",
+    "一下"
+   ],
+   "id": "Tolong bicara sedikit lebih pelan."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我有点儿累。",
+    "便宜一点儿吧。",
+    "我想喝一点儿水。"
+   ],
+   "wrong": "这个房间一点儿小。",
+   "fix": "这个房间有点儿小。",
+   "why": "“Agak” sebelum kata sifat: 有点儿."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "今天比昨天冷一点儿。",
+    "我有点儿忙。",
+    "请快一点儿。"
+   ],
+   "wrong": "请说有点儿慢。",
+   "fix": "请说慢一点儿。",
+   "why": "Permintaan: kata sifat + 一点儿."
+  },
+  {
+   "type": "order",
+   "zh": "我今天有点儿不舒服。",
+   "pieces": [
+    "我",
+    "今天",
+    "有点儿",
+    "不舒服",
+    "。"
+   ],
+   "id": "Hari ini aku agak tidak enak badan.",
+   "alt": [
+    "今天我有点儿不舒服。"
+   ]
+  }
+ ]
+}

@@ -14,7 +14,8 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-APP_DATA = ["vocab.json", "handwriting.json", "vocab_id.json", "questions.json", "blueprints.json", "lookalikes.json", "lessons.json", "chars.json"]
+APP_DATA = ["vocab.json", "handwriting.json", "vocab_id.json", "questions.json", "blueprints.json", "lookalikes.json", "lessons.json", "chars.json",
+            "components.json", "components-LGPL.txt", "speaking.json", "grammar.json"]   # components.json (LGPL) must travel with its licence
 DOCS = ["LICENSE", "LICENSE-CONTENT.md", "NOTICE.md"]
 INDEX = """<!doctype html>
 <html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">

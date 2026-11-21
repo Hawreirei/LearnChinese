@@ -1,5 +1,6 @@
 // Pelajaran: themed lessons with a five-step flow (Listening, Reading, Writing, Speaking, Vocab).
 // List -> lesson page -> one step at a time. Questions are drawn by views/question.js, same as Latihan.
+import { openGrammar } from "./grammar.js";
 import { h, btn, speak, speakSequence, stopSpeaking, listeningParts } from "../ui.js";
 import { LEVEL_LABEL } from "../deck.js";
 import { withTiles, check } from "../practice.js";
@@ -122,6 +123,15 @@ function list(app) {
 }
 
 /* ---------- lesson page ---------- */
+/** "Pola di pelajaran ini": the grammar points the lesson uses, each opening its page in Tata bahasa. */
+function grammarBlock(app, lesson) {
+  const pts = (lesson.grammar ?? []).map((id) => app.grammar?.find((g) => g.id === id)).filter(Boolean);
+  if (!pts.length) return null;
+  return h("div", {}, h("h3", {}, "Pola di pelajaran ini"),
+    h("div", { class: "gram-links" }, ...pts.map((g) => h("button", { type: "button", class: "gram-link", onclick: () => openGrammar(app, g.id) },
+      h("strong", {}, g.title), h("span", { class: "hint", lang: "zh-Hans" }, g.pattern)))));
+}
+
 function page(app, lesson) {
   const p = app.store.lessonProgress(lesson.id);
   const next = nextStep(p);
@@ -138,6 +148,7 @@ function page(app, lesson) {
     h("ul", { class: "keysent" }, ...lesson.keySentences.map((s) => h("li", {}, ruby(s), h("span", { class: "hint" }, s.id), btn("🔊", () => speak(s.zh), "btn mini", { "aria-label": `Dengar ${s.zh}` })))),
     h("h3", {}, "Kata kunci"),
     h("div", { class: "wordgrid" }, ...lesson.keyWords.map(wordCard)),
+    grammarBlock(app, lesson),
     h("div", { class: "row" },
       btn(isComplete(p) ? "Ulangi dari awal" : next && doneCount(p) ? "Lanjutkan →" : "Mulai →", () => startStep(app, lesson, next ?? "listening"), "btn primary", { id: "start-lesson" }),
       doneCount(p) ? btn("Atur ulang progres", () => { if (confirm("Hapus progres pelajaran ini?")) { app.store.resetLesson(lesson.id); toLesson(app); } }, "btn") : null));

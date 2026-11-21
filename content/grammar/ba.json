@@ -1,0 +1,100 @@
+{
+ "id": "ba",
+ "level": 3,
+ "seq": 1,
+ "detect": "把",
+ "title": "把: memindahkan objek ke depan kata kerja",
+ "pattern": "S + 把 + objek + kata kerja + hasil / arah / tempat",
+ "explain": [
+  "把 dipakai saat kita melakukan sesuatu terhadap benda tertentu dan bendanya berubah atau berpindah: 我把作业写完了, 请把门关上.",
+  "Kata kerjanya tidak boleh berdiri sendiri: harus ada hasil, arah, tempat, atau 了 (把书放在桌子上). Kata keterangan dan negatif diletakkan di depan 把: 我没把书带来."
+ ],
+ "examples": [
+  [
+   "请把门关上。",
+   "Tolong tutup pintunya."
+  ],
+  [
+   "我把作业写完了。",
+   "Aku sudah menyelesaikan PR."
+  ],
+  [
+   "他把书放在桌子上了。",
+   "Dia menaruh buku di atas meja."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我把书看。",
+   "right": "我把书看完了。",
+   "why": "Setelah kata kerja harus ada hasil, arah, atau tempat."
+  },
+  {
+   "wrong": "我把书没带来。",
+   "right": "我没把书带来。",
+   "why": "Negatif (没) di depan 把."
+  }
+ ],
+ "contrast": [
+  "bei"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "请把护照给我。",
+   "blank": "把",
+   "options": [
+    "把",
+    "被",
+    "比"
+   ],
+   "id": "Tolong berikan paspormu kepadaku."
+  },
+  {
+   "type": "choose",
+   "zh": "我没把钱带来。",
+   "blank": "没",
+   "options": [
+    "没",
+    "不",
+    "别"
+   ],
+   "id": "Aku tidak membawa uangnya."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "请把门关上。",
+    "我把作业写完了。",
+    "他把车开走了。"
+   ],
+   "wrong": "我把这本书看。",
+   "fix": "我把这本书看完了。",
+   "why": "把 + objek + kata kerja + hasil."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我没把手机带来。",
+    "请把行李放在这儿。",
+    "他把房间打扫干净了。"
+   ],
+   "wrong": "我把手机没带来。",
+   "fix": "我没把手机带来。",
+   "why": "没 di depan 把."
+  },
+  {
+   "type": "order",
+   "zh": "请把你的护照给我。",
+   "pieces": [
+    "请",
+    "把",
+    "你的护照",
+    "给",
+    "我",
+    "。"
+   ],
+   "id": "Tolong berikan paspormu kepadaku."
+  }
+ ]
+}

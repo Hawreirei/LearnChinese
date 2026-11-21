@@ -1,0 +1,92 @@
+{
+ "id": "yizhi",
+ "level": 3,
+ "seq": 27,
+ "detect": "一直|总是",
+ "title": "一直 / 总是: terus, selalu",
+ "pattern": "一直 / 总是 + kata kerja",
+ "explain": [
+  "一直 = terus (tanpa berhenti) atau terus-menerus sejak dulu: 雨一直在下, 我一直住在这儿. Juga untuk arah: 一直往前走.",
+  "总是 = selalu (berulang, kebiasaan): 他总是迟到."
+ ],
+ "examples": [
+  [
+   "雨一直下到晚上。",
+   "Hujan terus turun sampai malam."
+  ],
+  [
+   "他总是第一个到教室。",
+   "Dia selalu yang pertama sampai di kelas."
+  ],
+  [
+   "一直往前走，就到了。",
+   "Jalan lurus terus, sudah sampai."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "一直他在等你。",
+   "right": "他一直在等你。",
+   "why": "一直 setelah subjek."
+  }
+ ],
+ "contrast": [],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "他一直在等你。",
+   "blank": "一直",
+   "options": [
+    "一直",
+    "一起",
+    "一边"
+   ],
+   "id": "Dia terus menunggumu."
+  },
+  {
+   "type": "choose",
+   "zh": "他总是忘记带伞。",
+   "blank": "总是",
+   "options": [
+    "总是",
+    "一起",
+    "一下"
+   ],
+   "id": "Dia selalu lupa membawa payung."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我一直很喜欢他。",
+    "她总是很忙。",
+    "一直往前走。"
+   ],
+   "wrong": "总是他迟到。",
+   "fix": "他总是迟到。",
+   "why": "总是 setelah subjek."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我一直住在这儿。",
+    "他总是笑。",
+    "雨一直下。"
+   ],
+   "wrong": "他一直等在你。",
+   "fix": "他一直在等你。",
+   "why": "一直 + 在 + kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我一直住在这个城市。",
+   "pieces": [
+    "我",
+    "一直",
+    "住在",
+    "这个城市",
+    "。"
+   ],
+   "id": "Sejak dulu aku tinggal di kota ini."
+  }
+ ]
+}

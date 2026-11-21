@@ -1,6 +1,7 @@
 {
   "id": "perkenalan",
   "level": 1,
+  "grammar": ["shi", "qword", "de"],
   "seq": 2,
   "zh": "自我介绍",
   "title": "Perkenalan diri",

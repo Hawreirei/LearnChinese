@@ -1,0 +1,99 @@
+{
+ "id": "hui-neng",
+ "level": 1,
+ "seq": 17,
+ "title": "会 dan 能: bisa",
+ "pattern": "会 + keahlian · 能 + mampu / boleh",
+ "explain": [
+  "会 = bisa karena sudah belajar (keahlian): 我会说汉语, 他会开车.",
+  "能 = mampu atau boleh dalam keadaan tertentu: 我今天不能去 (hari ini aku tidak bisa datang), 这儿能坐吗？ (boleh duduk di sini?)"
+ ],
+ "examples": [
+  [
+   "我会说一点儿汉语。",
+   "Aku bisa sedikit bahasa Mandarin."
+  ],
+  [
+   "你会开车吗？",
+   "Kamu bisa menyetir?"
+  ],
+  [
+   "明天我不能来。",
+   "Besok aku tidak bisa datang."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "明天我不会来上课，我有事。",
+   "right": "明天我不能来上课，我有事。",
+   "why": "Berhalangan karena keadaan: 不能. 不会来 berarti “tidak akan datang”."
+  },
+  {
+   "wrong": "我说会汉语。",
+   "right": "我会说汉语。",
+   "why": "会 di depan kata kerja."
+  }
+ ],
+ "contrast": [
+  "xiang-yao"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "这儿能坐吗？",
+   "blank": "能",
+   "options": [
+    "能",
+    "会",
+    "想"
+   ],
+   "id": "Boleh duduk di sini?"
+  },
+  {
+   "type": "choose",
+   "zh": "你会开车吗？",
+   "blank": "会",
+   "options": [
+    "会",
+    "在",
+    "很"
+   ],
+   "id": "Kamu bisa menyetir?"
+  },
+  {
+   "type": "choose",
+   "zh": "我今天有事，不能来。",
+   "blank": "能",
+   "options": [
+    "能",
+    "在",
+    "很"
+   ],
+   "id": "Hari ini aku ada urusan, tidak bisa datang."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我会说汉语。",
+    "这儿能坐吗？",
+    "他会开车。"
+   ],
+   "wrong": "我说会汉语。",
+   "fix": "我会说汉语。",
+   "why": "会 di depan kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "你会写汉字吗？",
+   "pieces": [
+    "你",
+    "会",
+    "写",
+    "汉字",
+    "吗",
+    "？"
+   ],
+   "id": "Kamu bisa menulis hanzi?"
+  }
+ ]
+}

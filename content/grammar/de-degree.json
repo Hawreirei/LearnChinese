@@ -1,0 +1,103 @@
+{
+ "id": "de-degree",
+ "level": 2,
+ "seq": 5,
+ "detect": "(说|跑|写|做|吃|唱|跳|学|考|来|起|走|睡|洗|游|画)得",
+ "title": "得: bagaimana sesuatu dilakukan",
+ "pattern": "Kata kerja + 得 + (很) + kata sifat",
+ "explain": [
+  "Untuk menilai cara atau hasil suatu kegiatan: kata kerja + 得 + kata sifat: 他跑得很快, 她唱得非常好.",
+  "Jika ada objek, ulangi kata kerjanya: 他说汉语说得很好 (atau 他汉语说得很好). Negatifnya: 说得不好."
+ ],
+ "examples": [
+  [
+   "他跑得很快。",
+   "Dia berlari cepat."
+  ],
+  [
+   "她汉语说得非常好。",
+   "Bahasa Mandarinnya sangat bagus."
+  ],
+  [
+   "我今天起得很早。",
+   "Hari ini aku bangun pagi."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他跑的很快。",
+   "right": "他跑得很快。",
+   "why": "Penilai kegiatan memakai 得, bukan 的."
+  },
+  {
+   "wrong": "他说汉语得很好。",
+   "right": "他说汉语说得很好。",
+   "why": "Dengan objek, ulangi kata kerjanya."
+  }
+ ],
+ "contrast": [
+  "de"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "他游泳游得很好。",
+   "blank": "得",
+   "options": [
+    "得",
+    "的",
+    "着"
+   ],
+   "id": "Dia berenang dengan baik."
+  },
+  {
+   "type": "choose",
+   "zh": "我今天起得很晚。",
+   "blank": "得",
+   "options": [
+    "得",
+    "的",
+    "了"
+   ],
+   "id": "Hari ini aku bangun kesiangan."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "她唱得很好。",
+    "我写得不好。",
+    "他们来得很早。"
+   ],
+   "wrong": "他跑的很快。",
+   "fix": "他跑得很快。",
+   "why": "Kata kerja + 得 + kata sifat."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他汉语说得很好。",
+    "你考得怎么样？",
+    "我睡得很好。"
+   ],
+   "wrong": "他说汉语得很好。",
+   "fix": "他说汉语说得很好。",
+   "why": "Dengan objek, ulangi kata kerjanya."
+  },
+  {
+   "type": "order",
+   "zh": "我妹妹画得非常好。",
+   "pieces": [
+    "我妹妹",
+    "画",
+    "得",
+    "非常",
+    "好",
+    "。"
+   ],
+   "id": "Adik perempuanku menggambar dengan sangat bagus."
+  }
+ ],
+ "readings": {
+  "得": "de"
+ }
+}

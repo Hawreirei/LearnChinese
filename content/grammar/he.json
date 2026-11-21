@@ -1,0 +1,102 @@
+{
+ "id": "he",
+ "level": 1,
+ "seq": 23,
+ "title": "和: dan (untuk kata benda)",
+ "pattern": "Benda + 和 + benda",
+ "explain": [
+  "和 menghubungkan kata benda atau kata ganti: 我和你, 苹果和面包.",
+  "和 tidak dipakai untuk menghubungkan dua kata kerja atau dua kalimat. Untuk itu cukup koma, atau 也: 我喜欢看书，也喜欢看电影."
+ ],
+ "examples": [
+  [
+   "我和妈妈去商店。",
+   "Aku dan ibu pergi ke toko."
+  ],
+  [
+   "我买了苹果和面包。",
+   "Aku membeli apel dan roti."
+  ],
+  [
+   "我喜欢猫，也喜欢狗。",
+   "Aku suka kucing, juga suka anjing."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我喜欢唱歌和喜欢看书。",
+   "right": "我喜欢唱歌，也喜欢看书。",
+   "why": "和 tidak menghubungkan dua kata kerja atau kalimat."
+  },
+  {
+   "wrong": "我去了商店和买了水果。",
+   "right": "我去了商店，买了水果。",
+   "why": "Dua kegiatan berurutan cukup dipisah koma."
+  }
+ ],
+ "contrast": [
+  "ye-dou"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我和我朋友都是学生。",
+   "blank": "和",
+   "options": [
+    "和",
+    "也",
+    "都"
+   ],
+   "id": "Aku dan temanku sama-sama pelajar."
+  },
+  {
+   "type": "choose",
+   "zh": "我想买面包和牛奶。",
+   "blank": "和",
+   "options": [
+    "和",
+    "也",
+    "很"
+   ],
+   "id": "Aku ingin membeli roti dan susu."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我和他是同学。",
+    "我喜欢茶和水。",
+    "我喜欢唱歌，也喜欢看书。"
+   ],
+   "wrong": "我喜欢唱歌和喜欢看书。",
+   "fix": "我喜欢唱歌，也喜欢看书。",
+   "why": "和 tidak menghubungkan kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "爸爸和妈妈都在家。",
+    "我有一个哥哥和一个妹妹。",
+    "我去了商店，买了水果。"
+   ],
+   "wrong": "我去了商店和买了水果。",
+   "fix": "我去了商店，买了水果。",
+   "why": "Dua kegiatan dipisah koma, tanpa 和."
+  },
+  {
+   "type": "order",
+   "zh": "我和我妈妈喜欢喝茶。",
+   "pieces": [
+    "我和",
+    "我妈妈",
+    "喜欢",
+    "喝",
+    "茶",
+    "。"
+   ],
+   "id": "Aku dan ibuku suka minum teh."
+  }
+ ],
+ "readings": {
+  "苹果和面包": "píng guǒ hé miàn bāo"
+ }
+}

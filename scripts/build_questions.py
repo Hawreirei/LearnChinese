@@ -6,6 +6,10 @@ Types (names follow blueprints/hsk3.0):
   write_hanzi_from_pinyin     writing   type the missing hanzi given its pinyin
   order_sentence              writing   put shuffled word/punctuation pieces of an example sentence in order
   audio_question_pick_answer  listening hear a question (TTS), pick the answer (3 options)
+  audio_statement_question_mcq listening hear a short statement and a question about it (HSK 1 part 4)
+  match_question_to_answer    reading   groups of 5 questions + 6 answers (one extra); each question is one item
+  choose_missing_character_component writing  a handwriting character with one component hidden; pick it (3 options)
+  write_sentence_from_picture_and_word writing  picture + required word -> write one sentence (checked locally, model answers)
 
 Sources are the hand-written, level-linted sentences (content/id/level-*.psv -> vocab_id.json) and the
 hand-written Q&A pairs (content/id/qa-level-*.psv). Everything is deterministic (seeded by word id).
@@ -427,15 +431,15 @@ def make_texts(allowed, problems):
 
 
 def make_dialogs(allowed, problems, start_id):
-    """HSK 3 listening: dialogs (audio_dialog_question_mcq) and short passages (audio_passage_question_mcq)."""
+    """HSK 2-3 listening: dialogs (audio_dialog_question_mcq) and short passages (audio_passage_question_mcq)."""
     from pypinyin import Style, lazy_pinyin
     py = lambda t: bid.pinyin_line(t, Style, lazy_pinyin)
     out = []
-    path = ROOT / "content" / "id" / "dialog-level-3.psv"
-    if not path.exists():
-        return out
     seen = set()
-    for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+    # dialog-level-3.psv first so the ids it has always had (d1...) stay stable for saved reviews and mistakes
+    first = ROOT / "content" / "id" / "dialog-level-3.psv"
+    paths = [first] + sorted(p for p in (ROOT / "content" / "id").glob("dialog-level-*.psv") if p != first)
+    for path, n, line in ((p, n, line) for p in paths if p.exists() for n, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1)):
         if not line.strip() or line.startswith("#"):
             continue
         f = [x.strip() for x in line.split("|")]
@@ -473,6 +477,272 @@ def make_dialogs(allowed, problems, start_id):
     return out
 
 
+# ----------------------------------------------------------------------------------------------
+# Matching (match_question_to_answer) and statement listening (audio_statement_question_mcq).
+# ----------------------------------------------------------------------------------------------
+# What a question asks for, from its question word. Inside one matching group every question must ask for a
+# different thing, and the extra answer must answer yet another kind, so each answer fits exactly one question.
+QTAGS = [
+    ("pilihan", r"还是"), ("mengapa", r"为什么"), ("harga", r"多少钱|怎么卖"), ("siapa", r"谁"),
+    ("kapan", r"什么时候|几点|几号|几月|星期几|哪天|哪年"), ("durasi", r"多长时间|多久"), ("ukuran", r"多重|多高|多远|多长(?!时间)"),
+    ("tempat", r"哪儿|哪里|在哪"), ("kondisi", r"怎么样"), ("cara", r"怎么"), ("jumlah", r"几|多少|多大"),
+    ("yang-mana", r"哪"), ("apa", r"什么"), ("ya-tidak", r"吗[？?]?$|(.)不\1"),
+]
+
+
+def question_tag(q):
+    q = q.lstrip("*").strip()
+    for tag, pat in QTAGS:
+        if re.search(pat, q):
+            return tag
+    return "lain"
+
+
+def make_match(allowed, problems):
+    """5 questions + 1 extra answer per group. Every question becomes one item whose options are the group's six
+    answers in one fixed order (A-F), so consecutive items of a group read like the official matching part."""
+    from pypinyin import Style, lazy_pinyin
+    py = lambda t: bid.pinyin_line(t, Style, lazy_pinyin)
+    out, seen = [], set()
+    for path in sorted((ROOT / "content" / "id").glob("match-level-*.psv")):
+        groups = {}
+        for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.strip() or line.startswith("#"):
+                continue
+            f = [x.strip() for x in line.split("|")]
+            loc = f"{path.name}:{n}"
+            if len(f) != 6:
+                problems.append(f"{loc}: expected 6 fields, got {len(f)}")
+                continue
+            level, gid, q, a, tq, ta = f
+            level = int(level)
+            for t in [q.lstrip("*"), a]:
+                bad = sorted({c for c in t if HAN.match(c) and c not in allowed[level]})
+                if bad:
+                    problems.append(f"{loc}: chars above level {level}: {''.join(bad)} in {t!r}")
+            g = groups.setdefault((level, gid), {"pairs": [], "extra": [], "loc": loc})
+            (g["extra"] if q.startswith("*") else g["pairs"]).append({"q": q, "a": a, "tq": tq, "ta": ta, "loc": loc})
+        for (level, gid), g in groups.items():
+            where = f"{path.name} group {gid}"
+            if len(g["pairs"]) != 5 or len(g["extra"]) != 1:
+                problems.append(f"{where}: need 5 pairs and 1 extra answer, got {len(g['pairs'])} + {len(g['extra'])}")
+                continue
+            tags = [question_tag(p["q"]) for p in g["pairs"]]
+            extra_tag = question_tag(g["extra"][0]["q"])
+            if len(set(tags)) != 5 or "lain" in tags:
+                problems.append(f"{where}: questions must ask for 5 different things, got {tags}")
+            if extra_tag in tags or extra_tag == "lain":
+                problems.append(f"{where}: the extra answer ({extra_tag}) could answer one of the questions {tags}")
+            answers = [p["a"] for p in g["pairs"]] + [g["extra"][0]["a"]]
+            if len(set(answers)) != 6:
+                problems.append(f"{where}: answers not distinct")
+            rng = random.Random(f"{level}{gid}{answers[0]}")
+            order = answers[:]
+            rng.shuffle(order)
+            options = [{"zh": a, "pinyin": py(a)} for a in order]
+            for p in g["pairs"]:
+                if p["q"] in seen:
+                    problems.append(f"{p['loc']}: duplicate question {p['q']!r}")
+                seen.add(p["q"])
+                out.append({
+                    "id": f"m{len(out) + 1}", "type": "match_question_to_answer", "skill": "reading", "level": level,
+                    "group": f"{level}{gid}", "stem": p["q"], "stem_pinyin": py(p["q"]), "dedupe": "m:" + p["q"],
+                    "options": options, "answer": p["a"],
+                    "explain": {"question_id": p["tq"], "answer_id": p["ta"]},
+                })
+    return out
+
+
+def make_statements(allowed, problems):
+    """HSK 1 listening part 4: a short statement and a question about it, three short answers."""
+    from pypinyin import Style, lazy_pinyin
+    py = lambda t: bid.pinyin_line(t, Style, lazy_pinyin)
+    out, seen = [], set()
+    for path in sorted((ROOT / "content" / "id").glob("statement-level-*.psv")):
+        for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.strip() or line.startswith("#"):
+                continue
+            f = [x.strip() for x in line.split("|")]
+            loc = f"{path.name}:{n}"
+            if len(f) != 9:
+                problems.append(f"{loc}: expected 9 fields, got {len(f)}")
+                continue
+            level, text, q, ok, w1, w2, t_text, t_q, t_ok = f
+            level = int(level)
+            opts = [ok, w1, w2]
+            if len(set(opts)) != 3:
+                problems.append(f"{loc}: options not distinct")
+            if text in seen:
+                problems.append(f"{loc}: duplicate statement")
+            seen.add(text)
+            for t in [text, q] + opts:
+                bad = sorted({c for c in t if HAN.match(c) and c not in allowed[level]})
+                if bad:
+                    problems.append(f"{loc}: chars above level {level}: {''.join(bad)} in {t!r}")
+            rng = random.Random(text)
+            shuffled = opts[:]
+            rng.shuffle(shuffled)
+            out.append({
+                "id": f"s{len(out) + 1}", "type": "audio_statement_question_mcq", "skill": "listening", "level": level,
+                "turns": [{"who": "", "zh": text, "pinyin": py(text)}], "question": q, "question_pinyin": py(q),
+                "dedupe": "s:" + text, "options": [{"zh": o, "pinyin": py(o)} for o in shuffled], "answer": ok,
+                "explain": {"text_id": t_text, "question_id": t_q, "answer_id": t_ok},
+            })
+    return out
+
+
+# ----------------------------------------------------------------------------------------------
+# Choose the missing component (choose_missing_character_component), HSK 2 writing part 1.
+# Splits come from data/hsk3/components.json (Make Me a Hanzi, LGPL; scripts/build_components.py); the app draws
+# the character from its stroke data with the hidden component's strokes left out.
+# ----------------------------------------------------------------------------------------------
+# Components learners mix up; tried first as distractors (only those that are components somewhere in the list).
+LOOKALIKE_PARTS = {
+    "氵": "冫讠彳", "冫": "氵讠", "讠": "氵冫亻", "亻": "彳讠扌", "彳": "亻氵", "扌": "木才亻", "木": "禾扌米",
+    "禾": "木米", "米": "木禾", "日": "目月口", "目": "日月", "月": "日目", "口": "日囗", "囗": "口日", "女": "子",
+    "子": "女了", "宀": "冖穴", "冖": "宀", "艹": "竹", "忄": "亻彳", "心": "忄必", "土": "士王工", "王": "土玉",
+    "钅": "饣车", "饣": "钅讠", "纟": "饣钅", "辶": "廴走", "力": "刀九", "刀": "力", "又": "叉文", "寸": "才丁",
+    "门": "冂问", "田": "由甲", "夕": "歹久", "马": "鸟与", "白": "日自", "山": "出", "火": "灬人", "灬": "火",
+    "车": "东", "阝": "卩", "广": "厂疒", "厂": "广", "疒": "广", "页": "贝见", "贝": "见页", "见": "贝",
+}
+
+
+def make_components(vocab, ent, problems):
+    comps = json.loads((ROOT / "data" / "hsk3" / "components.json").read_text("utf-8"))
+    hand = json.loads((ROOT / "data" / "hsk3" / "handwriting.json").read_text("utf-8"))
+    level_of = {x["char"]: x["level"] for x in hand}
+    cjk = lambda c: len(c) == 1 and "\u4e00" <= c <= "\u9fff"
+    # (IDS operator, parts) -> character, to reject a distractor that spells another character of the list
+    built = {}
+    for ch, e in comps.items():
+        if e["p"]:
+            built[(e["d"][0], tuple(p["c"] for p in e["p"]))] = ch
+    # components seen at each position (operator, index), with their stroke counts, for extra distractors
+    at_pos = {}
+    for ch, e in comps.items():
+        for i, p in enumerate(e["p"]):
+            if cjk(p["c"]) and len(p["s"]) >= 2:
+                at_pos.setdefault((e["d"][0], i), {})[p["c"]] = len(p["s"])
+    words = sorted(vocab.values(), key=lambda w: (len(w["word"]), w["level"], w["id"]))
+    out = []
+    for x in hand:
+        ch, level = x["char"], x["level"]
+        if level > 3 or ch not in comps or not comps[ch]["p"]:
+            continue
+        e = comps[ch]
+        parts = e["p"]
+        ok = [i for i, p in enumerate(parts) if cjk(p["c"]) and len(p["s"]) >= 2
+              and all(len(q["s"]) >= 2 for j, q in enumerate(parts) if j != i)]
+        if not ok or len({p["c"] for p in parts}) < len(parts):   # 比 匕+匕, 多 夕+夕: the answer would be in sight
+            continue
+        k = next((i for i in ok if parts[i]["c"] == e["r"]), ok[0])     # the radical when it can be hidden
+        ans, op = parts[k]["c"], e["d"][0]
+        rng = random.Random(f"k{ch}")
+
+        def spells_other(c):
+            alt = tuple(c if j == k else q["c"] for j, q in enumerate(parts))
+            return built.get((op, alt)) not in (None, ch)
+
+        pool = [c for c in LOOKALIKE_PARTS.get(ans, "") if c != ans]
+        near = sorted(at_pos.get((op, k), {}).items(), key=lambda kv: (abs(kv[1] - len(parts[k]["s"])), kv[0]))
+        pool += [c for c, _ in near if c != ans and c not in pool]
+        distractors = [c for c in pool if not spells_other(c)][:2]
+        if len(distractors) < 2:          # rare shapes (e.g. 区) have no believable look-alike: no question
+            continue
+        w = next((w for w in words if ch in w["word"] and w["level"] <= max(level, 1) and w["id"] in ent), None)
+        if not w:
+            continue
+        opts = [ans] + distractors
+        rng.shuffle(opts)
+        out.append({
+            "id": f"k{len(out) + 1}", "type": "choose_missing_character_component", "skill": "writing", "level": max(level, 2),
+            "char": ch, "part": k, "dedupe": "k:" + ch,
+            "word": w["word"].replace(ch, "□"), "word_pinyin": w["pinyin"], "word_arti": ent[w["id"]]["arti"],
+            "options": [{"zh": c} for c in opts], "answer": ans,
+            "explain": {"char": ch, "parts": " + ".join(p["c"] for p in parts), "word": w["word"], "word_pinyin": w["pinyin"], "arti": ent[w["id"]]["arti"]},
+        })
+    return out
+
+
+# ----------------------------------------------------------------------------------------------
+# Write a sentence from a picture and a word (write_sentence_from_picture_and_word), HSK 3 writing part 2.
+# Free writing cannot be marked like a choice: the app checks it locally (essay.js) and shows model answers.
+# ----------------------------------------------------------------------------------------------
+END_PUNCT = "。！？"
+
+
+def make_sentence_tasks(vocab, allowed, problems):
+    from pypinyin import Style, lazy_pinyin
+    py = lambda t: bid.pinyin_line(t, Style, lazy_pinyin)
+    scenes = {sc["id"]: sc for sc in json.loads((ROOT / "content" / "pic" / "scenes.json").read_text("utf-8"))}
+    out, seen = [], set()
+    for path in sorted((ROOT / "content" / "writing").glob("level-*.json")):
+        data = json.loads(path.read_text("utf-8"))
+        level = data["level"]
+        for n, t in enumerate(data["tasks"], 1):
+            loc = f"{path.name} task {n} ({t.get('word')})"
+            sc, word = scenes.get(t["scene"]), t["word"]
+            if not sc:
+                problems.append(f"{loc}: unknown scene {t['scene']!r}")
+                continue
+            w = next((v for v in sorted(vocab.values(), key=lambda v: v["level"]) if v["word"] == word and v["level"] <= level), None)
+            if not w:
+                problems.append(f"{loc}: {word!r} is not a syllabus word up to HSK {level}")
+                continue
+            if (t["scene"], word) in seen:
+                problems.append(f"{loc}: duplicate task")
+            seen.add((t["scene"], word))
+            models = t["models"]
+            if len(models) != 3 or len({m[0] for m in models}) != 3:
+                problems.append(f"{loc}: need 3 different model answers")
+            for zh, tr in models:
+                if word not in zh:
+                    problems.append(f"{loc}: model answer without the word: {zh}")
+                if zh[-1] not in END_PUNCT:
+                    problems.append(f"{loc}: model answer must end with {END_PUNCT}: {zh}")
+                if not tr.strip():
+                    problems.append(f"{loc}: missing translation for {zh}")
+                bad = sorted({c for c in zh if HAN.match(c) and c not in allowed[level]})
+                if bad:
+                    problems.append(f"{loc}: chars above level {level}: {''.join(bad)} in {zh}")
+            ms = [{"zh": zh, "pinyin": py(zh), "id": tr} for zh, tr in models]
+            out.append({
+                "id": f"x{len(out) + 1}", "type": "write_sentence_from_picture_and_word", "skill": "writing", "level": level,
+                "picture": {"key": sc["id"], "emoji": sc["emoji"], "alt": sc["alt"]}, "word": word, "word_pinyin": w["pinyin"],
+                "dedupe": f"x:{sc['id']}:{word}", "answer": ms[0]["zh"], "models": ms,
+            })
+    return out
+
+
+# ----------------------------------------------------------------------------------------------
+# Grammar tags (issue #31): sentence items get "g": [grammar point ids] when their full sentence shows a pattern
+# (the point's "detect" regex in content/grammar/<id>.json) at or below the item's level. Used by Kemajuan
+# ("pola terlemah") and to link explanations to the grammar page. Ids are not affected.
+# ----------------------------------------------------------------------------------------------
+TAGGED_TYPES = {"cloze_wordbank", "write_hanzi_from_pinyin", "order_sentence"}
+
+
+def grammar_patterns():
+    out = []
+    for path in sorted((ROOT / "content" / "grammar").glob("*.json")):
+        p = json.loads(path.read_text("utf-8"))
+        if p.get("detect"):
+            out.append((p["id"], p["level"], re.compile(p["detect"])))
+    return out
+
+
+def tag_grammar(items):
+    pats = grammar_patterns()
+    for it in items:
+        if it["type"] not in TAGGED_TYPES:
+            continue
+        zh = it.get("explain", {}).get("zh") or it.get("answer", "")
+        tags = [pid for pid, lvl, rx in pats if lvl <= it["level"] and rx.search(zh)]
+        if tags:
+            it["g"] = tags
+    return items
+
+
 def main():
     vocab, ent = load_all()
     problems = []
@@ -481,9 +751,14 @@ def main():
     items += make_dialogs(allowed, problems, 1)
     items += make_pictures(problems)
     items += make_texts(allowed, problems)
+    items += make_match(allowed, problems)
+    items += make_statements(allowed, problems)
+    items += make_components(vocab, ent, problems)
+    items += make_sentence_tasks(vocab, allowed, problems)
     if problems:
         print("\n".join(problems))
         sys.exit(1)
+    tag_grammar(items)
     path = ROOT / "data" / "hsk3" / "questions.json"
     with open(path, "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, separators=(",", ":"))

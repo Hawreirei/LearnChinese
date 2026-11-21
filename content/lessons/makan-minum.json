@@ -1,6 +1,7 @@
 {
   "id": "makan-minum",
   "level": 1,
+  "grammar": ["xiang-yao", "ba-particle"],
   "seq": 5,
   "zh": "吃什么，喝什么",
   "title": "Makanan dan minuman sehari-hari",

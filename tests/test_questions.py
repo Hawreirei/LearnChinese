@@ -27,7 +27,93 @@ class QuestionBankTests(unittest.TestCase):
         self.assertGreaterEqual(len(by("cloze_wordbank")), 400)
         self.assertGreaterEqual(len(by("write_hanzi_from_pinyin")), 300)
         self.assertEqual(len(by("audio_question_pick_answer")), 68)
-        self.assertEqual(len(by("audio_dialog_question_mcq")) + len(by("audio_passage_question_mcq")), 36)
+        self.assertEqual(len(by("audio_dialog_question_mcq")) + len(by("audio_passage_question_mcq")), 76)
+
+    def test_match_groups(self):
+        groups = {}
+        for q in by("match_question_to_answer"):
+            groups.setdefault(q["group"], []).append(q)
+        per_level = {}
+        for g, items in groups.items():
+            per_level[items[0]["level"]] = per_level.get(items[0]["level"], 0) + 1
+            self.assertEqual(len(items), 5, g)
+            opts = [o["zh"] for o in items[0]["options"]]
+            self.assertEqual(len(opts), 6, g)
+            self.assertEqual(len(set(opts)), 6, g)
+            for q in items:
+                self.assertEqual([o["zh"] for o in q["options"]], opts, (g, q["id"]))   # one A-F list per group
+                self.assertIn(q["answer"], opts, q["id"])
+                self.assertTrue(q["stem"] and q["stem_pinyin"] and q["explain"]["question_id"] and q["explain"]["answer_id"], q["id"])
+            self.assertEqual(len({q["answer"] for q in items}), 5, g)                    # the sixth answer is the extra
+            tags = [bq.question_tag(q["stem"]) for q in items]
+            self.assertEqual(len(set(tags)), 5, (g, tags))
+        for level in (1, 2, 3):
+            self.assertGreaterEqual(per_level.get(level, 0), 10, level)
+
+    def test_statement_listening(self):
+        items = by("audio_statement_question_mcq")
+        self.assertGreaterEqual(len(items), 60)
+        for q in items:
+            self.assertEqual(q["level"], 1, q["id"])
+            self.assertEqual(len(q["turns"]), 1, q["id"])
+            self.assertEqual(len({o["zh"] for o in q["options"]}), 3, q["id"])
+            self.assertIn(q["answer"], [o["zh"] for o in q["options"]], q["id"])
+            self.assertTrue(q["question"] and q["explain"]["text_id"] and q["explain"]["answer_id"], q["id"])
+
+    def test_component_data(self):
+        comps = json.loads((ROOT / "data/hsk3/components.json").read_text("utf-8"))
+        hand = {x["char"] for x in json.loads((ROOT / "data/hsk3/handwriting.json").read_text("utf-8"))}
+        self.assertEqual(set(comps), hand)
+        self.assertTrue((ROOT / "data/hsk3/components-LGPL.txt").exists(), "LGPL text must travel with components.json")
+        for ch, e in comps.items():
+            if not e["p"]:
+                continue
+            n = len(json.loads((ROOT / "data/hsk3/strokes" / f"{ord(ch):x}.json").read_text("utf-8"))["strokes"])
+            strokes = sorted(i for p in e["p"] for i in p["s"])
+            self.assertEqual(strokes, list(range(n)), ch)      # every stroke belongs to exactly one top-level part
+
+    def test_component_questions(self):
+        comps = json.loads((ROOT / "data/hsk3/components.json").read_text("utf-8"))
+        spelled = {(e["d"][0], tuple(p["c"] for p in e["p"])): ch for ch, e in comps.items() if e["p"]}
+        items = by("choose_missing_character_component")
+        self.assertGreaterEqual(len([q for q in items if q["level"] == 2]), 25)    # >= 5 papers of 5
+        for q in items:
+            opts = [o["zh"] for o in q["options"]]
+            self.assertEqual(len(opts), 3, q["id"])
+            self.assertEqual(len(set(opts)), 3, q["id"])
+            e = comps[q["char"]]
+            self.assertEqual(e["p"][q["part"]]["c"], q["answer"], q["id"])
+            self.assertIn(q["answer"], opts, q["id"])
+            self.assertNotIn(q["char"], q["word"], q["id"])                        # the word must not give it away
+            self.assertIn("□", q["word"], q["id"])
+            for o in opts:
+                if o == q["answer"]:
+                    continue
+                alt = tuple(o if j == q["part"] else p["c"] for j, p in enumerate(e["p"]))
+                self.assertIn(spelled.get((e["d"][0], alt)), (None, q["char"]), (q["id"], o))   # no other real character
+
+    def test_sentence_tasks(self):
+        items = by("write_sentence_from_picture_and_word")
+        self.assertGreaterEqual(len(items), 40)
+        scenes = {s["id"] for s in json.loads((ROOT / "content/pic/scenes.json").read_text("utf-8"))}
+        for q in items:
+            self.assertEqual(q["level"], 3, q["id"])
+            self.assertIn(q["picture"]["key"], scenes, q["id"])
+            self.assertTrue(q["picture"]["emoji"] and q["word_pinyin"], q["id"])
+            self.assertEqual(len(q["models"]), 3, q["id"])
+            self.assertEqual(q["answer"], q["models"][0]["zh"], q["id"])
+            for m in q["models"]:
+                self.assertIn(q["word"], m["zh"], q["id"])
+                self.assertIn(m["zh"][-1], "。！？", q["id"])
+                self.assertTrue(m["pinyin"] and m["id"], q["id"])
+
+    def test_question_tags(self):
+        cases = {"你叫什么名字？": "apa", "你今年几岁了？": "jumlah", "现在几点了？": "kapan", "这个多少钱？": "harga",
+                 "你家在哪儿？": "tempat", "谁会做饭？": "siapa", "今天天气怎么样？": "kondisi", "你怎么去学校？": "cara",
+                 "你是老师吗？": "ya-tidak", "你能不能来？": "ya-tidak", "你喝茶还是咖啡？": "pilihan", "你为什么笑？": "mengapa",
+                 "你等了多长时间？": "durasi", "这个箱子有多重？": "ukuran", "你是哪国人？": "yang-mana", "你是学生？": "lain"}
+        for q, tag in cases.items():
+            self.assertEqual(bq.question_tag(q), tag, q)
 
     def test_types_match_blueprints(self):
         import yaml

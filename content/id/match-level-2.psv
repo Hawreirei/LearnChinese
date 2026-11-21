@@ -1,0 +1,62 @@
+# Mencocokkan pertanyaan dengan jawaban (match_question_to_answer), HSK 2. Format: lihat match-level-1.psv.
+# level|grup|pertanyaan|jawaban|terjemahan pertanyaan|terjemahan jawaban
+2|a|你为什么没来上课？|因为我生病了。|Mengapa kamu tidak masuk kelas?|Karena aku sakit.
+2|a|你的生日是几月几号？|五月十号。|Ulang tahunmu bulan apa tanggal berapa?|Tanggal sepuluh Mei.
+2|a|你家离学校远吗？|不远，走路十分钟。|Apakah rumahmu jauh dari sekolah?|Tidak jauh, sepuluh menit jalan kaki.
+2|a|你最喜欢什么颜色？|我最喜欢红色。|Warna apa yang paling kamu sukai?|Aku paling suka warna merah.
+2|a|你们班有多少个学生？|我们班有三十个学生。|Kelasmu ada berapa murid?|Kelas kami ada tiga puluh murid.
+2|a|*你怎么去机场？|我打车去。|-|Aku naik taksi.
+2|b|你经常什么时候跑步？|我经常早上跑步。|Biasanya kamu lari kapan?|Aku biasanya lari pagi hari.
+2|b|这次考试怎么样？|考得不错。|Bagaimana ujian kali ini?|Hasilnya lumayan bagus.
+2|b|你是从哪儿来的？|我是从中国来的。|Kamu datang dari mana?|Aku datang dari Tiongkok.
+2|b|谁帮你买的机票？|我丈夫帮我买的。|Siapa yang membelikanmu tiket pesawat?|Suamiku yang membelikan.
+2|b|你会游泳吗？|会，我从小就会游泳。|Apakah kamu bisa berenang?|Bisa, sejak kecil aku sudah bisa berenang.
+2|b|*你等了多长时间？|等了半个小时。|-|Sudah menunggu setengah jam.
+2|c|你为什么笑？|因为这个电影很有意思。|Mengapa kamu tertawa?|Karena film ini sangat menarik.
+2|c|你身体怎么样？|很好，我每天都运动。|Bagaimana kesehatanmu?|Baik, aku berolahraga setiap hari.
+2|c|从这儿到机场要多长时间？|坐地铁要一个小时。|Dari sini ke bandara butuh berapa lama?|Naik kereta bawah tanah butuh satu jam.
+2|c|你喜欢喝红茶还是绿茶？|我喜欢喝绿茶。|Kamu suka teh hitam atau teh hijau?|Aku suka minum teh hijau.
+2|c|左边那个人是谁？|是我们的新老师。|Orang di sebelah kiri itu siapa?|Itu guru baru kami.
+2|c|*你住几楼？|我住六楼。|-|Aku tinggal di lantai enam.
+2|d|你去过中国吗？|去过，去年去的。|Apakah kamu pernah ke Tiongkok?|Pernah, tahun lalu.
+2|d|你们准备去哪儿旅游？|我们准备去中国旅游。|Kalian berencana berwisata ke mana?|Kami berencana berwisata ke Tiongkok.
+2|d|你的手表多少钱？|一千五百块。|Jam tanganmu berapa harganya?|Seribu lima ratus yuan.
+2|d|你每天怎么去上班？|我坐公交车去上班。|Setiap hari kamu berangkat kerja naik apa?|Aku naik bus ke kantor.
+2|d|你哥哥今年多大？|他二十五岁了。|Kakakmu tahun ini umur berapa?|Dia sudah dua puluh lima tahun.
+2|d|*你的书包是什么颜色的？|是黑色的。|-|Warnanya hitam.
+2|e|你在等谁？|我在等我的同学。|Kamu sedang menunggu siapa?|Aku sedang menunggu teman sekelasku.
+2|e|你什么时候开始学汉语的？|我从去年开始学。|Kapan kamu mulai belajar bahasa Mandarin?|Aku mulai belajar sejak tahun lalu.
+2|e|洗手间在哪儿？|在门口的右边。|Toilet di mana?|Di sebelah kanan pintu masuk.
+2|e|你为什么不吃肉？|因为我不喜欢吃肉。|Mengapa kamu tidak makan daging?|Karena aku tidak suka makan daging.
+2|e|你一个星期运动几次？|三次。|Seminggu kamu berolahraga berapa kali?|Tiga kali.
+2|e|*这条裤子怎么样？|颜色很好看，也很便宜。|-|Warnanya bagus, juga murah.
+2|f|你的眼睛怎么了？|我的眼睛有点儿疼。|Matamu kenapa?|Mataku agak sakit.
+2|f|你们几点开始考试？|下午两点开始。|Pukul berapa ujian kalian mulai?|Mulai pukul dua siang.
+2|f|你喜欢什么运动？|我喜欢踢足球。|Kamu suka olahraga apa?|Aku suka bermain sepak bola.
+2|f|这是谁送你的花？|是我男朋友送的。|Ini bunga dari siapa?|Dari pacarku.
+2|f|你吃药了吗？|吃了，我已经好多了。|Kamu sudah minum obat?|Sudah, aku sudah jauh lebih baik.
+2|f|*你在哪儿买的药？|在旁边的药店买的。|-|Dibeli di apotek sebelah.
+2|g|你想喝咖啡还是奶茶？|我想喝奶茶。|Kamu ingin minum kopi atau teh susu?|Aku ingin minum teh susu.
+2|g|你家离这儿远吗？|很近，走路五分钟就到了。|Apakah rumahmu jauh dari sini?|Dekat, lima menit jalan kaki sudah sampai.
+2|g|你为什么这么累？|因为我昨天晚上没睡觉。|Mengapa kamu capek sekali?|Karena tadi malam aku tidak tidur.
+2|g|你每天上网多长时间？|两个小时左右。|Setiap hari kamu berinternet berapa lama?|Sekitar dua jam.
+2|g|那位女士姓什么？|她姓高。|Ibu itu bermarga apa?|Marganya Gao.
+2|g|*你住哪个酒店？|我住机场旁边的那个酒店。|-|Aku menginap di hotel dekat bandara itu.
+2|h|你今天怎么来的？|我是走路来的。|Hari ini kamu datang naik apa?|Aku datang jalan kaki.
+2|h|外面天气怎么样？|外面是阴天。|Bagaimana cuaca di luar?|Di luar mendung.
+2|h|你还记得我吗？|记得，你是小高的姐姐。|Apakah kamu masih ingat aku?|Ingat, kamu kakak perempuan Xiao Gao.
+2|h|你们的教室在几楼？|在三楼。|Kelas kalian di lantai berapa?|Di lantai tiga.
+2|h|你有什么爱好？|我的爱好是画画。|Apa hobimu?|Hobiku menggambar.
+2|h|*这是谁的本子？|是我同学的。|-|Milik teman sekelasku.
+2|i|你什么时候过来？|我一会儿就过来。|Kapan kamu datang ke sini?|Sebentar lagi aku datang.
+2|i|去地铁站怎么走？|往前走，右边就是。|Ke stasiun kereta bawah tanah lewat mana?|Jalan lurus ke depan, di sebelah kanan.
+2|i|你为什么还没走？|因为我还在等我丈夫。|Mengapa kamu belum pergi?|Karena aku masih menunggu suamiku.
+2|i|你们班谁跑得最快？|小高跑得最快。|Di kelasmu siapa yang larinya paling cepat?|Xiao Gao yang paling cepat.
+2|i|你想送她什么？|我想送她一本书。|Kamu ingin memberinya hadiah apa?|Aku ingin memberinya sebuah buku.
+2|i|*她的个子高吗？|不太高。|-|Tidak terlalu tinggi.
+2|j|你从哪儿来？|我从机场来。|Kamu datang dari mana?|Aku datang dari bandara.
+2|j|你的票是几点的？|是下午三点的。|Tiketmu untuk pukul berapa?|Untuk pukul tiga sore.
+2|j|你觉得这个饭馆怎么样？|菜很好吃，就是人太多。|Menurutmu rumah makan ini bagaimana?|Masakannya enak, hanya saja terlalu ramai.
+2|j|你一个月看几次电影？|两三次。|Sebulan kamu menonton film berapa kali?|Dua tiga kali.
+2|j|你是坐飞机去的吗？|不是，我是坐火车去的。|Apakah kamu pergi naik pesawat?|Bukan, aku pergi naik kereta.
+2|j|*你为什么学汉语？|因为我想去中国工作。|-|Karena aku ingin bekerja di Tiongkok.

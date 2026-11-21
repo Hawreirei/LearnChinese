@@ -1,0 +1,94 @@
+{
+ "id": "yiyang",
+ "level": 3,
+ "seq": 17,
+ "detect": "一样",
+ "title": "跟…一样: sama dengan",
+ "pattern": "A + 跟 B + 一样 (+ kata sifat)",
+ "explain": [
+  "A 跟 B 一样 = A sama dengan B: 我的手机跟你的一样. A 跟 B 一样 + kata sifat = sama-sama …: 他跟我一样高.",
+  "Negatif: 不一样 (berbeda)."
+ ],
+ "examples": [
+  [
+   "我的手机跟你的一样。",
+   "Ponselku sama dengan ponselmu."
+  ],
+  [
+   "他跟他哥哥一样高。",
+   "Dia sama tingginya dengan kakaknya."
+  ],
+  [
+   "这两个字不一样。",
+   "Dua hanzi ini berbeda."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他跟我一样很高。",
+   "right": "他跟我一样高。",
+   "why": "Setelah 一样, kata sifat tanpa 很."
+  }
+ ],
+ "contrast": [
+  "bi"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我跟你一样，也喜欢运动。",
+   "blank": "一样",
+   "options": [
+    "一样",
+    "一起",
+    "一边"
+   ],
+   "id": "Aku sama sepertimu, juga suka olahraga."
+  },
+  {
+   "type": "choose",
+   "zh": "这件衣服跟那件不一样。",
+   "blank": "不",
+   "options": [
+    "不",
+    "没",
+    "别"
+   ],
+   "id": "Baju ini berbeda dengan yang itu."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我的想法跟你一样。",
+    "他跟我一样大。",
+    "这两个城市不一样。"
+   ],
+   "wrong": "他跟我一样很忙。",
+   "fix": "他跟我一样忙。",
+   "why": "Tanpa 很 setelah 一样."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "这个跟那个一样贵。",
+    "我们的老师不一样。",
+    "她跟她妈妈一样漂亮。"
+   ],
+   "wrong": "他跟我一样高不。",
+   "fix": "他跟我不一样高。",
+   "why": "不 sebelum 一样."
+  },
+  {
+   "type": "order",
+   "zh": "我的护照跟你的一样。",
+   "pieces": [
+    "我的护照",
+    "跟",
+    "你的",
+    "一样",
+    "。"
+   ],
+   "id": "Pasporku sama dengan punyamu."
+  }
+ ]
+}

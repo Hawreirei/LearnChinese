@@ -1,0 +1,96 @@
+{
+ "id": "yibian",
+ "level": 3,
+ "seq": 10,
+ "detect": "一边",
+ "title": "一边…一边…: sambil",
+ "pattern": "一边 + kata kerja A + 一边 + kata kerja B",
+ "explain": [
+  "一边 A 一边 B = melakukan A sambil B, dua kegiatan bersamaan oleh orang yang sama: 他一边吃饭一边看电视.",
+  "Kedua bagian memakai kata kerja; subjeknya hanya disebut sekali di depan."
+ ],
+ "examples": [
+  [
+   "他一边吃饭一边看电视。",
+   "Dia makan sambil menonton televisi."
+  ],
+  [
+   "我们一边走一边聊天儿。",
+   "Kami berjalan sambil mengobrol."
+  ],
+  [
+   "她喜欢一边听音乐一边写作业。",
+   "Dia suka mengerjakan PR sambil mendengarkan musik."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他一边吃饭，他一边看电视。",
+   "right": "他一边吃饭一边看电视。",
+   "why": "Subjek cukup sekali."
+  }
+ ],
+ "contrast": [
+  "yiqi"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我们一边喝茶一边聊天儿。",
+   "blank": "一边",
+   "options": [
+    "一边",
+    "一起",
+    "一样"
+   ],
+   "id": "Kami minum teh sambil mengobrol."
+  },
+  {
+   "type": "choose",
+   "zh": "别一边走路一边看手机。",
+   "blank": "一边",
+   "options": [
+    "一边",
+    "一下",
+    "一点儿"
+   ],
+   "id": "Jangan berjalan sambil melihat ponsel."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他一边听音乐一边跑步。",
+    "我一边吃一边说。",
+    "妈妈一边做饭一边唱歌。"
+   ],
+   "wrong": "一边他吃饭一边看书。",
+   "fix": "他一边吃饭一边看书。",
+   "why": "Subjek di depan 一边."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我们一边走一边说。",
+    "她一边笑一边说再见。",
+    "他一边工作一边学习。"
+   ],
+   "wrong": "他一边吃饭，他一边看手机。",
+   "fix": "他一边吃饭一边看手机。",
+   "why": "Subjek cukup sekali."
+  },
+  {
+   "type": "order",
+   "zh": "他喜欢一边听音乐一边写作业。",
+   "pieces": [
+    "他",
+    "喜欢",
+    "一边",
+    "听音乐",
+    "一边",
+    "写作业",
+    "。"
+   ],
+   "id": "Dia suka mengerjakan PR sambil mendengarkan musik."
+  }
+ ]
+}

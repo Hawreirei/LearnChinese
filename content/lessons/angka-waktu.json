@@ -1,6 +1,7 @@
 {
   "id": "angka-waktu",
   "level": 1,
+  "grammar": ["ji-duoshao", "measure", "liang-er", "time-order"],
   "seq": 3,
   "zh": "数字和时间",
   "title": "Angka, tanggal, dan jam",

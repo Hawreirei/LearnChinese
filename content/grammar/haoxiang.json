@@ -1,0 +1,95 @@
+{
+ "id": "haoxiang",
+ "level": 3,
+ "seq": 16,
+ "detect": "好像",
+ "title": "好像: sepertinya",
+ "pattern": "好像 + kalimat / kata sifat",
+ "explain": [
+  "好像 = sepertinya, kelihatannya (dugaan): 好像要下雨了, 他好像生病了.",
+  "Diletakkan setelah subjek atau di awal kalimat."
+ ],
+ "examples": [
+  [
+   "好像要下雨了。",
+   "Sepertinya akan hujan."
+  ],
+  [
+   "他好像不太高兴。",
+   "Sepertinya dia kurang senang."
+  ],
+  [
+   "我好像在哪儿见过你。",
+   "Sepertinya aku pernah melihatmu di suatu tempat."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他好像是很累。",
+   "right": "他好像很累。",
+   "why": "好像 + kata sifat, tanpa 是."
+  }
+ ],
+ "contrast": [
+  "qilai"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "你好像瘦了。",
+   "blank": "好像",
+   "options": [
+    "好像",
+    "一样",
+    "一定"
+   ],
+   "id": "Sepertinya kamu kurusan."
+  },
+  {
+   "type": "choose",
+   "zh": "外面好像在下雨。",
+   "blank": "好像",
+   "options": [
+    "好像",
+    "一样",
+    "比较"
+   ],
+   "id": "Sepertinya di luar sedang hujan."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他好像生病了。",
+    "好像有人找你。",
+    "这个字我好像见过。"
+   ],
+   "wrong": "他好像是很累。",
+   "fix": "他好像很累。",
+   "why": "Tanpa 是 sebelum kata sifat."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你好像不太舒服。",
+    "她好像是老师。",
+    "天好像要黑了。"
+   ],
+   "wrong": "好像他我认识。",
+   "fix": "我好像认识他。",
+   "why": "Subjek di depan 好像."
+  },
+  {
+   "type": "order",
+   "zh": "我好像在哪儿见过他。",
+   "pieces": [
+    "我",
+    "好像",
+    "在哪儿",
+    "见过",
+    "他",
+    "。"
+   ],
+   "id": "Sepertinya aku pernah melihat dia di suatu tempat."
+  }
+ ]
+}

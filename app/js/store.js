@@ -1,10 +1,12 @@
 // Progress persistence. Storage is injectable (tests / private-mode fallback).
 import { newCard } from "./srs.js";
+import { normalizePlan } from "./plan.js";
+import { applyAnswer, addMistake, removeMistake } from "./mistakes.js";
 
 const KEY = "learning-chinese.vocab.v1";
 const LEGACY_KEY = "buatin.vocab.v1";   // name used before the rename; read once so saved progress survives
 export const MAX_EVENTS = 5000;
-export const DEFAULT_SETTINGS = { levels: [1], newPerDay: 10, speak: true, writeMode: "choice", scoreSpeech: true, toneContour: false };
+export const DEFAULT_SETTINGS = { levels: [1], newPerDay: 10, newPerDayAuto: true, speak: true, writeMode: "choice", scoreSpeech: true, toneContour: false };
 
 export function todayKey(now = Date.now()) {
   const d = new Date(now);
@@ -54,6 +56,10 @@ export class Store {
   get settings() { return this.data.settings; }
   setSettings(patch) { Object.assign(this.data.settings, patch); this.save(); }
 
+  /** Exam target { level, examDate, minutes }; always valid (see plan.js). Old data without it gets the default. */
+  get plan() { return normalizePlan(this.data.plan); }
+  setPlan(patch) { this.data.plan = normalizePlan({ ...this.plan, ...patch }); this.save(); return this.data.plan; }
+
   card(id) { return this.data.cards[id] || null; }
   putCard(card) { this.data.cards[card.id] = card; this.save(); }
   ensureCard(id) { return this.data.cards[id] || newCard(id); }
@@ -75,9 +81,19 @@ export class Store {
     const s = (p[skill] ||= { n: 0, ok: 0 });
     s.n += 1;
     if (correct) s.ok += 1;
-    if (meta) this.#pushEvent({ t: meta.t ?? Date.now(), k: meta.k ?? "practice", s: skill, l: meta.l, ty: meta.ty, id: meta.id, w: meta.w ?? null, ok: correct ? 1 : 0, ms: meta.ms ?? 0, ...(meta.un ? { un: 1 } : {}) });
+    if (meta) {
+      const t = meta.t ?? Date.now();
+      this.#pushEvent({ t, k: meta.k ?? "practice", s: skill, l: meta.l, ty: meta.ty, id: meta.id, w: meta.w ?? null, ok: correct ? 1 : 0, ms: meta.ms ?? 0, ...(meta.un ? { un: 1 } : {}), ...(meta.mb ? { mb: 1 } : {}) });
+      this.data.mistakes = applyAnswer(this.mistakes, { id: meta.id, ok: correct, t, k: meta.k, un: !!meta.un, skill });
+    }
     this.save();
   }
+
+  /** Buku kesalahan (mistakes.js): question id → { added, due, streak, src, day }. Updated by every recordAnswer. */
+  get mistakes() { return this.data.mistakes ?? {}; }
+  addMistake(id, now = Date.now()) { this.data.mistakes = addMistake(this.mistakes, id, now, "manual"); this.save(); }
+  removeMistake(id) { this.data.mistakes = removeMistake(this.mistakes, id); this.save(); }
+  clearMistakes() { this.data.mistakes = {}; this.save(); }
 
   #pushEvent(e) {
     const list = (this.data.events ||= []);
@@ -93,6 +109,21 @@ export class Store {
     if (this.data.exams.length > 200) this.data.exams.shift();
     this.save();
   }
+
+  /** Speaking simulations: [{ t, level, repeatPct, rubricPct, estimate, ratings }], newest last (max 50).
+   *  A record with the same `t` is replaced (the rubric is saved after the first record). Recordings are never stored. */
+  get speakingExams() { return this.data.speakingExams ?? []; }
+  recordSpeaking(rec) {
+    const list = (this.data.speakingExams ||= []);
+    const i = list.findIndex((x) => x.t === rec.t);
+    if (i >= 0) list[i] = rec; else list.push(rec);
+    if (list.length > 50) list.splice(0, list.length - 50);
+    this.save();
+  }
+
+  /** Review of the last mock exam per level (review.js packReview); older ones are replaced, so at most 6 are kept. */
+  examReview(level) { return this.data.examReviews?.[level] ?? null; }
+  saveExamReview(rec) { (this.data.examReviews ||= {})[rec.level] = rec; this.save(); }
 
   /** Lesson progress: { steps: { <step>: { ok, n, t } }, t } (speaking/vocab have ok = n = 0). */
   lessonProgress(id) { return this.data.lessons?.[id] ?? null; }

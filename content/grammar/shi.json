@@ -1,0 +1,99 @@
+{
+ "id": "shi",
+ "level": 1,
+ "seq": 1,
+ "title": "是: A adalah B",
+ "pattern": "A + 是 + B (kata benda)",
+ "explain": [
+  "是 menghubungkan dua kata benda: “A adalah B”. Dipakai untuk identitas, pekerjaan, dan asal.",
+  "Bentuk negatifnya 不是. 是 tidak dipakai sebelum kata sifat: kata sifat langsung menjadi predikat (lihat 很 + kata sifat)."
+ ],
+ "examples": [
+  [
+   "我是学生。",
+   "Aku pelajar."
+  ],
+  [
+   "他是中国人。",
+   "Dia orang Tiongkok."
+  ],
+  [
+   "这不是我的书。",
+   "Ini bukan bukuku."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我是很忙。",
+   "right": "我很忙。",
+   "why": "Kata sifat tidak memakai 是. Dalam bahasa Indonesia “aku sibuk” juga tanpa “adalah”."
+  },
+  {
+   "wrong": "我是在家。",
+   "right": "我在家。",
+   "why": "Untuk “berada di”, pakai 在 saja, tanpa 是."
+  }
+ ],
+ "contrast": [
+  "hen-adj",
+  "zai-place"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我是老师。",
+   "blank": "是",
+   "options": [
+    "是",
+    "很",
+    "在"
+   ],
+   "id": "Aku guru."
+  },
+  {
+   "type": "choose",
+   "zh": "她不是医生。",
+   "blank": "不",
+   "options": [
+    "不",
+    "没",
+    "很"
+   ],
+   "id": "Dia bukan dokter."
+  },
+  {
+   "type": "choose",
+   "zh": "这是我的手机。",
+   "blank": "是",
+   "options": [
+    "是",
+    "很",
+    "吗"
+   ],
+   "id": "Ini ponselku."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他是医生。",
+    "我很高兴。",
+    "这是我的书。"
+   ],
+   "wrong": "她是很漂亮。",
+   "fix": "她很漂亮。",
+   "why": "Kata sifat (漂亮) tidak didahului 是."
+  },
+  {
+   "type": "order",
+   "zh": "他是我的朋友。",
+   "pieces": [
+    "他",
+    "是",
+    "我的",
+    "朋友",
+    "。"
+   ],
+   "id": "Dia temanku."
+  }
+ ]
+}

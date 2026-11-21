@@ -23,7 +23,10 @@ class ReviewSheetTests(unittest.TestCase):
         wb = load_workbook(out)
         counts = {s: wb[s].max_row - 1 for s in wb.sheetnames[1:]}
         self.assertEqual(counts["词汇 Kosakata"], 1000)
-        self.assertEqual(counts["听力 Mendengar"], 104)          # 68 Q&A + 24 dialogs + 12 passages
+        self.assertEqual(counts["听力 Mendengar"], 204)          # 68 Q&A + 64 dialogs + 12 passages + 60 statements
+        self.assertEqual(counts["配对 Mencocokkan"], 30)          # 10 matching groups per level, HSK 1-3
+        self.assertEqual(counts["写句子 Menulis kalimat"], 44)    # HSK 3 writing part 2 tasks
+        self.assertEqual(counts["语法 Tata bahasa"], 79)          # grammar points HSK 1-3 (24 + 25 + 30)
         self.assertEqual(counts["阅读 Membaca"], 58)             # 30 short texts + 28 paragraph questions
         self.assertGreater(counts["填空 Isi kata"], 1500)
         import json

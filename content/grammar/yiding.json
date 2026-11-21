@@ -1,0 +1,95 @@
+{
+ "id": "yiding",
+ "level": 3,
+ "seq": 28,
+ "detect": "一定",
+ "title": "一定: pasti; 不一定: belum tentu",
+ "pattern": "一定 + kata kerja / 要",
+ "explain": [
+  "一定 = pasti (dugaan kuat atau janji): 他一定会来, 我一定要学好汉语.",
+  "“Belum tentu” = 不一定: 他不一定来."
+ ],
+ "examples": [
+  [
+   "他一定会来。",
+   "Dia pasti datang."
+  ],
+  [
+   "你一定要注意身体。",
+   "Kamu harus benar-benar menjaga kesehatan."
+  ],
+  [
+   "明天不一定下雨。",
+   "Besok belum tentu hujan."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "一定他会来。",
+   "right": "他一定会来。",
+   "why": "一定 setelah subjek."
+  }
+ ],
+ "contrast": [
+  "haoxiang"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我一定要学好汉语。",
+   "blank": "一定",
+   "options": [
+    "一定",
+    "一样",
+    "一起"
+   ],
+   "id": "Aku pasti akan menguasai bahasa Mandarin."
+  },
+  {
+   "type": "choose",
+   "zh": "他不一定知道。",
+   "blank": "不",
+   "options": [
+    "不",
+    "没",
+    "别"
+   ],
+   "id": "Belum tentu dia tahu."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你一定要来。",
+    "他一定很累。",
+    "明天不一定有时间。"
+   ],
+   "wrong": "一定你会喜欢。",
+   "fix": "你一定会喜欢。",
+   "why": "一定 setelah subjek."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我一定告诉他。",
+    "这个问题不一定难。",
+    "你一定饿了吧？"
+   ],
+   "wrong": "他没一定知道。",
+   "fix": "他不一定知道。",
+   "why": "“Belum tentu” = 不一定."
+  },
+  {
+   "type": "order",
+   "zh": "下次你一定要来我家。",
+   "pieces": [
+    "下次",
+    "你",
+    "一定要",
+    "来",
+    "我家",
+    "。"
+   ],
+   "id": "Lain kali kamu harus datang ke rumahku."
+  }
+ ]
+}

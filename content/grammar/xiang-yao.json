@@ -1,0 +1,100 @@
+{
+ "id": "xiang-yao",
+ "level": 1,
+ "seq": 16,
+ "title": "想 dan 要: ingin, mau",
+ "pattern": "想 / 要 + kata kerja · 要 + benda",
+ "explain": [
+  "想 + kata kerja = ingin (keinginan, lebih lembut): 我想喝茶.",
+  "要 + kata kerja = mau/akan (lebih tegas, rencana): 我要去商店. 要 + benda = minta/mau: 我要一杯茶.",
+  "Bentuk “tidak ingin” biasanya 不想: 我不想去. 不要 + kata kerja berarti “jangan”."
+ ],
+ "examples": [
+  [
+   "我想去中国。",
+   "Aku ingin pergi ke Tiongkok."
+  ],
+  [
+   "我要一杯水。",
+   "Aku mau segelas air."
+  ],
+  [
+   "我今天不想去学校。",
+   "Hari ini aku tidak ingin ke sekolah."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我想去了中国。",
+   "right": "我想去中国。",
+   "why": "Keinginan belum terjadi, jadi tanpa 了."
+  },
+  {
+   "wrong": "我喝想茶。",
+   "right": "我想喝茶。",
+   "why": "想 di depan kata kerja."
+  }
+ ],
+ "contrast": [
+  "hui-neng"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我想喝一杯茶。",
+   "blank": "想",
+   "options": [
+    "想",
+    "很",
+    "的"
+   ],
+   "id": "Aku ingin minum secangkir teh."
+  },
+  {
+   "type": "choose",
+   "zh": "我要一杯水。",
+   "blank": "要",
+   "options": [
+    "要",
+    "很",
+    "在"
+   ],
+   "id": "Aku mau segelas air."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我想去中国。",
+    "我要一个苹果。",
+    "我不想吃饭。"
+   ],
+   "wrong": "我想去了中国。",
+   "fix": "我想去中国。",
+   "why": "Keinginan belum terjadi, tanpa 了."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你想喝什么？",
+    "我不想看电视。",
+    "我要去商店。"
+   ],
+   "wrong": "我喝想茶。",
+   "fix": "我想喝茶。",
+   "why": "想 di depan kata kerja."
+  },
+  {
+   "type": "order",
+   "zh": "我想去商店买东西。",
+   "pieces": [
+    "我",
+    "想",
+    "去商店",
+    "买",
+    "东西",
+    "。"
+   ],
+   "id": "Aku ingin ke toko berbelanja."
+  }
+ ]
+}

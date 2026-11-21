@@ -1,6 +1,52 @@
 import { LEVEL_LABEL } from "../deck.js";
 import { h, btn, speak } from "../ui.js";
 import { resetQuiz } from "./quiz.js";
+import { PLAN_LEVELS, PLAN_MINUTES, countdown, countdownText } from "../plan.js";
+import { buildQueue } from "../session.js";
+
+/** Manual number, or follow the exam plan (issue #23); the line below says which one applies today and why. */
+function newPerDayControls(app, input) {
+  const { store } = app;
+  const status = h("p", { class: "hint", "aria-live": "polite" });
+  const auto = h("input", { type: "checkbox", checked: store.settings.newPerDayAuto !== false, onchange: (e) => { store.setSettings({ newPerDayAuto: e.target.checked }); refresh(); } });
+  function refresh() {
+    const { limit } = buildQueue(app.vocab, store);
+    input.disabled = limit.source === "plan";
+    input.value = limit.source === "plan" ? limit.perDay : store.settings.newPerDay;   // show the number in use
+    const r = limit.rate;
+    status.textContent = limit.source === "manual"
+      ? (store.settings.newPerDayAuto !== false ? "Isi tanggal ujian (di masa depan) di Target ujian agar jumlah ini dihitung otomatis." : "Memakai angka di atas.")
+      : r.phase === "final" ? "Minggu terakhir sebelum ujian: tidak ada kata baru, fokus mengulang dan simulasi."
+      : r.phase === "done" ? "Semua kata sampai level target sudah mulai dipelajari."
+      : r.capped ? `Mengikuti rencana: ${r.perDay} kata/hari (batas waktu belajar Anda). Untuk menyelesaikan semua kata dibutuhkan ${r.needed} kata/hari; tambah menit belajar atau terima bahwa sebagian kata belum sempat dipelajari.`
+      : `Mengikuti rencana: ${r.perDay} kata/hari agar semua kata selesai dua minggu sebelum ujian.`;
+  }
+  refresh();
+  return { el: h("div", {}, input, h("label", { style: "display:block;margin-top:12px" }, auto, " Ikuti rencana target ujian"), status), refresh };
+}
+
+/** Exam target: level, exam date, minutes per day (issue #22). The line below the fields previews the Beranda card. */
+function targetPanel(store, panel, onChange = () => {}) {
+  const p = store.plan;
+  const preview = h("p", { class: "hint", "aria-live": "polite" });
+  const refresh = () => {
+    const t = countdownText(countdown(store.plan));
+    preview.textContent = `${t.title}. ${t.detail}`;
+    onChange();
+  };
+  const field = (label, control) => h("label", { class: "field" }, h("span", {}, label), control);
+  const level = h("select", { onchange: (e) => { store.setPlan({ level: e.target.value ? Number(e.target.value) : null }); refresh(); } },
+    h("option", { value: "", selected: p.level == null }, "Belum ditentukan"),
+    ...PLAN_LEVELS.map((l) => h("option", { value: String(l), selected: p.level === l }, `HSK ${l}`)));
+  const date = h("input", { type: "date", value: p.examDate, onchange: (e) => { store.setPlan({ examDate: e.target.value }); e.target.value = store.plan.examDate; refresh(); } });
+  const minutes = h("select", { onchange: (e) => { store.setPlan({ minutes: Number(e.target.value) }); refresh(); } },
+    ...PLAN_MINUTES.map((m) => h("option", { value: String(m), selected: p.minutes === m }, `${m} menit`)));
+  refresh();
+  return panel("Target ujian",
+    h("div", { class: "fields" }, field("Level ujian", level), field("Tanggal ujian", date), field("Waktu belajar per hari", minutes)),
+    preview,
+    h("p", { class: "hint" }, "Tanggal boleh dikosongkan. Cek tanggal dan batas pendaftaran di pusat ujian Anda atau chinesetest.cn; jadwal bisa berbeda antar negara dan antara ujian kertas dan komputer."));
+}
 
 export function viewSettings(app) {
   const { store } = app;
@@ -45,10 +91,12 @@ export function viewSettings(app) {
       btn("Cek suara perangkat", showVoices, "btn"), voiceInfo);
   }
   const panel = (title, ...kids) => h("div", { class: "panel" }, h("h2", {}, title), ...kids);
+  const perDay = newPerDayControls(app, newPer);
   app.render(h("div", { class: "pagehead" }, h("div", {}, h("h2", {}, "Pengaturan"), h("p", { class: "hint" }, "Disimpan di perangkat ini."))),
     h("div", { class: "grid-2" },
+      targetPanel(store, panel, () => perDay?.refresh()),
       panel("Level yang dipelajari", h("div", {}, ...levelBoxes)),
-      panel("Kata baru per hari", newPer),
+      panel("Kata baru per hari", perDay.el),
       panel("Soal menulis hanzi", h("div", {}, modeRadio("choice", "Pilihan ganda (4 hanzi, ketuk langsung)"), h("br"), modeRadio("tiles", "Bank hanzi (6 kepingan + kotak ketik, lalu Periksa)")),
         h("p", { class: "hint" }, "Tidak perlu keyboard Mandarin. Mode bank hanzi tetap bisa diketik jika kamu punya keyboard Mandarin.")),
       panel("Suara", h("label", {}, speakBox, " Ucapkan kata saat jawaban ditampilkan"),

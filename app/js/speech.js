@@ -99,9 +99,10 @@ export function errorMessage(code) {
 
 /** Start listening. Returns { stop(), result: Promise<{ alternatives, audioUrl, error }> }.
  *  `recognize` and `record` choose the tiers; with both off nothing is started. `raw` asks the browser for unprocessed audio
- *  (no echo cancellation / noise suppression / auto gain), which pitch tracking prefers. Result: { alternatives, audioUrl, audioBlob, error }.
+ *  (no echo cancellation / noise suppression / auto gain), which pitch tracking prefers. `continuous` keeps recognising through
+ *  pauses until stop() or maxMs (long answers). Result: { alternatives, audioUrl, audioBlob, error }.
  *  The promise never rejects. */
-export function startAttempt({ recognize = true, record = true, raw = false, lang = "zh-CN", maxMs = 15000 } = {}) {
+export function startAttempt({ recognize = true, record = true, raw = false, lang = "zh-CN", maxMs = 15000, continuous = false } = {}) {
   const Rec = recognize ? RecognitionCtor() : null;
   const wantRecord = record && recorderSupported();
   let stopFns = [];
@@ -136,7 +137,23 @@ export function startAttempt({ recognize = true, record = true, raw = false, lan
           stopFns.push(() => rec.state !== "inactive" && rec.stop());
         });
       }
-      if (Rec) {
+      if (Rec && continuous) {
+        // long answers: keep listening through pauses. Browsers end a session after a silence, so restart it until
+        // stop() (button or time limit); the result is one alternative, the finished phrases joined in order.
+        track((done) => {
+          const said = [];
+          let r = null, ending = false;
+          const open = () => {
+            r = new Rec();
+            r.lang = lang; r.interimResults = false; r.continuous = true; r.maxAlternatives = 1;
+            r.onresult = (e) => { for (let i = e.resultIndex; i < e.results.length; i++) if (e.results[i].isFinal) said.push(e.results[i][0].transcript); alternatives = [said.join("，")]; };
+            r.onerror = (e) => { if (e.error === "not-allowed" || e.error === "audio-capture" || e.error === "network") { error = error ?? e.error; ending = true; } };
+            r.onend = () => { if (ending || stopped) done(); else try { open(); } catch { done(); } };
+            r.start();
+          };
+          try { open(); stopFns.push(() => { ending = true; r?.stop(); }); } catch { error = error ?? "failed"; done(); }
+        });
+      } else if (Rec) {
         track((done) => {
           const r = new Rec();
           r.lang = lang; r.interimResults = false; r.continuous = false; r.maxAlternatives = 5;

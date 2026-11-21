@@ -1,0 +1,96 @@
+{
+ "id": "liang-er",
+ "level": 1,
+ "seq": 13,
+ "title": "两 dan 二: dua",
+ "pattern": "两 + penggolong · 二 dalam angka",
+ "explain": [
+  "Sebelum kata penggolong, “dua” adalah 两: 两个人, 两本书, 两点 (pukul dua).",
+  "二 dipakai saat menghitung dan di dalam angka: 一、二、三, 十二, 二十, 第二, 二月 (Februari)."
+ ],
+ "examples": [
+  [
+   "我有两个哥哥。",
+   "Aku punya dua kakak laki-laki."
+  ],
+  [
+   "现在两点。",
+   "Sekarang pukul dua."
+  ],
+  [
+   "今天是二月十二号。",
+   "Hari ini tanggal dua belas Februari."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我有二个哥哥。",
+   "right": "我有两个哥哥。",
+   "why": "Sebelum penggolong: 两."
+  }
+ ],
+ "contrast": [
+  "measure"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我买了两个苹果。",
+   "blank": "两",
+   "options": [
+    "两",
+    "二",
+    "第"
+   ],
+   "id": "Aku membeli dua apel."
+  },
+  {
+   "type": "choose",
+   "zh": "他今年二十岁。",
+   "blank": "二",
+   "options": [
+    "二",
+    "两",
+    "第"
+   ],
+   "id": "Tahun ini dia dua puluh tahun."
+  },
+  {
+   "type": "choose",
+   "zh": "现在两点。",
+   "blank": "两",
+   "options": [
+    "两",
+    "二",
+    "第"
+   ],
+   "id": "Sekarang pukul dua."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我有两个妹妹。",
+    "今天是十二号。",
+    "他喝了两杯茶。"
+   ],
+   "wrong": "我想买二本书。",
+   "fix": "我想买两本书。",
+   "why": "Sebelum penggolong (本): 两."
+  },
+  {
+   "type": "order",
+   "zh": "我家有两只猫。",
+   "pieces": [
+    "我家",
+    "有",
+    "两只",
+    "猫",
+    "。"
+   ],
+   "id": "Di rumahku ada dua ekor kucing."
+  }
+ ],
+ "readings": {
+  "两只": "liǎng zhī"
+ }
+}

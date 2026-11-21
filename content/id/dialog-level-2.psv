@@ -1,0 +1,42 @@
+# Dialog pendek + pertanyaan untuk HSK 2 bagian Mendengar 3 (audio_dialog_question_mcq). Ditulis sendiri, belum direview penutur asli.
+# level|teks audio (giliran dipisah "/", awalan 男：/女：)|pertanyaan|jawaban benar|salah 1|salah 2|terjemahan teks|terjemahan pertanyaan|terjemahan jawaban benar
+2|女：你今天怎么来的？/男：我坐地铁来的，很快。|男的怎么来的？|坐地铁|开车|走路|Perempuan: Hari ini kamu datang naik apa? / Laki-laki: Aku naik kereta bawah tanah, cepat sekali.|Si laki-laki datang naik apa?|Kereta bawah tanah
+2|男：你怎么不吃了？/女：我身体不舒服，不想吃。|女的为什么不吃了？|身体不舒服|菜不好吃|已经吃了很多|Laki-laki: Kenapa kamu berhenti makan? / Perempuan: Badanku tidak enak, tidak ingin makan.|Mengapa si perempuan berhenti makan?|Badannya tidak enak
+2|女：明天的考试你准备好了吗？/男：还没有，我今天晚上再看看书。|男的今天晚上要做什么？|看书|考试|看电影|Perempuan: Ujian besok sudah kamu persiapkan? / Laki-laki: Belum, malam ini aku akan membaca buku lagi.|Malam ini si laki-laki akan melakukan apa?|Membaca buku
+2|男：这件衣服怎么卖？/女：两百块，您可以试试。|衣服多少钱？|两百块|一百块|三百块|Laki-laki: Baju ini dijual berapa? / Perempuan: Dua ratus yuan, silakan dicoba.|Bajunya berapa harganya?|Dua ratus yuan
+2|女：你家离公司远吗？/男：不远，走路十分钟就到了。|男的家离公司怎么样？|很近|很远|没有路|Perempuan: Apakah rumahmu jauh dari kantor? / Laki-laki: Tidak jauh, jalan kaki sepuluh menit sudah sampai.|Bagaimana jarak rumah si laki-laki ke kantor?|Dekat
+2|男：你看见我的手机了吗？/女：在桌子上，电脑旁边。|手机在哪儿？|桌子上|椅子上|书包里|Laki-laki: Kamu lihat ponselku? / Perempuan: Di atas meja, di sebelah komputer.|Ponselnya di mana?|Di atas meja
+2|女：我们几点去机场？/男：飞机是下午三点的，我们一点出门吧。|他们几点出门？|一点|三点|两点|Perempuan: Pukul berapa kita ke bandara? / Laki-laki: Pesawatnya pukul tiga sore, kita berangkat pukul satu saja.|Pukul berapa mereka berangkat?|Pukul satu
+2|男：你喜欢什么运动？/女：我最喜欢游泳，每个星期都去。|女的喜欢什么运动？|游泳|跑步|踢足球|Laki-laki: Kamu suka olahraga apa? / Perempuan: Aku paling suka berenang, setiap minggu pergi.|Olahraga apa yang disukai si perempuan?|Berenang
+2|女：你的眼睛怎么红了？/男：昨天晚上没睡好。|男的怎么了？|没睡好|生病了|眼睛疼|Perempuan: Kenapa matamu merah? / Laki-laki: Tadi malam aku tidak tidur nyenyak.|Si laki-laki kenapa?|Tidak tidur nyenyak
+2|男：你去过中国吗？/女：去过两次，都是去旅游。|女的去过几次中国？|两次|一次|三次|Laki-laki: Apakah kamu pernah ke Tiongkok? / Perempuan: Pernah dua kali, dua-duanya untuk berwisata.|Berapa kali si perempuan pernah ke Tiongkok?|Dua kali
+2|女：你想喝什么？/男：我想喝一杯咖啡，不要牛奶。|男的想喝什么？|咖啡|牛奶|奶茶|Perempuan: Kamu ingin minum apa? / Laki-laki: Aku ingin secangkir kopi, tanpa susu.|Si laki-laki ingin minum apa?|Kopi
+2|男：你今天为什么这么高兴？/女：因为我考试考得很好。|女的为什么很高兴？|考试考得很好|今天是她的生日|她要去旅游|Laki-laki: Kenapa hari ini kamu senang sekali? / Perempuan: Karena ujianku hasilnya bagus.|Mengapa si perempuan senang?|Ujiannya bagus
+2|女：喂，你在哪儿呢？/男：我在商场门口等你。|男的在哪儿？|商场门口|机场|地铁站|Perempuan: Halo, kamu di mana? / Laki-laki: Aku menunggumu di depan pintu mal.|Di mana si laki-laki?|Di depan pintu mal
+2|男：这个星期六你有时间吗？/女：有，我们一起去看电影吧。|他们星期六可能做什么？|看电影|去游泳|去上课|Laki-laki: Sabtu ini kamu punya waktu? / Perempuan: Ada, ayo kita menonton film bersama.|Sabtu itu mereka mungkin melakukan apa?|Menonton film
+2|女：你的新手机多少钱？/男：三千块，是我妻子送我的。|手机是谁送的？|他妻子|他朋友|他妈妈|Perempuan: Ponsel barumu berapa harganya? / Laki-laki: Tiga ribu yuan, hadiah dari istriku.|Ponsel itu hadiah dari siapa?|Istrinya
+2|男：外面下雨了吗？/女：没有，但是阴天，可能要下雨。|现在天气怎么样？|阴天|下雨了|晴天|Laki-laki: Di luar hujan? / Perempuan: Tidak, tapi mendung, mungkin akan hujan.|Bagaimana cuaca sekarang?|Mendung
+2|女：你每天几点起床？/男：六点，起床以后去跑步。|男的起床以后做什么？|跑步|吃饭|上网|Perempuan: Setiap hari kamu bangun pukul berapa? / Laki-laki: Pukul enam, setelah bangun aku lari.|Setelah bangun si laki-laki melakukan apa?|Lari
+2|男：你会说汉语吗？/女：会一点儿，我在大学学了两年。|女的学了几年汉语？|两年|一年|三年|Laki-laki: Kamu bisa bahasa Mandarin? / Perempuan: Sedikit, aku belajar dua tahun di universitas.|Berapa tahun si perempuan belajar bahasa Mandarin?|Dua tahun
+2|女：这些水果是你买的吗？/男：不是，是我妹妹从商店买回来的。|水果是谁买的？|他妹妹|他自己|他妈妈|Perempuan: Buah-buahan ini kamu yang beli? / Laki-laki: Bukan, adik perempuanku yang membelinya dari toko.|Siapa yang membeli buah-buahan itu?|Adik perempuannya
+2|男：请问，洗手间在哪儿？/女：往前走，左边就是。|洗手间在哪儿？|前面左边|前面右边|门口外面|Laki-laki: Permisi, toilet di mana? / Perempuan: Jalan lurus, di sebelah kiri.|Toilet di mana?|Di depan sebelah kiri
+2|女：你哥哥在哪儿工作？/男：他在一家酒店工作，已经三年了。|男的哥哥在哪儿工作？|酒店|医院|学校|Perempuan: Kakakmu bekerja di mana? / Laki-laki: Dia bekerja di sebuah hotel, sudah tiga tahun.|Kakak si laki-laki bekerja di mana?|Hotel
+2|男：我们走路去还是打车去？/女：太远了，打车去吧。|他们怎么去？|打车|走路|坐地铁|Laki-laki: Kita jalan kaki atau naik taksi? / Perempuan: Terlalu jauh, naik taksi saja.|Mereka pergi naik apa?|Taksi
+2|女：你的书包是什么颜色的？/男：黑色的，上面有我的名字。|男的书包是什么颜色的？|黑色|红色|白色|Perempuan: Tas sekolahmu warna apa? / Laki-laki: Hitam, di atasnya ada namaku.|Tas si laki-laki berwarna apa?|Hitam
+2|男：你怎么还在这儿？/女：我在等我丈夫，他一会儿就来。|女的在等谁？|她丈夫|她儿子|她同学|Laki-laki: Kenapa kamu masih di sini? / Perempuan: Aku menunggu suamiku, sebentar lagi dia datang.|Si perempuan menunggu siapa?|Suaminya
+2|女：这个题你懂了吗？/男：懂了，谢谢你告诉我。|男的现在怎么样？|懂了|还不懂|忘了|Perempuan: Soal ini sudah kamu pahami? / Laki-laki: Sudah paham, terima kasih sudah memberitahuku.|Bagaimana si laki-laki sekarang?|Sudah paham
+2|男：你今年多大了？/女：二十二，我是大学生。|女的是做什么的？|大学生|老师|医生|Laki-laki: Tahun ini kamu umur berapa? / Perempuan: Dua puluh dua, aku mahasiswa.|Apa pekerjaan si perempuan?|Mahasiswa
+2|女：你怎么不去跑步了？/男：我头疼，今天想在家休息。|男的今天想做什么？|在家休息|去跑步|去医院|Perempuan: Kenapa kamu tidak pergi lari? / Laki-laki: Kepalaku sakit, hari ini ingin istirahat di rumah.|Hari ini si laki-laki ingin melakukan apa?|Beristirahat di rumah
+2|男：这个饭馆的菜怎么样？/女：很好吃，就是有点儿贵。|女的觉得这个饭馆的菜怎么样？|好吃，有点儿贵|不好吃|很便宜|Laki-laki: Bagaimana masakan rumah makan ini? / Perempuan: Enak sekali, hanya agak mahal.|Menurut si perempuan bagaimana masakannya?|Enak, agak mahal
+2|女：你什么时候回国？/男：下个月五号，机票已经买了。|男的什么时候回国？|下个月五号|这个月五号|下个月十五号|Perempuan: Kapan kamu pulang ke negaramu? / Laki-laki: Tanggal lima bulan depan, tiket pesawat sudah dibeli.|Kapan si laki-laki pulang ke negaranya?|Tanggal lima bulan depan
+2|男：你在找什么？/女：我的手表，昨天它还在桌子上。|女的在找什么？|手表|手机|本子|Laki-laki: Kamu mencari apa? / Perempuan: Jam tanganku, kemarin masih ada di atas meja.|Si perempuan sedang mencari apa?|Jam tangan
+2|女：你每天几点下班？/男：六点，有时候七点。|男的有时候几点下班？|七点|六点|八点|Perempuan: Setiap hari kamu pulang kerja pukul berapa? / Laki-laki: Pukul enam, kadang-kadang pukul tujuh.|Kadang-kadang si laki-laki pulang kerja pukul berapa?|Pukul tujuh
+2|男：你妹妹个子高吗？/女：很高，比我高多了。|谁高？|她妹妹|她自己|她们一样高|Laki-laki: Adik perempuanmu tinggi? / Perempuan: Tinggi sekali, jauh lebih tinggi dariku.|Siapa yang lebih tinggi?|Adik perempuannya
+2|女：你们班有多少个学生？/男：三十个，女孩儿比男孩儿多。|男的班有多少个学生？|三十个|二十个|四十个|Perempuan: Kelasmu ada berapa murid? / Laki-laki: Tiga puluh, murid perempuan lebih banyak daripada laki-laki.|Kelas si laki-laki ada berapa murid?|Tiga puluh
+2|男：明天是我女朋友的生日，我送她什么好呢？/女：送她一些花吧。|女的让男的送什么？|花|手表|衣服|Laki-laki: Besok ulang tahun pacarku, sebaiknya aku memberinya apa? / Perempuan: Berikan dia bunga saja.|Si perempuan menyarankan memberi apa?|Bunga
+2|女：你们几个人去旅游？/男：四个，我、我妻子和两个孩子。|他们几个人去旅游？|四个|三个|两个|Perempuan: Kalian berwisata berapa orang? / Laki-laki: Empat, aku, istriku, dan dua anak.|Berapa orang yang berwisata?|Empat
+2|男：你的电脑坏了吗？/女：是的，打不开了。|女的电脑怎么了？|打不开了|卖了|很新|Laki-laki: Komputermu rusak? / Perempuan: Iya, tidak bisa dinyalakan.|Komputer si perempuan kenapa?|Tidak bisa dinyalakan
+2|女：去机场的路你知道怎么走吗？/男：知道，我经常去那儿。|男的为什么知道路？|他经常去机场|他在机场工作|他问了别人|Perempuan: Kamu tahu jalan ke bandara? / Laki-laki: Tahu, aku sering ke sana.|Mengapa si laki-laki tahu jalannya?|Dia sering ke bandara
+2|男：你最近在忙什么？/女：我在准备下个月的考试。|女的在忙什么？|准备考试|找工作|去旅游|Laki-laki: Akhir-akhir ini kamu sibuk apa? / Perempuan: Aku sedang mempersiapkan ujian bulan depan.|Si perempuan sibuk apa?|Mempersiapkan ujian
+2|女：小高的家在几楼？/男：在八楼，门口有很多花。|小高的家在几楼？|八楼|六楼|十楼|Perempuan: Rumah Xiao Gao di lantai berapa? / Laki-laki: Di lantai delapan, di depan pintunya banyak bunga.|Rumah Xiao Gao di lantai berapa?|Lantai delapan
+2|男：你怎么笑了？/女：你看，那只小狗在跳舞。|女的为什么笑？|小狗在跳舞|她看了电影|朋友给她打电话|Laki-laki: Kenapa kamu tertawa? / Perempuan: Lihat, anak anjing itu sedang menari.|Mengapa si perempuan tertawa?|Anak anjing itu sedang menari

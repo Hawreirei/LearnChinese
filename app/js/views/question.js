@@ -14,17 +14,18 @@
 import { h, btn, hasChineseVoice } from "../ui.js";
 import { TYPE_HELP } from "../practice.js";
 import { shuffledBank, checkOrder } from "../order.js";
+import { optionKey } from "../review.js";
+import { checkSentence } from "../essay.js";
 
 const BLANK = "（　）";
 const LETTERS = "ABCDEF";
 
 export const PICTURE_LISTENING = new Set(["audio_phrase_pick_picture", "audio_sentence_pick_picture", "audio_dialog_match_picture"]);
 export const TEXT_READING = new Set(["short_text_mcq", "passage_mcq"]);
-const AUDIO_TYPES = new Set(["audio_question_pick_answer", "audio_dialog_question_mcq", "audio_passage_question_mcq", ...PICTURE_LISTENING]);
+const AUDIO_TYPES = new Set(["audio_question_pick_answer", "audio_dialog_question_mcq", "audio_passage_question_mcq", "audio_statement_question_mcq", ...PICTURE_LISTENING]);
 
 export const isListening = (q) => AUDIO_TYPES.has(q.type);
-/** The identity of an option, whatever its kind (cloze word, listening/text answer, picture key). */
-export const optionKey = (o) => o?.word ?? o?.zh ?? o?.key ?? null;
+export { optionKey };
 
 /* ---------- pieces ---------- */
 function choiceState(q, m) {
@@ -159,6 +160,64 @@ function orderBlock(q, m) {
   return [h("div", { class: "card" }, h("div", { class: "stem order-stem", lang: "id" }, q.stem), area), pool, buttons];
 }
 
+/* ---------- choose the missing component ---------- */
+// The character is drawn from its stroke data (data/hsk3/strokes, Arphic PL) without the strokes of one component,
+// which come from data/hsk3/components.json (Make Me a Hanzi decomposition, LGPL). A dashed box marks the gap;
+// once answered, the hidden strokes are drawn in the accent colour instead.
+const SVG = "http://www.w3.org/2000/svg";
+const cache = new Map();
+const getJson = (url) => cache.get(url) ?? cache.set(url, fetch(url).then((r) => (r.ok ? r.json() : Promise.reject(new Error(url))))).get(url);
+const svgEl = (tag, attrs) => { const el = document.createElementNS(SVG, tag); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); return el; };
+
+function componentFigure(q, revealed) {
+  const svg = svgEl("svg", { viewBox: "0 0 1024 1024", class: "compfig", role: "img", "aria-label": revealed ? `Hanzi ${q.char}` : "Hanzi dengan satu komponen kosong" });
+  Promise.all([getJson(`../data/hsk3/strokes/${q.char.codePointAt(0).toString(16)}.json`), getJson("../data/hsk3/components.json")]).then(([st, comps]) => {
+    const hidden = new Set(comps[q.char]?.p?.[q.part]?.s ?? []);
+    const g = svgEl("g", { transform: "translate(0, 900) scale(1, -1)" });
+    st.strokes.forEach((d, i) => { if (!hidden.has(i) || revealed) g.append(svgEl("path", { d, class: hidden.has(i) ? "part" : "" })); });
+    if (!revealed && hidden.size) {
+      const pts = [...hidden].flatMap((i) => st.medians[i]);
+      const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]), pad = 55;
+      const x = Math.max(0, Math.min(...xs) - pad), y = Math.min(...ys) - pad;
+      g.append(svgEl("rect", { x, y, width: Math.min(1024, Math.max(...xs) + pad) - x, height: Math.max(...ys) + pad - y, rx: 30, class: "gap" }));
+    }
+    svg.append(g);
+  }).catch(() => svg.replaceWith(h("p", { class: "notice" }, "Gambar hanzi tidak bisa dimuat (offline?).")));
+  return svg;
+}
+
+function componentBlock(q, m) {
+  const st = choiceState(q, m);
+  return [h("div", { class: "card compcard" }, componentFigure(q, !!m.reveal),
+      h("div", {}, h("div", { class: "stem", lang: "zh-Hans" }, q.word), h("div", { class: "pinyin" }, q.word_pinyin), h("div", { class: "hint" }, q.word_arti))),
+    h("div", { class: "opts tiles", role: "group", "aria-label": "Pilihan komponen" },
+      ...q.options.map((o, k) => btn([h("span", { class: "zh", lang: "zh-Hans" }, o.zh)], () => m.onAnswer(o), choiceClass(o, st, "btn tile"), { disabled: st.disabled, "aria-label": `${LETTERS[k]}. ${o.zh}` })))];
+}
+
+/* ---------- write a sentence from a picture and a word ---------- */
+/** The local check as a list (✘ error, ⚠ warning). `allowed` (Set of hanzi up to the level) enables the level check. */
+export function sentenceChecks(q, response, allowed = null) {
+  const r = checkSentence(response, { word: q.word, allowed });
+  const items = r.checks.length ? r.checks : [{ level: "ok", msg: `Kata wajib dipakai, ${r.hanzi} hanzi, tanda baca akhir ada.` }];
+  return h("ul", { class: "checks", "aria-label": "Hasil pemeriksaan" },
+    ...items.map((c) => h("li", { class: c.level }, h("span", { "aria-hidden": "true" }, c.level === "error" ? "✘ " : c.level === "warn" ? "⚠ " : "✔ "), c.msg)));
+}
+
+function sentenceBlock(q, m) {
+  const card = h("div", { class: "card sentcard" },
+    h("span", { class: "emoji big", role: "img", "aria-label": q.picture.alt }, q.picture.emoji),
+    h("div", {}, h("div", { class: "hint" }, q.picture.alt),
+      h("div", { class: "wordchip" }, h("span", { class: "zh", lang: "zh-Hans" }, q.word), h("span", { class: "pinyin" }, q.word_pinyin))));
+  const input = h("textarea", { lang: "zh-Hans", rows: 2, class: "sentinput", "aria-label": "Kalimat Anda", autocomplete: "off", disabled: !!m.reveal, placeholder: `Tulis kalimat dengan ${q.word}…` });
+  input.value = m.response ?? "";
+  if (m.kind === "exam") input.addEventListener("input", () => m.onWrite(input.value));
+  else if (!m.reveal) input.addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey) && !e.isComposing) { e.preventDefault(); m.onAnswer(input.value); } });
+  const buttons = m.kind === "practice" && !m.reveal
+    ? h("div", { class: "row" }, btn("Periksa", () => m.onAnswer(input.value), "btn primary", { id: "check" }), btn("Tidak tahu", () => m.onAnswer(""), "btn", { id: "skip" }))
+    : null;
+  return [card, input, buttons, m.reveal ? sentenceChecks(q, m.response, m.allowed) : null];
+}
+
 /* ---------- the question body ---------- */
 /** Nodes for one question (instruction line included). */
 export function questionBody(q, m) {
@@ -166,9 +225,21 @@ export function questionBody(q, m) {
   if (q.type === "cloze_wordbank") return [help, h("div", { class: "card" }, h("div", { class: "stem", lang: "zh-Hans" }, q.stem)), wordOptions(q, m)];
   if (q.type === "write_hanzi_from_pinyin") return [help, ...writeBlock(q, m)];
   if (q.type === "order_sentence") return [help, ...orderBlock(q, m)];
+  if (q.type === "choose_missing_character_component") return [help, ...componentBlock(q, m)];
+  if (q.type === "write_sentence_from_picture_and_word") return [help, ...sentenceBlock(q, m)];
   if (PICTURE_LISTENING.has(q.type)) return [help, listeningCard(q, m), pictureGrid(q, m)];
   if (isListening(q)) return [help, listeningCard(q, m), textOptions(q, m)];
   if (q.type === "sentence_match_picture") return [help, textCard(q, true), pictureGrid(q, m)];
+  if (q.type === "grammar_choose") {
+    return [help, h("div", { class: "card" }, h("div", { class: "stem", lang: "zh-Hans" }, q.stem), h("div", { class: "hint" }, q.stem_id)), textOptions(q, m)];
+  }
+  if (q.type === "error_spot") return [help, textOptions(q, m)];
+  if (q.type === "match_question_to_answer") {   // one question of a matching group; the six answers are shared (A-F)
+    const show = q.level === 1 || !!m.pinyin.shown;
+    return [help, h("div", { class: "card" }, h("div", { class: "stem", lang: "zh-Hans" }, q.stem), show ? h("div", { class: "pinyin" }, q.stem_pinyin) : null),
+      q.level > 1 ? h("div", { class: "row" }, btn(show ? "Sembunyikan pinyin" : "Tampilkan pinyin", m.pinyin.toggle, "btn")) : null,
+      textOptions(q, m)];
+  }
   // short_text_mcq / passage_mcq
   const showPinyin = q.level === 1 || !!m.pinyin.shown;
   return [help, textCard(q, showPinyin),
@@ -183,8 +254,20 @@ export function answerLabel(q) {
   return o ? `${o.emoji} ${o.alt}` : q.answer;
 }
 
-/** The explanation shown after answering and in result reviews. */
+/** Grammar links under explanations: main.js sets a function ids -> node (or null). Kept out of this module so it
+ *  does not depend on the grammar view. */
+let grammarLinker = () => null;
+export function setGrammarLinker(fn) { grammarLinker = fn; }
+
+/** The explanation shown after answering and in result reviews, with links to the grammar points it uses. */
 export function explanation(q) {
+  const base = explanationBody(q);
+  const links = q.g?.length && q.type !== "grammar_choose" && q.type !== "error_spot" ? grammarLinker(q.g) : null;   // drills already name their rule
+  if (links) base.append(links);
+  return base;
+}
+
+function explanationBody(q) {
   const e = q.explain;
   const zh = (t, style) => h("div", { class: "zh", lang: "zh-Hans", style }, t);
   const pictureAnswer = q.options?.[0]?.emoji ? q.options.find((o) => o.key === q.answer) : null;
@@ -192,6 +275,25 @@ export function explanation(q) {
 
   if (PICTURE_LISTENING.has(q.type)) return h("div", { class: "example" }, pic, listeningText(q), h("div", { class: "tr" }, e.audio_id ?? e.text_id));
   if (q.type === "sentence_match_picture") return h("div", { class: "example" }, pic, zh(q.sentence), h("div", { class: "py" }, q.sentence_pinyin), h("div", { class: "tr" }, e.sentence_id));
+  if (q.type === "grammar_choose") {
+    return h("div", { class: "example" }, zh(e.zh), h("div", { class: "py" }, e.pinyin), h("div", { class: "tr" }, e.id), h("div", { class: "hint" }, `Pola: ${e.rule}`));
+  }
+  if (q.type === "error_spot") {
+    return h("div", { class: "example" }, zh(`✘ ${e.wrong}`), zh(`✔ ${e.fix}`, "margin-top:6px"), h("div", { class: "py" }, e.fix_pinyin),
+      h("div", { class: "tr" }, e.why), h("div", { class: "hint" }, `Pola: ${e.rule}`));
+  }
+  if (q.type === "write_sentence_from_picture_and_word") {
+    return h("div", { class: "example" }, h("div", { class: "hint" }, "Contoh jawaban (ada banyak kalimat lain yang juga benar):"),
+      ...q.models.flatMap((x, i) => [zh(x.zh, i ? "margin-top:10px" : ""), h("div", { class: "py" }, x.pinyin), h("div", { class: "tr" }, x.id)]));
+  }
+  if (q.type === "choose_missing_character_component") {
+    return h("div", { class: "example" }, zh(`${e.char} = ${e.parts}`, "font-size:26px"), zh(e.word, "margin-top:8px"), h("div", { class: "py" }, e.word_pinyin), h("div", { class: "tr" }, e.arti));
+  }
+  if (q.type === "match_question_to_answer") {
+    const a = q.options.find((o) => o.zh === q.answer);
+    return h("div", { class: "example" }, zh(q.stem), h("div", { class: "py" }, q.stem_pinyin), h("div", { class: "tr" }, e.question_id),
+      zh(q.answer, "margin-top:8px"), h("div", { class: "py" }, a?.pinyin ?? ""), h("div", { class: "tr" }, e.answer_id));
+  }
   if (TEXT_READING.has(q.type)) {
     return h("div", { class: "example" }, zh(q.text, "font-size:18px"), h("div", { class: "tr" }, e.text_id),
       zh(q.question, "margin-top:8px"), h("div", { class: "tr" }, e.question_id), zh(q.answer, "margin-top:8px"), h("div", { class: "tr" }, e.answer_id));

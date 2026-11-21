@@ -1,0 +1,99 @@
+{
+ "id": "hen-adj",
+ "level": 1,
+ "seq": 2,
+ "title": "很 + kata sifat",
+ "pattern": "Subjek + 很 + kata sifat",
+ "explain": [
+  "Kata sifat langsung menjadi predikat, tanpa 是. Biasanya diberi 很; di sini 很 sering tidak berarti “sangat”, hanya membuat kalimat terdengar wajar.",
+  "Tanpa 很, kalimat terdengar membandingkan (他高，我不高). Bentuk negatifnya 不 + kata sifat: 我不忙."
+ ],
+ "examples": [
+  [
+   "我很忙。",
+   "Aku sibuk."
+  ],
+  [
+   "今天很冷。",
+   "Hari ini dingin."
+  ],
+  [
+   "这个苹果不贵。",
+   "Apel ini tidak mahal."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "今天是很热。",
+   "right": "今天很热。",
+   "why": "Tidak ada 是 sebelum kata sifat."
+  },
+  {
+   "wrong": "这个菜没好吃。",
+   "right": "这个菜不好吃。",
+   "why": "Sifat atau keadaan diingkari dengan 不, bukan 没."
+  }
+ ],
+ "contrast": [
+  "shi",
+  "tai-le"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我妈妈很忙。",
+   "blank": "很",
+   "options": [
+    "很",
+    "是",
+    "在"
+   ],
+   "id": "Ibuku sibuk."
+  },
+  {
+   "type": "choose",
+   "zh": "这个饭店不贵。",
+   "blank": "不",
+   "options": [
+    "不",
+    "没",
+    "是"
+   ],
+   "id": "Restoran ini tidak mahal."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "今天很冷。",
+    "他的家很大。",
+    "这件衣服很漂亮。"
+   ],
+   "wrong": "我是很高兴。",
+   "fix": "我很高兴。",
+   "why": "很 + kata sifat, tanpa 是."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "这本书很好看。",
+    "我很好。",
+    "那个苹果不大。"
+   ],
+   "wrong": "这个菜没好吃。",
+   "fix": "这个菜不好吃。",
+   "why": "Kata sifat diingkari dengan 不."
+  },
+  {
+   "type": "order",
+   "zh": "今天的天气很好。",
+   "pieces": [
+    "今天的",
+    "天气",
+    "很",
+    "好",
+    "。"
+   ],
+   "id": "Cuaca hari ini bagus."
+  }
+ ]
+}

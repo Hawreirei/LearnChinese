@@ -1,0 +1,98 @@
+{
+ "id": "ji-duoshao",
+ "level": 1,
+ "seq": 11,
+ "title": "几 dan 多少: berapa",
+ "pattern": "几 + penggolong + benda · 多少 (+ benda)",
+ "explain": [
+  "几 untuk jumlah yang diperkirakan kecil (di bawah 10) dan selalu diikuti kata penggolong: 你有几个哥哥？ Juga untuk jam dan tanggal: 几点, 几号.",
+  "多少 untuk jumlah berapa saja; kata penggolong boleh dihilangkan: 你们学校有多少学生？ Harga: 多少钱？"
+ ],
+ "examples": [
+  [
+   "你家有几口人？",
+   "Keluargamu berapa orang?"
+  ],
+  [
+   "现在几点？",
+   "Sekarang pukul berapa?"
+  ],
+  [
+   "这个多少钱？",
+   "Ini berapa harganya?"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "你有几哥哥？",
+   "right": "你有几个哥哥？",
+   "why": "几 harus diikuti kata penggolong."
+  },
+  {
+   "wrong": "这个几钱？",
+   "right": "这个多少钱？",
+   "why": "Harga ditanyakan dengan 多少钱."
+  }
+ ],
+ "contrast": [
+  "measure"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "现在几点？",
+   "blank": "几",
+   "options": [
+    "几",
+    "多少",
+    "什么"
+   ],
+   "id": "Sekarang pukul berapa?"
+  },
+  {
+   "type": "choose",
+   "zh": "这本书多少钱？",
+   "blank": "多少",
+   "options": [
+    "多少",
+    "几",
+    "什么"
+   ],
+   "id": "Buku ini berapa harganya?"
+  },
+  {
+   "type": "choose",
+   "zh": "今天几号？",
+   "blank": "几",
+   "options": [
+    "几",
+    "多少",
+    "什么"
+   ],
+   "id": "Hari ini tanggal berapa?"
+  },
+  {
+   "type": "spot",
+   "right": [
+    "你家有几口人？",
+    "这个杯子多少钱？",
+    "现在几点？"
+   ],
+   "wrong": "你有几书？",
+   "fix": "你有几本书？",
+   "why": "几 + kata penggolong + benda."
+  },
+  {
+   "type": "order",
+   "zh": "你们学校有多少学生？",
+   "pieces": [
+    "你们学校",
+    "有",
+    "多少",
+    "学生",
+    "？"
+   ],
+   "id": "Sekolah kalian punya berapa murid?"
+  }
+ ]
+}

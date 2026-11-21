@@ -1,0 +1,96 @@
+{
+ "id": "zhiyao",
+ "level": 3,
+ "seq": 7,
+ "detect": "只要",
+ "title": "只要…就…: asalkan … pasti …",
+ "pattern": "只要 + syarat，就 + hasil",
+ "explain": [
+  "只要 A 就 B = asalkan A (cukup A saja), B pasti terjadi: 只要努力，就能学好汉语.",
+  "Berbeda dengan 如果 (jika), 只要 menekankan bahwa syaratnya sudah cukup."
+ ],
+ "examples": [
+  [
+   "只要努力，就能学好汉语。",
+   "Asalkan rajin, pasti bisa menguasai bahasa Mandarin."
+  ],
+  [
+   "只要你喜欢，就买吧。",
+   "Asalkan kamu suka, belilah."
+  ],
+  [
+   "只要有时间，我就去锻炼。",
+   "Asalkan ada waktu, aku berolahraga."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "只要努力，所以能学好。",
+   "right": "只要努力，就能学好。",
+   "why": "Pasangan 只要 adalah 就."
+  }
+ ],
+ "contrast": [
+  "ruguo"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "只要你来，我就很高兴。",
+   "blank": "只要",
+   "options": [
+    "只要",
+    "虽然",
+    "因为"
+   ],
+   "id": "Asalkan kamu datang, aku senang."
+  },
+  {
+   "type": "choose",
+   "zh": "只要多练习，就能说得很好。",
+   "blank": "就",
+   "options": [
+    "就",
+    "才",
+    "但是"
+   ],
+   "id": "Asalkan banyak berlatih, pasti bisa bicara dengan baik."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "只要有时间，我就去。",
+    "只要你说，我就听。",
+    "只要不下雨，我们就去公园。"
+   ],
+   "wrong": "只要你努力，所以能学好。",
+   "fix": "只要你努力，就能学好。",
+   "why": "Pasangan 只要 adalah 就."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "只要天气好，我们就出去玩。",
+    "只要你愿意，就可以来。",
+    "只要多听，就能听懂。"
+   ],
+   "wrong": "只要多听，能就听懂。",
+   "fix": "只要多听，就能听懂。",
+   "why": "就 sebelum 能."
+  },
+  {
+   "type": "order",
+   "zh": "只要你多练习，就能说好汉语。",
+   "pieces": [
+    "只要",
+    "你多练习",
+    "，",
+    "就能",
+    "说好",
+    "汉语",
+    "。"
+   ],
+   "id": "Asalkan kamu banyak berlatih, pasti bisa berbahasa Mandarin dengan baik."
+  }
+ ]
+}

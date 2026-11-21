@@ -1,0 +1,105 @@
+{
+ "id": "de-adverbial",
+ "level": 3,
+ "seq": 15,
+ "detect": "(认真|高兴|慢慢|努力|安静|大声|小心|开心)地",
+ "title": "地: cara melakukan sesuatu",
+ "pattern": "Kata sifat + 地 + kata kerja",
+ "explain": [
+  "Kata sifat + 地 + kata kerja = melakukan dengan cara tertentu: 认真地学习, 高兴地说.",
+  "Bedakan tiga “de”: 的 + benda (我的书), 地 + kata kerja (认真地看), kata kerja + 得 (看得很认真)."
+ ],
+ "examples": [
+  [
+   "他认真地学习汉语。",
+   "Dia belajar bahasa Mandarin dengan sungguh-sungguh."
+  ],
+  [
+   "孩子们高兴地跑了出去。",
+   "Anak-anak berlari keluar dengan gembira."
+  ],
+  [
+   "请你慢慢地说。",
+   "Tolong bicaralah pelan-pelan."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他认真的学习。",
+   "right": "他认真地学习。",
+   "why": "Keterangan cara sebelum kata kerja memakai 地."
+  },
+  {
+   "wrong": "他学习地很认真。",
+   "right": "他学习得很认真。",
+   "why": "Penilai setelah kata kerja memakai 得."
+  }
+ ],
+ "contrast": [
+  "de-degree",
+  "de"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "她高兴地说：“谢谢你！”",
+   "blank": "地",
+   "options": [
+    "地",
+    "的",
+    "得"
+   ],
+   "id": "Dia berkata dengan gembira, “Terima kasih!”"
+  },
+  {
+   "type": "choose",
+   "zh": "他跑得很快。",
+   "blank": "得",
+   "options": [
+    "得",
+    "地",
+    "的"
+   ],
+   "id": "Dia berlari cepat."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他认真地看书。",
+    "请慢慢地说。",
+    "我们安静地等着。"
+   ],
+   "wrong": "他认真的看书。",
+   "fix": "他认真地看书。",
+   "why": "Sebelum kata kerja: 地."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "她努力地学习。",
+    "我的书在这儿。",
+    "他写得很好。"
+   ],
+   "wrong": "他写地很好。",
+   "fix": "他写得很好。",
+   "why": "Setelah kata kerja: 得."
+  },
+  {
+   "type": "order",
+   "zh": "同学们认真地听老师讲课。",
+   "pieces": [
+    "同学们",
+    "认真地",
+    "听",
+    "老师",
+    "讲课",
+    "。"
+   ],
+   "id": "Para murid mendengarkan guru mengajar dengan sungguh-sungguh."
+  }
+ ],
+ "readings": {
+  "地": "de",
+  "得": "de"
+ }
+}

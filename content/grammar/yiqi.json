@@ -1,0 +1,98 @@
+{
+ "id": "yiqi",
+ "level": 2,
+ "seq": 16,
+ "detect": "一起",
+ "title": "跟 / 和 … 一起: bersama",
+ "pattern": "(跟/和 + orang) + 一起 + kata kerja",
+ "explain": [
+  "一起 = bersama, diletakkan sebelum kata kerja: 我们一起去吧.",
+  "Dengan siapa: 跟/和 + orang + 一起 + kata kerja: 我跟朋友一起看电影."
+ ],
+ "examples": [
+  [
+   "我们一起去吧。",
+   "Ayo kita pergi bersama."
+  ],
+  [
+   "我跟朋友一起看电影。",
+   "Aku menonton film bersama teman."
+  ],
+  [
+   "你和我一起回家吗？",
+   "Kamu pulang bersamaku?"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我看电影一起跟朋友。",
+   "right": "我跟朋友一起看电影。",
+   "why": "跟 + orang + 一起 sebelum kata kerja."
+  }
+ ],
+ "contrast": [
+  "he"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我们一起吃饭吧。",
+   "blank": "一起",
+   "options": [
+    "一起",
+    "一点儿",
+    "一下"
+   ],
+   "id": "Ayo kita makan bersama."
+  },
+  {
+   "type": "choose",
+   "zh": "我跟妈妈一起去商店。",
+   "blank": "跟",
+   "options": [
+    "跟",
+    "给",
+    "离"
+   ],
+   "id": "Aku pergi ke toko bersama ibu."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我们一起走吧。",
+    "我和他一起学习。",
+    "你跟我一起去吗？"
+   ],
+   "wrong": "我去一起商店。",
+   "fix": "我们一起去商店。",
+   "why": "一起 sebelum kata kerja."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我跟朋友一起跑步。",
+    "他们一起来了。",
+    "我们一起唱歌吧。"
+   ],
+   "wrong": "我一起跟朋友跑步。",
+   "fix": "我跟朋友一起跑步。",
+   "why": "跟 + orang dulu, lalu 一起."
+  },
+  {
+   "type": "order",
+   "zh": "我星期天跟家人一起吃饭。",
+   "pieces": [
+    "我",
+    "星期天",
+    "跟家人",
+    "一起",
+    "吃饭",
+    "。"
+   ],
+   "id": "Hari Minggu aku makan bersama keluarga.",
+   "alt": [
+    "星期天我跟家人一起吃饭。"
+   ]
+  }
+ ]
+}

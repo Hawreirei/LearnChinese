@@ -1,0 +1,98 @@
+{
+ "id": "ba-particle",
+ "level": 1,
+ "seq": 21,
+ "title": "吧: ajakan, saran, dugaan",
+ "pattern": "Kalimat + 吧",
+ "explain": [
+  "吧 di akhir kalimat melunakkan ajakan atau saran: 我们回家吧 (ayo kita pulang), 你休息一下吧.",
+  "Dalam pertanyaan, 吧 berarti menduga: 你是学生吧？ (kamu pelajar, kan?)"
+ ],
+ "examples": [
+  [
+   "我们去吃饭吧。",
+   "Ayo kita makan."
+  ],
+  [
+   "你坐这儿吧。",
+   "Duduklah di sini."
+  ],
+  [
+   "你是中国人吧？",
+   "Kamu orang Tiongkok, kan?"
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "吧我们去看电影。",
+   "right": "我们去看电影吧。",
+   "why": "吧 di akhir kalimat."
+  }
+ ],
+ "contrast": [
+  "ma"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我们去商店吧。",
+   "blank": "吧",
+   "options": [
+    "吧",
+    "吗",
+    "的"
+   ],
+   "id": "Ayo kita ke toko."
+  },
+  {
+   "type": "choose",
+   "zh": "你休息一下吧。",
+   "blank": "吧",
+   "options": [
+    "吧",
+    "吗",
+    "了"
+   ],
+   "id": "Istirahatlah sebentar."
+  },
+  {
+   "type": "choose",
+   "zh": "太晚了，回家吧。",
+   "blank": "吧",
+   "options": [
+    "吧",
+    "呢",
+    "的"
+   ],
+   "id": "Sudah terlalu malam, pulanglah."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我们回家吧。",
+    "你是老师吧？",
+    "我们看电影吧。"
+   ],
+   "wrong": "吧你喝水。",
+   "fix": "你喝水吧。",
+   "why": "吧 di akhir kalimat."
+  },
+  {
+   "type": "order",
+   "zh": "我们明天去看电影吧。",
+   "pieces": [
+    "我们",
+    "明天",
+    "去",
+    "看电影",
+    "吧",
+    "。"
+   ],
+   "id": "Besok ayo kita menonton film.",
+   "alt": [
+    "明天我们去看电影吧。"
+   ]
+  }
+ ],
+ "detect": "吧[。！？]"
+}

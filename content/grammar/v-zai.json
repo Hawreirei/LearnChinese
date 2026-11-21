@@ -1,0 +1,95 @@
+{
+ "id": "v-zai",
+ "level": 3,
+ "seq": 29,
+ "detect": "(放|住|坐|站|写|停|画)在",
+ "title": "Kata kerja + 在 + tempat: 放在, 住在",
+ "pattern": "Kata kerja + 在 + tempat",
+ "explain": [
+  "Untuk kata kerja yang menempatkan atau menetap (放, 住, 坐, 站, 写), tempatnya diletakkan SETELAH kata kerja dengan 在: 把书放在桌子上, 我住在学校附近.",
+  "Bandingkan: 在 + tempat + kata kerja untuk kegiatan di suatu tempat (我在家看书)."
+ ],
+ "examples": [
+  [
+   "我住在学校附近。",
+   "Aku tinggal di dekat sekolah."
+  ],
+  [
+   "请把行李放在这儿。",
+   "Tolong taruh bagasinya di sini."
+  ],
+  [
+   "他坐在我旁边。",
+   "Dia duduk di sebelahku."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我把书放桌子上。",
+   "right": "我把书放在桌子上。",
+   "why": "Kata kerja penempatan + 在 + tempat."
+  }
+ ],
+ "contrast": [
+  "zai-verb",
+  "ba"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "他坐在我旁边。",
+   "blank": "在",
+   "options": [
+    "在",
+    "从",
+    "往"
+   ],
+   "id": "Dia duduk di sebelahku."
+  },
+  {
+   "type": "choose",
+   "zh": "请把名字写在这儿。",
+   "blank": "写",
+   "options": [
+    "写",
+    "看",
+    "听"
+   ],
+   "id": "Tolong tulis namamu di sini."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我住在三楼。",
+    "他站在门口。",
+    "书放在桌子上。"
+   ],
+   "wrong": "我把手机放桌子上了。",
+   "fix": "我把手机放在桌子上了。",
+   "why": "Kata kerja penempatan + 在 + tempat."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "她坐在我后面。",
+    "我们住在学校附近。",
+    "请写在本子上。"
+   ],
+   "wrong": "我在住学校附近。",
+   "fix": "我住在学校附近。",
+   "why": "住 + 在 + tempat."
+  },
+  {
+   "type": "order",
+   "zh": "我朋友住在银行旁边。",
+   "pieces": [
+    "我朋友",
+    "住在",
+    "银行",
+    "旁边",
+    "。"
+   ],
+   "id": "Temanku tinggal di sebelah bank."
+  }
+ ]
+}

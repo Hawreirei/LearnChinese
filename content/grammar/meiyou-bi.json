@@ -1,0 +1,95 @@
+{
+ "id": "meiyou-bi",
+ "level": 2,
+ "seq": 2,
+ "detect": "没有.{1,5}(那么|这么)",
+ "title": "A 没有 B (那么) …: tidak se-… B",
+ "pattern": "A + 没有 + B + (那么) + kata sifat",
+ "explain": [
+  "Untuk “A tidak se-… B”, pakai A 没有 B (那么) + kata sifat: 我没有他那么高 (aku tidak setinggi dia).",
+  "Bentuk 不比 ada, tetapi artinya lain (“tidak lebih … daripada”); untuk perbandingan sehari-hari pakai 没有."
+ ],
+ "examples": [
+  [
+   "我没有他那么高。",
+   "Aku tidak setinggi dia."
+  ],
+  [
+   "今天没有昨天那么冷。",
+   "Hari ini tidak sedingin kemarin."
+  ],
+  [
+   "坐公交车没有坐地铁快。",
+   "Naik bus tidak secepat naik kereta bawah tanah."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我比他不高。",
+   "right": "我没有他高。",
+   "why": "Bentuk negatif perbandingan: A 没有 B + kata sifat."
+  }
+ ],
+ "contrast": [
+  "bi"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我没有我哥哥那么高。",
+   "blank": "没有",
+   "options": [
+    "没有",
+    "比",
+    "不"
+   ],
+   "id": "Aku tidak setinggi kakakku."
+  },
+  {
+   "type": "choose",
+   "zh": "这个没有那个那么贵。",
+   "blank": "那么",
+   "options": [
+    "那么",
+    "很",
+    "非常"
+   ],
+   "id": "Yang ini tidak semahal yang itu."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我没有他高。",
+    "今天没有昨天热。",
+    "这个没有那个好看。"
+   ],
+   "wrong": "我比他不高。",
+   "fix": "我没有他高。",
+   "why": "Negatif perbandingan memakai 没有."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我的房间没有你的大。",
+    "这儿没有那儿远。",
+    "他没有我忙。"
+   ],
+   "wrong": "今天比昨天没有冷。",
+   "fix": "今天没有昨天冷。",
+   "why": "A 没有 B + kata sifat, tanpa 比."
+  },
+  {
+   "type": "order",
+   "zh": "我的汉语没有他那么好。",
+   "pieces": [
+    "我的汉语",
+    "没有",
+    "他",
+    "那么",
+    "好",
+    "。"
+   ],
+   "id": "Bahasa Mandarinku tidak sebagus bahasa Mandarinnya."
+  }
+ ]
+}

@@ -42,7 +42,8 @@ test("parts use their official question type whenever the bank has it", () => {
   assert.ok(r.R1.every((q) => q.type === "sentence_match_picture" && q.part.official));
   assert.ok(r.R3.every((q) => q.type === "cloze_wordbank" && q.part.official));
   assert.ok(r.R4.every((q) => q.type === "short_text_mcq" && q.part.official));
-  assert.ok(r.R2.every((q) => !q.part.official));                                                  // match_question_to_answer: not built yet
+  assert.ok(r.R2.every((q) => q.type === "match_question_to_answer" && q.part.official));
+  assert.ok(l.L4.every((q) => q.type === "audio_statement_question_mcq" && q.part.official));
   const ex3 = buildExam(Q, BP[3]);
   const types = (i) => new Set(ex3.sections[0].items.filter((q) => q.part.official).map((q) => q.type));
   assert.ok(types().has("audio_passage_question_mcq") && types().has("audio_dialog_question_mcq") && types().has("audio_dialog_match_picture"));
@@ -73,4 +74,31 @@ test("gradeSection and summarizeExam: unanswered counts wrong, partial credit pe
   assert.deepEqual([s.total, s.correct, s.pct], [40, 30, 75]);
   assert.deepEqual(s.sections.map((x) => x.pct), [100, 50]);
   assert.equal(s.sections[1].ms, 120_000);
+});
+
+test("a matching part takes whole groups, in one A-F order, never two groups mixed in a block of five", () => {
+  for (let seed = 1; seed <= 20; seed++) {
+    let x = seed;
+    const rand = () => ((x = (x * 1103515245 + 12345) % 2 ** 31) / 2 ** 31);
+    for (const level of [1, 2, 3]) {
+      const ex = buildExam(Q, BP[level], rand);
+      const items = ex.sections.flatMap((s) => s.items).filter((q) => q.type === "match_question_to_answer");
+      const count = BP[level].sections.flatMap((s) => s.parts).filter((p) => p.type === "match_question_to_answer").reduce((a, p) => a + p.count, 0);
+      assert.equal(items.length, count, `level ${level}`);
+      for (let i = 0; i < items.length; i += 5) {
+        const block = items.slice(i, i + 5);
+        assert.equal(new Set(block.map((q) => q.group)).size, 1, `level ${level} seed ${seed}: one group per block`);
+        assert.ok(block.every((q) => JSON.stringify(q.options) === JSON.stringify(block[0].options)), "same option order");
+        assert.equal(new Set(block.map((q) => q.answer)).size, 5);
+      }
+    }
+  }
+});
+
+test("HSK 1-3 papers: every part uses its official question type", () => {
+  const waiting = new Set();
+  for (const level of [1, 2, 3]) {
+    const ex = buildExam(Q, BP[level]);
+    for (const q of ex.sections.flatMap((s) => s.items)) assert.equal(q.part.official, !waiting.has(q.part.type), `${level} ${q.part.id} ${q.part.type}`);
+  }
 });

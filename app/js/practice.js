@@ -1,6 +1,7 @@
 // Practice-question logic (pure, no DOM). Questions come from data/hsk3/questions.json.
 import { shuffle } from "./deck.js";
 import { shuffledBank, checkOrder } from "./order.js";
+import { checkSentence } from "./essay.js";
 
 export const SKILLS = { reading: "Membaca", writing: "Menulis", listening: "Mendengar" };
 export const TYPE_HELP = {
@@ -16,6 +17,12 @@ export const TYPE_HELP = {
   sentence_match_picture: "Baca kalimat, lalu pilih gambar yang sesuai.",
   short_text_mcq: "Baca teks, lalu pilih jawaban yang tepat.",
   passage_mcq: "Baca paragraf, lalu pilih jawaban yang tepat.",
+  match_question_to_answer: "Pilih jawaban (A–F) yang cocok dengan pertanyaan ini. Di ujian, lima pertanyaan berturut-turut memakai daftar jawaban yang sama, dan satu jawaban tidak dipakai.",
+  audio_statement_question_mcq: "Dengarkan kalimat dan pertanyaannya, lalu pilih jawaban yang tepat.",
+  choose_missing_character_component: "Pilih komponen yang mengisi kotak kosong agar hanzi itu lengkap (lihat kata dan pinyinnya).",
+  grammar_choose: "Pilih bentuk yang tepat untuk bagian kosong (lihat artinya di bawah kalimat).",
+  error_spot: "Pilih kalimat yang SALAH.",
+  write_sentence_from_picture_and_word: "Tulis satu kalimat tentang gambar ini dengan memakai kata yang diberikan. Akhiri dengan tanda baca (。！？).",
 };
 
 /** Key that makes two questions "the same question" (so a set never repeats one; a cloze and a write item
@@ -73,6 +80,8 @@ export function withTiles(q, questions, rand = Math.random, size = 6) {
 
 export function check(q, response) {
   if (q.type === "order_sentence") return checkOrder(q, response);
+  // free sentence: only the local checks can mark it (an estimate); practice lets the learner judge it after
+  if (q.type === "write_sentence_from_picture_and_word") { const r = checkSentence(response, { word: q.word }); return { correct: r.ok, expected: q.answer, sentence: r }; }
   if (q.type === "write_hanzi_from_pinyin") {
     const ch = [...String(response ?? "").normalize("NFC")].find((c) => HAN.test(c));
     return { correct: ch === q.answer, expected: q.answer };

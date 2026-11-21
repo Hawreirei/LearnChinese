@@ -1,0 +1,98 @@
+{
+ "id": "bu",
+ "level": 1,
+ "seq": 4,
+ "title": "不: tidak (sekarang, kebiasaan, kemauan)",
+ "pattern": "不 + kata kerja / kata sifat",
+ "explain": [
+  "不 mengingkari keadaan sekarang, kebiasaan, rencana, atau kemauan: 我不喝茶 (aku tidak minum teh), 明天我不去.",
+  "有 tidak pernah memakai 不: “tidak punya” adalah 没有. Untuk kejadian di masa lalu yang tidak terjadi, pakai 没(有)."
+ ],
+ "examples": [
+  [
+   "我不喜欢下雨。",
+   "Aku tidak suka hujan."
+  ],
+  [
+   "他明天不去学校。",
+   "Besok dia tidak ke sekolah."
+  ],
+  [
+   "这个不贵。",
+   "Yang ini tidak mahal."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我不有钱。",
+   "right": "我没有钱。",
+   "why": "有 diingkari dengan 没."
+  },
+  {
+   "wrong": "昨天我不去学校。",
+   "right": "昨天我没去学校。",
+   "why": "Kejadian kemarin yang tidak terjadi memakai 没."
+  }
+ ],
+ "contrast": [
+  "meiyou"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我不喜欢喝牛奶。",
+   "blank": "不",
+   "options": [
+    "不",
+    "没",
+    "很"
+   ],
+   "id": "Aku tidak suka minum susu."
+  },
+  {
+   "type": "choose",
+   "zh": "明天我不来。",
+   "blank": "不",
+   "options": [
+    "不",
+    "没",
+    "了"
+   ],
+   "id": "Besok aku tidak datang."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我不认识他。",
+    "他不是老师。",
+    "我没有哥哥。"
+   ],
+   "wrong": "她不有猫。",
+   "fix": "她没有猫。",
+   "why": "有 → 没有."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "今天不冷。",
+    "我不想吃饭。",
+    "昨天他没来。"
+   ],
+   "wrong": "昨天我不去商店。",
+   "fix": "昨天我没去商店。",
+   "why": "Kejadian lampau yang tidak terjadi: 没."
+  },
+  {
+   "type": "order",
+   "zh": "我爸爸不喝茶。",
+   "pieces": [
+    "我爸爸",
+    "不",
+    "喝",
+    "茶",
+    "。"
+   ],
+   "id": "Ayahku tidak minum teh."
+  }
+ ]
+}

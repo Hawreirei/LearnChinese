@@ -1,0 +1,100 @@
+{
+ "id": "measure",
+ "level": 1,
+ "seq": 12,
+ "title": "Angka + kata penggolong + benda",
+ "pattern": "一/两/三… + 个/本/杯/口… + benda",
+ "explain": [
+  "Di antara angka (atau 这/那/几) dan benda selalu ada kata penggolong: 三本书, 这个人, 两杯茶. Mirip “tiga buah”, “dua cangkir” dalam bahasa Indonesia, tetapi wajib.",
+  "个 adalah penggolong paling umum. Yang lain di HSK 1: 本 (buku), 杯 (cangkir/gelas), 口 (anggota keluarga), 件 (baju, urusan), 块 (yuan)."
+ ],
+ "examples": [
+  [
+   "我买了三本书。",
+   "Aku membeli tiga buku."
+  ],
+  [
+   "我想喝一杯茶。",
+   "Aku ingin minum secangkir teh."
+  ],
+  [
+   "这件衣服很漂亮。",
+   "Baju ini cantik."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我有三书。",
+   "right": "我有三本书。",
+   "why": "Kata penggolong tidak boleh dihilangkan."
+  },
+  {
+   "wrong": "这衣服很漂亮。",
+   "right": "这件衣服很漂亮。",
+   "why": "这/那 + penggolong + benda."
+  }
+ ],
+ "contrast": [
+  "ji-duoshao",
+  "liang-er"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我买了两本书。",
+   "blank": "本",
+   "options": [
+    "本",
+    "口",
+    "块"
+   ],
+   "id": "Aku membeli dua buku."
+  },
+  {
+   "type": "choose",
+   "zh": "我家有五口人。",
+   "blank": "口",
+   "options": [
+    "口",
+    "本",
+    "件"
+   ],
+   "id": "Keluargaku ada lima orang."
+  },
+  {
+   "type": "choose",
+   "zh": "这件衣服很贵。",
+   "blank": "件",
+   "options": [
+    "件",
+    "杯",
+    "口"
+   ],
+   "id": "Baju ini mahal."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我想喝一杯水。",
+    "他有两个孩子。",
+    "这本书很好看。"
+   ],
+   "wrong": "我有三朋友。",
+   "fix": "我有三个朋友。",
+   "why": "Angka + penggolong + benda."
+  },
+  {
+   "type": "order",
+   "zh": "我想买一个手机。",
+   "pieces": [
+    "我",
+    "想",
+    "买",
+    "一个",
+    "手机",
+    "。"
+   ],
+   "id": "Aku ingin membeli sebuah ponsel."
+  }
+ ]
+}

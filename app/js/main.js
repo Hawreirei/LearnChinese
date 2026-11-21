@@ -7,11 +7,14 @@ import { viewWrite, leaveWrite } from "./views/write.js";
 import { viewStudy, resetStudy, studyKey } from "./views/study.js";
 import { viewLessons, leaveLessons } from "./views/lessons.js";
 import { viewPractice } from "./views/practice.js";
-import { viewExam, examRunning, abortExam } from "./views/exam.js";
+import { viewExam, examRunning, abortExam, leaveExam } from "./views/exam.js";
+import { indexQuestions } from "./mistakes.js";
 import { viewQuiz } from "./views/quiz.js";
 import { viewBrowse } from "./views/browse.js";
 import { viewProgress } from "./views/progress.js";
 import { viewSettings } from "./views/settings.js";
+import { viewGrammar, openGrammar } from "./views/grammar.js";
+import { setGrammarLinker } from "./views/question.js";
 
 const view = document.getElementById("view");
 
@@ -26,11 +29,14 @@ const app = {
   questions: [],            // questions.json
   blueprints: {},           // blueprints.json (official exam structure per level)
   lessons: [],              // lessons.json (themed lessons with their own questions)
+  questionIndex: new Map(), // id -> question, bank + lesson questions (buku kesalahan)
+  grammar: [],              // grammar.json: grammar points with their drills (Tata bahasa tab)
+  speaking: {},             // speaking.json: level -> { blueprint (unofficial), repeat, pictures, questions }
   render: (...nodes) => view.replaceChildren(...nodes.flat().filter((n) => n != null && n !== false)),   // replaceChildren(null) would print "null"
   go,
 };
 
-const views = { home: viewHome, lessons: viewLessons, write: viewWrite, study: viewStudy, practice: viewPractice, exam: viewExam, quiz: viewQuiz, browse: viewBrowse, progress: viewProgress, settings: viewSettings };
+const views = { home: viewHome, lessons: viewLessons, grammar: viewGrammar, write: viewWrite, study: viewStudy, practice: viewPractice, exam: viewExam, quiz: viewQuiz, browse: viewBrowse, progress: viewProgress, settings: viewSettings };
 let tab = "home";
 
 function go(t) {
@@ -40,6 +46,7 @@ function go(t) {
   }
   if (tab === "lessons" && t !== "lessons") leaveLessons();
   if (tab === "write" && t !== "write") leaveWrite();
+  if (tab === "exam" && t !== "exam") leaveExam();
   tab = t;
   view.dataset.view = t;
   for (const b of document.querySelectorAll("#tabs button")) b.setAttribute("aria-selected", String(b.dataset.tab === t));
@@ -69,12 +76,21 @@ const getJson = async (name, fallback) => {
 
 async function boot() {
   try {
-    const [vocab, handwriting, idData, questions, blueprints, lookalikes, lessons, chars] = await Promise.all([
+    const [vocab, handwriting, idData, questions, blueprints, lookalikes, lessons, chars, speaking, grammar] = await Promise.all([
       getJson("vocab.json"), getJson("handwriting.json"),
-      getJson("vocab_id.json", {}), getJson("questions.json", []), getJson("blueprints.json", {}), getJson("lookalikes.json", {}), getJson("lessons.json", []), getJson("chars.json", {}),
+      getJson("vocab_id.json", {}), getJson("questions.json", []), getJson("blueprints.json", {}), getJson("lookalikes.json", {}), getJson("lessons.json", []), getJson("chars.json", {}), getJson("speaking.json", {}), getJson("grammar.json", []),
     ]);
     setLookalikes(lookalikes);
     Object.assign(app, { vocab, handwriting: new Set(handwriting.map((x) => x.char)), handwritingList: handwriting, idData, questions, blueprints, lessons, chars });
+    app.questionIndex = indexQuestions(questions, lessons, grammar);
+    app.speaking = speaking;
+    app.grammar = grammar;
+    const gById = new Map(grammar.map((g) => [g.id, g]));
+    setGrammarLinker((ids) => {
+      const pts = ids.map((id) => gById.get(id)).filter(Boolean);
+      return pts.length ? h("div", { class: "glinks" }, h("span", { class: "hint" }, "Pola: "), ...pts.map((g) =>
+        h("button", { type: "button", class: "btn mini-text", onclick: () => openGrammar(app, g.id) }, g.title))) : null;
+    });
     go("home");
   } catch (err) {
     app.render(h("p", { class: "notice" }, `Gagal memuat data: ${err.message}. Jalankan server dari akar repo: python3 -m http.server 8080, lalu buka /app/.`));

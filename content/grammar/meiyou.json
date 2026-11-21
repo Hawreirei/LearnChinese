@@ -1,0 +1,102 @@
+{
+ "id": "meiyou",
+ "level": 1,
+ "seq": 5,
+ "title": "没(有): tidak punya, tidak/belum terjadi",
+ "pattern": "没有 + benda · 没(有) + kata kerja",
+ "explain": [
+  "没有 + benda = tidak punya / tidak ada: 我没有手机.",
+  "没(有) + kata kerja = sesuatu tidak terjadi (sampai sekarang): 我昨天没去. Setelah 没, tidak ada 了."
+ ],
+ "examples": [
+  [
+   "我没有弟弟。",
+   "Aku tidak punya adik laki-laki."
+  ],
+  [
+   "他昨天没来上课。",
+   "Kemarin dia tidak masuk kelas."
+  ],
+  [
+   "我还没吃饭。",
+   "Aku belum makan."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "我没去了。",
+   "right": "我没去。",
+   "why": "没 dan 了 tidak dipakai bersama."
+  },
+  {
+   "wrong": "我没喜欢他。",
+   "right": "我不喜欢他。",
+   "why": "Perasaan dan kebiasaan sekarang diingkari dengan 不."
+  }
+ ],
+ "contrast": [
+  "bu",
+  "le"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我没有电脑。",
+   "blank": "没",
+   "options": [
+    "没",
+    "不",
+    "很"
+   ],
+   "id": "Aku tidak punya komputer."
+  },
+  {
+   "type": "choose",
+   "zh": "昨天我没看电视。",
+   "blank": "没",
+   "options": [
+    "没",
+    "不",
+    "了"
+   ],
+   "id": "Kemarin aku tidak menonton televisi."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他没有钱。",
+    "我还没吃饭。",
+    "我不喜欢下雨。"
+   ],
+   "wrong": "昨天我没去了商店。",
+   "fix": "昨天我没去商店。",
+   "why": "Tidak ada 了 setelah 没."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我家没有猫。",
+    "她今天没来。",
+    "我不喝茶。"
+   ],
+   "wrong": "我没喜欢喝茶。",
+   "fix": "我不喜欢喝茶。",
+   "why": "Kesukaan diingkari dengan 不."
+  },
+  {
+   "type": "order",
+   "zh": "我今天没有时间。",
+   "pieces": [
+    "我",
+    "今天",
+    "没有",
+    "时间",
+    "。"
+   ],
+   "id": "Hari ini aku tidak punya waktu.",
+   "alt": [
+    "今天我没有时间。"
+   ]
+  }
+ ]
+}

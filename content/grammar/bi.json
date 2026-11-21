@@ -1,0 +1,99 @@
+{
+ "id": "bi",
+ "level": 2,
+ "seq": 1,
+ "detect": "比(?!赛|较|如)",
+ "title": "比: perbandingan",
+ "pattern": "A + 比 + B + kata sifat (+ selisih)",
+ "explain": [
+  "A 比 B + kata sifat = A lebih … daripada B: 他比我高. Selisihnya di belakang kata sifat: 他比我高一点儿, 哥哥比我大三岁.",
+  "Dalam kalimat 比 tidak ada 很 atau 非常; untuk “jauh lebih” pakai …多了: 今天比昨天冷多了."
+ ],
+ "examples": [
+  [
+   "他比我高。",
+   "Dia lebih tinggi daripada aku."
+  ],
+  [
+   "今天比昨天冷多了。",
+   "Hari ini jauh lebih dingin daripada kemarin."
+  ],
+  [
+   "哥哥比我大三岁。",
+   "Kakak tiga tahun lebih tua dariku."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他比我很高。",
+   "right": "他比我高。",
+   "why": "Tidak ada 很 dalam kalimat 比."
+  },
+  {
+   "wrong": "他比我三岁大。",
+   "right": "他比我大三岁。",
+   "why": "Selisih di belakang kata sifat."
+  }
+ ],
+ "contrast": [
+  "meiyou-bi"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "我比我妹妹高。",
+   "blank": "比",
+   "options": [
+    "比",
+    "从",
+    "往"
+   ],
+   "id": "Aku lebih tinggi daripada adik perempuanku."
+  },
+  {
+   "type": "choose",
+   "zh": "今天比昨天热多了。",
+   "blank": "多了",
+   "options": [
+    "多了",
+    "很",
+    "非常"
+   ],
+   "id": "Hari ini jauh lebih panas daripada kemarin."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "这个比那个便宜。",
+    "他比我大两岁。",
+    "地铁比公交车快。"
+   ],
+   "wrong": "他比我很忙。",
+   "fix": "他比我忙。",
+   "why": "Tidak ada 很 dalam kalimat 比."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "我的手机比你的新。",
+    "今天比昨天冷一点儿。",
+    "姐姐比我高。"
+   ],
+   "wrong": "他比我两岁大。",
+   "fix": "他比我大两岁。",
+   "why": "Selisih (两岁) di belakang kata sifat."
+  },
+  {
+   "type": "order",
+   "zh": "坐地铁比坐公交车快。",
+   "pieces": [
+    "坐地铁",
+    "比",
+    "坐公交车",
+    "快",
+    "。"
+   ],
+   "id": "Naik kereta bawah tanah lebih cepat daripada naik bus."
+  }
+ ]
+}

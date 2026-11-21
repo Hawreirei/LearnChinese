@@ -1,0 +1,96 @@
+{
+ "id": "budan",
+ "level": 3,
+ "seq": 5,
+ "detect": "不但|而且",
+ "title": "不但…而且…: tidak hanya … tetapi juga …",
+ "pattern": "不但 + A，而且 + B",
+ "explain": [
+  "不但 A，而且 B = tidak hanya A, tetapi juga B. B biasanya tambahan atau lebih kuat.",
+  "Jika subjeknya sama, 不但 diletakkan setelah subjek: 他不但会说汉语，而且说得很好."
+ ],
+ "examples": [
+  [
+   "这家饭馆不但便宜，而且很好吃。",
+   "Rumah makan ini tidak hanya murah, tetapi juga enak."
+  ],
+  [
+   "他不但会唱歌，而且会跳舞。",
+   "Dia tidak hanya bisa bernyanyi, tetapi juga bisa menari."
+  ],
+  [
+   "这个房间不但大，而且很干净。",
+   "Kamar ini tidak hanya besar, tetapi juga bersih."
+  ]
+ ],
+ "pitfalls": [
+  {
+   "wrong": "他不但会唱歌，但是会跳舞。",
+   "right": "他不但会唱歌，而且会跳舞。",
+   "why": "Pasangan 不但 adalah 而且."
+  }
+ ],
+ "contrast": [
+  "suiran"
+ ],
+ "drills": [
+  {
+   "type": "choose",
+   "zh": "她不但聪明，而且很努力。",
+   "blank": "而且",
+   "options": [
+    "而且",
+    "但是",
+    "所以"
+   ],
+   "id": "Dia tidak hanya pintar, tetapi juga rajin."
+  },
+  {
+   "type": "choose",
+   "zh": "这里不但安静，而且很干净。",
+   "blank": "不但",
+   "options": [
+    "不但",
+    "虽然",
+    "因为"
+   ],
+   "id": "Tempat ini tidak hanya tenang, tetapi juga bersih."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "他不但会开车，而且开得很好。",
+    "这个菜不但好吃，而且便宜。",
+    "她不但是我的同事，而且是我的朋友。"
+   ],
+   "wrong": "他不但很聪明，但是很努力。",
+   "fix": "他不但很聪明，而且很努力。",
+   "why": "Pasangan 不但 adalah 而且."
+  },
+  {
+   "type": "spot",
+   "right": [
+    "这本书不但有意思，而且很有用。",
+    "我不但去过，而且去了三次。",
+    "他不但会说汉语，而且会写汉字。"
+   ],
+   "wrong": "不但他会说汉语，而且会写汉字。",
+   "fix": "他不但会说汉语，而且会写汉字。",
+   "why": "Subjek sama: 不但 setelah subjek."
+  },
+  {
+   "type": "order",
+   "zh": "这个宾馆不但便宜，而且很干净。",
+   "pieces": [
+    "这个宾馆",
+    "不但",
+    "便宜",
+    "，",
+    "而且",
+    "很干净",
+    "。"
+   ],
+   "id": "Hotel ini tidak hanya murah, tetapi juga bersih."
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+# Mencocokkan pertanyaan dengan jawaban (match_question_to_answer), HSK 1. Ditulis sendiri, belum direview penutur asli.
+# Satu grup = 5 pasangan + 1 jawaban pengecoh. Baris pengecoh: kolom pertanyaan diawali * dan berisi pertanyaan yang
+# SEBENARNYA dijawab pengecoh itu (tidak ditampilkan); pembangun memeriksa jenis pertanyaannya tidak sama dengan
+# kelima pertanyaan grup, sehingga pengecoh tidak cocok dengan pertanyaan mana pun.
+# level|grup|pertanyaan|jawaban|terjemahan pertanyaan|terjemahan jawaban
+1|a|你叫什么名字？|我叫高小明。|Siapa namamu?|Namaku Gao Xiaoming.
+1|a|你今年几岁了？|我今年十八岁。|Berapa umurmu tahun ini?|Tahun ini aku berumur delapan belas tahun.
+1|a|你家在哪儿？|我家在学校后边。|Rumahmu di mana?|Rumahku di belakang sekolah.
+1|a|你是老师吗？|不是，我是学生。|Apakah kamu guru?|Bukan, aku pelajar.
+1|a|那个人是谁？|他是我的同学。|Orang itu siapa?|Dia teman sekelasku.
+1|a|*你什么时候去中国？|明年去。|-|Tahun depan.
+1|b|现在几点了？|现在八点半。|Sekarang pukul berapa?|Sekarang pukul setengah sembilan.
+1|b|你想喝什么？|我想喝一杯茶。|Kamu ingin minum apa?|Aku ingin minum secangkir teh.
+1|b|这个苹果多少钱？|五块钱。|Apel ini berapa harganya?|Lima yuan.
+1|b|你妈妈在家吗？|她不在家，她去商店了。|Apakah ibumu ada di rumah?|Dia tidak di rumah, dia pergi ke toko.
+1|b|你爸爸在哪儿工作？|他在医院工作。|Ayahmu bekerja di mana?|Dia bekerja di rumah sakit.
+1|b|*你有几个哥哥？|我有两个哥哥。|-|Aku punya dua kakak laki-laki.
+1|c|今天天气怎么样？|今天很冷。|Bagaimana cuaca hari ini?|Hari ini dingin.
+1|c|你怎么去学校？|我坐出租车去。|Bagaimana kamu pergi ke sekolah?|Aku naik taksi.
+1|c|你家有几口人？|我家有五口人。|Berapa orang di keluargamu?|Keluargaku ada lima orang.
+1|c|谁会做饭？|我妈妈会做饭。|Siapa yang bisa memasak?|Ibuku bisa memasak.
+1|c|你喜欢看什么电影？|我喜欢看中国电影。|Kamu suka menonton film apa?|Aku suka menonton film Tiongkok.
+1|c|*你什么时候回家？|下午五点回家。|-|Pulang pukul lima sore.
+1|d|你是哪国人？|我是中国人。|Kamu orang negara mana?|Aku orang Tiongkok.
+1|d|你昨天去哪儿了？|我去朋友家了。|Kemarin kamu pergi ke mana?|Aku pergi ke rumah teman.
+1|d|你会说汉语吗？|会说一点儿。|Apakah kamu bisa berbahasa Mandarin?|Bisa sedikit.
+1|d|你们几点下课？|十二点下课。|Pukul berapa kelas kalian selesai?|Selesai pukul dua belas.
+1|d|这本书是谁的？|是我同学的。|Buku ini milik siapa?|Milik teman sekelasku.
+1|d|*你买了什么？|我买了一些水果。|-|Aku membeli beberapa buah.
+1|e|你在做什么？|我在看电视。|Kamu sedang apa?|Aku sedang menonton televisi.
+1|e|你的手机多少钱？|两千块。|Ponselmu berapa harganya?|Dua ribu yuan.
+1|e|你女儿几岁了？|她三岁了。|Putrimu umur berapa?|Dia sudah tiga tahun.
+1|e|明天你来吗？|来，我明天上午来。|Besok kamu datang?|Datang, aku datang besok pagi.
+1|e|你的新电脑怎么样？|很好，也很便宜。|Bagaimana komputer barumu?|Bagus, juga murah.
+1|e|*你住在哪儿？|我住在学校里。|-|Aku tinggal di dalam sekolah.
+1|f|你什么时候去医院？|明天上午去。|Kapan kamu pergi ke rumah sakit?|Besok pagi.
+1|f|你哥哥做什么工作？|他是医生。|Kakakmu bekerja sebagai apa?|Dia dokter.
+1|f|你们学校有多少学生？|有三千多个学生。|Sekolah kalian punya berapa murid?|Ada lebih dari tiga ribu murid.
+1|f|谁是你的汉语老师？|高先生是我的汉语老师。|Siapa guru bahasa Mandarinmu?|Pak Gao guru bahasa Mandarinku.
+1|f|你觉得这件衣服怎么样？|很漂亮，我很喜欢。|Menurutmu baju ini bagaimana?|Cantik sekali, aku sangat suka.
+1|f|*你在哪儿买的？|在那个商店买的。|-|Dibeli di toko itu.
+1|g|你吃饭了吗？|吃了，我吃了米饭。|Kamu sudah makan?|Sudah, aku makan nasi.
+1|g|你喜欢什么水果？|我喜欢苹果。|Kamu suka buah apa?|Aku suka apel.
+1|g|你的猫在哪儿？|它在桌子下边。|Kucingmu di mana?|Dia di bawah meja.
+1|g|一杯茶多少钱？|八块钱一杯。|Secangkir teh berapa harganya?|Delapan yuan secangkir.
+1|g|你怎么了？|我生病了。|Kamu kenapa?|Aku sakit.
+1|g|*你几点起床？|早上六点起床。|-|Bangun pukul enam pagi.
+1|h|星期天你做什么？|我在家休息。|Hari Minggu kamu melakukan apa?|Aku beristirahat di rumah.
+1|h|你几号回来？|我五号回来。|Tanggal berapa kamu kembali?|Aku kembali tanggal lima.
+1|h|那些东西是谁的？|是老师的。|Barang-barang itu milik siapa?|Milik guru.
+1|h|你想去哪个饭店？|我们去那个大饭店吧。|Kamu ingin pergi ke restoran yang mana?|Ayo kita ke restoran besar itu.
+1|h|你认识他吗？|认识，他是我的朋友。|Apakah kamu kenal dia?|Kenal, dia temanku.
+1|h|*你有多少钱？|我只有十块钱。|-|Aku hanya punya sepuluh yuan.
+1|i|你们怎么去饭店？|我们开车去。|Bagaimana kalian pergi ke restoran?|Kami naik mobil.
+1|i|她是你的姐姐吗？|不是，她是我妹妹。|Apakah dia kakak perempuanmu?|Bukan, dia adik perempuanku.
+1|i|你一天睡几个小时？|我睡八个小时。|Sehari kamu tidur berapa jam?|Aku tidur delapan jam.
+1|i|你在哪儿学习汉语？|在大学学习。|Di mana kamu belajar bahasa Mandarin?|Di universitas.
+1|i|你想买什么？|我想买一件衣服。|Kamu ingin membeli apa?|Aku ingin membeli sepotong baju.
+1|i|*谁给你打电话了？|我妈妈给我打电话了。|-|Ibuku meneleponku.
+1|j|昨天天气怎么样？|昨天下雨了。|Bagaimana cuaca kemarin?|Kemarin hujan.
+1|j|你什么时候认识他的？|去年认识的。|Kapan kamu kenal dia?|Kenal tahun lalu.
+1|j|你在哪个学校上学？|我在第一中学上学。|Kamu bersekolah di sekolah yang mana?|Aku bersekolah di SMP Satu.
+1|j|那是什么？|那是我的新手机。|Itu apa?|Itu ponsel baruku.
+1|j|你看见我的书了吗？|看见了，在椅子上。|Apakah kamu melihat bukuku?|Ya, kulihat; ada di atas kursi.
+1|j|*你家有几个孩子？|有两个孩子。|-|Ada dua anak.

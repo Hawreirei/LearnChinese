@@ -4,6 +4,9 @@ import { todayKey } from "../store.js";
 import { stats } from "../session.js";
 import { accuracy, groupAccuracy, dailySeries, streak, activeDayKeys, weakWords, posAccuracy, examTrend, leeches, buildWeakSet, recommendations } from "../analytics.js";
 import { SKILL_LABEL } from "../exam.js";
+import { openExamReview } from "./exam.js";
+import { openGrammar } from "./grammar.js";
+import { weakestPoints } from "../grammar.js";
 import { startPracticeWith, presetPractice } from "./practice.js";
 import { openLesson } from "./lessons.js";
 import { lessonSummary, groupByLevel } from "../lesson.js";
@@ -107,10 +110,11 @@ function progressNodes(app, latihan) {
         const last = list[list.length - 1];
         return h("div", { class: "examhist" }, h("strong", {}, LEVEL_LABEL[lvl]), " ", sparkline(list.map((x) => x.pct)),
           h("span", { class: "hint" }, ` ${list.length}× · terakhir ${last.pct}%${last.delta == null ? "" : ` (${last.delta >= 0 ? "+" : ""}${last.delta})`}`),
-          table(["Tanggal", "Skor", "Perubahan", "Mendengar", "Membaca", "Menulis"], list.slice().reverse().slice(0, 5).map((x) => h("tr", {},
+          table(["Tanggal", "Skor", "Perubahan", "Mendengar", "Membaca", "Menulis", "Pembahasan"], list.slice().reverse().slice(0, 5).map((x) => h("tr", {},
             h("td", {}, new Date(x.t).toLocaleDateString("id-ID")), h("td", {}, `${x.pct}%${x.assisted ? " *" : ""}`), h("td", {}, x.delta == null ? "—" : `${x.delta >= 0 ? "+" : ""}${x.delta}`),
-            ...["listening", "reading", "writing"].map((k) => h("td", {}, x.sections.find((s) => s.skill === k) ? `${x.sections.find((s) => s.skill === k).pct}%` : "—"))))));
-      }), h("p", { class: "hint" }, "* dibantu teks audio. Skor perkiraan latihan, bukan skor resmi."))
+            ...["listening", "reading", "writing"].map((k) => h("td", {}, x.sections.find((s) => s.skill === k) ? `${x.sections.find((s) => s.skill === k).pct}%` : "—")),
+            h("td", {}, store.examReview(Number(lvl))?.t === x.t ? btn("Buka", () => openExamReview(app, Number(lvl)), "btn", { "aria-label": `Buka pembahasan HSK ${lvl} ${new Date(x.t).toLocaleDateString("id-ID")}` }) : "—")))));
+      }), h("p", { class: "hint" }, "* dibantu teks audio. Skor perkiraan latihan, bukan skor resmi. Pembahasan disimpan untuk simulasi terakhir tiap level."))
     : h("p", { class: "empty" }, "Belum ada. Coba tab Ujian untuk simulasi bertimer."));
 
   // weaknesses
@@ -134,7 +138,12 @@ function progressNodes(app, latihan) {
       h("label", {}, h("input", { type: "radio", name: "cat", value: v, checked: cat === v, onchange: () => { cat = v; viewProgress(app); } }), h("span", {}, label)))),
     h("div", { style: "margin-top:16px" }, bars(catGroup, catLabels)),
     h("p", { class: "hint" }, "Diurutkan dari yang paling lemah. Merah di bawah 50%, kuning 50–74%, hijau 75% ke atas."))] : [];
+  const weakG = weakestPoints(ev, app.questionIndex ?? new Map(), app.grammar ?? []).filter((g) => g.pct < 80).slice(0, 6);
   const wordPanels = [
+    weakG.length ? panel("Pola tata bahasa terlemah", h("ul", { class: "weakg" }, ...weakG.map((g) => h("li", {},
+      h("div", {}, h("strong", {}, g.title), h("div", { class: "hint" }, `${LEVEL_LABEL[g.level]} · benar `, h("span", { class: g.pct < 50 ? "bad" : "" }, `${g.ok}/${g.n} (${g.pct}%)`))),
+      btn("Buka", () => openGrammar(app, g.id), "btn", { "aria-label": `Buka pola ${g.title}` })))),
+      h("p", { class: "hint" }, "Dari soal Latihan/Ujian yang memuat pola itu dan latihan di tab Tata bahasa (minimal 3 jawaban).")) : null,
     weakW.length ? panel("Kata yang sering salah", table(["Kata", "Pinyin", "Arti", "Salah", "Status"], weakW.filter((w) => vocabById[w.id]).map((w) => {
       const v = vocabById[w.id];
       return h("tr", {}, h("td", { class: "zh" }, v.word), h("td", {}, v.pinyin), h("td", {}, meaning(v, idData, 2) ?? "—"), h("td", {}, `${w.wrong}/${w.n}`), h("td", { class: w.recovered ? "ok" : "bad" }, w.recovered ? "sudah pulih" : "belum"));

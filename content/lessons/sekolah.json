@@ -1,6 +1,7 @@
 {
   "id": "sekolah",
   "level": 1,
+  "grammar": ["zai-verb", "zai-place"],
   "seq": 7,
   "zh": "在学校",
   "title": "Di sekolah",
